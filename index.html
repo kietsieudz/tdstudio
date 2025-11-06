@@ -1,76 +1,75 @@
 <!doctype html>
 <html lang="vi" data-theme="dark">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="x-ua-compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="referrer" content="strict-origin-when-cross-origin" />
-        <meta name="robots" content="index, follow, max-image-preview:large" />
-        <meta name="author" content="TDStudio" />
-        <meta name="format-detection"
-            content="telephone=no,address=no,email=no" />
-        <meta http-equiv="content-language" content="vi,en,id" />
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="author" content="TDStudio" />
+    <meta name="format-detection" content="telephone=no,address=no,email=no" />
+    <meta http-equiv="content-language" content="vi,en,id" />
 
-        <!-- Preconnects -->
-        <link rel="preconnect" href="https://thanhdi.com" crossorigin />
-        <link rel="dns-prefetch" href="//thanhdi.com" />
+    <!-- Preconnects -->
+    <link rel="preconnect" href="https://thanhdi.com" crossorigin />
+    <link rel="dns-prefetch" href="//thanhdi.com" />
 
-        <!-- Canonical & hreflang (will be normalized by JS based on ?lang=) -->
-        <link id="canonical" rel="canonical" href="https://thanhdi.com/" />
-        <link rel="alternate" hreflang="vi"
-            href="https://thanhdi.com/?lang=vi" />
-        <link rel="alternate" hreflang="en"
-            href="https://thanhdi.com/?lang=en" />
-        <link rel="alternate" hreflang="id"
-            href="https://thanhdi.com/?lang=id" />
-        <link rel="alternate" hreflang="x-default"
-            href="https://thanhdi.com/" />
+    <!-- Canonical & hreflang (will be normalized by JS based on ?lang=) -->
+    <link id="canonical" rel="canonical" href="https://thanhdi.com/" />
+    <link rel="alternate" hreflang="vi" href="https://thanhdi.com/?lang=vi" />
+    <link rel="alternate" hreflang="en" href="https://thanhdi.com/?lang=en" />
+    <link rel="alternate" hreflang="id" href="https://thanhdi.com/?lang=id" />
+    <link rel="alternate" hreflang="x-default" href="https://thanhdi.com/" />
 
-        <!-- Base SEO (noscript = VI fallback for non-JS crawlers) -->
-        <title id="seo-title">TDStudio – Trang chủ chính thức cộng đồng Ngọc
-            Rồng Online</title>
-        <meta id="seo-desc" name="description"
-            content="Trang chủ chính thức TDStudio: tổng hợp link server, box Zalo, Discord, Fanpage, Group Facebook. Chạm nhanh để vào game hoặc cộng đồng.">
-        <noscript>
-            <meta name="description"
-                content="TDStudio – Trang chủ chính thức: tổng hợp link server, box Zalo, Discord, Fanpage, Group Facebook." />
-        </noscript>
+    <!-- Base SEO -->
+    <title id="seo-title">TDStudio – Trang chủ chính thức cộng đồng Ngọc
+      Rồng</title>
+    <meta id="seo-desc" name="description"
+      content="Trang chủ chính thức TDStudio: tổng hợp link server, box Zalo, Discord, Fanpage, Group Facebook. Chạm nhanh để vào game hoặc cộng đồng.">
+    <noscript>
+      <meta name="description"
+        content="TDStudio – Trang chủ chính thức: tổng hợp link server, box Zalo, Discord, Fanpage, Group Facebook." />
+    </noscript>
 
-        <!-- Open Graph / Twitter (updated by JS for i18n) -->
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="TDStudio" />
-        <meta property="og:locale" content="vi_VN" />
-        <meta property="og:locale:alternate" content="en_US" />
-        <meta property="og:locale:alternate" content="id_ID" />
-        <meta id="og-title" property="og:title"
-            content="TDStudio – Trang chủ chính thức" />
-        <meta id="og-desc" property="og:description"
-            content="Trang chủ chính thức TDStudio – Liên kết server và cộng đồng." />
-        <meta id="og-url" property="og:url" content="https://thanhdi.com/" />
-        <meta id="og-image" property="og:image"
-            content="https://thanhdi.com/images/og.png" />
-        <meta property="og:image:alt"
-            content="TDStudio – Trang chủ chính thức" />
+    <!-- ============ OPEN GRAPH / FACEBOOK / ZALO / DISCORD ============ -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="TDStudio" />
+    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:locale:alternate" content="id_ID" />
 
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@tdstudio" />
-        <meta id="tw-title" name="twitter:title"
-            content="TDStudio – Trang chủ chính thức" />
-        <meta id="tw-desc" name="twitter:description"
-            content="Trang chủ chính thức TDStudio – Liên kết server và cộng đồng." />
-        <meta id="tw-image" name="twitter:image"
-            content="https://thanhdi.com/images/og.png" />
-        <meta name="twitter:image:alt"
-            content="TDStudio – Trang chủ chính thức" />
+    <meta id="og-title" property="og:title"
+      content="TDStudio – Trang chủ chính thức" />
+    <meta id="og-desc" property="og:description"
+      content="Trang chủ chính thức TDStudio – Liên kết server và cộng đồng." />
+    <meta id="og-url" property="og:url" content="https://thanhdi.com/" />
 
-        <!-- PWA/Icons -->
-        <meta name="theme-color" content="#0c0a09" />
-        <link rel="icon" href="images/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
-        <link rel="manifest" href="/site.webmanifest" />
+    <!-- Ảnh xem trước (Open Graph Preview) -->
+    <meta id="og-image" property="og:image"
+      content="https://thanhdi.com/images/graph.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="TDStudio – Trang chủ chính thức" />
 
-        <!-- Styles -->
-        <style>
+    <!-- ============ TWITTER CARD ============ -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@tdstudio" />
+    <meta id="tw-title" name="twitter:title"
+      content="TDStudio – Trang chủ chính thức" />
+    <meta id="tw-desc" name="twitter:description"
+      content="Trang chủ chính thức TDStudio – Liên kết server và cộng đồng." />
+    <meta id="tw-image" name="twitter:image"
+      content="https://thanhdi.com/images/graph.png" />
+    <meta name="twitter:image:alt" content="TDStudio – Trang chủ chính thức" />
+
+    <!-- ============ PWA / ICONS ============ -->
+    <meta name="theme-color" content="#0c0a09" />
+    <link rel="icon" href="images/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Styles -->
+    <style>
 /* ===========================================================================
    TDStudio – Homepage (dark mặc định, i18n 3 ngôn ngữ)
    =========================================================================== */
@@ -96,7 +95,12 @@ a{color:inherit;text-decoration:none}
 .site-name{font-weight:800;font-size:1.1rem}
 .lang-row{margin-left:auto;display:flex;gap:.4rem}
 .lang{padding:.3rem .6rem;border-radius:999px;border:1px solid var(--border);background:transparent;font-size:.85rem;cursor:pointer}
-.lang[aria-current="true"]{background:color-mix(in oklab,var(--primary-500) 18%, var(--surface));border-color:var(--border)}
+.lang[aria-current="true"] {
+  background: color-mix(in oklab, var(--primary-500) 18%, var(--surface));
+  border-color: var(--border);
+  color: #fff; /* chữ trắng */
+}
+
 .nav{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.7rem}
 .nav a{padding:.35rem .8rem;border-radius:999px;font-weight:600;font-size:.9rem;border:1px solid transparent;transition:.2s}
 .nav a:hover{background:color-mix(in oklab,var(--primary-500) 20%, var(--surface));border-color:var(--border)}
@@ -168,8 +172,8 @@ a{color:inherit;text-decoration:none}
 @media (max-width:420px){ #msgrHint{max-width:220px} }
     </style>
 
-        <!-- JSON-LD (will be patched to lang-specific URL by JS) -->
-        <script type="application/ld+json" id="ld-org">
+    <!-- JSON-LD (will be patched to lang-specific URL by JS) -->
+    <script type="application/ld+json" id="ld-org">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
@@ -183,7 +187,7 @@ a{color:inherit;text-decoration:none}
       ]
     }
     </script>
-        <script type="application/ld+json" id="ld-site">
+    <script type="application/ld+json" id="ld-site">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
@@ -197,162 +201,162 @@ a{color:inherit;text-decoration:none}
       }
     }
     </script>
-    </head>
-    <body>
-        <a class="skip-link" href="#main">Bỏ qua nội dung</a>
-        <div class="wrapper">
-            <main class="sheet" id="main" itemscope
-                itemtype="https://schema.org/WebSite">
-                <header class="header" role="banner">
-                    <div class="header-top">
-                        <img src="images/logo.png" width="46" height="46"
-                            alt="TDStudio Logo" class="logo-img"
-                            itemprop="image" loading="lazy" />
-                        <span class="site-name" itemprop="name">TDStudio</span>
-                        <nav class="lang-row" aria-label="Language switcher">
-                            <button class="lang" data-lang="vi"
-                                aria-current="true" type="button">VI</button>
-                            <button class="lang" data-lang="en"
-                                type="button">EN</button>
-                            <button class="lang" data-lang="id"
-                                type="button">ID</button>
-                        </nav>
-                    </div>
-                    <nav class="nav" aria-label="Main navigation">
-                        <a href="#servers" data-i18n="nav_servers">Server</a>
-                        <a href="#communities" data-i18n="nav_communities">Cộng
-                            đồng</a>
-                        <a href="https://www.facebook.com/ngocrongnthevmax"
-                            data-i18n="nav_socials"
-                            aria-disabled="true">Fanpage</a>
-                    </nav>
-                </header>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Bỏ qua nội dung</a>
+    <div class="wrapper">
+      <main class="sheet" id="main" itemscope
+        itemtype="https://schema.org/WebSite">
+        <header class="header" role="banner">
+          <div class="header-top">
+            <img src="images/logo.png" width="46" height="46"
+              alt="TDStudio Logo" class="logo-img"
+              itemprop="image" loading="lazy" />
+            <span class="site-name" itemprop="name">TDStudio</span>
+            <nav class="lang-row" aria-label="Language switcher">
+              <button class="lang" data-lang="vi"
+                aria-current="true" type="button">VI</button>
+              <button class="lang" data-lang="en"
+                type="button">EN</button>
+              <button class="lang" data-lang="id"
+                type="button">ID</button>
+            </nav>
+          </div>
+          <nav class="nav" aria-label="Main navigation">
+            <a href="#servers" data-i18n="nav_servers">Server</a>
+            <a href="#communities" data-i18n="nav_communities">Cộng
+              đồng</a>
+            <a href="https://www.facebook.com/ngocrongnthevmax"
+              data-i18n="nav_socials"
+              aria-disabled="true">Fanpage</a>
+          </nav>
+        </header>
 
-                <!-- Servers -->
-                <section class="card" id="servers">
-                    <h2 data-i18n="sec_servers_title">Server luôn trực
-                        tuyến</h2>
-                    <p class="visually-hidden" data-i18n="sec_servers_desc">Danh
-                        sách server chính thức của TDStudio.</p>
-                    <div class="server-list" role="list">
-                        <a class="server-item" href="https://nroclan.com"
-                            rel="noopener" role="listitem">
-                            <span class="dot" aria-hidden="true"></span><span
-                                class="name">Server 1 (Clan)</span>
-                            <span class="info" data-i18n="cta_join"
-                                aria-label="Join Server 1">Tham gia</span>
-                        </a>
-                        <a class="server-item" href="https://nro3q.com"
-                            rel="noopener" role="listitem">
-                            <span class="dot" aria-hidden="true"></span><span
-                                class="name">Server 2 (3Q)</span>
-                            <span class="info" data-i18n="cta_join"
-                                aria-label="Join Server 2">Tham gia</span>
-                        </a>
-                        <a class="server-item" href="https://nromun.com"
-                            rel="noopener" role="listitem">
-                            <span class="dot" aria-hidden="true"></span><span
-                                class="name">Server 3 (Mun)</span>
-                            <span class="info" data-i18n="cta_join"
-                                aria-label="Join Server 3">Tham gia</span>
-                        </a>
-                        <a class="server-item" href="https://nroping.com"
-                            rel="noopener" role="listitem">
-                            <span class="dot" aria-hidden="true"></span><span
-                                class="name">Server 4 (Ping)</span>
-                            <span class="info" data-i18n="cta_join"
-                                aria-label="Join Server 4">Tham gia</span>
-                        </a>
-                        <a class="server-item" href="https://nrokid.com"
-                            rel="noopener" role="listitem">
-                            <span class="dot" aria-hidden="true"></span><span
-                                class="name">Server 5 (Kid)</span>
-                            <span class="info" data-i18n="cta_join"
-                                aria-label="Join Server 5">Tham gia</span>
-                        </a>
-                    </div>
-                </section>
+        <!-- Servers -->
+        <section class="card" id="servers">
+          <h2 data-i18n="sec_servers_title">Server luôn trực
+            tuyến</h2>
+          <p class="visually-hidden" data-i18n="sec_servers_desc">Danh
+            sách server chính thức của TDStudio.</p>
+          <div class="server-list" role="list">
+            <a class="server-item" href="https://nroclan.com"
+              rel="noopener" role="listitem">
+              <span class="dot" aria-hidden="true"></span><span
+                class="name">Server 1 (Clan)</span>
+              <span class="info" data-i18n="cta_join"
+                aria-label="Join Server 1">Tham gia</span>
+            </a>
+            <a class="server-item" href="https://nro3q.com"
+              rel="noopener" role="listitem">
+              <span class="dot" aria-hidden="true"></span><span
+                class="name">Server 2 (3Q)</span>
+              <span class="info" data-i18n="cta_join"
+                aria-label="Join Server 2">Tham gia</span>
+            </a>
+            <a class="server-item" href="https://nromun.com"
+              rel="noopener" role="listitem">
+              <span class="dot" aria-hidden="true"></span><span
+                class="name">Server 3 (Mun)</span>
+              <span class="info" data-i18n="cta_join"
+                aria-label="Join Server 3">Tham gia</span>
+            </a>
+            <a class="server-item" href="https://nroping.com"
+              rel="noopener" role="listitem">
+              <span class="dot" aria-hidden="true"></span><span
+                class="name">Server 4 (Ping)</span>
+              <span class="info" data-i18n="cta_join"
+                aria-label="Join Server 4">Tham gia</span>
+            </a>
+            <a class="server-item" href="https://nrokid.com"
+              rel="noopener" role="listitem">
+              <span class="dot" aria-hidden="true"></span><span
+                class="name">Server 5 (Kid)</span>
+              <span class="info" data-i18n="cta_join"
+                aria-label="Join Server 5">Tham gia</span>
+            </a>
+          </div>
+        </section>
 
-                <!-- Communities -->
-                <section class="card" id="communities">
-                    <h2 data-i18n="sec_box_title">Box</h2>
-                    <div class="chips" aria-label="Zalo">
-                        <a class="chip" href="https://zalo.me/g/guxxky409"
-                            rel="nofollow">Zalo 1 – Server 1</a>
-                        <a class="chip" href="https://zalo.me/g/chhtoc951"
-                            rel="nofollow">Zalo 2 – Server 1</a>
-                        <a class="chip" href="https://zalo.me/g/pqaiqm424"
-                            rel="nofollow">Zalo 1 – Server 2</a>
-                        <a class="chip" href="https://zalo.me/g/crnbag894"
-                            rel="nofollow">Zalo 1 – Server 3</a>
-                        <a class="chip" href="https://zalo.me/g/gfnekq114"
-                            rel="nofollow">Zalo 1 – Server 4</a>
-                        <a class="chip" href="https://zalo.me/g/uelhmv606"
-                            rel="nofollow">Zalo 1 – Server 5</a>
-                        <a class="chip" href="https://zalo.me/g/vmtbba265"
-                            rel="nofollow">Zalo 2 – Server 5</a>
-                    </div>
+        <!-- Communities -->
+        <section class="card" id="communities">
+          <h2 data-i18n="sec_box_title">Box</h2>
+          <div class="chips" aria-label="Zalo">
+            <a class="chip" href="https://zalo.me/g/guxxky409"
+              rel="nofollow">Zalo 1 – Server 1</a>
+            <a class="chip" href="https://zalo.me/g/chhtoc951"
+              rel="nofollow">Zalo 2 – Server 1</a>
+            <a class="chip" href="https://zalo.me/g/pqaiqm424"
+              rel="nofollow">Zalo 1 – Server 2</a>
+            <a class="chip" href="https://zalo.me/g/crnbag894"
+              rel="nofollow">Zalo 1 – Server 3</a>
+            <a class="chip" href="https://zalo.me/g/gfnekq114"
+              rel="nofollow">Zalo 1 – Server 4</a>
+            <a class="chip" href="https://zalo.me/g/uelhmv606"
+              rel="nofollow">Zalo 1 – Server 5</a>
+            <a class="chip" href="https://zalo.me/g/vmtbba265"
+              rel="nofollow">Zalo 2 – Server 5</a>
+          </div>
 
-                    <h2 style="margin-top:1rem"
-                        data-i18n="sec_channels_title">Kênh theo khu vực</h2>
-                    <div class="chips">
-                        <a class="chip"
-                            href="https://chat.whatsapp.com/Hg4CqxRa31u9TCN8WbWSWy"
-                            rel="noopener">WhatsApp – Indonesia</a>
-                        <a class="chip" href="https://t.me/gdthanhdi"
-                            rel="noopener">Telegram</a>
-                        <a class="chip" href="https://discord.gg/jW8uBff4"
-                            rel="noopener">Discord</a>
-                        <a class="chip"
-                            href="https://www.facebook.com/groups/916049213653568"
-                            rel="noopener">Group Facebook</a>
-                        <a class="chip"
-                            href="https://www.facebook.com/ngocrongnthevmax"
-                            rel="noopener">Fanpage chính</a>
-                        <a class="chip"
-                            href="https://www.facebook.com/ngaidinro/"
-                            rel="noopener">Fanpage phụ</a>
-                        <a class="chip"
-                            href="https://www.facebook.com/ngocrongonlinevip"
-                            rel="noopener">Fanpage phụ</a>
-                    </div>
-                </section>
+          <h2 style="margin-top:1rem"
+            data-i18n="sec_channels_title">Kênh theo khu vực</h2>
+          <div class="chips">
+            <a class="chip"
+              href="https://chat.whatsapp.com/Hg4CqxRa31u9TCN8WbWSWy"
+              rel="noopener">WhatsApp – Indonesia</a>
+            <a class="chip" href="https://t.me/gdthanhdi"
+              rel="noopener">Telegram</a>
+            <a class="chip" href="https://discord.gg/jW8uBff4"
+              rel="noopener">Discord</a>
+            <a class="chip"
+              href="https://www.facebook.com/groups/916049213653568"
+              rel="noopener">Group Facebook</a>
+            <a class="chip"
+              href="https://www.facebook.com/ngocrongnthevmax"
+              rel="noopener">Fanpage chính</a>
+            <a class="chip"
+              href="https://www.facebook.com/ngaidinro/"
+              rel="noopener">Fanpage phụ</a>
+            <a class="chip"
+              href="https://www.facebook.com/ngocrongonlinevip"
+              rel="noopener">Fanpage phụ</a>
+          </div>
+        </section>
 
-                <footer class="footer">
-                    <small>© <span id="y"></span> TDStudio • <span
-                            data-i18n="footer_bio">Trang chủ chính
-                            thức</span></small>
-                    <div class="f-utils">
-                        <a class="f-pill" href="#"
-                            aria-label="Scroll to top">↑</a>
-                        <button class="f-pill" id="themeToggle" type="button"
-                            aria-live="polite">Theme</button>
-                    </div>
-                </footer>
-            </main>
-        </div>
+        <footer class="footer">
+          <small>© <span id="y"></span> TDStudio • <span
+              data-i18n="footer_bio">Trang chủ chính
+              thức</span></small>
+          <div class="f-utils">
+            <a class="f-pill" href="#"
+              aria-label="Scroll to top">↑</a>
+            <button class="f-pill" id="themeToggle" type="button"
+              aria-live="polite">Theme</button>
+          </div>
+        </footer>
+      </main>
+    </div>
 
-        <!-- FAB -->
-        <button id="ndxMsgrFab" aria-label="Chat with TDStudio on Messenger">
-            <span class="msgr-ic" aria-hidden="true">
-                <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"
-                    role="img" aria-hidden="true">
-                    <path
-                        d="M18 3C9.716 3 3 9.214 3 16.99c0 4.267 1.94 7.98 5.04 10.55.26.214.42.522.43.858l.09 2.69c.03.93 1 1.56 1.86 1.17l2.99-1.34c.27-.12.57-.13.85-.04 1.15.37 2.37.57 3.72.57 8.28 0 15-6.214 15-13.99S26.28 3 18 3zm8.28 10.9l-4.47 7.12c-.57.91-1.81 1.12-2.65.45l-2.86-2.26a1.83 1.83 0 0 0-2.28-.01l-3.08 2.35c-.73.56-1.78.2-2.02-.68l-1.3-4.67c-.26-.94.38-1.89 1.35-1.98l4.86-.47c.36-.03.7-.2.95-.47l4.07-4.36c.75-.8 2.06-.6 2.57.38l2.99 5.6c.25.47.23 1.04-.03 1.49z" />
-                </svg>
-            </span>
-            <span class="msgr-badge" aria-hidden="true">1</span>
-        </button>
+    <!-- FAB -->
+    <button id="ndxMsgrFab" aria-label="Chat with TDStudio on Messenger">
+      <span class="msgr-ic" aria-hidden="true">
+        <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"
+          role="img" aria-hidden="true">
+          <path
+            d="M18 3C9.716 3 3 9.214 3 16.99c0 4.267 1.94 7.98 5.04 10.55.26.214.42.522.43.858l.09 2.69c.03.93 1 1.56 1.86 1.17l2.99-1.34c.27-.12.57-.13.85-.04 1.15.37 2.37.57 3.72.57 8.28 0 15-6.214 15-13.99S26.28 3 18 3zm8.28 10.9l-4.47 7.12c-.57.91-1.81 1.12-2.65.45l-2.86-2.26a1.83 1.83 0 0 0-2.28-.01l-3.08 2.35c-.73.56-1.78.2-2.02-.68l-1.3-4.67c-.26-.94.38-1.89 1.35-1.98l4.86-.47c.36-.03.7-.2.95-.47l4.07-4.36c.75-.8 2.06-.6 2.57.38l2.99 5.6c.25.47.23 1.04-.03 1.49z" />
+        </svg>
+      </span>
+      <span class="msgr-badge" aria-hidden="true">1</span>
+    </button>
 
-        <!-- Hint bubble -->
-        <div id="msgrHint" role="dialog" aria-live="polite" aria-hidden="true">
-            <button class="ndx-hint-close" aria-label="Đóng">×</button>
-            <div class="txt" id="msgrHintTxt">Chat “xin code” để nhận bộ
-                giftcode xịn nhé!</div>
-        </div>
+    <!-- Hint bubble -->
+    <div id="msgrHint" role="dialog" aria-live="polite" aria-hidden="true">
+      <button class="ndx-hint-close" aria-label="Đóng">×</button>
+      <div class="txt" id="msgrHintTxt">Chat “xin code” để nhận bộ
+        giftcode xịn nhé!</div>
+    </div>
 
-        <!-- i18n + SEO sync -->
-        <script>
+    <!-- i18n + SEO sync -->
+    <script>
 /* ========================= i18n strings ========================= */
 const I18N = {
   vi: {
@@ -510,8 +514,8 @@ syncThemeBtn();
 t.onclick = () => { m = m==='dark'?'light':'dark'; document.documentElement.dataset.theme = m; syncThemeBtn(); };
     </script>
 
-        <!-- Messenger Hint position + auto show -->
-        <script>
+    <!-- Messenger Hint position + auto show -->
+    <script>
 (function(){
   const GAP_X = 12, GAP_Y = 6;
   const fab  = document.getElementById('ndxMsgrFab');
@@ -545,8 +549,8 @@ t.onclick = () => { m = m==='dark'?'light':'dark'; document.documentElement.data
 })();
     </script>
 
-        <!-- In-app browser warning + copy link (localized) -->
-        <script>
+    <!-- In-app browser warning + copy link (localized) -->
+    <script>
 (function(){
   const ua = navigator.userAgent || "";
   const isMessenger   = /Messenger|FBAN\/Messenger|FB_IAB/i.test(ua);
@@ -603,8 +607,8 @@ t.onclick = () => { m = m==='dark'?'light':'dark'; document.documentElement.data
 })();
     </script>
 
-        <!-- FAB click -> m.me (mobile) hoặc fanpage (desktop) -->
-        <script>
+    <!-- FAB click -> m.me (mobile) hoặc fanpage (desktop) -->
+    <script>
 (function () {
   const PAGE_USERNAME = "ngocrongnthevmax";
   const MME_URL = `https://m.me/${encodeURIComponent(PAGE_USERNAME)}`;
@@ -625,16 +629,16 @@ t.onclick = () => { m = m==='dark'?'light':'dark'; document.documentElement.data
 })();
     </script>
 
-        <!-- noscript i18n fallbacks -->
-        <noscript>
-            <link rel="alternate" hreflang="vi"
-                href="https://thanhdi.com/?lang=vi" />
-            <link rel="alternate" hreflang="en"
-                href="https://thanhdi.com/?lang=en" />
-            <link rel="alternate" hreflang="id"
-                href="https://thanhdi.com/?lang=id" />
-            <link rel="alternate" hreflang="x-default"
-                href="https://thanhdi.com/" />
-        </noscript>
-    </body>
+    <!-- noscript i18n fallbacks -->
+    <noscript>
+      <link rel="alternate" hreflang="vi"
+        href="https://thanhdi.com/?lang=vi" />
+      <link rel="alternate" hreflang="en"
+        href="https://thanhdi.com/?lang=en" />
+      <link rel="alternate" hreflang="id"
+        href="https://thanhdi.com/?lang=id" />
+      <link rel="alternate" hreflang="x-default"
+        href="https://thanhdi.com/" />
+    </noscript>
+  </body>
 </html>
