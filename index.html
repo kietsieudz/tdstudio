@@ -349,7 +349,15 @@ a{color:inherit;text-decoration:none}
     </button>
 
     <!-- Hint bubble -->
-    <div id="msgrHint" role="dialog" aria-live="polite" aria-hidden="true">
+    <div id="msgrHint"
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="msgrHintTitle"
+     aria-hidden="true">
+  <button class="ndx-hint-close" aria-label="Đóng">×</button>
+  <h2 id="msgrHintTitle" class="visually-hidden">Tin nhắn hỗ trợ</h2>
+  <div class="txt" id="msgrHintTxt">Chat “xin code” để nhận bộ giftcode xịn nhé!</div>
+</div>
       <button class="ndx-hint-close" aria-label="Đóng">×</button>
       <div class="txt" id="msgrHintTxt">Chat “xin code” để nhận bộ
         giftcode xịn nhé!</div>
