@@ -231,49 +231,35 @@ a{color:inherit;text-decoration:none}
         </header>
 
         <!-- Servers -->
-        <section class="card" id="servers">
-          <h2 data-i18n="sec_servers_title">Server luôn trực
-            tuyến</h2>
-          <p class="visually-hidden" data-i18n="sec_servers_desc">Danh
-            sách server chính thức của TDStudio.</p>
-          <div class="server-list" role="list">
-            <a class="server-item" href="https://nroclan.com"
-              rel="noopener" role="listitem">
-              <span class="dot" aria-hidden="true"></span><span
-                class="name">Server 1 (Clan)</span>
-              <span class="info" data-i18n="cta_join"
-                aria-label="Join Server 1">Tham gia</span>
-            </a>
-            <a class="server-item" href="https://nro3q.com"
-              rel="noopener" role="listitem">
-              <span class="dot" aria-hidden="true"></span><span
-                class="name">Server 2 (3Q)</span>
-              <span class="info" data-i18n="cta_join"
-                aria-label="Join Server 2">Tham gia</span>
-            </a>
-            <a class="server-item" href="https://nromun.com"
-              rel="noopener" role="listitem">
-              <span class="dot" aria-hidden="true"></span><span
-                class="name">Server 3 (Mun)</span>
-              <span class="info" data-i18n="cta_join"
-                aria-label="Join Server 3">Tham gia</span>
-            </a>
-            <a class="server-item" href="https://nroping.com"
-              rel="noopener" role="listitem">
-              <span class="dot" aria-hidden="true"></span><span
-                class="name">Server 4 (Ping)</span>
-              <span class="info" data-i18n="cta_join"
-                aria-label="Join Server 4">Tham gia</span>
-            </a>
-            <a class="server-item" href="https://nrokid.com"
-              rel="noopener" role="listitem">
-              <span class="dot" aria-hidden="true"></span><span
-                class="name">Server 5 (Kid)</span>
-              <span class="info" data-i18n="cta_join"
-                aria-label="Join Server 5">Tham gia</span>
-            </a>
-          </div>
-        </section>
+       <section class="card" id="servers">
+  <h2 data-i18n="sec_servers_title">Kênh truy cập</h2>
+  <p class="visually-hidden" data-i18n="sec_servers_desc">Danh sách kênh TDStudio.</p>
+
+  <div class="server-list" role="list">
+    <a class="server-item" id="srv1" href="#" rel="nofollow noopener noreferrer" role="listitem">
+      <span class="dot" aria-hidden="true"></span><span class="name">Sv 1 (Clan)</span>
+      <span class="info" data-i18n="cta_join" aria-label="Open Channel 1">Mở</span>
+    </a>
+    <a class="server-item" id="srv2" href="#" rel="nofollow noopener noreferrer" role="listitem">
+      <span class="dot" aria-hidden="true"></span><span class="name">Sv 2 (3Q)</span>
+      <span class="info" data-i18n="cta_join" aria-label="Open Channel 2">Mở</span>
+    </a>
+    <a class="server-item" id="srv3" href="#" rel="nofollow noopener noreferrer" role="listitem">
+      <span class="dot" aria-hidden="true"></span><span class="name">Sv 3 (Mun)</span>
+      <span class="info" data-i18n="cta_join" aria-label="Open Channel 3">Mở</span>
+    </a>
+    <a class="server-item" id="srv4" href="#" rel="nofollow noopener noreferrer" role="listitem">
+      <span class="dot" aria-hidden="true"></span><span class="name">Sv 4 (Ping)</span>
+      <span class="info" data-i18n="cta_join" aria-label="Open Channel 4">Mở</span>
+    </a>
+    <a class="server-item" id="srv5" href="#" rel="nofollow noopener noreferrer" role="listitem">
+      <span class="dot" aria-hidden="true"></span><span class="name">Sv 5 (Kid)</span>
+      <span class="info" data-i18n="cta_join" aria-label="Open Channel 5">Mở</span>
+    </a>
+  </div>
+
+  <noscript><small>Vui lòng bật JavaScript để hiển thị kênh truy cập.</small></noscript>
+</section>
 
         <!-- Communities -->
         <section class="card" id="communities">
@@ -646,5 +632,27 @@ t.onclick = () => { m = m==='dark'?'light':'dark'; document.documentElement.data
       <link rel="alternate" hreflang="x-default"
         href="https://thanhdi.com/" />
     </noscript>
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+  // map ẩn – bot đọc HTML sẽ không thấy domain thật
+  const MAP = {
+    srv1: "https://nroclan.com",
+    srv2: "https://nro3q.com",
+    srv3: "https://nromun.com",
+    srv4: "https://nroping.com",
+    srv5: "https://nrokid.com"
+  };
+
+  Object.keys(MAP).forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.open(MAP[id], "_blank", "noopener,noreferrer");
+    });
+  });
+});
+</script>
+
   </body>
 </html>
