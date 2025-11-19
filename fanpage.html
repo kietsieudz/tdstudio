@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tổng Hợp Fanpage TDStudio</title>
+  <style>
+    :root{
+      --bg:#0f1720;
+      --card:#182132;
+      --muted:#94a3b8;
+      --text:#e6eef7;
+      --radius:14px;
+      font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      padding:26px;
+    }
+
+    .wrap{
+      max-width:900px;
+      margin:0 auto;
+    }
+
+    h1{
+      margin:0 0 20px;
+      font-size:20px;
+      font-weight:600;
+    }
+
+    .grid{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+
+    .card{
+      position:relative;
+      background:var(--card);
+      border:1px solid rgba(255,255,255,0.05);
+      padding:12px 14px;
+      border-radius:var(--radius);
+      display:flex;
+      align-items:center;
+      gap:12px;
+      cursor:pointer;
+      text-decoration:none;
+      color:inherit;
+      height:95px; /* THU NHỎ */
+      transition:transform .14s ease, box-shadow .14s ease;
+    }
+
+    .card:hover{
+      transform:translateY(-3px);
+      box-shadow:0 6px 18px rgba(0,0,0,0.4);
+    }
+
+    /* TAG */
+    .tag{
+      position:absolute;
+      top:8px;
+      right:12px;
+      background:#1e40af;
+      padding:3px 8px;
+      font-size:11px;
+      border-radius:8px;
+      color:#dbeafe;
+    }
+
+    /* AVATAR */
+    .avatar{
+      width:48px;    /* nhỏ lại */
+      height:48px;   /* nhỏ lại */
+      border-radius:10px;
+      background:#1e293b;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-shrink:0;
+    }
+
+    .avatar img{
+      width:26px;  /* icon nhỏ lại */
+      height:26px;
+      opacity:0.9;
+    }
+
+    .title{
+      font-size:15px;
+      font-weight:600;
+      margin:0;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      max-width:100%;
+    }
+
+    .subtitle{
+      font-size:12.5px;
+      margin:4px 0 0;
+      color:var(--muted);
+      line-height:1.25;
+      max-height:30px;
+      overflow:hidden;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Danh sách Fanpage TDStudio</h1>
+
+    <div class="grid">
+
+      <a class="card" href="https://facebook.com/tdstudiogame" target="_blank">
+        <div class="tag">Chính - Hỗ trợ 24/24</div>
+        <div class="avatar">
+          <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png">
+        </div>
+        <div>
+          <div class="title">TDStudio</div>
+          <div class="subtitle">Fanpage — đăng meme mạnh, xen game khi cần, hỗ trợ game.</div>
+        </div>
+      </a>
+
+      <a class="card" href="https://facebook.com/ngaidinro" target="_blank">
+        <div class="tag">Phụ - Hỗ trợ 24/24</div>
+        <div class="avatar">
+          <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png">
+        </div>
+        <div>
+          <div class="title">TDStudio - Game mobile</div>
+          <div class="subtitle">Fanpage — meme + nội dung game, hỗ trợ game.</div>
+        </div>
+      </a>
+
+      <a class="card" href="https://facebook.com/ngocrongonlinevip" target="_blank">
+        <div class="tag">Nhỏ</div>
+        <div class="avatar">
+          <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png">
+        </div>
+        <div>
+          <div class="title">Ngọc Rồng 3Q - TDStudio</div>
+          <div class="subtitle">Fanpage — thông báo game, nội quy, cập nhật.</div>
+        </div>
+      </a>
+
+    <a class="card" href="https://facebook.com/tdstudioupdate" target="_blank">
+        <div class="tag">Nhỏ</div>
+        <div class="avatar">
+          <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png">
+        </div>
+        <div>
+          <div class="title">Ngọc Rồng Mun - TDStudio</div>
+          <div class="subtitle">Fanpage — thông báo cập nhật phiên bản.</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</body>
+</html>
