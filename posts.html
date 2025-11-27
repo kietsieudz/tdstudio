@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="vi">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Danh sách bài viết - TDStudio</title>
+        <meta name="description"
+            content="Danh sách bài viết TDStudio — click vào mở bài trên Fanpage. Phân trang 20 bài/trang.">
+        <style>
+  :root{
+    --bg:#f3f4f6;
+    --card-bg:#ffffff;
+    --text:#111;
+    --muted:#6b7280;
+    --gap:6px;
+    --radius:6px;
+    --avatar-size:54px;
+    --title-size:15px;
+    --subtitle-size:12px;
+    --accent:#7a3df0;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:12px;
+    font-family: Inter, Roboto, "Segoe UI", Arial, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+  }
+
+  .container{ max-width:980px; margin:0 auto; }
+
+  header.page-header{ display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px; }
+  h1.page-title{ margin:0; font-size:18px; font-weight:800; }
+  .meta-info{ color:var(--muted); font-size:13px; font-weight:600; }
+
+  /* LIST */
+  .post-list{ display:flex; flex-direction:column; gap:6px; }
+
+  .post-card{
+    display:flex; gap:10px; align-items:center;
+    background:var(--card-bg); border-radius:var(--radius);
+    padding:8px; text-decoration:none; color:inherit;
+    border:1px solid rgba(0,0,0,0.04);
+    transition:transform .12s, box-shadow .12s, border-color .12s;
+  }
+  .post-card:hover{ transform:translateY(-2px); box-shadow:0 6px 18px rgba(0,0,0,0.06); border-color:rgba(0,0,0,0.06); }
+
+  .post-avatar{ width:var(--avatar-size); height:var(--avatar-size); min-width:var(--avatar-size); border-radius:6px; overflow:hidden; background:#ddd; flex-shrink:0;}
+  .post-avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+  .post-body{ flex:1; display:flex; flex-direction:column; gap:4px; justify-content:center; }
+  .post-title{ margin:0; font-size:var(--title-size); font-weight:800; line-height:1.12; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .post-sub{ margin:0; font-size:var(--subtitle-size); color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .post-meta{ margin:0; font-size:12px; font-weight:800; color:var(--muted); }
+
+  /* PAGINATION */
+  .pager{ display:flex; gap:6px; align-items:center; justify-content:center; margin-top:12px; flex-wrap:wrap; }
+  .pager button{ padding:6px 10px; border-radius:8px; border:1px solid rgba(0,0,0,0.06); background:white; cursor:pointer; font-weight:800; }
+  .pager button[disabled]{ opacity:0.45; cursor:not-allowed; }
+  .pager .page-num{ padding:6px 9px; border-radius:8px; background:transparent; border:1px solid transparent; font-weight:800; min-width:38px; text-align:center; }
+  .pager .page-num.active{ background:var(--accent); color:white; border-color:var(--accent); }
+
+  /* Loader / Message */
+  .center{ text-align:center; padding:18px 6px; color:var(--muted); font-weight:700; }
+
+  /* responsive: giảm avatar và chữ */
+  @media(max-width:640px){
+    :root{
+      --avatar-size:44px;
+      --title-size:14px;
+      --subtitle-size:11px;
+    }
+    .container{ margin:8px; }
+    .post-title, .post-sub{ white-space:normal; } /* mobile cho xuống dòng */
+  }
+</style>
+    </head>
+    <body>
+        <div class="container" role="main">
+            <header class="page-header">
+                <h1 class="page-title">Danh sách bài viết</h1>
+                <div class="meta-info" id="summaryInfo">—</div>
+            </header>
+
+            <div id="postList" class="post-list" aria-live="polite"
+                aria-busy="false"></div>
+
+            <div id="pager" class="pager"
+                aria-label="Phân trang bài viết"></div>
+
+            <div id="msg" class="center" style="display:none;"></div>
+        </div>
+
+        <script>
+/*
+  posts.html
+  - Lấy dữ liệu từ posts.json (cùng thư mục).
+  - Phân trang client: PAGE_SIZE = 20.
+  - Nếu fetch lỗi, dùng fallback demo (để bạn test).
+  - Bạn chỉ cần tạo posts.json theo format trong ví dụ.
+*/
+
+/* ===== CẤU HÌNH ===== */
+const JSON_PATH = 'posts.json'; // đổi nếu đặt ở nơi khác
+const PAGE_SIZE = 20;
+
+/* ===== DOM ===== */
+const root = document.getElementById('postList');
+const pagerEl = document.getElementById('pager');
+const summaryInfo = document.getElementById('summaryInfo');
+const msgEl = document.getElementById('msg');
+
+let posts = [];
+let currentPage = 1;
+
+/* ===== HELPERS ===== */
+function showMessage(text){
+  msgEl.style.display = 'block';
+  msgEl.textContent = text;
+}
+function hideMessage(){
+  msgEl.style.display = 'none';
+  msgEl.textContent = '';
+}
+function setBusy(isBusy){
+  root.setAttribute('aria-busy', String(Boolean(isBusy)));
+}
+
+/* ===== RENDER ===== */
+function renderPage(page){
+  if(!Array.isArray(posts)) posts = [];
+  const total = Math.max(0, posts.length);
+  const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+  currentPage = Math.max(1, Math.min(page, totalPages));
+
+  // slice items
+  const start = (currentPage - 1) * PAGE_SIZE;
+  const end = start + PAGE_SIZE;
+  const pageItems = posts.slice(start, end);
+
+  // render list
+  root.innerHTML = '';
+  if(pageItems.length === 0){
+    root.innerHTML = '<div class="center">Không có bài viết để hiển thị.</div>';
+  } else {
+    for(const p of pageItems){
+      const a = document.createElement('a');
+      a.className = 'post-card';
+      a.href = p.link || '#';
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+
+      const av = document.createElement('div');
+      av.className = 'post-avatar';
+      const img = document.createElement('img');
+      img.src = p.avatar || 'https://via.placeholder.com/150.png?text=Avatar';
+      img.alt = p.title ? p.title.replace(/"/g, '') : 'avatar';
+      av.appendChild(img);
+
+      const body = document.createElement('div');
+      body.className = 'post-body';
+
+      const h = document.createElement('h2');
+      h.className = 'post-title';
+      h.title = p.title || '';
+      h.textContent = p.title || 'Không có tiêu đề';
+
+      const sub = document.createElement('p');
+      sub.className = 'post-sub';
+      sub.title = p.subtitle || '';
+      sub.textContent = p.subtitle || '';
+
+      body.appendChild(h);
+      if (sub.textContent) body.appendChild(sub);
+
+      a.appendChild(av);
+      a.appendChild(body);
+      root.appendChild(a);
+    }
+  }
+
+  renderPager();
+  summaryInfo.textContent = `Trang ${currentPage} / ${totalPages} — Tổng ${total} bài`;
+  // scroll nhẹ lên top danh sách để UX tốt khi đổi trang
+  root.scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function renderPager(){
+  const total = posts.length;
+  const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+  pagerEl.innerHTML = '';
+
+  // Prev
+  const prev = document.createElement('button');
+  prev.textContent = 'Prev';
+  prev.disabled = currentPage <= 1;
+  prev.onclick = () => renderPage(currentPage - 1);
+  pagerEl.appendChild(prev);
+
+  // page numbers (windowed)
+  const maxButtons = 7;
+  let start = Math.max(1, currentPage - Math.floor(maxButtons/2));
+  let end = start + maxButtons - 1;
+  if(end > totalPages){ end = totalPages; start = Math.max(1, end - maxButtons + 1); }
+
+  if(start > 1){
+    pagerEl.appendChild(pageButton(1));
+    if(start > 2){
+      const dots = document.createElement('span'); dots.textContent = '...'; dots.style.padding = '6px 8px'; pagerEl.appendChild(dots);
+    }
+  }
+
+  for(let i = start; i <= end; i++){
+    pagerEl.appendChild(pageButton(i));
+  }
+
+  if(end < totalPages){
+    if(end < totalPages - 1){
+      const dots = document.createElement('span'); dots.textContent = '...'; dots.style.padding = '6px 8px'; pagerEl.appendChild(dots);
+    }
+    pagerEl.appendChild(pageButton(totalPages));
+  }
+
+  // Next
+  const next = document.createElement('button');
+  next.textContent = 'Next';
+  next.disabled = currentPage >= totalPages;
+  next.onclick = () => renderPage(currentPage + 1);
+  pagerEl.appendChild(next);
+}
+
+function pageButton(i){
+  const b = document.createElement('button');
+  b.className = 'page-num' + (i === currentPage ? ' active' : '');
+  b.textContent = i;
+  b.onclick = () => renderPage(i);
+  if(i === currentPage) b.setAttribute('aria-current', 'page');
+  return b;
+}
+
+/* ===== LOAD JSON ===== */
+function loadFromJson(path){
+  setBusy(true);
+  hideMessage();
+  showMessage('Đang tải dữ liệu...');
+  return fetch(path, {cache: "no-cache"})
+    .then(res => {
+      if(!res.ok) throw new Error('Không thể tải JSON: ' + res.status);
+      return res.json();
+    })
+    .then(data => {
+      if(!Array.isArray(data)) throw new Error('Dữ liệu JSON phải là mảng.');
+      posts = data;
+      hideMessage();
+      setBusy(false);
+      renderPage(1);
+    })
+    .catch(err => {
+      console.error(err);
+      // fallback demo data
+      hideMessage();
+      setBusy(false);
+      showMessage('Không tải được posts.json — dùng dữ liệu demo tạm thời.');
+      useDemoData();
+      renderPage(1);
+      // ẩn message sau 3s
+      setTimeout(()=>{ hideMessage(); }, 3000);
+    });
+}
+
+/* ===== Demo fallback (nếu không có JSON) ===== */
+function useDemoData(){
+  posts = [];
+  for(let i=1;i<=43;i++){
+    posts.push({
+      title: `Tiêu đề demo #${i}`,
+      subtitle: `Đây là mô tả ngắn cho bài demo số ${i}.`,
+      avatar: 'https://via.placeholder.com/300.png?text=Av' + i,
+      link: 'https://www.facebook.com/yourpage/posts/' + (1000 + i)
+    });
+  }
+}
+
+loadFromJson(JSON_PATH);
+</script>
+    </body>
+</html>
