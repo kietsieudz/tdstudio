@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="vi">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Yêu cầu xóa dữ liệu — TDStudio</title>
+        <meta name="description"
+            content="Hướng dẫn yêu cầu xóa dữ liệu cá nhân liên quan tới ứng dụng và fanpage TDStudio." />
+        <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;line-height:1.6;color:#111;background:#f7fafc;padding:24px}
+    .wrap{max-width:820px;margin:24px auto;background:#fff;padding:26px;border-radius:8px;box-shadow:0 6px 22px rgba(13,18,24,0.06)}
+    h1{font-size:20px;margin:0 0 6px}
+    p.lead{color:#334155;margin:6px 0 18px}
+    h2{font-size:16px;margin-top:20px;color:#0f172a}
+    ul{margin:8px 0 12px 20px}
+    code{background:#eef2ff;padding:2px 6px;border-radius:4px;font-family:monospace}
+    .note{background:#fff7ed;border-left:4px solid #f59e0b;padding:12px;border-radius:6px;color:#92400e}
+    .form{margin-top:12px}
+    label{display:block;margin:10px 0 6px;font-weight:600}
+    input[type=text], input[type=email], textarea{width:100%;padding:10px;border:1px solid #e6e9ef;border-radius:6px}
+    textarea{min-height:120px;resize:vertical}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .btn{display:inline-block;padding:10px 14px;border-radius:8px;background:#0ea5a4;color:#fff;text-decoration:none;border:none;cursor:pointer}
+    .muted{color:#64748b;font-size:13px}
+    footer{margin-top:20px;font-size:13px;color:#475569}
+    .small{font-size:13px;color:#475569}
+  </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <h1>Yêu cầu xóa dữ liệu cá nhân</h1>
+            <p class="lead">Bạn có thể yêu cầu chúng tôi xóa dữ liệu cá nhân
+                liên quan đến ứng dụng / fanpage của TDStudio. Trang này mô tả
+                cách gửi yêu cầu, thời gian xử lý và những gì sẽ bị xóa.</p>
+
+            <h2>1. Dữ liệu chúng tôi có thể lưu</h2>
+            <p class="small">Tùy theo tương tác, chúng tôi có thể lưu:</p>
+            <ul>
+                <li>Thông tin cơ bản từ Facebook/Messenger: <strong>PSID /
+                        Page-scoped ID</strong>, tên hiển thị, avatar (nếu
+                    có).</li>
+                <li>Nội dung cuộc hội thoại (tin nhắn, log chat) giữa bạn và
+                    bot/fanpage.</li>
+                <li>Thông tin cấu hình liên quan đến tài khoản bạn trong hệ
+                    thống (nếu bạn đã đăng ký/đăng nhập).</li>
+                <li>Log hệ thống, thông tin kỹ thuật (IP tạm thời, logs lỗi)
+                    phục vụ vận hành và bảo mật.</li>
+            </ul>
+
+            <h2>2. Cách gửi yêu cầu xóa</h2>
+            <p>Chúng tôi hỗ trợ hai phương thức để bạn yêu cầu xóa dữ liệu:</p>
+
+            <h3>A. Gửi trực tiếp qua mẫu</h3>
+            <div class="form">
+                <form action="/delete-data-request" method="post">
+                    <label for="fullname">Họ và tên (không bắt buộc)</label>
+                    <input id="fullname" name="fullname" type="text"
+                        placeholder="Nguyễn Văn A" />
+
+                    <label for="email">Email (khuyến nghị — để chúng tôi xác
+                        nhận)</label>
+                    <input id="email" name="email" type="email"
+                        placeholder="ban@example.com" />
+
+                    <label for="psid">ID người dùng trên Facebook / PSID (nếu
+                        biết)</label>
+                    <input id="psid" name="psid" type="text"
+                        placeholder="Ví dụ: 1234567890" />
+
+                    <label for="note">Ghi chú / mô tả (ví dụ: yêu cầu xóa toàn
+                        bộ dữ liệu liên quan đến tài khoản của tôi)</label>
+                    <textarea id="note" name="note"
+                        placeholder="Mô tả ngắn gọn..."></textarea>
+
+                    <p class="muted">Form này sẽ gửi yêu cầu tới đội ngũ
+                        TDStudio. Nếu bạn muốn nhận xác nhận bằng email, hãy
+                        nhập email chính xác.</p>
+                    <button class="btn" type="submit">Gửi yêu cầu xóa</button>
+                </form>
+            </div>
+
+            <h3>B. Gửi email</h3>
+            <p>Nếu bạn không muốn dùng form, gửi email tới: <strong><a
+                        href="mailto:privacy@thanhdi.com">privacy@thanhdi.com</a></strong>
+                với nội dung:</p>
+            <ul>
+                <li>Tiêu đề: <code>Yêu cầu xóa dữ liệu — TDStudio</code></li>
+                <li>Trong thư nêu rõ: tên, email (nếu có), PSID hoặc mô tả cách
+                    chúng tôi có thể định vị dữ liệu của bạn (ví dụ: thời điểm
+                    tương tác, nội dung tin nhắn mẫu).</li>
+            </ul>
+
+            <h2>3. Thông tin cần cung cấp để xác minh</h2>
+            <p>Để xác minh quyền sở hữu dữ liệu trước khi xóa (tránh xóa nhầm),
+                chúng tôi có thể yêu cầu thêm 1 trong các mục sau:</p>
+            <ul>
+                <li>PSID / Page-scoped ID (nếu bạn có thể cung cấp từ cuộc trò
+                    chuyện với fanpage).</li>
+                <li>Email đã dùng để liên hệ hoặc thông tin tương tác giúp chúng
+                    tôi xác minh.</li>
+                <li>Ảnh chụp màn hình cuộc hội thoại (nếu cần để định vị dữ
+                    liệu).</li>
+            </ul>
+            <p class="note">Chúng tôi sẽ chỉ yêu cầu đủ thông tin để xác minh.
+                Tuyệt đối không gửi mật khẩu hoặc thông tin nhạy cảm khác.</p>
+
+            <h2>4. Thời gian xử lý</h2>
+            <ul>
+                <li>Chúng tôi sẽ phản hồi xác nhận đã nhận yêu cầu trong vòng
+                    <strong>5 ngày làm việc</strong>.</li>
+                <li>Quá trình xóa thực tế sẽ hoàn tất trong vòng <strong>30
+                        ngày</strong> kể từ khi yêu cầu được xác minh. Trong một
+                    số trường hợp kỹ thuật (ví dụ: dữ liệu cần xóa từ bản sao
+                    lưu), việc xóa hoàn toàn có thể mất thêm thời gian; tối đa
+                    không quá <strong>90 ngày</strong>.</li>
+            </ul>
+
+            <h2>5. Những gì sẽ bị xóa</h2>
+            <p>Chúng tôi sẽ cố gắng xóa:</p>
+            <ul>
+                <li>Dữ liệu hồ sơ và thông tin liên quan đến PSID của bạn trong
+                    hệ thống.</li>
+                <li>Nội dung cuộc trò chuyện, data liên quan đến tương tác với
+                    bot/fanpage.</li>
+                <li>Dữ liệu phân tích liên quan đến hành vi của bạn (nếu có)
+                    theo mức khả thi.</li>
+            </ul>
+            <p class="small">Một số dữ liệu có thể được giữ lại ở dạng ẩn danh
+                (anonymized) cho mục đích phân tích chung; hoặc bị giữ theo yêu
+                cầu pháp lý. Nếu có thông tin pháp lý bắt buộc, chúng tôi sẽ
+                thông báo cho bạn.</p>
+
+            <h2>6. Khi nào không thể xóa ngay</h2>
+            <ul>
+                <li>Dữ liệu cần giữ theo quy định pháp luật hoặc yêu cầu bảo
+                    mật.</li>
+                <li>Dữ liệu đã được chuyển đổi thành dạng ẩn danh (không thể
+                    truy ngược về cá nhân).</li>
+            </ul>
+
+            <h2>7. Hướng dẫn dành cho developer / API</h2>
+            <p>Nếu bạn là bên thứ ba cần gửi yêu cầu xóa qua API, vui lòng gửi
+                POST tới endpoint:</p>
+            <pre
+                class="small"><code>POST https://thanhdi.com/api/delete-user-data</code></pre>
+            <p class="small">Body JSON mẫu:</p>
+            <pre class="small"><code>{
+  "psid": "1234567890",
+  "requester_email": "ban@example.com",
+  "reason": "user_requested_deletion"
+}</code></pre>
+            <p class="small">Yêu cầu phải kèm token xác thực (API key) hoặc thực
+                hiện theo phương thức xác thực bạn đã thỏa thuận với đội ngũ
+                TDStudio. Endpoint này sẽ trả về mã 200 khi yêu cầu hợp lệ.</p>
+
+            <h2>8. Liên hệ</h2>
+            <p>Nếu có câu hỏi thêm, liên hệ:</p>
+            <ul>
+                <li>Email hỗ trợ quyền riêng tư: <strong><a
+                            href="mailto:privacy@thanhdi.com">privacy@thanhdi.com</a></strong></li>
+                <li>Chính sách bảo mật: <a
+                        href="/privacy-policy.html">/privacy-policy.html</a>
+                    (nếu bạn có trang này, hãy cập nhật link tương ứng)</li>
+            </ul>
+
+            <footer>
+                <p class="small">Chính sách này áp dụng cho dịch vụ do TDStudio
+                    vận hành. Quy trình được thiết kế để tuân thủ yêu cầu của
+                    nền tảng (Meta) về xóa dữ liệu người dùng. TDStudio cam kết
+                    xử lý yêu cầu nhanh chóng và minh bạch.</p>
+                <p class="small">Cập nhật lần cuối:
+                    <strong><!--#date--></strong></p>
+            </footer>
+        </div>
+    </body>
+</html>
