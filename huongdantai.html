@@ -28,48 +28,59 @@
   }
 
   h1{
-    font-size:22px;
+    font-size:24px;
     margin:0 0 8px;
     text-align:center;
     font-weight:700;
   }
+
   p{
     text-align:center;
-    margin:0 0 16px;
+    margin:0 0 24px;
     color:var(--muted);
   }
 
+  /* CARD GIỮ NGUYÊN – nhưng nút canh full width */
+  .card{
+    background:var(--card);
+    padding:20px;
+    border-radius:20px;
+    box-shadow:0 8px 28px rgba(0,0,0,.45);
+  }
+
   .btn{
-    display:block;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     width:100%;
-    padding:14px;
-    margin-bottom:12px;
+    padding:16px;
+    margin-bottom:14px;
+
     background:var(--accent);
     color:white;
-    text-align:center;
-    text-decoration:none;
     font-weight:700;
-    border-radius:12px;
+    text-decoration:none;
     font-size:16px;
-    box-shadow:0 6px 16px rgba(0,0,0,0.35);
-    transition:.15s;
+
+    border-radius:14px;
+    box-shadow:0 4px 14px rgba(0,0,0,0.3);
+
+    transition:0.15s ease;
+  }
+
+  .btn:last-child{
+    margin-bottom:0;
   }
 
   .btn:hover{
-    opacity:.9;
-    transform:translateY(-2px);
+    opacity:.92;
+    transform:translateY(-1px);
   }
 
   .btn:active{
     transform:scale(.98);
   }
 
-  .card{
-    background:var(--card);
-    padding:16px;
-    border-radius:14px;
-    box-shadow:0 8px 24px rgba(0,0,0,.45);
-  }
 </style>
 </head>
 
@@ -81,7 +92,6 @@
 
   <div class="card">
 
-    <!-- 4 NÚT YOUTUBE – THAY LINK TẠI href -->
     <a class="btn" href="https://youtube.com/shorts/TuIAYZRr6bw" target="_blank">
       Hướng dẫn cài đặt bản Jar
     </a>
