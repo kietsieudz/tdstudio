@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="vi">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Mốc nạp - TDStudio</title>
+
+        <style>
+    :root{
+      --bg:#0a1220;
+      --card:#111a2c;
+      --item-bg:#182233;
+      --item-text:#d5e2f7;
+      --muted:#8ea0b9;
+      --accent:#6b46ff;
+    }
+
+    body{
+      margin:0;background:var(--bg);
+      font-family:Inter,system-ui;color:white;padding:16px;
+    }
+
+    h1{margin:0 0 12px;font-size:22px;font-weight:700}
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:14px;
+    }
+
+    .card{
+      background:var(--card);
+      padding:14px;border-radius:12px;
+      box-shadow:0 6px 16px rgba(0,0,0,.35);
+    }
+
+    .title{font-size:18px;font-weight:700;margin-bottom:10px}
+
+    /* --- ẢNH NHIỀU CÁI --- */
+    .gallery{
+      display:flex;gap:8px;overflow-x:auto;
+      padding-bottom:6px;margin-bottom:12px;
+      scrollbar-width:none;
+    }
+    .gallery::-webkit-scrollbar{display:none}
+
+    .gallery img{
+  width:64px;
+  height:64px;
+  border-radius:10px;
+  background:#1c2533;
+  border:1px solid rgba(255,255,255,0.08);
+  object-fit: contain;     /* ✨ scale đúng tỷ lệ, không méo */
+  object-position: center; /* canh giữa icon */
+  padding:4px;             /* tạo khoảng cách đẹp */
+}
+
+
+    /* --- Items --- */
+    .items{
+      background:rgba(255,255,255,0.05);
+      padding:10px;border-radius:10px;margin-bottom:10px;
+    }
+
+    .item{
+      background:var(--item-bg);color:var(--item-text);
+      padding:8px 10px;border-radius:8px;margin-bottom:6px;
+      font-size:15px;font-weight:600;
+      display:flex;gap:8px;align-items:center;
+    }
+    .item::before{
+      content:"⬥";color:var(--accent);font-size:14px;
+    }
+
+    .desc{
+      font-size:13px;color:var(--muted);line-height:1.4;
+    }
+  </style>
+    </head>
+    <body>
+
+        <h1>🎉 Quà Mốc Nạp (10 mốc)</h1>
+
+        <div class="grid" id="grid"></div>
+
+        <script>
+const data = [
+  {
+    name:"Mốc 1 - 50K",
+    images:[
+      "/images/thoivang.png",
+      "/images/zeno.png"
+    ],
+    items:["10.000 Thỏi vàng","Cải trang zeno +%50 SMTN."],
+    desc:"Cải trang Zeno có 4 bậc, tăng dần chỉ số, nâng ở NPC trong nhà"
+  },
+  {
+    name:"Mốc 2 - 100K",
+    images:[
+      "/images/trung.png"
+    ],
+    items:["Trứng Gohan: nở ra đệ tử tăng 50% chỉ số"],
+    desc:""
+  },
+  {
+    name:"Mốc 3 - 300K",
+    images:[
+      "/images/trung.png"
+    ],
+    items:["Trứng Itachi: nở ra đệ tử tăng 70% chỉ số"],
+    desc:""
+  },
+  {
+    name:"Mốc 4 - 500K",
+    images:[
+      "/images/setthiensu.png"
+    ],
+    items:["Set kích hoạt thiên sứ: là set 5 món được lựa chọn loại kích hoạt"],
+    desc:""
+  },
+  {
+    name:"Mốc 5 - 700K",
+    images:[
+      "/images/trung.png"
+    ],
+    items:["Trứng Omgea: nở ra đệ tử tăng 100% chỉ số"],
+    desc:""
+  },
+  {
+    name:"Mốc 6 - 1Tr",
+    images:[
+      "/images/setthiensu.png","/images/porata5.png"
+    ],
+    items:["Set chí tôn kích hoạt: là set 5 món được lựa chọn loại kích hoạt",
+    "Bông tai Porata cấp 5: +40% chỉ số"],
+    desc:""
+  },
+  {
+    name:"Mốc 7 - 1Tr3",
+    images:[
+      "/images/setthiensu.png"
+    ],
+    items:["Set chí tôn kích hoạt: là set 5 món được lựa chọn loại kích hoạt"],
+    desc:""
+  },
+  {
+    name:"Mốc 8 - 1Tr5",
+    images:[
+      "/images/trungchienthan.png"
+    ],
+    items:["Trứng Chiến Thần: Đệ tử thứ 2 - nuôi được cùng lúc 2 đệ tử - Tăng 101% chỉ số cho sư phụ"],
+    desc:""
+  },
+  {
+    name:"Mốc 9 - 2Tr",
+    images:[
+      "/images/porata6.png"
+    ],
+    items:["Bông tai Porata cấp 6: +50% chỉ số"],
+    desc:""
+  },
+  {
+    name:"Mốc 10 - 3Tr",
+    images:[
+      "/images/14444.png","/images/14445.png","/images/14446.png","/images/14447.png"
+    ],
+    items:["1 Cốt chí tôn tự chọn - ép vào trang bị sẽ tăng chỉ số cực mạnh"],
+    desc:""
+  }
+
+  /* ... thêm đủ 10 mốc như bạn muốn ... */
+];
+
+const grid = document.getElementById("grid");
+
+data.forEach(m => {
+  const card = document.createElement("div");
+  card.className = "card";
+
+  let galleryHTML = "";
+  m.images.forEach(src=>{
+    galleryHTML += `<img src="${src}" alt="gift">`;
+  });
+
+  let itemsHTML = "";
+  m.items.forEach(i=>{
+    itemsHTML += `<div class="item">${i}</div>`;
+  });
+
+  card.innerHTML = `
+    <div class="title">${m.name}</div>
+
+    <div class="gallery">
+      ${galleryHTML}
+    </div>
+
+    <div class="items">
+      ${itemsHTML}
+    </div>
+
+    <div class="desc">${m.desc}</div>
+  `;
+
+  grid.appendChild(card);
+});
+</script>
+
+    </body>
+</html>

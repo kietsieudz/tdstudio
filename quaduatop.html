@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="vi">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Đua Top Nạp Tháng | TDStudio</title>
+
+        <style>
+    :root{
+      --bg:#0a1220;
+      --card:#111a2c;
+      --muted:#8ea0b9;
+      --accent:#6b46ff;
+      --gold:#f6d061;
+      --silver:#cfd6e6;
+      --bronze:#cd9368;
+    }
+    body{
+      margin:0;background:var(--bg);
+      font-family:Inter,system-ui;color:white;
+      padding:16px;
+    }
+
+    .wrap{max-width:880px;margin:0 auto}
+
+    h1{font-size:24px;margin-bottom:8px}
+    p.lead{color:var(--muted);margin-top:0}
+
+    .card{
+      background:var(--card);
+      padding:16px;
+      border-radius:12px;
+      margin-bottom:14px;
+      box-shadow:0 6px 18px rgba(0,0,0,.35);
+    }
+
+    /* Top thưởng */
+    .ranking{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .rank-box{
+      flex:1 1 260px;
+      background:rgba(255,255,255,0.04);
+      border-radius:12px;
+      padding:16px;
+      text-align:center;
+      border:1px solid rgba(255,255,255,0.05);
+    }
+
+    .rank-title{
+      font-size:18px;font-weight:700;margin-bottom:6px;
+    }
+    .rank-1 .rank-title{color:var(--gold)}
+    .rank-2 .rank-title{color:var(--silver)}
+    .rank-3 .rank-title{color:var(--bronze)}
+
+    .reward{
+      font-size:15px;
+      font-weight:600;
+      padding:8px 10px;
+      background:rgba(255,255,255,0.05);
+      border-radius:8px;
+      margin-top:10px;
+      line-height:1.5;
+    }
+
+    .rules{
+      margin:0;
+      padding-left:20px;
+      line-height:1.55;
+    }
+
+    .muted{
+      font-size:13px;
+      color:var(--muted);
+      margin-top:8px;
+    }
+
+    /* thông báo xem BXH trong game */
+    .ingame-box{
+      padding:14px;
+      border-radius:12px;
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.05);
+      font-size:15px;
+      line-height:1.5;
+      text-align:center;
+    }
+
+    @media(max-width:640px){
+      .rank-box{flex:1 1 100%}
+      h1{font-size:22px}
+    }
+  </style>
+    </head>
+
+    <body>
+        <div class="wrap">
+
+            <h1>🔥 ĐUA TOP NẠP THÁNG</h1>
+            <p class="lead">Mỗi tháng tổng kết top nạp 1 lần. Phần thưởng cực
+                VIP dành cho top 1–2-3.</p>
+            <!-- PHẦN THƯỞNG -->
+            <div class="card">
+                <h2>🎁 Phần Thưởng</h2>
+
+                <div class="ranking">
+                    <div class="rank-box rank-1">
+                        <div class="rank-title">TOP 1</div>
+                        <div class="reward">
+                            Nhận <strong>2 trang bị Vampa VIP</strong><br>
+                            (Là trang bị VIP nhất game, Full max: tất cả mọi thứ
+                            đã nâng sẵn, chỉ mang về
+                            dùng, không cần làm gì thêm)
+                        </div>
+                    </div>
+
+                    <div class="rank-box rank-2">
+                        <div class="rank-title">TOP 2</div>
+                        <div class="reward">
+                            Nhận <strong>1 trang bị Vampa VIP</strong><br>
+                            (Là trang bị VIP nhất game, Full max: tất cả mọi thứ
+                            đã nâng sẵn, chỉ mang về
+                            dùng, không cần làm gì thêm)
+                        </div>
+                    </div>
+
+                    <div class="rank-box rank-3">
+                        <div class="rank-title">TOP 3</div>
+                        <div class="reward">
+                            Nhận <strong>500.000 Hồng Ngọc</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- THỂ LỆ -->
+            <div class="card">
+                <h2>📜 Thể lệ đua top</h2>
+
+                <ol class="rules">
+                    <li>Sự kiện diễn ra xuyên suốt 30 ngày trong tháng.</li>
+                    <li>Ngày cuối tháng vào lúc 23:59:59 sẽ tự động chốt bảng
+                        xếp hạng trong
+                        game.</li>
+                    <li>Phần thưởng sẽ được gửi tại NPC trong nhà của bạn, chốt
+                        xong vào game tự bấm nhận là được.</li>
+                    <li>Xếp hạng cập nhật realtime trong game, không hiển thị
+                        trên web.</li>
+                    <li>Lưu ý: duyệt nạp 60 giây 1 lần nên canh thời gian để hạ
+                        đo ván đối thủ nhé.</li>
+                </ol>
+
+                <div class="muted">TDStudio đảm bảo tính minh bạch và công bằng
+                    cho toàn bộ người chơi.</div>
+            </div>
+
+            <!-- THÔNG BÁO XEM BXH TRONG GAME -->
+            <div class="card">
+                <h2>🏆 Xem bảng xếp hạng</h2>
+
+                <div class="ingame-box">
+                    Bảng xếp hạng nạp tháng được hiển thị trực tiếp
+                    <strong>trong game tại NPC DaiShinKan</strong>.<br>
+                    Vui lòng vào game <strong>Để Xem Top Nạp Trực Tiếp</strong>
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>
