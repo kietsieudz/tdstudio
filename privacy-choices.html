@@ -57,6 +57,9 @@
       .f-link:hover{background:color-mix(in oklab,var(--primary-500) 15%, var(--surface))}
       .note{font-size:.95rem;color:var(--fg-subtle);margin-top:.6rem}
       code{background:rgba(255,255,255,0.03);padding:.15rem .35rem;border-radius:6px}
+      @media (prefers-color-scheme: light){
+        :root{ --bg:#fff7ed; --surface:#fff; --fg:#111827; --fg-subtle:#6b7280 }
+      }
     </style>
   </head>
 
@@ -66,7 +69,7 @@
         <img src="images/logo.png" alt="TDStudio Logo" class="logo" />
         <div>
           <h1>Tuỳ chọn quyền riêng tư</h1>
-          <p class="updated">Cập nhật: 06/11/2025 — Các tuỳ chọn kiểm soát dữ liệu & tài khoản.</p>
+          <p class="updated">Cập nhật: <span id="updatedDate"></span> — Các tuỳ chọn kiểm soát dữ liệu &amp; tài khoản.</p>
         </div>
       </header>
 
@@ -79,7 +82,7 @@
         <section>
           <h2>Cách gửi yêu cầu</h2>
           <ul>
-            <li><strong>Email:</strong> gửi yêu cầu tới <a href="mailto:admin@thanhdi.com">admin@thanhdi.com</a> với tiêu đề <code>Yêu cầu quyền riêng tư / Privacy Request</code>. </li>
+            <li><strong>Email:</strong> gửi yêu cầu tới <a href="mailto:admin@thanhdi.com">admin@thanhdi.com</a> với tiêu đề <code>Yêu cầu quyền riêng tư / Privacy Request</code>.</li>
             <li><strong>Form hỗ trợ:</strong> truy cập <a href="https://thanhdi.com/contact.html" rel="noopener">https://thanhdi.com/contact.html</a> và chọn chủ đề "Quyền riêng tư" hoặc "Privacy".</li>
             <li><strong>Nội dung cần kèm:</strong> tên đăng nhập (hoặc ID tài khoản nếu có), mô tả ngắn gọn (ví dụ: "xoá tài khoản", "xoá dữ liệu gameplay"), và email hoặc bằng chứng sở hữu tài khoản để xác minh.</li>
           </ul>
@@ -101,7 +104,7 @@
           <p>Loại dữ liệu có thể liên quan tới yêu cầu của bạn (nếu tồn tại trên hệ thống của chúng tôi):</p>
           <ul>
             <li>ID người chơi / tên đăng nhập</li>
-            <liThông tin cấu hình tài khoản (không bao gồm thông tin cá nhân như email nếu chúng tôi không lưu)></li>
+            <li>Thông tin cấu hình tài khoản (không bao gồm thông tin cá nhân như email nếu chúng tôi không lưu)</li>
             <li>Nhật ký kỹ thuật hoặc mã lỗi liên quan (dùng để chẩn đoán — thường ở dạng ẩn danh)</li>
           </ul>
           <p class="note">Nếu ứng dụng hiện tại không lưu trữ dữ liệu cá nhân thì yêu cầu của bạn sẽ được phản hồi là không có dữ liệu để xoá.</p>
@@ -145,7 +148,11 @@
     </div>
 
     <script>
-      document.getElementById('y').textContent = new Date().getFullYear();
+      // Hiển thị ngày cập nhật tự động theo định dạng DD/MM/YYYY (locale 'vi-VN')
+      const now = new Date();
+      document.getElementById('updatedDate').textContent = now.toLocaleDateString('vi-VN');
+      // Năm ở footer
+      document.getElementById('y').textContent = now.getFullYear();
     </script>
   </body>
 </html>
