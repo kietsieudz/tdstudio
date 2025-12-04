@@ -8,7 +8,6 @@
 <style>
   :root{
     --bg:#0a1220;
-    --card:#111a2c;
     --accent:#6b46ff;
     --muted:#9aa4b2;
   }
@@ -18,13 +17,13 @@
     background:var(--bg);
     font-family:Inter,system-ui,Segoe UI,Roboto;
     color:white;
-    padding:20px;
+    padding:20px 16px; /* padding nhỏ, không gây tràn */
     -webkit-font-smoothing:antialiased;
   }
 
   .wrap{
     max-width:480px;
-    margin:0 auto;
+    margin:0 auto; /* căn giữa tuyệt đối */
   }
 
   h1{
@@ -38,33 +37,27 @@
     text-align:center;
     margin:0 0 24px;
     color:var(--muted);
+    font-size:15px;
   }
 
-  /* CARD GIỮ NGUYÊN – nhưng nút canh full width */
-  .card{
-    background:var(--card);
-    padding:20px;
-    border-radius:20px;
-    box-shadow:0 8px 28px rgba(0,0,0,.45);
-  }
-
+  /* NÚT FULL WIDTH – KHÔNG LỆCH */
   .btn{
     display:flex;
     align-items:center;
     justify-content:center;
     width:100%;
+
     padding:16px;
     margin-bottom:14px;
 
     background:var(--accent);
     color:white;
+    border-radius:14px;
     font-weight:700;
     text-decoration:none;
     font-size:16px;
 
-    border-radius:14px;
-    box-shadow:0 4px 14px rgba(0,0,0,0.3);
-
+    box-sizing:border-box;
     transition:0.15s ease;
   }
 
@@ -72,15 +65,9 @@
     margin-bottom:0;
   }
 
-  .btn:hover{
-    opacity:.92;
-    transform:translateY(-1px);
-  }
-
   .btn:active{
-    transform:scale(.98);
+    transform:scale(.97);
   }
-
 </style>
 </head>
 
@@ -90,25 +77,22 @@
   <h1>Hướng Dẫn Cài Đặt</h1>
   <p>Chọn loại thiết bị bạn muốn xem video hướng dẫn trên YouTube.</p>
 
-  <div class="card">
+  <!-- 4 NÚT THẲNG HÀNG, KHÔNG BỊ LỆCH -->
+  <a class="btn" href="https://youtube.com/shorts/TuIAYZRr6bw" target="_blank">
+    Hướng dẫn cài đặt bản Jar
+  </a>
 
-    <a class="btn" href="https://youtube.com/shorts/TuIAYZRr6bw" target="_blank">
-      Hướng dẫn cài đặt bản Jar
-    </a>
+  <a class="btn" href="#" target="_blank">
+    Hướng dẫn cài đặt bản PC
+  </a>
 
-    <a class="btn" href="#" target="_blank">
-      Hướng dẫn cài đặt bản PC
-    </a>
+  <a class="btn" href="https://youtube.com/shorts/zTtoxYDWr6Y" target="_blank">
+    Hướng dẫn cài đặt bản iPhone
+  </a>
 
-    <a class="btn" href="https://youtube.com/shorts/zTtoxYDWr6Y" target="_blank">
-      Hướng dẫn cài đặt bản iPhone
-    </a>
-
-    <a class="btn" href="https://youtube.com/shorts/X0-0zOu9EFc" target="_blank">
-      Hướng dẫn cài đặt bản Android
-    </a>
-
-  </div>
+  <a class="btn" href="https://youtube.com/shorts/X0-0zOu9EFc" target="_blank">
+    Hướng dẫn cài đặt bản Android
+  </a>
 
 </div>
 </body>
