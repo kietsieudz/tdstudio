@@ -69,7 +69,8 @@
         <img src="images/logo.png" alt="TDStudio Logo" class="logo" />
         <div>
           <h1>Chính sách quyền riêng tư</h1>
-          <p class="updated">Cập nhật: 06/11/2025 — Chính sách quyền riêng tư cho TDStudio.</p>
+          <!-- updatedDate sẽ được tự động gán bằng JS -->
+          <p class="updated">Cập nhật: <span id="updatedDate"></span> — Chính sách quyền riêng tư cho TDStudio.</p>
         </div>
       </header>
 
@@ -127,7 +128,12 @@
     </div>
 
     <script>
-      document.getElementById('y').textContent = new Date().getFullYear();
+      // Hiển thị ngày cập nhật tự động theo định dạng DD/MM/YYYY (locale 'vi-VN')
+      const now = new Date();
+      const updatedDate = now.toLocaleDateString('vi-VN');
+      document.getElementById('updatedDate').textContent = updatedDate;
+      // Năm ở footer
+      document.getElementById('y').textContent = now.getFullYear();
     </script>
   </body>
 </html>
