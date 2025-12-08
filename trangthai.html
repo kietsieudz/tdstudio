@@ -3,10 +3,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Thông báo tình trạng server</title>
+        <title>Hướng dẫn & cảnh báo server</title>
 
         <style>
-/* ===== RESET ===== */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -14,32 +13,59 @@
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-/* ===== BODY ===== */
 body {
     background: #f9fafb;
     color: #111827;
     padding: 16px;
 }
 
-/* ===== CONTAINER ===== */
 .container {
     max-width: 520px;
     margin: auto;
 }
 
-/* ===== HEADER ===== */
-h1 {
+/* ===== TITLE EFFECT (BLACK - YELLOW - RED) ===== */
+.title-anim {
     font-size: 22px;
-    font-weight: 700;
+    font-weight: 800;
     text-align: center;
     margin-bottom: 6px;
+    background: linear-gradient(
+        90deg,
+        #111827,
+        #facc15,
+        #dc2626,
+        #facc15,
+        #111827
+    );
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: titleFlow 4s linear infinite;
 }
 
 .subtitle {
     text-align: center;
     font-size: 13px;
-    color: #6b7280;
+    font-weight: 600;
     margin-bottom: 16px;
+    background: linear-gradient(
+        90deg,
+        #111827,
+        #facc15,
+        #dc2626,
+        #facc15,
+        #111827
+    );
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: titleFlow 5s linear infinite;
+}
+
+@keyframes titleFlow {
+    0%   { background-position: 0% 50%; }
+    100% { background-position: 300% 50%; }
 }
 
 /* ===== NOTICE BASE ===== */
@@ -51,89 +77,85 @@ h1 {
     background: #ffffff;
 }
 
+.notice.toggle {
+    cursor: pointer;
+}
+
 .notice-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
     gap: 8px;
 }
 
+/* ===== NOTICE TITLE EFFECT ===== */
 .notice-title {
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 700;
+    background: linear-gradient(
+        90deg,
+        #111827,
+        #facc15,
+        #dc2626,
+        #facc15,
+        #111827
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: titleFlow 6s linear infinite;
 }
 
 /* ===== BADGE ===== */
 .badge {
     font-size: 11px;
-    font-weight: 600;
+    font-weight: 700;
     padding: 4px 10px;
     border-radius: 999px;
     white-space: nowrap;
 }
 
-.info {
-    background: #e0f2fe;
-    color: #075985;
-}
-
-.warning {
-    background: #fef3c7;
-    color: #92400e;
-}
-
-.error {
-    background: #fee2e2;
-    color: #991b1b;
-}
-
-.ok {
-    background: #dcfce7;
-    color: #166534;
-}
+.warning { background: #fef3c7; color: #92400e; }
+.error   { background: #fee2e2; color: #991b1b; }
 
 /* ===== CONTENT ===== */
-.notice-content p {
+.notice-content {
     font-size: 14px;
     color: #374151;
     line-height: 1.5;
+    margin-top: 10px;
+}
+
+.notice-content p {
     margin-bottom: 8px;
 }
 
-.notice-content p:last-child {
-    margin-bottom: 0;
+/* ===== COLLAPSE ===== */
+.notice.toggle .notice-content {
+    display: none;
+}
+.notice.toggle.open .notice-content {
+    display: block;
 }
 
-.notice-time {
-    font-size: 11px;
-    color: #9ca3af;
-    text-align: right;
-    margin-top: 8px;
-}
-
-/* ===== ALERT EFFECT (RAINBOW BORDER) ===== */
-.notice-alert {
+/* ===== ALERT (HOT) BORDER EFFECT ===== */
+.notice.alert {
     position: relative;
     border: 2px solid transparent;
-
     background:
         linear-gradient(#ffffff, #ffffff) padding-box,
         linear-gradient(
             120deg,
-            #ff0000,
-            #ff9f00,
-            #ffee00,
-            #00ff6a,
-            #00c3ff,
-            #8b5cf6,
-            #ff0000
+            #111827,
+            #facc15,
+            #dc2626,
+            #facc15,
+            #111827
         ) border-box;
-
     background-size: 200% 200%;
     animation:
         borderFlow 4s linear infinite,
-        glowPulse 2.5s ease-in-out infinite;
+        alertGlow 2.5s ease-in-out infinite;
 }
 
 @keyframes borderFlow {
@@ -141,13 +163,12 @@ h1 {
     100% { background-position: 200% 50%; }
 }
 
-@keyframes glowPulse {
-    0%   { box-shadow: 0 0 10px rgba(255,0,0,0.25); }
-    50%  { box-shadow: 0 0 24px rgba(99,102,241,0.45); }
-    100% { box-shadow: 0 0 10px rgba(255,0,0,0.25); }
+@keyframes alertGlow {
+    0%   { box-shadow: 0 0 8px rgba(220,38,38,0.25); }
+    50%  { box-shadow: 0 0 20px rgba(250,204,21,0.45); }
+    100% { box-shadow: 0 0 8px rgba(220,38,38,0.25); }
 }
 
-/* ===== FOOTER ===== */
 footer {
     margin-top: 20px;
     font-size: 11px;
@@ -160,68 +181,47 @@ footer {
     <body>
         <div class="container">
 
-            <h1>Thông báo server</h1>
-            <div class="subtitle">
-                Cập nhật các vấn đề đang ảnh hưởng đến hệ thống
-            </div>
+            <div class="title-anim">Hướng dẫn & cảnh báo</div>
+            <div class="subtitle">Server bảo trì hàng ngày lúc 06:00 sáng</div>
 
-            <!-- ===== NOTICE CẢNH BÁO (CÓ HIỆU ỨNG) ===== -->
-            <div class="notice notice-alert">
+            <!-- ===== ALERT / HOT ISSUE ===== -->
+            <div class="notice alert">
                 <div class="notice-header">
                     <div class="notice-title">Sự cố ngắt kết nối người
                         chơi</div>
-                    <div class="badge error">18:00 12/08/2025</div>
+                    <div class="badge error">HOT - ĐANG XẢY RA</div>
                 </div>
 
                 <div class="notice-content">
                     <p>
                         Nhà cung cấp hiện đang bật chế độ chống DDoS quá nhạy,
                         khiến hệ thống hiểu nhầm một số người chơi hợp lệ là tấn
-                        công,
-                        dẫn đến bị ngắt kết nối đột ngột.
+                        công, dẫn đến bị ngắt kết nối đột ngột.
                     </p>
-
                     <p>
                         Đội ngũ kỹ thuật đang làm việc trực tiếp với nhà cung
-                        cấp
-                        để kiểm tra và điều chỉnh lại cấu hình,
-                        nhằm hạn chế ảnh hưởng đến người chơi trong thời gian
-                        sớm nhất.
+                        cấp để kiểm tra và điều chỉnh lại cấu hình, nhằm hạn chế
+                        ảnh hưởng đến người chơi trong thời gian sớm nhất.
                     </p>
-
                     <p>
                         Mong mọi người thông cảm và hỗ trợ giải thích cho các
-                        người chơi khác
-                        để tránh những hiểu lầm không đáng có.
+                        người chơi khác để tránh những hiểu lầm không đáng có.
                     </p>
                 </div>
             </div>
-            <div class="notice notice-alert">
-                <div class="notice-header">
-                    <div class="notice-title">Bảo Trì Hàng Ngày Vào 6:00
-                        Sáng</div>
-                    <div class="badge error">BẢO TRÌ</div>
-                </div>
 
-                <div class="notice-content">
-                    <p>
-                        Thời gian diễn ra bảo trì hàng ngày chỉ 60 giây
-                    </p>
-                </div>
-            </div>
-            <!-- ===== NOTICE THƯỜNG ===== -->
-            <div class="notice">
+            <!-- ===== NORMAL NOTICE ===== -->
+            <div class="notice toggle">
                 <div class="notice-header">
                     <div class="notice-title">Lỗi không tải được game</div>
-                    <div class="badge warning">HƯỚNG DẪN</div>
+                    <div class="badge warning">XEM</div>
                 </div>
 
                 <div class="notice-content">
                     <p>
-                        Bạn phải <b>copy link</b> trang chủ ra <b>Chrome</b>
-                        hoặc
-                        <b>Safari</b>
-                        có thể tải được game.
+                        Hãy copy link trang chủ và mở bằng
+                        <b>Chrome</b> hoặc <b>Safari</b> để có thể tải được
+                        game.
                     </p>
                     <p>
                         Bấm trực tiếp vào link ở Zalo, Messenger, Facebook,..sẽ
@@ -230,47 +230,101 @@ footer {
                 </div>
             </div>
 
-            <div class="notice">
+            <div class="notice toggle">
                 <div class="notice-header">
                     <div class="notice-title">Lỗi không vào được game</div>
-                    <div class="badge warning">HƯỚNG DẪN</div>
+                    <div class="badge warning">XEM</div>
                 </div>
 
                 <div class="notice-content">
                     <p>
-                        Bạn phải <b>copy link</b> trang chủ ra <b>Chrome</b>
-                        hoặc
-                        <b>Safari</b> mới
-                        có thể đăng ký được tài khoản.
+                        Hãy copy link trang chủ và mở bằng
+                        <b>Chrome</b> hoặc <b>Safari</b> để có thể đăng ký được
+                        tài khoản.
                     </p>
                     <p>
                         Khi vào game cần <b>xóa dữ liệu</b> lần đầu ở chỗ đăng
                         nhập
-                        (tránh lỗi nhòe màn hình,..). Cần đăng nhập vào đúng
-                        server đã đăng ký. Muốn chơi server nào cần đăng ký
-                        server đó.
+                        (tránh lỗi nhòe màn hình,..).
+                    </p>
+                    <p>
+                        Đảm bảo đăng nhập đúng server đã đăng ký.
+                    </p>
+                </div>
+            </div>
+
+            <div class="notice toggle">
+                <div class="notice-header">
+                    <div class="notice-title">Lỗi mất hình ảnh, nhòe màn
+                        hình</div>
+                    <div class="badge warning">XEM</div>
+                </div>
+
+                <div class="notice-content">
+                    <p>
+                        Khi gặp tình trạng mất hình ảnh, nhòe màn hình,..
+                    </p>
+                    <p>
+                        Có
+                        nghĩa Server vừa cập nhật dữ liệu mới (máy của bạn chưa
+                        có, cần tải mới)
+                    </p>
+                    <p>
+                        Hãy quay lại chỗ đăng nhập khi vừa mới mở game lên
+                    </p>
+                    <p>
+                        Bấm vào nút Xóa dữ liệu ở góc dưới bên phải của game để
+                        <b>xóa dữ liệu</b> cũ tải dữ liệu mới.
+                    </p>
+                    <p>
+                        Sẽ cập nhật được hình ảnh mới, hết nhòe.
+                    </p>
+                </div>
+            </div>
+
+            <div class="notice toggle">
+                <div class="notice-header">
+                    <div class="notice-title">Gặp các lỗi khác</div>
+                    <div class="badge warning">XEM</div>
+                </div>
+
+                <div class="notice-content">
+                    <p>
+                        Hãy liên hệ tại Fanpage 1: <a
+                            href="https://www.facebook.com/tdstudiogame"
+                            target="_blank">TDStudio</a>
+                    </p>
+                    <p>
+                        Hãy liên hệ tại Fanpage 2: <a
+                            href="https://www.facebook.com/ngaidinro"
+                            target="_blank">TDStudio
+                            - Game Mobile</a>
+                    </p>
+                    <p>
+                        Hãy liên hệ tại Zalo: <a
+                            href="https://zalo.me/0345463318"
+                            target="_blank">TDStudio</a>
+                    </p>
+                    <p>
+                        Hãy liên hệ tại Telegram: <a
+                            href="https://t.me/kietsieudz"
+                            target="_blank">TDStudio</a>
                     </p>
                 </div>
             </div>
             <footer>
-                <div style="margin-bottom:8px;">
-                    <strong>Server game</strong><br>
-                    Hệ thống máy chủ do TDStudio vận hành
-                </div>
-
-                <div style="margin-bottom:8px;">
-                    <strong>Liên hệ</strong><br>
-                    Fanpage: <a
-                        href="https://www.facebook.com/tdstudiogame">TDStudio</a><br>
-                    Email: support@thanhdi.games
-                </div>
-
-                <div style="opacity:0.7;">
-                    © TDStudio – Trang thông báo chính thức
-                </div>
-                <br>
+                © TDStudio – Trang thông báo chính thức
             </footer>
 
         </div>
+
+        <script>
+document.querySelectorAll('.notice.toggle').forEach(n => {
+    n.addEventListener('click', () => {
+        n.classList.toggle('open');
+    });
+});
+</script>
+
     </body>
 </html>
