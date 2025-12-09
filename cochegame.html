@@ -24,52 +24,128 @@
         margin: auto;
     }
 
-    h1 {
-        text-align: center;
+    /* ===== TITLE EFFECT (BLACK - YELLOW - RED) ===== */
+    .title-anim {
         font-size: 22px;
+        font-weight: 800;
+        text-align: center;
         margin-bottom: 6px;
-        font-weight: 700;
+        background: linear-gradient(
+            90deg,
+            #111827,
+            #facc15,
+            #dc2626,
+            #facc15,
+            #111827
+        );
+        background-size: 300% 100%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: titleFlow 4s linear infinite;
     }
 
     .subtitle {
         text-align: center;
-        font-size: 14px;
-        color: #6b7280;
+        font-size: 13px;
+        font-weight: 600;
         margin-bottom: 20px;
+        background: linear-gradient(
+            90deg,
+            #111827,
+            #facc15,
+            #dc2626,
+            #facc15,
+            #111827
+        );
+        background-size: 300% 100%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: titleFlow 5s linear infinite;
     }
 
+    @keyframes titleFlow {
+        0%   { background-position:   0% 50%; }
+        100% { background-position: 300% 50%; }
+    }
+
+    /* ===== CARD / BUTTON (HIỆU ỨNG GIỐNG NOTICE) ===== */
     .btn {
         display: block;
-        background: #ffffff;
-        border-radius: 14px;
-        padding: 16px 14px;
+        position: relative;
         margin-bottom: 12px;
         text-decoration: none;
-        border: 1px solid #e5e7eb;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        transition: transform 0.1s ease, box-shadow 0.1s ease;
+        border-radius: 14px;
+        padding: 1px; /* để làm viền gradient */
+        background:
+            linear-gradient(#ffffff, #ffffff) padding-box,
+            linear-gradient(
+                120deg,
+                #111827,
+                #facc15,
+                #dc2626,
+                #facc15,
+                #111827
+            ) border-box;
+        border: 2px solid transparent;
+        background-size: 220% 220%;
+        animation: borderFlow 6s linear infinite;
+        transition:
+            transform 0.1s ease,
+            box-shadow 0.2s ease;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .btn-inner {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 14px 14px 16px 14px;
     }
 
     .btn:active {
         transform: scale(0.98);
-        box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+        box-shadow: 0 2px 6px rgba(0,0,0,0.08);
     }
 
+    .btn:hover {
+        box-shadow: 0 0 16px rgba(250,204,21,0.45);
+    }
+
+    @keyframes borderFlow {
+        0%   { background-position:   0% 50%; }
+        100% { background-position: 220% 50%; }
+    }
+
+    /* ===== TAG ===== */
     .tag {
         display: inline-block;
         font-size: 11px;
-        padding: 3px 8px;
+        padding: 3px 10px;
         border-radius: 999px;
-        background: #e0e7ff;
-        color: #3730a3;
+        background: #fef3c7;
+        color: #92400e;
         margin-bottom: 6px;
-        font-weight: 600;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
     }
 
+    /* ===== TITLE TRONG THẺ (DÙNG GRADIENT NHƯ NOTICE-TITLE) ===== */
     .title {
         font-size: 16px;
-        font-weight: 600;
+        font-weight: 700;
         margin-bottom: 4px;
+        background: linear-gradient(
+            90deg,
+            #111827,
+            #facc15,
+            #dc2626,
+            #facc15,
+            #111827
+        );
+        background-size: 200% 100%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: titleFlow 6s linear infinite;
     }
 
     .desc {
@@ -89,34 +165,42 @@
 
     <body>
         <div class="container">
-            <h1>Hướng dẫn chơi game</h1>
+            <div class="title-anim">Hướng dẫn chơi game</div>
             <div class="subtitle">Chọn nội dung bạn muốn tìm hiểu</div>
 
             <a class="btn" href="/cochegame/coban.html">
-                <div class="tag">GIỚI THIỆU</div>
-                <div class="title">Giới thiệu sơ lược máy chủ</div>
-                <div class="desc">Một vài lưu ý.</div>
+                <div class="btn-inner">
+                    <div class="tag">GIỚI THIỆU</div>
+                    <div class="title">Giới thiệu sơ lược máy chủ</div>
+                    <div class="desc">Một vài lưu ý.</div>
+                </div>
             </a>
 
             <a class="btn" href="/cochegame/newbie.html">
-                <div class="tag">CƠ BẢN</div>
-                <div class="title">Người chơi mới</div>
-                <div class="desc">Hướng dẫn tổng quan cho người mới bắt
-                    đầu.</div>
+                <div class="btn-inner">
+                    <div class="tag">CƠ BẢN</div>
+                    <div class="title">Người chơi mới</div>
+                    <div class="desc">Hướng dẫn tổng quan cho người mới bắt
+                        đầu.</div>
+                </div>
             </a>
 
             <a class="btn" href="/cochegame/equipment.html">
-                <div class="tag">TRANG BỊ</div>
-                <div class="title">Trang bị</div>
-                <div class="desc">Vũ khí, áo giáp, phụ kiện, cường hóa và nâng
-                    cấp.</div>
+                <div class="btn-inner">
+                    <div class="tag">TRANG BỊ</div>
+                    <div class="title">Trang bị</div>
+                    <div class="desc">Vũ khí, áo giáp, phụ kiện, cường hóa và
+                        nâng cấp.</div>
+                </div>
             </a>
 
             <a class="btn" href="/cochegame/quests.html">
-                <div class="tag">NHIỆM VỤ</div>
-                <div class="title">Nhiệm vụ</div>
-                <div class="desc">Nhiệm vụ chính – phụ, hướng dẫn hoàn thành và
-                    phần thưởng.</div>
+                <div class="btn-inner">
+                    <div class="tag">NHIỆM VỤ</div>
+                    <div class="title">Nhiệm vụ</div>
+                    <div class="desc">Nhiệm vụ chính – phụ, hướng dẫn hoàn thành
+                        và phần thưởng.</div>
+                </div>
             </a>
 
             <footer>

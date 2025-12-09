@@ -3,141 +3,187 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Hướng dẫn Nhiệm vụ người chơi mới</title>
+        <title>Hướng dẫn nhiệm vụ người chơi mới</title>
 
         <style>
-    * {
+      * {
         box-sizing: border-box;
         font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         margin: 0;
         padding: 0;
-    }
+      }
 
-    body {
+      body {
         background: #f9fafb;
         color: #111827;
         padding: 16px;
         line-height: 1.6;
-    }
+      }
 
-    .container {
+      .container {
         max-width: 520px;
         margin: auto;
-    }
+      }
 
-    h1 {
+      /* ===== TITLE EFFECT ===== */
+      .title-anim {
         font-size: 22px;
-        font-weight: 700;
+        font-weight: 800;
+        text-align: center;
         margin-bottom: 6px;
-        text-align: center;
-    }
+        background: linear-gradient(
+          90deg,
+          #111827,
+          #facc15,
+          #dc2626,
+          #facc15,
+          #111827
+        );
+        background-size: 300% 100%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: titleFlow 4s linear infinite;
+      }
 
-    .subtitle {
+      .subtitle {
         text-align: center;
-        font-size: 14px;
-        color: #6b7280;
+        font-size: 13px;
+        font-weight: 600;
         margin-bottom: 18px;
-    }
+        background: linear-gradient(
+          90deg,
+          #111827,
+          #facc15,
+          #dc2626,
+          #facc15,
+          #111827
+        );
+        background-size: 300% 100%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: titleFlow 5s linear infinite;
+      }
 
-    .section {
+      @keyframes titleFlow {
+        0%   { background-position: 0% 50%; }
+        100% { background-position: 300% 50%; }
+      }
+
+      /* ===== NOTICE BLOCK ===== */
+      .notice {
         background: #ffffff;
         border-radius: 14px;
         padding: 16px;
         margin-bottom: 14px;
         border: 1px solid #e5e7eb;
-    }
+      }
 
-    .section h2 {
+      .notice-title {
         font-size: 16px;
-        margin-bottom: 8px;
-        font-weight: 600;
-    }
+        font-weight: 700;
+        margin-bottom: 6px;
+        background: linear-gradient(
+          90deg,
+          #111827,
+          #facc15,
+          #dc2626,
+          #facc15,
+          #111827
+        );
+        background-size: 200% 100%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: titleFlow 6s linear infinite;
+      }
 
-    .section p {
+      .notice-content {
         font-size: 14px;
         color: #374151;
-        margin-bottom: 6px;
-    }
+      }
 
-    .note {
-        background: #eff6ff;
-        border-left: 4px solid #3b82f6;
-        padding: 10px 12px;
-        border-radius: 10px;
-        font-size: 13px;
-        color: #1e3a8a;
-        margin-top: 10px;
-    }
-
-    ul {
+      ul {
         padding-left: 18px;
         margin-top: 6px;
-    }
+      }
 
-    li {
+      li {
         font-size: 14px;
         margin-bottom: 6px;
         color: #374151;
-    }
+      }
 
-    footer {
+      footer {
         margin-top: 20px;
         text-align: center;
         font-size: 11px;
         color: #9ca3af;
-    }
-</style>
+      }
+    </style>
     </head>
 
     <body>
         <div class="container">
 
-            <h1>Hướng dẫn nhiệm vụ người chơi mới</h1>
+            <div class="title-anim">Hướng dẫn nhiệm vụ người chơi mới</div>
             <div class="subtitle">Dành cho người lần đầu tham gia game</div>
 
-            <div class="section">
-                <h2>1. Hệ thống nhiệm vụ chính - 36 nhiệm vụ</h2>
-                <ul>
-                    <li>Hệ thống nhiệm vụ khác biệt, gồm 36 nhiệm vụ</li>
-                    <li>Các boss nhiệm vụ từ Tiểu đội sát thủ đến Xên thị trấn
-                        Ginder sẽ được giới hạn sát thương lại (Để hỗ trợ người
-                        chơi mới không bị phá quá nhiều)</li>
-                    <li>Khung giờ hỗ trợ nhiệm vụ (từ 9->11h sáng, 15->17h
-                        chiều, 21-23h tối) diễn ra hàng ngày. Chỉ những người
-                        làm nhiệm vụ đó mới vào được khu có boss nhiệm vụ</li>
-                </ul>
+            <div class="notice">
+                <div class="notice-title">1. Hệ thống nhiệm vụ chính – 36 nhiệm
+                    vụ</div>
+                <div class="notice-content">
+                    <ul>
+                        <li>Hệ thống nhiệm vụ riêng biệt gồm 36 nhiệm vụ.</li>
+                        <li>Các boss nhiệm vụ từ Tiểu đội sát thủ đến Xên thị
+                            trấn Ginder
+                            được giới hạn sát thương để hỗ trợ người chơi
+                            mới.</li>
+                        <li>Khung giờ hỗ trợ nhiệm vụ: 09–11h, 15–17h, 21–23h
+                            mỗi ngày.
+                            Chỉ người làm nhiệm vụ mới vào được khu vực
+                            boss.</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="section">
-                <h2>2. Nhiệm vụ tân thủ - Chia sẻ bài viết</h2>
-                <ul>
-                    <li>Mỗi người chơi mới sẽ có danh sách nhiệm vụ tân thủ ở
-                        trang chủ và trong game</li>
-                    <li>Đăng nhập vào trang chủ rồi qua trang điễn dàn sẽ có
-                        danh sách nhiệm vụ tặng rất nhiều tài nguyên</li>
-                    <li>Hãy đọc kĩ thể lệ của các event làm cho đúng nhé</li>
-                </ul>
+            <div class="notice">
+                <div class="notice-title">2. Nhiệm vụ tân thủ – Chia sẻ bài
+                    viết</div>
+                <div class="notice-content">
+                    <ul>
+                        <li>Mỗi người chơi mới có danh sách nhiệm vụ tân thủ ở
+                            trang chủ
+                            và trong game.</li>
+                        <li>Đăng nhập trang chủ, truy cập diễn đàn để nhận nhiệm
+                            vụ tặng
+                            nhiều tài nguyên.</li>
+                        <li>Hãy đọc kỹ thể lệ event để thực hiện đúng yêu
+                            cầu.</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="section">
-                <h2>3. Nhiệm vụ hàng ngày - Bò mộng</h2>
-                <ul>
-                    <li>Hàng ngày mỗi người chơi sẽ có 20 nhiệm vụ ở Bò
-                        mộng - hoàn thành sẽ nhận được Thỏi vàng</li>
-                    <li>Lưu ý: Nếu chưa kịp làm xong hãy hủy nhiệm vụ không mang
-                        nó qua 0h đêm tránh không cập nhật lại 20 nhiệm vụ
-                        mới</li>
-                </ul>
+            <div class="notice">
+                <div class="notice-title">3. Nhiệm vụ hằng ngày – Bò Mộng</div>
+                <div class="notice-content">
+                    <ul>
+                        <li>Mỗi ngày có 20 nhiệm vụ tại Bò Mộng,
+                            hoàn thành sẽ nhận Thỏi vàng.</li>
+                        <li>Lưu ý: nếu chưa làm xong, hãy hủy nhiệm vụ trước 0h
+                            để tránh không được reset nhiệm vụ mới.</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="section">
-                <h2>4. Nhiệm vụ bang hội - Dr.Drief</h2>
-                <ul>
-                    <li>Đến khu vực bang tại Quy lão gặp Dr.Drief để nhận
-                        nhiệm vụ bang hội</li>
-                    <li>Hoàn thành sẽ nhận được Capsule bang hội để nâng cấp
-                        thành viên trong bang</li>
-                </ul>
+            <div class="notice">
+                <div class="notice-title">4. Nhiệm vụ bang hội – Dr. Drief</div>
+                <div class="notice-content">
+                    <ul>
+                        <li>Đến khu vực bang tại Quy Lão, gặp Dr. Drief để nhận
+                            nhiệm vụ bang.</li>
+                        <li>Hoàn thành sẽ nhận Capsule bang hội để nâng cấp
+                            thành viên.</li>
+                    </ul>
+                </div>
             </div>
 
             <footer>

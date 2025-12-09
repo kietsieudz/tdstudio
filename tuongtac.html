@@ -1,125 +1,433 @@
 <!doctype html>
 <html lang="vi">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Hướng dẫn tham gia - Sự kiện Top Tương Tác | TDStudio</title>
-  <style>
-    :root{--bg:#0f1724;--card:#0b1220;--muted:#9aa4b2;--accent:#4f46e5;--success:#10b981}
-    body{font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;margin:0;background:linear-gradient(180deg,var(--bg),#071028);color:#e6eef8}
-    .container{max-width:980px;margin:36px auto;padding:28px;background:rgba(255,255,255,0.03);border-radius:12px;box-shadow:0 10px 30px rgba(2,6,23,.6)}
-    h1{margin:0 0 6px;font-size:26px}
-    p.lead{color:var(--muted);margin:0 0 18px}
-    .card{background:rgba(255,255,255,0.02);padding:18px;border-radius:10px;margin-bottom:14px}
-    ol{padding-left:18px}
-    .step{margin:8px 0}
-    .k{font-weight:700;color:var(--accent)}
-    .note{font-size:13px;color:var(--muted);background:rgba(255,255,255,0.015);padding:10px;border-radius:8px;margin-top:8px}
-    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:var(--accent);color:white;text-decoration:none;margin-right:8px}
-    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06)}
-    footer{font-size:13px;color:var(--muted);text-align:center;margin-top:10px}
-    ul.prize{margin:6px 0 0;padding-left:18px}
-    .faq dt{font-weight:700;margin-top:10px}
-    .faq dd{margin:4px 0 10px;color:var(--muted)}
-    .pages{display:flex;gap:12px;flex-wrap:wrap}
-    .page-card{flex:1 1 300px;background:linear-gradient(180deg,rgba(255,255,255,0.015),rgba(255,255,255,0.01));padding:12px;border-radius:10px}
-    .page-card h3{margin:0 0 6px}
-    .top-guide{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-    .top-guide img{max-width:360px;width:100%;border-radius:8px;border:1px solid rgba(255,255,255,0.03)}
-    @media (max-width:640px){.container{margin:14px;padding:16px}.pages{flex-direction:column}}
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Hướng dẫn tham gia - Sự kiện Top Tương Tác | TDStudio</title>
+    <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #f9fafb;
+      color: #111827;
+      padding: 16px;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: auto;
+    }
+
+    /* ===== TITLE EFFECT (BLACK - YELLOW - RED) ===== */
+    .title-anim {
+      font-size: 24px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 6px;
+      background: linear-gradient(
+        90deg,
+        #111827,
+        #facc15,
+        #dc2626,
+        #facc15,
+        #111827
+      );
+      background-size: 300% 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: titleFlow 4s linear infinite;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      background: linear-gradient(
+        90deg,
+        #111827,
+        #facc15,
+        #dc2626,
+        #facc15,
+        #111827
+      );
+      background-size: 300% 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: titleFlow 5s linear infinite;
+    }
+
+    @keyframes titleFlow {
+      0%   { background-position:   0% 50%; }
+      100% { background-position: 300% 50%; }
+    }
+
+    /* ===== NOTICE BASE ===== */
+    .notice {
+      border-radius: 14px;
+      padding: 14px;
+      border: 1px solid #e5e7eb;
+      margin-bottom: 14px;
+      background: #ffffff;
+    }
+
+    .notice-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    /* ===== NOTICE TITLE EFFECT ===== */
+    .notice-title {
+      font-size: 16px;
+      font-weight: 700;
+      background: linear-gradient(
+        90deg,
+        #111827,
+        #facc15,
+        #dc2626,
+        #facc15,
+        #111827
+      );
+      background-size: 200% 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: titleFlow 6s linear infinite;
+    }
+
+    /* ===== BADGE ===== */
+    .badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .warning { background: #fef3c7; color: #92400e; }
+    .error   { background: #fee2e2; color: #991b1b; }
+
+    /* ===== CONTENT ===== */
+    .notice-content {
+      font-size: 14px;
+      color: #374151;
+      line-height: 1.55;
+      margin-top: 4px;
+    }
+
+    .notice-content p {
+      margin-bottom: 8px;
+    }
+
+    .notice-content ul,
+    .notice-content ol {
+      padding-left: 20px;
+      margin: 6px 0 0;
+    }
+
+    .notice-content li {
+      margin-bottom: 4px;
+    }
+
+    .note {
+      font-size: 13px;
+      color: #6b7280;
+      background: #f9fafb;
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    /* ===== ALERT (HOT) BORDER EFFECT ===== */
+    .notice.alert {
+      position: relative;
+      border: 2px solid transparent;
+      background:
+        linear-gradient(#ffffff, #ffffff) padding-box,
+        linear-gradient(
+          120deg,
+          #111827,
+          #facc15,
+          #dc2626,
+          #facc15,
+          #111827
+        ) border-box;
+      background-size: 200% 200%;
+      animation:
+        borderFlow 4s linear infinite,
+        alertGlow 2.5s ease-in-out infinite;
+    }
+
+    @keyframes borderFlow {
+      0%   { background-position:   0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+
+    @keyframes alertGlow {
+      0%   { box-shadow: 0 0 8px rgba(220,38,38,0.25); }
+      50%  { box-shadow: 0 0 20px rgba(250,204,21,0.45); }
+      100% { box-shadow: 0 0 8px rgba(220,38,38,0.25); }
+    }
+
+    /* ===== BUTTON ===== */
+    .btn {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #111827;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 6px;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+    }
+
+    /* ===== PAGE CARDS ===== */
+    .pages {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .page-card {
+      flex: 1 1 260px;
+      border-radius: 12px;
+      padding: 12px;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+    }
+
+    .page-card h3 {
+      margin: 0 0 6px;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .page-card p {
+      margin: 2px 0;
+      font-size: 13px;
+      color: #4b5563;
+    }
+
+    .page-card strong {
+      color: #111827;
+    }
+
+    /* ===== TOP GUIDE ===== */
+    .top-guide {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      margin-top: 8px;
+    }
+
+    .top-guide img {
+      max-width: 360px;
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #e5e7eb;
+    }
+
+    .top-guide ol {
+      padding-left: 20px;
+      margin-top: 6px;
+    }
+
+    footer {
+      margin-top: 16px;
+      font-size: 11px;
+      color: #9ca3af;
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        margin: 0 auto;
+        padding: 0;
+      }
+    }
   </style>
-</head>
-<body>
-  <div class="container">
-    <header>
-      <h1>Sự kiện <span class="k">Top Tương Tác</span></h1>
-      <p class="lead">Trang tổng hợp: thể lệ chung, thưởng từng fanpage và link trực tiếp sang từng fanpage để bạn tương tác nhanh.</p>
-    </header>
-
-    <section class="card">
-      <h2>Tương tác là gì?</h2>
-      <p>Tương tác là mọi hành động bạn thực hiện trên bài đăng của fanpage, giúp bài viết hoạt động mạnh hơn và được Facebook ghi nhận. Bao gồm:</p>
-      <ul>
-        <li>Thả Reaction: Like, Tim, Haha, Wow…</li>
-        <li>Comment nội dung có liên quan đến bài viết. Comment không liên quan sẽ không tính điểm</li>
-        <li>Rep comment người khác (được tính như một comment nếu có nội dung).</li>
-        <li>Tag bạn bè vào bài viết.</li>
-        <li>Share bài viết ở chế độ công khai.</li>
-      </ul>
-      <div class="note">Mọi hành động trên phải do bạn thực hiện thật, không dùng công cụ auto.</div>
-    </section>
-
-    <section class="card">
-      <h2>Quy định Event (áp dụng cho all fanpage)</h2>
-      <ol>
-        <li>Follow fanpage tương ứng trước khi tương tác — Facebook sẽ tự ghi điểm khi bạn đã Follow.</li>
-        <li>Không spam share: mỗi bài chỉ được share tối đa <strong>3 lần</strong>, share nhiều hơn 3 bài ở mỗi bài viết sẽ không được nhận quà.</li>
-        <li>Không comment sticker hoặc emoji. Comment phải có nội dung liên quan bài viết.</li>
-        <li>Không comment liên tục trên cùng một bài. Nếu muốn bổ sung ý, hãy reply comment cũ của bạn thay vì tạo comment mới.</li>
-        <li>Các bài thưởng sẽ đăng vào các khung giờ vàng: <strong>10:00, 10:30, 18:00, 18:30</strong>. Ai tương tác sớm sẽ nhận thêm điểm.</li>
-        <li>Được phép rep comment người khác câu cho người ta quay lại rep tiếp.</li>
-        <li>Vi phạm nhiều lần (spam, auto, comment không hợp lệ) sẽ bị trừ điểm hoặc hủy toàn bộ điểm tuần.</li>
-      </ol>
-      <div class="note">Giữ tương tác minh bạch giúp sự kiện công bằng và duy trì lâu dài.</div>
-    </section>
-
-    <section class="card">
-      <h2>Thể lệ tham gia chung</h2> (áp dụng cho cả 3 fanpage)</h2>
-      <ol>
-        <li>Follow fanpage tương ứng trước khi tương tác.</li>
-        <li>Tương tác được tính: Like/Reaction, Comment, Share (share cần để chế độ <strong>công khai</strong>).</li>
-        <li>Một số bài sẽ có nhiệm vụ đặc biệt (ví dụ: comment theo chủ đề, tag bạn bè) — làm đúng mới được cộng điểm thưởng.</li>
-        <li>Hành vi gian lận (auto, mua tương tác, spam tag) sẽ bị loại khỏi cuộc thi.</li>
-        <li>Khi đạt top 1,2,3, bạn hãy liên hệ qua inbox fanpage để nhận thưởng.</li>
-      </ol>
-      <div class="note">Ghi chú: mỗi fanpage có hệ số điểm và phần thưởng khác nhau — xem chi tiết bên dưới.</div>
-    </section>
-
-    <section class="card">
-      <h2>Fanpage & phần thưởng</h2>
-      <div class="pages">
-        <div class="page-card">
-          <h3>Fanpage 1: TDStudio (Lớn)</h3>
-          <p>Phần thưởng: Top 1 — 100K.</p>
-          <p>Phần thưởng: Top 2 — 80K.</p>
-          <p>Phần thưởng: Top 3 — 50K.</p>
-          <p><strong>Mẹo:</strong> Có thể rep comment người khác để họ quay lại comment sẽ được nhiều điểm hơn. Không comment liên tục trên nhiều bài viết hoặc comment không liên quan bài viết</p>
-          <p><a class="btn" href="https://www.facebook.com/tdstudiogame" target="_blank">Đến Fanpage</a></p>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="title-anim">
+          Sự kiện <span>Top Tương Tác</span>
         </div>
-
-        <div class="page-card">
-          <h3>Fanpage 2: TDStudio - Game Mobile (Phụ)</h3>
-          <p>Phần thưởng: Top 1 — 70K.</p>
-          <p>Phần thưởng: Top 2 — 50K.</p>
-          <p>Phần thưởng: Top 3 — 30K.</p>
-          <p><strong>Mẹo:</strong> Có thể rep comment người khác để họ quay lại comment sẽ được nhiều điểm hơn. Không comment liên tục trên nhiều bài viết hoặc comment không liên quan bài viết</p>
-          <p><a class="btn" href="https://www.facebook.com/tdstudiogame" target="_blank">Đến Fanpage</a></p>
+        <div class="subtitle">
+          Trang tổng hợp: thể lệ chung, thưởng từng fanpage và link trực tiếp
+          sang từng fanpage để bạn tương tác nhanh.
         </div>
-      </div>
-    </section>
+      </header>
 
-    <section class="card">
-      <h2>Xem <span class="k">Top tương tác tuần</span></h2>
-      <div class="top-guide">
-        <img src="images/huongdantuongtac.png" alt="Hướng dẫn xem Top tương tác tuần" />
-        <div>
-          <p>Hướng dẫn xem Bảng Xếp Hạng:</p>
+      <section class="notice">
+        <div class="notice-header">
+          <div class="notice-title">Tương tác là gì?</div>
+        </div>
+        <div class="notice-content">
+          <p>
+            Tương tác là mọi hành động bạn thực hiện trên bài đăng của fanpage,
+            giúp bài viết hoạt động mạnh hơn và được Facebook ghi nhận. Bao gồm:
+          </p>
+          <ul>
+            <li>Thả Reaction: Like, Tim, Haha, Wow…</li>
+            <li>Comment nội dung có liên quan đến bài viết. Comment không liên
+              quan sẽ không tính điểm</li>
+            <li>Rep comment người khác (được tính như một comment nếu có nội
+              dung).</li>
+            <li>Tag bạn bè vào bài viết.</li>
+            <li>Share bài viết ở chế độ công khai.</li>
+          </ul>
+          <div class="note">
+            Mọi hành động trên phải do bạn thực hiện thật, không dùng công cụ
+            auto.
+          </div>
+        </div>
+      </section>
+
+      <section class="notice">
+        <div class="notice-header">
+          <div class="notice-title">Quy định Event (áp dụng cho all
+            fanpage)</div>
+        </div>
+        <div class="notice-content">
           <ol>
-            <li>Vào fanpage bấm vào phần "GIỚI THIỆU".</li>
-            <li>Lướt xuống tìm "TUẦN NÀY AI TƯƠNG TÁC".</li>
-            <li>Bấm vào "Xem Thêm" để xem chi tiết.</li>
+            <li>Follow fanpage tương ứng trước khi tương tác — Facebook sẽ tự
+              ghi điểm khi bạn đã Follow.</li>
+            <li>Không spam share: mỗi bài chỉ được share tối đa <strong>3
+                lần</strong>, share nhiều hơn 3 bài ở mỗi bài viết sẽ không được
+              nhận quà.</li>
+            <li>Không comment sticker hoặc emoji. Comment phải có nội dung liên
+              quan bài viết.</li>
+            <li>Không comment liên tục trên cùng một bài. Nếu muốn bổ sung ý,
+              hãy reply comment cũ của bạn thay vì tạo comment mới.</li>
+            <li>Các bài thưởng sẽ đăng vào các khung giờ vàng: <strong>10:00,
+                10:30, 18:00, 18:30</strong>. Ai tương tác sớm sẽ nhận thêm
+              điểm.</li>
+            <li>Được phép rep comment người khác câu cho người ta quay lại rep
+              tiếp.</li>
+            <li>Vi phạm nhiều lần (spam, auto, comment không hợp lệ) sẽ bị trừ
+              điểm hoặc hủy toàn bộ điểm tuần.</li>
           </ol>
+          <div class="note">
+            Giữ tương tác minh bạch giúp sự kiện công bằng và duy trì lâu dài.
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="card">
-      <h2>Vui lòng đọc kĩ các thể lệ và quy định bên trên</h2>
-    </section>
+      <section class="notice">
+        <div class="notice-header">
+          <div class="notice-title">Thể lệ tham gia chung (áp dụng cho cả 3
+            fanpage)</div>
+        </div>
+        <div class="notice-content">
+          <ol>
+            <li>Follow fanpage tương ứng trước khi tương tác.</li>
+            <li>Tương tác được tính: Like/Reaction, Comment, Share (share cần để
+              chế độ <strong>công khai</strong>).</li>
+            <li>Một số bài sẽ có nhiệm vụ đặc biệt (ví dụ: comment theo chủ đề,
+              tag bạn bè) — làm đúng mới được cộng điểm thưởng.</li>
+            <li>Hành vi gian lận (auto, mua tương tác, spam tag) sẽ bị loại khỏi
+              cuộc thi.</li>
+            <li>Khi đạt top 1,2,3, bạn hãy liên hệ qua inbox fanpage để nhận
+              thưởng.</li>
+          </ol>
+          <div class="note">
+            Ghi chú: mỗi fanpage có hệ số điểm và phần thưởng khác nhau — xem
+            chi tiết bên dưới.
+          </div>
+        </div>
+      </section>
 
-    <footer class="footer">
-          <small>© <span id="y"></span> TDStudio • Hướng dẫn Tương tác</small>
-        </footer>
-  </div>
-</body>
+      <section class="notice alert">
+        <div class="notice-header">
+          <div class="notice-title">Fanpage & phần thưởng</div>
+          <div class="badge warning">QUAN TRỌNG</div>
+        </div>
+        <div class="notice-content">
+          <div class="pages">
+            <div class="page-card">
+              <h3>Fanpage 1: TDStudio (Lớn)</h3>
+              <p>Phần thưởng: Top 1 — 100K.</p>
+              <p>Phần thưởng: Top 2 — 80K.</p>
+              <p>Phần thưởng: Top 3 — 50K.</p>
+              <p><strong>Mẹo:</strong> Có thể rep comment người khác để họ quay
+                lại comment sẽ được nhiều điểm hơn. Không comment liên tục trên
+                nhiều bài viết hoặc comment không liên quan bài viết</p>
+              <p>
+                <a class="btn" href="https://www.facebook.com/tdstudiogame"
+                  target="_blank">Đến Fanpage</a>
+              </p>
+            </div>
+
+            <div class="page-card">
+              <h3>Fanpage 2: TDStudio - Game Mobile (Phụ)</h3>
+              <p>Phần thưởng: Top 1 — 70K.</p>
+              <p>Phần thưởng: Top 2 — 50K.</p>
+              <p>Phần thưởng: Top 3 — 30K.</p>
+              <p><strong>Mẹo:</strong> Có thể rep comment người khác để họ quay
+                lại comment sẽ được nhiều điểm hơn. Không comment liên tục trên
+                nhiều bài viết hoặc comment không liên quan bài viết</p>
+              <p>
+                <a class="btn" href="https://www.facebook.com/tdstudiogame"
+                  target="_blank">Đến Fanpage</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="notice">
+        <div class="notice-header">
+          <div class="notice-title">Xem Top tương tác tuần</div>
+        </div>
+        <div class="notice-content">
+          <div class="top-guide">
+            <img src="images/huongdantuongtac.png"
+              alt="Hướng dẫn xem Top tương tác tuần" />
+            <div>
+              <p>Hướng dẫn xem Bảng Xếp Hạng:</p>
+              <ol>
+                <li>Vào fanpage bấm vào phần "GIỚI THIỆU".</li>
+                <li>Lướt xuống tìm "TUẦN NÀY AI TƯƠNG TÁC".</li>
+                <li>Bấm vào "Xem Thêm" để xem chi tiết.</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="notice">
+        <div class="notice-header">
+          <div class="notice-title">Vui lòng đọc kĩ các thể lệ và quy định bên
+            trên</div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <small>© <span id="y"></span> TDStudio • Hướng dẫn Tương tác</small>
+      </footer>
+    </div>
+
+    <script>
+    // tự điền năm hiện tại (không đổi nội dung hiển thị, chỉ auto năm)
+    (function () {
+      var y = document.getElementById('y');
+      if (y) y.textContent = new Date().getFullYear();
+    })();
+  </script>
+  </body>
 </html>

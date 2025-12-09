@@ -1,100 +1,275 @@
 <!doctype html>
 <html lang="vi">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <title>Danh sách bài viết - TDStudio</title>
-        <meta name="description"
-            content="Danh sách bài viết TDStudio — click vào mở bài trên Fanpage. Phân trang 20 bài/trang.">
-        <style>
-  :root{
-    --bg:#f3f4f6;
-    --card-bg:#ffffff;
-    --text:#111;
-    --muted:#6b7280;
-    --gap:6px;
-    --radius:6px;
-    --avatar-size:54px;
-    --title-size:15px;
-    --subtitle-size:12px;
-    --accent:#7a3df0;
-  }
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Danh sách bài viết - TDStudio</title>
+    <meta name="description"
+      content="Danh sách bài viết TDStudio — click vào mở bài trên Fanpage. Phân trang 20 bài/trang.">
+    <style>
+      :root{
+        --bg:#f9fafb;
+        --card-bg:#ffffff;
+        --text:#111827;
+        --muted:#6b7280;
+        --accent:#111827;
+        --accent2:#facc15;
+        --accent3:#dc2626;
+        --radius:12px;
+        --avatar-size:54px;
+        --title-size:15px;
+        --subtitle-size:12px;
+      }
 
-  *{box-sizing:border-box}
-  body{
-    margin:12px;
-    font-family: Inter, Roboto, "Segoe UI", Arial, sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-  }
+      *{box-sizing:border-box; margin:0; padding:0;}
 
-  .container{ max-width:980px; margin:0 auto; }
+      body{
+        margin:16px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+        background:var(--bg);
+        color:var(--text);
+        -webkit-font-smoothing:antialiased;
+        -moz-osx-font-smoothing:grayscale;
+      }
 
-  header.page-header{ display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px; }
-  h1.page-title{ margin:0; font-size:18px; font-weight:800; }
-  .meta-info{ color:var(--muted); font-size:13px; font-weight:600; }
+      .container{
+        max-width:980px;
+        margin:0 auto;
+      }
 
-  /* LIST */
-  .post-list{ display:flex; flex-direction:column; gap:6px; }
+      /* ===== TITLE EFFECT (BLACK - YELLOW - RED) ===== */
+      .page-header{
+        display:flex;
+        align-items:baseline;
+        justify-content:space-between;
+        gap:12px;
+        margin-bottom:12px;
+        flex-wrap:wrap;
+      }
 
-  .post-card{
-    display:flex; gap:10px; align-items:center;
-    background:var(--card-bg); border-radius:var(--radius);
-    padding:8px; text-decoration:none; color:inherit;
-    border:1px solid rgba(0,0,0,0.04);
-    transition:transform .12s, box-shadow .12s, border-color .12s;
-  }
-  .post-card:hover{ transform:translateY(-2px); box-shadow:0 6px 18px rgba(0,0,0,0.06); border-color:rgba(0,0,0,0.06); }
+      .page-title{
+        font-size:20px;
+        font-weight:800;
+        background:linear-gradient(
+          90deg,
+          var(--accent),
+          var(--accent2),
+          var(--accent3),
+          var(--accent2),
+          var(--accent)
+        );
+        background-size:300% 100%;
+        -webkit-background-clip:text;
+        -webkit-text-fill-color:transparent;
+        animation:titleFlow 4s linear infinite;
+      }
 
-  .post-avatar{ width:var(--avatar-size); height:var(--avatar-size); min-width:var(--avatar-size); border-radius:6px; overflow:hidden; background:#ddd; flex-shrink:0;}
-  .post-avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
+      .meta-info{
+        font-size:13px;
+        font-weight:600;
+        background:linear-gradient(
+          90deg,
+          var(--accent),
+          var(--accent2),
+          var(--accent3),
+          var(--accent2),
+          var(--accent)
+        );
+        background-size:300% 100%;
+        -webkit-background-clip:text;
+        -webkit-text-fill-color:transparent;
+        animation:titleFlow 5s linear infinite;
+        text-align:right;
+      }
 
-  .post-body{ flex:1; display:flex; flex-direction:column; gap:4px; justify-content:center; }
-  .post-title{ margin:0; font-size:var(--title-size); font-weight:800; line-height:1.12; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .post-sub{ margin:0; font-size:var(--subtitle-size); color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .post-meta{ margin:0; font-size:12px; font-weight:800; color:var(--muted); }
+      @keyframes titleFlow{
+        0%   { background-position: 0% 50%; }
+        100% { background-position: 300% 50%; }
+      }
 
-  /* PAGINATION */
-  .pager{ display:flex; gap:6px; align-items:center; justify-content:center; margin-top:12px; flex-wrap:wrap; }
-  .pager button{ padding:6px 10px; border-radius:8px; border:1px solid rgba(0,0,0,0.06); background:white; cursor:pointer; font-weight:800; }
-  .pager button[disabled]{ opacity:0.45; cursor:not-allowed; }
-  .pager .page-num{ padding:6px 9px; border-radius:8px; background:transparent; border:1px solid transparent; font-weight:800; min-width:38px; text-align:center; }
-  .pager .page-num.active{ background:var(--accent); color:white; border-color:var(--accent); }
+      /* ===== LIST ===== */
+      .post-list{
+        display:flex;
+        flex-direction:column;
+        gap:8px;
+      }
 
-  /* Loader / Message */
-  .center{ text-align:center; padding:18px 6px; color:var(--muted); font-weight:700; }
+      .post-card{
+        display:flex;
+        gap:10px;
+        align-items:center;
+        text-decoration:none;
+        color:inherit;
+        border-radius:var(--radius);
+        padding:1px; /* viền gradient */
+        border:2px solid transparent;
+        background:
+          linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
+          linear-gradient(
+            120deg,
+            var(--accent),
+            var(--accent2),
+            var(--accent3),
+            var(--accent2),
+            var(--accent)
+          ) border-box;
+        background-size:220% 220%;
+        animation:borderFlow 6s linear infinite;
+        box-shadow:0 4px 12px rgba(15,23,42,0.08);
+        transition:
+          transform .12s ease,
+          box-shadow .12s ease;
+      }
 
-  /* responsive: giảm avatar và chữ */
-  @media(max-width:640px){
-    :root{
-      --avatar-size:44px;
-      --title-size:14px;
-      --subtitle-size:11px;
-    }
-    .container{ margin:8px; }
-    .post-title, .post-sub{ white-space:normal; } /* mobile cho xuống dòng */
-  }
-</style>
-    </head>
-    <body>
-        <div class="container" role="main">
-            <header class="page-header">
-                <h1 class="page-title">Danh sách bài viết</h1>
-                <div class="meta-info" id="summaryInfo">—</div>
-            </header>
+      .post-card-inner{
+        display:flex;
+        gap:10px;
+        align-items:center;
+        border-radius:calc(var(--radius) - 2px);
+        background:var(--card-bg);
+        padding:7px 8px;
+        width:100%;
+      }
 
-            <div id="postList" class="post-list" aria-live="polite"
-                aria-busy="false"></div>
+      .post-card:hover{
+        transform:translateY(-1px);
+        box-shadow:0 8px 20px rgba(15,23,42,0.16);
+      }
 
-            <div id="pager" class="pager"
-                aria-label="Phân trang bài viết"></div>
+      @keyframes borderFlow{
+        0%   { background-position: 0% 50%; }
+        100% { background-position: 220% 50%; }
+      }
 
-            <div id="msg" class="center" style="display:none;"></div>
-        </div>
+      .post-avatar{
+        width:var(--avatar-size);
+        height:var(--avatar-size);
+        min-width:var(--avatar-size);
+        border-radius:8px;
+        overflow:hidden;
+        background:#e5e7eb;
+        flex-shrink:0;
+      }
+      .post-avatar img{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        display:block;
+      }
 
-        <script>
+      .post-body{
+        flex:1;
+        display:flex;
+        flex-direction:column;
+        gap:3px;
+        justify-content:center;
+        min-width:0;
+      }
+
+      .post-title{
+        margin:0;
+        font-size:var(--title-size);
+        font-weight:800;
+        line-height:1.2;
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+      }
+
+      .post-sub{
+        margin:0;
+        font-size:var(--subtitle-size);
+        color:var(--muted);
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+      }
+
+      /* ===== PAGINATION ===== */
+      .pager{
+        display:flex;
+        gap:6px;
+        align-items:center;
+        justify-content:center;
+        margin-top:14px;
+        flex-wrap:wrap;
+      }
+
+      .pager button{
+        padding:6px 10px;
+        border-radius:999px;
+        border:1px solid #e5e7eb;
+        background:#ffffff;
+        cursor:pointer;
+        font-weight:700;
+        font-size:13px;
+      }
+
+      .pager button[disabled]{
+        opacity:0.45;
+        cursor:not-allowed;
+      }
+
+      .pager .page-num{
+        min-width:36px;
+      }
+
+      .pager .page-num.active{
+        background:linear-gradient(
+          90deg,
+          var(--accent),
+          var(--accent2),
+          var(--accent3)
+        );
+        color:white;
+        border-color:transparent;
+      }
+
+      .center{
+        text-align:center;
+        padding:18px 6px;
+        color:var(--muted);
+        font-weight:700;
+        font-size:13px;
+      }
+
+      /* responsive */
+      @media(max-width:640px){
+        :root{
+          --avatar-size:44px;
+          --title-size:14px;
+          --subtitle-size:11px;
+        }
+        body{
+          margin:10px;
+        }
+        .container{
+          margin:0;
+        }
+        .post-title,
+        .post-sub{
+          white-space:normal;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" role="main">
+      <header class="page-header">
+        <h1 class="page-title">Danh sách bài viết</h1>
+        <div class="meta-info" id="summaryInfo">—</div>
+      </header>
+
+      <div id="postList" class="post-list" aria-live="polite"
+        aria-busy="false"></div>
+
+      <div id="pager" class="pager"
+        aria-label="Phân trang bài viết"></div>
+
+      <div id="msg" class="center" style="display:none;"></div>
+    </div>
+
+    <script>
 /*
   posts.html
   - Lấy dữ liệu từ posts.json (cùng thư mục).
@@ -153,6 +328,9 @@ function renderPage(page){
       a.target = '_blank';
       a.rel = 'noopener noreferrer';
 
+      const inner = document.createElement('div');
+      inner.className = 'post-card-inner';
+
       const av = document.createElement('div');
       av.className = 'post-avatar';
       const img = document.createElement('img');
@@ -176,8 +354,9 @@ function renderPage(page){
       body.appendChild(h);
       if (sub.textContent) body.appendChild(sub);
 
-      a.appendChild(av);
-      a.appendChild(body);
+      inner.appendChild(av);
+      inner.appendChild(body);
+      a.appendChild(inner);
       root.appendChild(a);
     }
   }
@@ -286,5 +465,5 @@ function useDemoData(){
 
 loadFromJson(JSON_PATH);
 </script>
-    </body>
+  </body>
 </html>

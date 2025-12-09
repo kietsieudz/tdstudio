@@ -6,60 +6,109 @@
         <title>Hướng dẫn người chơi mới</title>
 
         <style>
-    * {
+      * {
         box-sizing: border-box;
         font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         margin: 0;
         padding: 0;
-    }
+      }
 
-    body {
+      body {
         background: #f9fafb;
         color: #111827;
         padding: 16px;
         line-height: 1.6;
-    }
+      }
 
-    .container {
+      .container {
         max-width: 520px;
         margin: auto;
-    }
+      }
 
-    h1 {
+      /* ===== TITLE EFFECT (BLACK - YELLOW - RED) ===== */
+      .title-anim {
         font-size: 22px;
-        font-weight: 700;
+        font-weight: 800;
+        text-align: center;
         margin-bottom: 6px;
-        text-align: center;
-    }
+        background: linear-gradient(
+          90deg,
+          #111827,
+          #facc15,
+          #dc2626,
+          #facc15,
+          #111827
+        );
+        background-size: 300% 100%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: titleFlow 4s linear infinite;
+      }
 
-    .subtitle {
+      .subtitle {
         text-align: center;
-        font-size: 14px;
-        color: #6b7280;
+        font-size: 13px;
+        font-weight: 600;
         margin-bottom: 18px;
-    }
+        background: linear-gradient(
+          90deg,
+          #111827,
+          #facc15,
+          #dc2626,
+          #facc15,
+          #111827
+        );
+        background-size: 300% 100%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: titleFlow 5s linear infinite;
+      }
 
-    .section {
+      @keyframes titleFlow {
+        0%   { background-position:   0% 50%; }
+        100% { background-position: 300% 50%; }
+      }
+
+      /* ===== NOTICE BLOCK ===== */
+      .notice {
         background: #ffffff;
         border-radius: 14px;
-        padding: 16px;
+        padding: 14px;
         margin-bottom: 14px;
         border: 1px solid #e5e7eb;
-    }
+      }
 
-    .section h2 {
+      .notice-header {
+        margin-bottom: 6px;
+      }
+
+      .notice-title {
         font-size: 16px;
-        margin-bottom: 8px;
-        font-weight: 600;
-    }
+        font-weight: 700;
+        background: linear-gradient(
+          90deg,
+          #111827,
+          #facc15,
+          #dc2626,
+          #facc15,
+          #111827
+        );
+        background-size: 200% 100%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: titleFlow 6s linear infinite;
+      }
 
-    .section p {
+      .notice-content {
         font-size: 14px;
         color: #374151;
-        margin-bottom: 6px;
-    }
+      }
 
-    .note {
+      .notice-content p {
+        margin-bottom: 6px;
+      }
+
+      .note {
         background: #eff6ff;
         border-left: 4px solid #3b82f6;
         padding: 10px 12px;
@@ -67,92 +116,118 @@
         font-size: 13px;
         color: #1e3a8a;
         margin-top: 10px;
-    }
+      }
 
-    ul {
+      ul {
         padding-left: 18px;
         margin-top: 6px;
-    }
+      }
 
-    li {
+      li {
         font-size: 14px;
         margin-bottom: 6px;
         color: #374151;
-    }
+      }
 
-    footer {
+      footer {
         margin-top: 20px;
         text-align: center;
         font-size: 11px;
         color: #9ca3af;
-    }
-</style>
+      }
+    </style>
     </head>
 
     <body>
         <div class="container">
 
-            <h1>Hướng dẫn người chơi mới</h1>
+            <div class="title-anim">Hướng dẫn người chơi mới</div>
             <div class="subtitle">Dành cho người lần đầu tham gia game</div>
 
-            <div class="section">
-                <h2>1. Nhập giftcode - nâng cấp trang bị</h2>
-                <ul>
-                    <li>Khi vừa tạo tài khoản và nhân vật xong, hãy vào NPC
-                        trong
-                        nhà để nhập Giftcode (open1 -> open15)</li>
-                    <li>Tiếp theo ra Bà Hạt Mít ở đảo kame để pha lê hóa trang
-                        bị
-                        (Đục lỗ)</li>
-                    <li>Sau đó ép Sao pha lê Sức mạnh tiềm năng (tăng %exp nhận
-                        được
-                        đi train quái) hoặc Ép ngọc rồng 3 sao (tăng % sức đánh)
-                        từ
-                        Giftcode
-                        Để tăng chỉ số từ trang bị sẽ giúp khởi đầu dễ dàng
-                        hơn</li>
-                </ul>
+            <div class="notice">
+                <div class="notice-header">
+                    <div class="notice-title">1. Nhập giftcode - nâng cấp trang
+                        bị</div>
+                </div>
+                <div class="notice-content">
+                    <ul>
+                        <li>Khi vừa tạo tài khoản và nhân vật xong, hãy vào NPC
+                            trong
+                            nhà để nhập Giftcode (open1 -> open15)</li>
+                        <li>Tiếp theo ra Bà Hạt Mít ở đảo kame để pha lê hóa
+                            trang
+                            bị (Đục lỗ)</li>
+                        <li>Sau đó ép Sao pha lê Sức mạnh tiềm năng (tăng %exp
+                            nhận được
+                            đi train quái) hoặc Ép ngọc rồng 3 sao (tăng % sức
+                            đánh) từ
+                            Giftcode
+                            để tăng chỉ số từ trang bị sẽ giúp khởi đầu dễ dàng
+                            hơn</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="section">
-                <h2>2. Tăng sức mạnh</h2>
-                <ul>
-                    <li>Up các map thường bên ngoài trước để tăng chỉ số cơ bản
-                        ban đầu</li>
-                    <li>Tiếp theo hãy vào Ngũ hành sơn ở làng aru (gặp đường
-                        tăng) để up quái</li>
-                    <li>Khi đạt sức mạnh cao hãy đến Địa Ngục (gặp thần vũ trụ ở
-                        hành tính Kaio)</li>
-                </ul>
+            <div class="notice">
+                <div class="notice-header">
+                    <div class="notice-title">2. Tăng sức mạnh</div>
+                </div>
+                <div class="notice-content">
+                    <ul>
+                        <li>Up các map thường bên ngoài trước để tăng chỉ số cơ
+                            bản
+                            ban đầu</li>
+                        <li>Tiếp theo hãy vào Ngũ hành sơn ở làng aru (gặp đường
+                            tăng) để up quái</li>
+                        <li>Khi đạt sức mạnh cao hãy đến Địa Ngục (gặp thần vũ
+                            trụ ở
+                            hành tính Kaio)</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="section">
-                <h2>3. Nhiệm vụ cho người mới</h2>
-                <ul>
-                    <li>Cần cày max các chỉ số cơ bản của sư phụ và đệ tử</li>
-                    <li>Sau đó bắt đầu làm các nhiệm vụ khởi đầu sẽ dễ dàng
-                        hơn</li>
-                </ul>
+            <div class="notice">
+                <div class="notice-header">
+                    <div class="notice-title">3. Nhiệm vụ cho người mới</div>
+                </div>
+                <div class="notice-content">
+                    <ul>
+                        <li>Cần cày max các chỉ số cơ bản của sư phụ và đệ
+                            tử</li>
+                        <li>Sau đó bắt đầu làm các nhiệm vụ khởi đầu sẽ dễ dàng
+                            hơn</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="section">
-                <h2>4. Vật phẩm & trang bị</h2>
-                <ul>
-                    <li>Nhập bộ giftcode sẽ được tặng bộ Sét kích hoạt cơ
-                        bản</li>
-                    <li>Game còn nhiều set kích hoạt nữa nên đây không phải set
-                        mạnh nhất</li>
-                </ul>
+            <div class="notice">
+                <div class="notice-header">
+                    <div class="notice-title">4. Vật phẩm & trang bị</div>
+                </div>
+                <div class="notice-content">
+                    <ul>
+                        <li>Nhập bộ giftcode sẽ được tặng bộ Sét kích hoạt cơ
+                            bản</li>
+                        <li>Game còn nhiều set kích hoạt nữa nên đây không phải
+                            set
+                            mạnh nhất</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="section">
-                <h2>5. Mẹo dành cho người mới</h2>
-                <ul>
-                    <li>Hãy theo dõi Fanpage thường xuyên vì có giftcode
-                        mới</li>
-                    <li>Tương tác các bài viết để đạt top tương tác sẽ có Coin
-                        miễn phí hàng tuần</li>
-                </ul>
+            <div class="notice">
+                <div class="notice-header">
+                    <div class="notice-title">5. Mẹo dành cho người mới</div>
+                </div>
+                <div class="notice-content">
+                    <ul>
+                        <li>Hãy theo dõi Fanpage thường xuyên vì có giftcode
+                            mới</li>
+                        <li>Tương tác các bài viết để đạt top tương tác sẽ có
+                            Coin
+                            miễn phí hàng tuần</li>
+                    </ul>
+                </div>
             </div>
 
             <footer>
