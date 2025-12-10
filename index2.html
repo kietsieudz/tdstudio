@@ -148,35 +148,6 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <style id='core-block-supports-inline-css'>
 .wp-container-2.wp-container-2{gap:2rem;justify-content:flex-start;}.wp-container-32.wp-container-32{gap:var(--wp--preset--spacing--4) var(--wp--preset--spacing--4);justify-content:flex-start;}
 </style>
-<style>
-	/* ===== Cảnh báo trình duyệt in-app (Zalo/Facebook/Telegram...) ===== */
-#inapp-warning {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #ff3b30;
-    color: #fff;
-    padding: 8px 12px;
-    text-align: center;
-    font-weight: 700;
-    font-size: 13px;
-    z-index: 100000;
-    display: none;
-    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
-    animation: inappBlink 1s infinite;
-}
-
-#inapp-warning span {
-    text-transform: uppercase;
-}
-
-@keyframes inappBlink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.25; }
-}
-
-	</style>
 <link rel='stylesheet' id='contact-form-7-css' href='/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.8' media='all' />
 <style id='wp-webfonts-inline-css'>
 @font-face{font-family:Inter;font-style:normal;font-weight:200 900;font-display:fallback;src:url('/wp-content/themes/solarone/assets/fonts/Inter.woff2') format('woff2');font-stretch:normal;}
@@ -205,12 +176,31 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 	<body
 		class="home page-template page-template-header-footer page page-id-7 wp-custom-logo wp-embed-responsive">
-		<div id="inapp-warning">
-			⚠️ Bạn đang mở bằng trình duyệt trong ứng dụng
-			(Zalo / Facebook / Telegram / Messenger...).<br>
-			<span>Vui lòng sao chép link và mở bằng Chrome hoặc Safari để đăng
-				ký, đăng nhập và tải game.</span>
+		<div id="inapp-warning"
+			style="
+        position:fixed;
+        bottom:0;
+        left:0;
+        right:0;
+        background:#ff3b30;
+        color:#ffffff;
+        padding:10px 12px;
+        text-align:center;
+        font-weight:700;
+        font-size:13px;
+        z-index:100000;
+        display:none;
+        box-shadow:0 -4px 10px rgba(0,0,0,0.3);
+        animation:blinkInapp 1s infinite;
+        ">
+			⚠️ Bạn đang mở trang bằng trình duyệt trong ứng dụng
+			(Zalo / Facebook / Telegram / Messenger...)<br>
+			<span style="text-transform:uppercase;">
+				Vui lòng sao chép link và mở bằng Chrome hoặc Safari để đăng ký, đăng nhập
+				và tải game
+			</span>
 		</div>
+
 		<div class="wp-site-blocks"><header class="wp-block-template-part">
 				<div
 					class="wp-block-group site-header is-layout-flow wp-block-group-is-layout-flow"
@@ -1237,44 +1227,41 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 	}() );
 	</script>
 		<script>
-    (function () {
-        const ua = (navigator.userAgent || navigator.vendor || window.opera || "").toLowerCase();
+        (function () {
+            const ua = (navigator.userAgent || "").toLowerCase();
 
-        const isFacebookInApp =
-            ua.includes("fbav") ||
-            ua.includes("fban") ||
-            ua.includes("fb_iab") ||
-            ua.includes("facebook");
-        const isInstagram = ua.includes("instagram");
-        const isMessenger = ua.includes("messenger");
-        const isZalo = ua.includes("zalo");
-        const isTelegram = ua.includes("telegram");
-        const isLine = ua.includes(" line/");
-        const isWhatsApp = ua.includes("whatsapp");
+            let isInApp =
+                ua.includes("fbav") ||
+                ua.includes("fban") ||
+                ua.includes("fb_iab") ||
+                ua.includes("facebook") ||
+                ua.includes("instagram") ||
+                ua.includes("messenger") ||
+                ua.includes("zalo") ||
+                ua.includes("telegram") ||
+                ua.includes("whatsapp") ||
+                ua.includes(" line/");
 
-        let isInAppBrowser =
-            isFacebookInApp ||
-            isInstagram ||
-            isMessenger ||
-            isZalo ||
-            isTelegram ||
-            isLine ||
-            isWhatsApp;
+            // DEBUG: ?debugInapp=1
+            const params = new URLSearchParams(window.location.search);
+            if (params.get("debugInapp") === "1") {
+                isInApp = true;
+                console.log("[DEBUG] In-app browser forced ON");
+            }
 
-        // === DEBUG MODE: nếu có ?debugInapp=1 thì cưỡng bức xem như in-app ===
-        const params = new URLSearchParams(window.location.search);
-        if (params.get("debugInapp") === "1") {
-            isInAppBrowser = true;
-            console.log("[DEBUG] Forcing in-app warning ON via ?debugInapp=1");
+            if (isInApp) {
+                document.getElementById("inapp-warning").style.display = "block";
+            }
+        })();
+    </script>
+
+		<!-- KEYFRAMES inline (bắt buộc cho animation) -->
+		<style>
+        @keyframes blinkInapp {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .25; }
         }
-
-        document.addEventListener("DOMContentLoaded", function () {
-            if (!isInAppBrowser) return;
-            var bar = document.getElementById("inapp-warning");
-            if (bar) bar.style.display = "block";
-        });
-    })();
-</script>
+    </style>
 
 		<script
 			src='/wp-includes/js/dist/vendor/wp-polyfill-inert.min.js?ver=3.1.2'
