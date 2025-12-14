@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cộng đồng TDStudio</title>
+
+        <style>
+        * {
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #f9fafb;
+            color: #111827;
+            padding: 16px;
+        }
+
+        .container {
+            max-width: 520px;
+            margin: auto;
+        }
+
+        /* ===== TITLE EFFECT ===== */
+        .title-anim {
+            font-size: 22px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 6px;
+            background: linear-gradient(
+                90deg,
+                #111827,
+                #facc15,
+                #dc2626,
+                #facc15,
+                #111827
+            );
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: titleFlow 4s linear infinite;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            background: linear-gradient(
+                90deg,
+                #111827,
+                #facc15,
+                #dc2626,
+                #facc15,
+                #111827
+            );
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: titleFlow 5s linear infinite;
+        }
+
+        @keyframes titleFlow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 300% 50%; }
+        }
+
+        /* ===== BUTTON CARD ===== */
+        .btn {
+            display: block;
+            position: relative;
+            margin-bottom: 12px;
+            text-decoration: none;
+            border-radius: 14px;
+            padding: 1px;
+            background:
+                linear-gradient(#ffffff, #ffffff) padding-box,
+                linear-gradient(
+                    120deg,
+                    #111827,
+                    #facc15,
+                    #dc2626,
+                    #facc15,
+                    #111827
+                ) border-box;
+            border: 2px solid transparent;
+            background-size: 220% 220%;
+            animation: borderFlow 6s linear infinite;
+            transition: transform 0.1s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        }
+
+        .btn-inner {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 14px 14px 16px 14px;
+        }
+
+        .btn:hover {
+            box-shadow: 0 0 16px rgba(250,204,21,0.45);
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        @keyframes borderFlow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 220% 50%; }
+        }
+
+        /* ===== TAG ===== */
+        .tag {
+            display: inline-block;
+            font-size: 11px;
+            padding: 3px 10px;
+            border-radius: 999px;
+            background: #fef3c7;
+            color: #92400e;
+            margin-bottom: 6px;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+
+        /* ===== TITLE IN CARD ===== */
+        .title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            background: linear-gradient(
+                90deg,
+                #111827,
+                #facc15,
+                #dc2626,
+                #facc15,
+                #111827
+            );
+            background-size: 200% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: titleFlow 6s linear infinite;
+        }
+
+        .desc {
+            font-size: 13px;
+            color: #4b5563;
+            line-height: 1.45;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 11px;
+            color: #9ca3af;
+            margin-top: 20px;
+        }
+    </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="title-anim">Cộng đồng TDStudio</div>
+            <div class="subtitle">Chọn cộng đồng bạn muốn tham gia</div>
+
+            <a class="btn" href="https://zalo.me/g/jcssww622" target="_blank">
+                <div class="btn-inner">
+                    <div class="title">Cộng Đồng Zalo (Vietnam)</div>
+                    <div class="desc">Cộng đồng chung phía zalo.</div>
+                </div>
+            </a>
+
+            <a class="btn" href="https://t.me/gdthanhdi"
+                target="_blank">
+                <div class="btn-inner">
+                    <div class="title">Cộng Đồng Telegram (All Regions)</div>
+                    <div class="desc">Cộng đồng chung phía Telegram.</div>
+                </div>
+            </a>
+
+            <a class="btn" href="https://discord.gg/jW8uBff4" target="_blank">
+                <div class="btn-inner">
+                    <div class="title">Cộng Đồng Discord (All Regions)</div>
+                    <div class="desc">Cộng đồng chung phía Discord.</div>
+                </div>
+            </a>
+
+            <a class="btn"
+                href="https://www.facebook.com/groups/916049213653568"
+                target="_blank">
+                <div class="btn-inner">
+                    <div class="title">Cộng Đồng Facebook (All Regions)</div>
+                    <div class="desc">Cộng đồng chung phía Facebook.</div>
+                </div>
+            </a>
+
+            <a class="btn" href="https://www.youtube.com/@ngocrongtdstudio"
+                target="_blank">
+                <div class="btn-inner">
+                    <div class="title">Kênh YouTube TDStudio (All Regions)</div>
+                    <div class="desc">Video hướng dẫn, sự kiện và
+                        gameplay.</div>
+                </div>
+            </a>
+
+            <a class="btn"
+                href="https://www.tiktok.com/@ngocrongonline.tdstudio"
+                target="_blank">
+                <div class="btn-inner">
+                    <div class="title">TikTok TDStudio (All Regions)</div>
+                    <div class="desc">Clip ngắn, highlight và thông báo
+                        nhanh.</div>
+                </div>
+            </a>
+
+            <a class="btn"
+                href="https://www.tiktok.com/@tdstudio.dragonboy"
+                target="_blank">
+                <div class="btn-inner">
+                    <div class="title">TikTok TDStudio (All Regions)</div>
+                    <div class="desc">Clip ngắn, highlight và thông báo
+                        nhanh.</div>
+                </div>
+            </a>
+
+            <footer>
+                © TDStudio – Trang cộng đồng chính thức
+            </footer>
+        </div>
+    </body>
+</html>
