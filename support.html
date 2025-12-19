@@ -1,140 +1,155 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>TDStudio | Trung tâm hỗ trợ</title>
-    <style>
-        :root {
-            --bg: #f6f8fb;
-            --card: #ffffff;
-            --primary: #2563eb;
-            --text: #1f2937;
-            --sub: #6b7280;
-            --border: #e5e7eb;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TDStudio | Trung tâm hỗ trợ</title>
 
-        * {
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        }
+<style>
+:root{
+    --bg:#f5f7fb;
+    --card:#ffffff;
+    --primary:#2563eb;
+    --text:#1f2937;
+    --sub:#6b7280;
+    --border:#e5e7eb;
+}
 
-        body {
-            margin: 0;
-            background: var(--bg);
-            color: var(--text);
-        }
+*{
+    box-sizing:border-box;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+}
 
-        .container {
-            max-width: 720px;
-            margin: 40px auto;
-            padding: 0 16px;
-        }
+body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+}
 
-        .header {
-            text-align: center;
-            margin-bottom: 24px;
-        }
+.container{
+    max-width:720px;
+    margin:36px auto;
+    padding:0 16px;
+}
 
-        .header h1 {
-            margin: 0;
-            font-size: 26px;
-        }
+.header{
+    text-align:center;
+    margin-bottom:22px;
+}
 
-        .header p {
-            margin-top: 6px;
-            color: var(--sub);
-            font-size: 15px;
-        }
+.header h1{
+    margin:0;
+    font-size:26px;
+}
 
-        .card {
-            background: var(--card);
-            border-radius: 14px;
-            padding: 18px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.04);
-            border: 1px solid var(--border);
-        }
+.header p{
+    margin-top:6px;
+    color:var(--sub);
+    font-size:14px;
+}
 
-        .item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 14px 0;
-            border-bottom: 1px solid var(--border);
-        }
+.card{
+    background:var(--card);
+    border-radius:14px;
+    border:1px solid var(--border);
+    box-shadow:0 8px 24px rgba(0,0,0,0.04);
+    padding:8px 18px;
+}
 
-        .item:last-child {
-            border-bottom: none;
-        }
+.item{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:14px 0;
+    border-bottom:1px solid var(--border);
+}
 
-        .item-left {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+.item:last-child{
+    border-bottom:none;
+}
 
-        .icon {
-            font-size: 20px;
-        }
+.left{
+    display:flex;
+    gap:12px;
+    align-items:center;
+}
 
-        .label {
-            font-weight: 500;
-        }
+.icon{
+    font-size:20px;
+}
 
-        .desc {
-            font-size: 13px;
-            color: var(--sub);
-        }
+.title{
+    font-weight:500;
+}
 
-        a.btn {
-            text-decoration: none;
-            background: var(--primary);
-            color: #fff;
-            padding: 8px 14px;
-            border-radius: 8px;
-            font-size: 14px;
-            transition: 0.2s;
-            white-space: nowrap;
-        }
+.desc{
+    font-size:13px;
+    color:var(--sub);
+}
 
-        a.btn:hover {
-            opacity: 0.9;
-        }
+.btn{
+    display:inline-block;
+    min-width:80px;       /* 👈 tất cả nút cùng kích thước */
+    text-align:center;
+    padding:8px 0;
+    background:var(--primary);
+    color:#fff;
+    text-decoration:none;
+    border-radius:8px;
+    font-size:14px;
+    transition:0.2s;
+}
 
-        .footer {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 13px;
-            color: var(--sub);
-        }
-    </style>
+.btn:hover{
+    opacity:0.9;
+}
+
+.footer{
+    text-align:center;
+    margin-top:18px;
+    font-size:13px;
+    color:var(--sub);
+}
+</style>
 </head>
-<body>
 
+<body>
 <div class="container">
+
     <div class="header">
         <h1>🎮 TDStudio Support</h1>
-        <p>Trung tâm hỗ trợ & liên kết nhanh</p>
+        <p>Trung tâm hỗ trợ & tài nguyên game</p>
     </div>
 
     <div class="card">
 
         <div class="item">
-            <div class="item-left">
+            <div class="left">
                 <div class="icon">🛠</div>
                 <div>
-                    <div class="label">Hỗ trợ 24/24</div>
-                    <div class="desc">Fanpage chính thức</div>
+                    <div class="title">Hỗ trợ qua Fanpage [24/24]</div>
+                    <div class="desc">Liên hệ trực tiếp</div>
                 </div>
             </div>
             <a class="btn" href="https://www.facebook.com/tdstudiogame" target="_blank">Mở</a>
         </div>
 
         <div class="item">
-            <div class="item-left">
+            <div class="left">
+                <div class="icon">🌐</div>
+                <div>
+                    <div class="title">Trang chủ game</div>
+                    <div class="desc">Website chính thức</div>
+                </div>
+            </div>
+            <a class="btn" href="https://thanhdi.games" target="_blank">Mở</a>
+        </div>
+
+        <div class="item">
+            <div class="left">
                 <div class="icon">👥</div>
                 <div>
-                    <div class="label">Cộng đồng</div>
+                    <div class="title">Cộng đồng</div>
                     <div class="desc">Group người chơi</div>
                 </div>
             </div>
@@ -142,47 +157,91 @@
         </div>
 
         <div class="item">
-            <div class="item-left">
-                <div class="icon">📡</div>
-                <div>
-                    <div class="label">Trạng thái server</div>
-                    <div class="desc">Online / bảo trì</div>
-                </div>
-            </div>
-            <a class="btn" href="https://thanhdi.games/trangthai.php" target="_blank">Xem</a>
-        </div>
-
-        <div class="item">
-            <div class="item-left">
-                <div class="icon">🎮</div>
-                <div>
-                    <div class="label">Server game</div>
-                    <div class="desc">Danh sách máy chủ</div>
-                </div>
-            </div>
-            <a class="btn" href="https://thanhdi.games" target="_blank">Vào</a>
-        </div>
-
-        <div class="item">
-            <div class="item-left">
-                <div class="icon">🌐</div>
-                <div>
-                    <div class="label">Trang chủ</div>
-                    <div class="desc">Website chính thức</div>
-                </div>
-            </div>
-            <a class="btn" href="https://thanhdi.com" target="_blank">Mở</a>
-        </div>
-
-        <div class="item">
-            <div class="item-left">
+            <div class="left">
                 <div class="icon">📥</div>
                 <div>
-                    <div class="label">Hướng dẫn cài đặt</div>
+                    <div class="title">Hướng dẫn cài đặt</div>
                     <div class="desc">Android / PC / iOS</div>
                 </div>
             </div>
-            <a class="btn" href="https://thanhdi.com/huongdantai" target="_blank">Xem</a>
+            <a class="btn" href="https://thanhdi.com/huongdantai" target="_blank">Mở</a>
+        </div>
+
+        <div class="item">
+            <div class="left">
+                <div class="icon">📡</div>
+                <div>
+                    <div class="title">Trạng thái server</div>
+                    <div class="desc">Online / bảo trì</div>
+                </div>
+            </div>
+            <a class="btn" href="https://thanhdi.games/trangthai.php" target="_blank">Mở</a>
+        </div>
+
+        <div class="item">
+            <div class="left">
+                <div class="icon">🎉</div>
+                <div>
+                    <div class="title">Sự kiện game</div>
+                    <div class="desc">Event đang diễn ra</div>
+                </div>
+            </div>
+            <a class="btn" href="/posts" target="_blank">Mở</a>
+        </div>
+
+        <div class="item">
+            <div class="left">
+                <div class="icon">🔥</div>
+                <div>
+                    <div class="title">Event tương tác</div>
+                    <div class="desc">Mini game – quà tặng</div>
+                </div>
+            </div>
+            <a class="btn" href="/tuongtac" target="_blank">Mở</a>
+        </div>
+
+        <div class="item">
+            <div class="left">
+                <div class="icon">⚙️</div>
+                <div>
+                    <div class="title">Thông tin cơ chế</div>
+                    <div class="desc">Chỉ số – hệ thống</div>
+                </div>
+            </div>
+            <a class="btn" href="/cochegame" target="_blank">Mở</a>
+        </div>
+
+        <div class="item">
+            <div class="left">
+                <div class="icon">💡</div>
+                <div>
+                    <div class="title">Thủ thuật game</div>
+                    <div class="desc">Mẹo chơi hiệu quả</div>
+                </div>
+            </div>
+            <a class="btn" href="https://ngocrongtdstudio.com" target="_blank">Mở</a>
+        </div>
+
+        <div class="item">
+            <div class="left">
+                <div class="icon">🧩</div>
+                <div>
+                    <div class="title">Fix lỗi game</div>
+                    <div class="desc">Các lỗi thường gặp</div>
+                </div>
+            </div>
+            <a class="btn" href="/trangthai" target="_blank">Mở</a>
+        </div>
+
+        <div class="item">
+            <div class="left">
+                <div class="icon">📞</div>
+                <div>
+                    <div class="title">Kênh hỗ trợ khác</div>
+                    <div class="desc">Discord / Zalo / Email</div>
+                </div>
+            </div>
+            <a class="btn" href="/contact" target="_blank">Mở</a>
         </div>
 
     </div>
@@ -190,7 +249,7 @@
     <div class="footer">
         © TDStudio — Game Server & Community
     </div>
-</div>
 
+</div>
 </body>
 </html>
