@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>TDStudio | Trung tâm hỗ trợ</title>
+    <style>
+        :root {
+            --bg: #f6f8fb;
+            --card: #ffffff;
+            --primary: #2563eb;
+            --text: #1f2937;
+            --sub: #6b7280;
+            --border: #e5e7eb;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 40px auto;
+            padding: 0 16px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 26px;
+        }
+
+        .header p {
+            margin-top: 6px;
+            color: var(--sub);
+            font-size: 15px;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: 14px;
+            padding: 18px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+            border: 1px solid var(--border);
+        }
+
+        .item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .item:last-child {
+            border-bottom: none;
+        }
+
+        .item-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .icon {
+            font-size: 20px;
+        }
+
+        .label {
+            font-weight: 500;
+        }
+
+        .desc {
+            font-size: 13px;
+            color: var(--sub);
+        }
+
+        a.btn {
+            text-decoration: none;
+            background: var(--primary);
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+
+        a.btn:hover {
+            opacity: 0.9;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 13px;
+            color: var(--sub);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>🎮 TDStudio Support</h1>
+        <p>Trung tâm hỗ trợ & liên kết nhanh</p>
+    </div>
+
+    <div class="card">
+
+        <div class="item">
+            <div class="item-left">
+                <div class="icon">🛠</div>
+                <div>
+                    <div class="label">Hỗ trợ 24/24</div>
+                    <div class="desc">Fanpage chính thức</div>
+                </div>
+            </div>
+            <a class="btn" href="https://www.facebook.com/tdstudiogame" target="_blank">Mở</a>
+        </div>
+
+        <div class="item">
+            <div class="item-left">
+                <div class="icon">👥</div>
+                <div>
+                    <div class="label">Cộng đồng</div>
+                    <div class="desc">Group người chơi</div>
+                </div>
+            </div>
+            <a class="btn" href="https://thanhdi.com/groups" target="_blank">Mở</a>
+        </div>
+
+        <div class="item">
+            <div class="item-left">
+                <div class="icon">📡</div>
+                <div>
+                    <div class="label">Trạng thái server</div>
+                    <div class="desc">Online / bảo trì</div>
+                </div>
+            </div>
+            <a class="btn" href="https://thanhdi.games/trangthai.php" target="_blank">Xem</a>
+        </div>
+
+        <div class="item">
+            <div class="item-left">
+                <div class="icon">🎮</div>
+                <div>
+                    <div class="label">Server game</div>
+                    <div class="desc">Danh sách máy chủ</div>
+                </div>
+            </div>
+            <a class="btn" href="https://thanhdi.games" target="_blank">Vào</a>
+        </div>
+
+        <div class="item">
+            <div class="item-left">
+                <div class="icon">🌐</div>
+                <div>
+                    <div class="label">Trang chủ</div>
+                    <div class="desc">Website chính thức</div>
+                </div>
+            </div>
+            <a class="btn" href="https://thanhdi.com" target="_blank">Mở</a>
+        </div>
+
+        <div class="item">
+            <div class="item-left">
+                <div class="icon">📥</div>
+                <div>
+                    <div class="label">Hướng dẫn cài đặt</div>
+                    <div class="desc">Android / PC / iOS</div>
+                </div>
+            </div>
+            <a class="btn" href="https://thanhdi.com/huongdantai" target="_blank">Xem</a>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        © TDStudio — Game Server & Community
+    </div>
+</div>
+
+</body>
+</html>
