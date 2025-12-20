@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Zalo</title>
+
+<style>
+:root{
+  --bg:#0e0e0e;
+  --row:#121212;
+  --line:#1f1f1f;
+  --text:#f1f1f1;
+  --sub:#9b9b9b;
+  --blue:#2e89ff;
+}
+
+*{
+  box-sizing:border-box;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
+  -webkit-user-select:none;
+  user-select:none;
+}
+
+html,body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  overscroll-behavior:none;
+  touch-action:manipulation;
+}
+
+/* ===== TOP SEARCH ===== */
+.top{
+  padding:10px 12px;
+  border-bottom:1px solid var(--line);
+}
+.search{
+  background:#1a1a1a;
+  border-radius:18px;
+  padding:8px 14px;
+  font-size:14px;
+  color:#777;
+}
+
+/* ===== TABS ===== */
+.tabs{
+  display:flex;
+  gap:18px;
+  padding:8px 12px;
+  border-bottom:1px solid var(--line);
+}
+.tab{
+  font-size:14px;
+  color:#777;
+}
+.tab.active{
+  color:#fff;
+  position:relative;
+}
+.tab.active::after{
+  content:"";
+  position:absolute;
+  left:0;right:0;bottom:-8px;
+  height:2px;
+  background:var(--blue);
+}
+
+/* ===== LIST ===== */
+.list{padding:4px 0}
+
+.item{
+  display:flex;
+  align-items:center;
+  padding:12px;
+  text-decoration:none;
+  color:inherit;
+}
+.item:active{background:#1a1a1a}
+
+/* avatar */
+.avatar{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  overflow:hidden;
+  background:#2a2a2a;
+  flex-shrink:0;
+}
+.avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* info */
+.info{
+  flex:1;
+  margin-left:12px;
+  min-width:0;
+}
+.name{
+  font-size:15px;
+  font-weight:600;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.msg{
+  font-size:13px;
+  color:var(--sub);
+  margin-top:2px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+/* right */
+.right{
+  text-align:right;
+  font-size:12px;
+  color:#777;
+  margin-left:6px;
+}
+.mute{font-size:14px;margin-top:6px}
+
+/* divider */
+.hr{
+  height:1px;
+  background:var(--line);
+  margin-left:72px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- SEARCH -->
+<div class="top">
+  <div class="search">🔍 Tìm kiếm</div>
+</div>
+
+<!-- TABS -->
+<div class="tabs">
+  <div class="tab active">Ưu tiên</div>
+  <div class="tab">Khác</div>
+</div>
+
+<!-- LIST -->
+<div class="list">
+
+<a class="item" href="https://zalo.me/g/guxxky409" target="_blank">
+  <div class="avatar">
+    <img src="https://i.imgur.com/your_sv5.png">
+  </div>
+  <div class="info">
+    <div class="name">TDStudio Sv5 [Box 1]</div>
+    <div class="msg">Trọng Văn: [Sticker]</div>
+  </div>
+  <div class="right">
+    5 phút trước
+    <div class="mute">🔕</div>
+  </div>
+</a>
+<div class="hr"></div>
+
+<a class="item" href="https://zalo.me/g/sv4" target="_blank">
+  <div class="avatar">
+    <img src="https://i.imgur.com/your_sv4.png">
+  </div>
+  <div class="info">
+    <div class="name">TDStudio Sv4 [Box 1]</div>
+    <div class="msg">Vũ Tài Tới tham gia bằng link cộng đồng</div>
+  </div>
+  <div class="right">5 phút trước</div>
+</a>
+<div class="hr"></div>
+
+<a class="item" href="https://zalo.me/g/sv3" target="_blank">
+  <div class="avatar">
+    <img src="https://i.imgur.com/your_sv3.png">
+  </div>
+  <div class="info">
+    <div class="name">TDStudio Sv3 [Box 1]</div>
+    <div class="msg">Vũ Minh Quyết tham gia bằng link cộng đồng</div>
+  </div>
+  <div class="right">5 phút trước</div>
+</a>
+<div class="hr"></div>
+
+<a class="item" href="https://zalo.me/g/sv2" target="_blank">
+  <div class="avatar">
+    <img src="https://i.imgur.com/your_sv2.png">
+  </div>
+  <div class="info">
+    <div class="name">TDStudio Sv2 [Box 1]</div>
+    <div class="msg">Huy Hoàng Nguyễn: thế khu đâu tôi up nữa</div>
+  </div>
+  <div class="right">5 phút trước</div>
+</a>
+<div class="hr"></div>
+
+<a class="item" href="https://zalo.me/g/sv1" target="_blank">
+  <div class="avatar">
+    <img src="https://i.imgur.com/your_sv1.png">
+  </div>
+  <div class="info">
+    <div class="name">TDStudio Sv1 [Box 1]</div>
+    <div class="msg">Nhân Viên Tên Mèo: Canh mạnh bà bạn…</div>
+  </div>
+  <div class="right">5 phút trước</div>
+</a>
+
+</div>
+
+</body>
+</html>
