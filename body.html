@@ -2,7 +2,14 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<!-- KHÓA ZOOM -->
+<meta name="viewport"
+      content="width=device-width,
+               initial-scale=1.0,
+               maximum-scale=1.0,
+               minimum-scale=1.0,
+               user-scalable=no">
 
 <title>Inventory</title>
 
@@ -11,18 +18,22 @@
         box-sizing: border-box;
         -webkit-user-select: none;
         user-select: none;
+        touch-action: pan-y; /* chỉ cho cuộn dọc */
     }
 
-    body {
+    html, body {
         margin: 0;
-        background: #6b5a44; /* nền ngoài giống game */
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden; /* body không zoom, không scroll */
+        background: #6b5a44;
         font-family: Arial, Helvetica, sans-serif;
     }
 
-    /* KHUNG INVENTORY FULL NGANG */
+    /* KHUNG INVENTORY FULL MÀN */
     .inventory {
         width: 100vw;
-        max-width: 100%;
         height: 100vh;
         background: #e9e2d4;
         border-left: 4px solid #a8875a;
@@ -31,10 +42,11 @@
         flex-direction: column;
     }
 
-    /* DANH SÁCH ITEM */
+    /* DANH SÁCH ITEM – CHỈ SCROLL Ở ĐÂY */
     .list {
         flex: 1;
         overflow-y: auto;
+        overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
     }
 
@@ -44,7 +56,7 @@
         border-bottom: 3px solid #cbb899;
     }
 
-    /* Ô BÊN TRÁI (SỐ Ô) */
+    /* Ô SỐ */
     .icon {
         width: 64px;
         background: #9b8360;
@@ -55,6 +67,7 @@
         font-size: 18px;
         font-weight: bold;
         color: #2f2618;
+        flex-shrink: 0;
     }
 
     /* NỘI DUNG */
@@ -77,7 +90,7 @@
         margin-top: 6px;
     }
 
-    /* THANH TIỀN PHÍA DƯỚI */
+    /* THANH DƯỚI */
     .bottom-bar {
         height: 56px;
         background: #b99a6a;
@@ -88,6 +101,7 @@
         font-size: 16px;
         font-weight: bold;
         color: #2d2417;
+        flex-shrink: 0;
     }
 </style>
 </head>
@@ -95,130 +109,23 @@
 <body>
 
 <div class="inventory">
-
     <div class="list">
 
-        <div class="item">
-            <div class="icon">0</div>
-            <div class="info">
-                <div class="name">Áo</div>
-                <div class="desc">Ô này để mặc áo</div>
-            </div>
-        </div>
-
-        <div class="item">
-            <div class="icon">1</div>
-            <div class="info">
-                <div class="name">Quần</div>
-                <div class="desc">Ô này để mặc quần</div>
-            </div>
-        </div>
-
-        <div class="item">
-            <div class="icon">2</div>
-            <div class="info">
-                <div class="name">Găng</div>
-                <div class="desc">Ô này để mặc găng</div>
-            </div>
-        </div>
-
-        <!-- LẶP ITEM -->
-        <div class="item">
-            <div class="icon">3</div>
-            <div class="info">
-                <div class="name">Giầy</div>
-                <div class="desc">Ô này để mặc giầy</div>
-            </div>
-        </div>
-
-        <div class="item">
-            <div class="icon">4</div>
-            <div class="info">
-                <div class="name">Rada, Nhẫn</div>
-                <div class="desc">Ô này để mặc Rada hoặc Nhẫn</div>
-            </div>
-        </div>
-        
-        <div class="item">
-            <div class="icon">5</div>
-            <div class="info">
-                <div class="name">Cải trang</div>
-                <div class="desc">Ô này để mặc cải Trang</div>
-            </div>
-        </div>
-        
-        <div class="item">
-            <div class="icon">6</div>
-            <div class="info">
-                <div class="name">Giáp luyện tập</div>
-                <div class="desc">Mua ở Santa</div>
-            </div>
-        </div>
-        
-        <div class="item">
-            <div class="icon">7</div>
-            <div class="info">
-                <div class="name">Pet, thú đi theo</div>
-                <div class="desc">Ô này để nuôi Pet</div>
-            </div>
-        </div>
-        
-        <div class="item">
-            <div class="icon">8</div>
-            <div class="info">
-                <div class="name">Vật phẩm đeo lưng</div>
-                <div class="desc">Ô này để mặc vật phẩm đeo lưng</div>
-            </div>
-        </div>
-        
-        <div class="item">
-            <div class="icon">9</div>
-            <div class="info">
-                <div class="name">Ván bay, Thú cưỡi</div>
-                <div class="desc">Ô này để mặc vật phẩm ván bay, thú cưỡi</div>
-            </div>
-        </div>
-        
-        <div class="item">
-            <div class="icon">10</div>
-            <div class="info">
-                <div class="name">Linh thú</div>
-                <div class="desc">Ô này để nuôi linh thú (Trứng ở santa)</div>
-            </div>
-        </div>
-        
-        <div class="item">
-            <div class="icon">11</div>
-            <div class="info">
-                <div class="name">Chân mệnh</div>
-                <div class="desc">Lên hành tinh Kaio gặp Whis</div>
-            </div>
-        </div>
-        
-        <div class="item">
-            <div class="icon">12</div>
-            <div class="info">
-                <div class="name">Danh hiệu</div>
-                <div class="desc">Có thể kiếm tại Santa</div>
-            </div>
-        </div>
-        
-        <div class="item">
-            <div class="icon">13</div>
-            <div class="info">
-                <div class="name">Thanh lân bội</div>
-                <div class="desc">Có thể kiếm tại Santa</div>
-            </div>
-        </div>
-        
-        <div class="item">
-            <div class="icon">14</div>
-            <div class="info">
-                <div class="name">Sách tuyệt kĩ</div>
-                <div class="desc">Có thể kiếm tại Bà Hạt Mít vách núi</div>
-            </div>
-        </div>
-        
+        <div class="item"><div class="icon">0</div><div class="info"><div class="name">Áo</div><div class="desc">Ô này để mặc áo</div></div></div>
+        <div class="item"><div class="icon">1</div><div class="info"><div class="name">Quần</div><div class="desc">Ô này để mặc quần</div></div></div>
+        <div class="item"><div class="icon">2</div><div class="info"><div class="name">Găng</div><div class="desc">Ô này để mặc găng</div></div></div>
+        <div class="item"><div class="icon">3</div><div class="info"><div class="name">Giầy</div><div class="desc">Ô này để mặc giầy</div></div></div>
+        <div class="item"><div class="icon">4</div><div class="info"><div class="name">Rada, Nhẫn</div><div class="desc">Ô này để mặc Rada hoặc Nhẫn</div></div></div>
+        <div class="item"><div class="icon">5</div><div class="info"><div class="name">Cải trang</div><div class="desc">Ô này để mặc cải trang</div></div></div>
+        <div class="item"><div class="icon">6</div><div class="info"><div class="name">Giáp luyện tập</div><div class="desc">Mua ở Santa</div></div></div>
+        <div class="item"><div class="icon">7</div><div class="info"><div class="name">Pet, thú đi theo</div><div class="desc">Ô này để nuôi Pet</div></div></div>
+        <div class="item"><div class="icon">8</div><div class="info"><div class="name">Vật phẩm đeo lưng</div><div class="desc">Ô này để mặc vật phẩm đeo lưng</div></div></div>
+        <div class="item"><div class="icon">9</div><div class="info"><div class="name">Ván bay, Thú cưỡi</div><div class="desc">Ô này để mặc ván bay, thú cưỡi</div></div></div>
+        <div class="item"><div class="icon">10</div><div class="info"><div class="name">Linh thú</div><div class="desc">Nuôi linh thú (trứng ở Santa)</div></div></div>
+        <div class="item"><div class="icon">11</div><div class="info"><div class="name">Chân mệnh</div><div class="desc">Gặp Whis ở hành tinh Kaio</div></div></div>
+        <div class="item"><div class="icon">12</div><div class="info"><div class="name">Danh hiệu</div><div class="desc">Có thể kiếm tại Santa</div></div></div>
+        <div class="item"><div class="icon">13</div><div class="info"><div class="name">Thanh lân bội</div><div class="desc">Có thể kiếm tại Santa</div></div></div>
+        <div class="item"><div class="icon">14</div><div class="info"><div class="name">Sách tuyệt kĩ</div><div class="desc">Bà Hạt Mít – vách núi</div></div></div>
 
     </div>
 
@@ -227,8 +134,28 @@
         <div>💎 0</div>
         <div>💎 0</div>
     </div>
-
 </div>
+
+<!-- JS CHẶN ZOOM TRIỆT ĐỂ -->
+<script>
+    // Chặn pinch zoom (iOS)
+    document.addEventListener('gesturestart', e => e.preventDefault());
+    document.addEventListener('gesturechange', e => e.preventDefault());
+    document.addEventListener('gestureend', e => e.preventDefault());
+
+    // Chặn Ctrl + wheel (desktop)
+    document.addEventListener('wheel', e => {
+        if (e.ctrlKey) e.preventDefault();
+    }, { passive: false });
+
+    // Chặn double tap zoom
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', e => {
+        const now = Date.now();
+        if (now - lastTouchEnd <= 300) e.preventDefault();
+        lastTouchEnd = now;
+    }, false);
+</script>
 
 </body>
 </html>
