@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inventory</title>
+
+<style>
+    body {
+        margin: 0;
+        background: #6b5a44;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .inventory {
+        width: 360px;
+        height: 640px;
+        margin: 20px auto;
+        background: #e9e2d4;
+        border: 4px solid #a8875a;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .list {
+        flex: 1;
+        overflow-y: auto;
+    }
+
+    .item {
+        display: flex;
+        height: 64px;
+        border-bottom: 2px solid #cbb899;
+    }
+
+    .icon {
+        width: 64px;
+        background: #9b8360;
+        border-right: 2px solid #cbb899;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: #3b2f1f;
+        font-size: 18px;
+    }
+
+    .info {
+        flex: 1;
+        padding: 8px 10px;
+        background: #efe8db;
+        box-sizing: border-box;
+    }
+
+    .name {
+        color: #2f6b2f;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 1.2;
+    }
+
+    .desc {
+        color: #3b78c8;
+        font-size: 14px;
+        margin-top: 4px;
+    }
+
+    .bottom-bar {
+        height: 44px;
+        background: #b99a6a;
+        border-top: 2px solid #a8875a;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        font-weight: bold;
+        color: #2d2417;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="inventory">
+
+    <div class="list">
+        <!-- ITEM 0 -->
+        <div class="item">
+            <div class="icon">0</div>
+            <div class="info">
+                <div class="name">[262] Găng lông đỏ</div>
+                <div class="desc">Tấn công +700</div>
+            </div>
+        </div>
+
+        <!-- ITEM 1 -->
+        <div class="item">
+            <div class="icon">1</div>
+            <div class="info">
+                <div class="name">Áo chiến binh</div>
+                <div class="desc">Giáp +350</div>
+            </div>
+        </div>
+
+        <!-- ITEM 2 -->
+        <div class="item">
+            <div class="icon">2</div>
+            <div class="info">
+                <div class="name">Giày tốc độ</div>
+                <div class="desc">Tốc độ +20%</div>
+            </div>
+        </div>
+
+        <!-- ITEM 3 -->
+        <div class="item">
+            <div class="icon">3</div>
+            <div class="info">
+                <div class="name">Nhẫn năng lượng</div>
+                <div class="desc">KI +500</div>
+            </div>
+        </div>
+
+        <!-- COPY THÊM ITEM NẾU CẦN -->
+    </div>
+
+    <div class="bottom-bar">
+        <div>🪙 19,92b</div>
+        <div>💎 65,7k</div>
+        <div>🔴 913</div>
+    </div>
+
+</div>
+
+</body>
+</html>
