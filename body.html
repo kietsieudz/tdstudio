@@ -2,77 +2,90 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
 <title>Inventory</title>
 
 <style>
+    * {
+        box-sizing: border-box;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
     body {
         margin: 0;
-        background: #6b5a44;
+        background: #6b5a44; /* nền ngoài giống game */
         font-family: Arial, Helvetica, sans-serif;
     }
 
+    /* KHUNG INVENTORY FULL NGANG */
     .inventory {
-        width: 360px;
-        height: 640px;
-        margin: 20px auto;
+        width: 100vw;
+        max-width: 100%;
+        height: 100vh;
         background: #e9e2d4;
-        border: 4px solid #a8875a;
-        box-sizing: border-box;
+        border-left: 4px solid #a8875a;
+        border-right: 4px solid #a8875a;
         display: flex;
         flex-direction: column;
     }
 
+    /* DANH SÁCH ITEM */
     .list {
         flex: 1;
         overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .item {
         display: flex;
-        height: 64px;
-        border-bottom: 2px solid #cbb899;
+        height: 72px;
+        border-bottom: 3px solid #cbb899;
     }
 
+    /* Ô BÊN TRÁI (SỐ Ô) */
     .icon {
         width: 64px;
         background: #9b8360;
-        border-right: 2px solid #cbb899;
+        border-right: 3px solid #cbb899;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-weight: bold;
-        color: #3b2f1f;
         font-size: 18px;
+        font-weight: bold;
+        color: #2f2618;
     }
 
+    /* NỘI DUNG */
     .info {
         flex: 1;
-        padding: 8px 10px;
+        padding: 10px 12px;
         background: #efe8db;
-        box-sizing: border-box;
     }
 
     .name {
-        color: #2f6b2f;
+        font-size: 17px;
         font-weight: bold;
-        font-size: 16px;
+        color: #2f6b2f;
         line-height: 1.2;
     }
 
     .desc {
-        color: #3b78c8;
-        font-size: 14px;
-        margin-top: 4px;
+        font-size: 15px;
+        color: #2f6fd1;
+        margin-top: 6px;
     }
 
+    /* THANH TIỀN PHÍA DƯỚI */
     .bottom-bar {
-        height: 44px;
+        height: 56px;
         background: #b99a6a;
-        border-top: 2px solid #a8875a;
+        border-top: 3px solid #a8875a;
         display: flex;
         align-items: center;
         justify-content: space-around;
+        font-size: 16px;
         font-weight: bold;
         color: #2d2417;
     }
@@ -84,7 +97,7 @@
 <div class="inventory">
 
     <div class="list">
-        <!-- ITEM 0 -->
+
         <div class="item">
             <div class="icon">0</div>
             <div class="info">
@@ -93,7 +106,6 @@
             </div>
         </div>
 
-        <!-- ITEM 1 -->
         <div class="item">
             <div class="icon">1</div>
             <div class="info">
@@ -102,7 +114,6 @@
             </div>
         </div>
 
-        <!-- ITEM 2 -->
         <div class="item">
             <div class="icon">2</div>
             <div class="info">
@@ -111,97 +122,7 @@
             </div>
         </div>
 
-        <!-- ITEM 3 -->
-        <div class="item">
-            <div class="icon">3</div>
-            <div class="info">
-                <div class="name">Nhẫn năng lượng</div>
-                <div class="desc">KI +500</div>
-            </div>
-        </div>
-        
-        <!-- ITEM 4 -->
-        <div class="item">
-            <div class="icon">3</div>
-            <div class="info">
-                <div class="name">Nhẫn năng lượng</div>
-                <div class="desc">KI +500</div>
-            </div>
-        </div>
-        
-        <!-- ITEM 3 -->
-        <div class="item">
-            <div class="icon">3</div>
-            <div class="info">
-                <div class="name">Nhẫn năng lượng</div>
-                <div class="desc">KI +500</div>
-            </div>
-        </div>
-        
-        <!-- ITEM 3 -->
-        <div class="item">
-            <div class="icon">3</div>
-            <div class="info">
-                <div class="name">Nhẫn năng lượng</div>
-                <div class="desc">KI +500</div>
-            </div>
-        </div>
-        
-        <!-- ITEM 3 -->
-        <div class="item">
-            <div class="icon">3</div>
-            <div class="info">
-                <div class="name">Nhẫn năng lượng</div>
-                <div class="desc">KI +500</div>
-            </div>
-        </div>
-        
-        <!-- ITEM 3 -->
-        <div class="item">
-            <div class="icon">3</div>
-            <div class="info">
-                <div class="name">Nhẫn năng lượng</div>
-                <div class="desc">KI +500</div>
-            </div>
-        </div>
-        
-        <!-- ITEM 3 -->
-        <div class="item">
-            <div class="icon">3</div>
-            <div class="info">
-                <div class="name">Nhẫn năng lượng</div>
-                <div class="desc">KI +500</div>
-            </div>
-        </div>
-        
-        <!-- ITEM 3 -->
-        <div class="item">
-            <div class="icon">3</div>
-            <div class="info">
-                <div class="name">Nhẫn năng lượng</div>
-                <div class="desc">KI +500</div>
-            </div>
-        </div>
-        
-        <!-- ITEM 3 -->
-        <div class="item">
-            <div class="icon">3</div>
-            <div class="info">
-                <div class="name">Nhẫn năng lượng</div>
-                <div class="desc">KI +500</div>
-            </div>
-        </div>
-        
-        <!-- ITEM 3 -->
-        <div class="item">
-            <div class="icon">3</div>
-            <div class="info">
-                <div class="name">Nhẫn năng lượng</div>
-                <div class="desc">KI +500</div>
-            </div>
-        </div>
-        
-        <!-- ITEM 3 -->
+        <!-- LẶP ITEM -->
         <div class="item">
             <div class="icon">3</div>
             <div class="info">
@@ -210,8 +131,70 @@
             </div>
         </div>
 
+        <div class="item">
+            <div class="icon">4</div>
+            <div class="info">
+                <div class="name">Nhẫn năng lượng</div>
+                <div class="desc">KI +500</div>
+            </div>
+        </div>
 
-        <!-- COPY THÊM ITEM NẾU CẦN -->
+        <div class="item">
+            <div class="icon">5</div>
+            <div class="info">
+                <div class="name">Nhẫn năng lượng</div>
+                <div class="desc">KI +500</div>
+            </div>
+        </div>
+        
+        <div class="item">
+            <div class="icon">5</div>
+            <div class="info">
+                <div class="name">Nhẫn năng lượng</div>
+                <div class="desc">KI +500</div>
+            </div>
+        </div>
+        
+        <div class="item">
+            <div class="icon">5</div>
+            <div class="info">
+                <div class="name">Nhẫn năng lượng</div>
+                <div class="desc">KI +500</div>
+            </div>
+        </div>
+        
+        <div class="item">
+            <div class="icon">5</div>
+            <div class="info">
+                <div class="name">Nhẫn năng lượng</div>
+                <div class="desc">KI +500</div>
+            </div>
+        </div>
+        
+        <div class="item">
+            <div class="icon">5</div>
+            <div class="info">
+                <div class="name">Nhẫn năng lượng</div>
+                <div class="desc">KI +500</div>
+            </div>
+        </div>
+        
+        <div class="item">
+            <div class="icon">5</div>
+            <div class="info">
+                <div class="name">Nhẫn năng lượng</div>
+                <div class="desc">KI +500</div>
+            </div>
+        </div>
+        
+        <div class="item">
+            <div class="icon">5</div>
+            <div class="info">
+                <div class="name">Nhẫn năng lượng</div>
+                <div class="desc">KI +500</div>
+            </div>
+        </div>
+
     </div>
 
     <div class="bottom-bar">
