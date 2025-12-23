@@ -233,86 +233,108 @@ margin-top:8px;border-radius:6px
         </div>
 
         <script>
-const GUIDE_LINK="https://thanhdi.com/huongdannap";
-let selectedServerLink=null;
+const GUIDE_LINK = "https://thanhdi.com/nap";
+let selectedServerLink = null;
 
-const ua=navigator.userAgent.toLowerCase();
-let os="máy tính";
-if(ua.includes("iphone")||ua.includes("ipad"))os="iPhone";
-else if(ua.includes("android"))os="Android";
-else if(ua.includes("mac"))os="macOS";
-else if(ua.includes("win"))os="Windows";
+/* ===== DETECT OS ===== */
+const ua = navigator.userAgent.toLowerCase();
+let os = "máy tính";
+if (ua.includes("iphone") || ua.includes("ipad")) os = "iPhone";
+else if (ua.includes("android")) os = "Android";
+else if (ua.includes("mac")) os = "macOS";
+else if (ua.includes("win")) os = "Windows";
 
-let app=null;
-if(ua.includes("zalo"))app="Zalo";
-else if(ua.includes("fbav")||ua.includes("fban"))app="Facebook";
-else if(ua.includes("messenger"))app="Messenger";
+/* ===== DETECT APP PREVIEW ===== */
+let app = null;
+if (ua.includes("zalo")) app = "Zalo";
+else if (ua.includes("fbav") || ua.includes("fban")) app = "Facebook";
+else if (ua.includes("messenger")) app = "Messenger";
 
-const isInSocial=!!app;
-const browserSuggest=os==="iPhone"?"Safari":"Chrome";
+const isInSocial = !!app;
+const browserSuggest = os === "iPhone" ? "Safari" : "Chrome";
 
-const topWarning=document.getElementById("topWarning");
-if(isInSocial){
-topWarning.innerHTML=`
-<b>Bạn đang mở trong ${app}</b><br>
-Trình xem trước không hỗ trợ nạp game.<br>
-Vui lòng mở bằng <b>${browserSuggest}</b>.
-<button class="copy-btn" onclick="copyGuideLink()">📋 Copy link hướng dẫn nạp</button>
-`;
-}else{
-topWarning.style.display="none";
+/* ===== TOP WARNING ===== */
+const topWarning = document.getElementById("topWarning");
+if (isInSocial) {
+    topWarning.innerHTML = `
+        <b>Bạn đang mở trang này trong ${app}</b><br>
+        Trình xem trước của ${app} không hỗ trợ nạp game.<br>
+        Vui lòng mở bằng <b>${browserSuggest}</b> để nạp.
+        <button class="copy-btn" onclick="copyGuideLink()">
+            📋 Copy link hướng dẫn nạp
+        </button>
+    `;
+} else {
+    topWarning.style.display = "none";
 }
 
-document.querySelectorAll(".server-link").forEach(btn=>{
-const url=btn.href;
-if(isInSocial){
-btn.classList.add("disabled");
-btn.onclick=e=>{
-e.preventDefault();
-selectedServerLink=url;
-showCopyPopup();
-};
-}
+/* ===== SERVER CLICK ===== */
+document.querySelectorAll(".server-link").forEach(btn => {
+    const url = btn.href;
+
+    if (isInSocial) {
+        btn.classList.add("disabled");
+
+        btn.onclick = e => {
+            e.preventDefault();
+            selectedServerLink = url;
+            showPreviewWarningPopup();
+        };
+    }
 });
 
-function showCopyPopup(){
-openPopup(
-"Copy link server",
-`Copy link server đã chọn để mở bằng <b>${browserSuggest}</b>.`,
-"📋 Copy link server",
-copyServerLink
-);
+/* ===== POPUP CONTENT ===== */
+function showPreviewWarningPopup() {
+    openPopup(
+        "Không thể nạp trong trình xem trước",
+        `
+        Bạn đang mở link bằng <b>${app}</b> trên <b>${os}</b>.<br><br>
+        Trình xem trước của ${app} <b>không hỗ trợ nạp game</b>.<br>
+        Bạn cần <b>copy link server</b> và mở bằng
+        <b>${browserSuggest}</b> để có thể nạp.
+        `,
+        "📋 Copy link server",
+        copyServerLink
+    );
 }
 
-function showSuccessPopup(){
-openPopup(
-"Copy thành công",
-`Link đã được copy.<br>Vui lòng mở bằng <b>${browserSuggest}</b> để tiến hành nạp.`,
-"Đã hiểu",
-closePopup
-);
+function showSuccessPopup() {
+    openPopup(
+        "Copy link thành công",
+        `
+        Link đã được copy vào bộ nhớ.<br><br>
+        Vui lòng mở bằng <b>${browserSuggest}</b>
+        để tiếp tục nạp game.
+        `,
+        "Đã hiểu",
+        closePopup
+    );
 }
 
-function openPopup(title,text,btnText,btnAction){
-document.getElementById("popupTitle").innerHTML=title;
-document.getElementById("popupText").innerHTML=text;
-const btn=document.getElementById("popupMainBtn");
-btn.innerHTML=btnText;
-btn.onclick=btnAction;
-document.getElementById("popupMask").style.display="flex";
+/* ===== POPUP CORE ===== */
+function openPopup(title, text, btnText, btnAction) {
+    document.getElementById("popupTitle").innerHTML = title;
+    document.getElementById("popupText").innerHTML = text;
+
+    const btn = document.getElementById("popupMainBtn");
+    btn.innerHTML = btnText;
+    btn.onclick = btnAction;
+
+    document.getElementById("popupMask").style.display = "flex";
 }
 
-function closePopup(){
-document.getElementById("popupMask").style.display="none";
+function closePopup() {
+    document.getElementById("popupMask").style.display = "none";
 }
 
-function copyGuideLink(){
-navigator.clipboard.writeText(GUIDE_LINK).then(showSuccessPopup);
+/* ===== COPY ===== */
+function copyGuideLink() {
+    navigator.clipboard.writeText(GUIDE_LINK).then(showSuccessPopup);
 }
 
-function copyServerLink(){
-if(!selectedServerLink)return;
-navigator.clipboard.writeText(selectedServerLink).then(showSuccessPopup);
+function copyServerLink() {
+    if (!selectedServerLink) return;
+    navigator.clipboard.writeText(selectedServerLink).then(showSuccessPopup);
 }
 </script>
 
