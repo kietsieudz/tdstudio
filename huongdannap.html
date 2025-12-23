@@ -20,10 +20,6 @@
         <meta property="og:url" content="https://thanhdi.com/huongdannap" />
         <meta property="og:image"
             content="https://sv1.thanhdi.games/static/sonic/img/graph.png?v=123" />
-        <meta property="og:image:secure_url"
-            content="https://sv1.thanhdi.games/static/sonic/img/graph.png?v=123" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
 
         <link rel="icon" type="image/x-icon"
             href="https://sv1.thanhdi.games/static/sonic/img/favicon.png?v=12">
@@ -40,20 +36,37 @@ body {
     color: #333;
 }
 
-/* CẢNH BÁO DÍNH TRÊN */
+/* ===== THÔNG BÁO HƯỚNG DẪN (NHẸ – KHÔNG HÙ) ===== */
 .top-warning {
     position: sticky;
     top: 0;
     z-index: 9999;
-    background: #ffe9e9;
-    border-bottom: 2px solid #ff4d4f;
-    padding: 8px 10px;
-    font-size: 13px;
-    color: #b10000;
+    background: #f5f9ff;
+    border-bottom: 1px solid #cfe0ff;
+    padding: 14px 16px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #1f3a5f;
     text-align: center;
-    display: none;
 }
 
+.top-warning b {
+    color: #0b5ed7;
+}
+
+.copy-btn {
+    margin: 12px auto 0;
+    display: block;
+    background: #0b5ed7;
+    color: #fff;
+    padding: 9px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+}
+
+/* ===== LAYOUT ===== */
 .container {
     max-width: 720px;
     margin: auto;
@@ -85,7 +98,7 @@ h1 {
     line-height: 1.6;
 }
 
-/* ===== SERVER LIST (THU NHỎ – KHÔNG CHOÁN MÀN) ===== */
+/* ===== SERVER LIST ===== */
 .server-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -145,11 +158,7 @@ h1 {
 
     <body>
 
-        <div id="topWarning" class="top-warning">
-            ⚠️ Bạn đang mở trang này trong trình xem trước mạng xã hội.
-            Vui lòng <b>copy link</b> và mở bằng <b>Chrome (Android)</b> hoặc
-            <b>Safari (iPhone)</b> để nạp game.
-        </div>
+        <div id="topWarning" class="top-warning"></div>
 
         <div class="container">
 
@@ -157,9 +166,8 @@ h1 {
 
             <div class="step">
                 <div class="step-title">Bạn muốn nạp cho server nào?</div>
-                <div class="step-desc">
-                    Vui lòng chọn đúng server bạn đang chơi.
-                </div>
+                <div class="step-desc">Vui lòng chọn đúng server bạn đang
+                    chơi.</div>
                 <div class="server-list">
                     <a href="https://sv1.thanhdi.games"
                         class="server-btn server-link">Server 1</a>
@@ -178,7 +186,7 @@ h1 {
                 </div>
             </div>
 
-            <!-- ===== PHẦN HƯỚNG DẪN GIỮ NGUYÊN CỦA ANH ===== -->
+            <!-- ===== PHẦN HƯỚNG DẪN ĐẦY ĐỦ ===== -->
 
             <div class="step">
                 <div class="step-title">Bước 1: Truy cập trang nạp</div>
@@ -194,8 +202,8 @@ h1 {
             <div class="step">
                 <div class="step-title">Bước 2: Vào trang chủ server game</div>
                 <div class="step-desc">
-                    Bấm vào nút <b>Đăng nhập</b> → đăng nhập tài khoản → bấm
-                    <b>Diễn đàn</b>.
+                    Bấm <b>Đăng nhập</b> → đăng nhập tài khoản → bấm <b>Diễn
+                        đàn</b>.
                 </div>
                 <div class="image-box">
                     <img src="images/huongdan2.png">
@@ -231,12 +239,10 @@ h1 {
             <div class="step">
                 <div class="step-title">Bước 5: Quy đổi trong game</div>
                 <div class="step-desc">
-                    Sau khi <b>coin vào web</b> → Hãy <b>thoát game</b> và Đăng
-                    nhập
-                    lại → Gặp
-                    <b>NPC trong nhà</b> → <b>Nạp
-                        tiền & Quy đổi</b> → đổi
-                    sang <b>Hồng Ngọc</b> hoặc <b>Thỏi Vàng</b>.
+                    Sau khi coin vào web → thoát game → đăng nhập lại → gặp
+                    <b>NPC trong nhà</b> →
+                    <b>Nạp tiền & Quy đổi</b> → đổi sang <b>Hồng Ngọc</b> hoặc
+                    <b>Thỏi Vàng</b>.
                 </div>
                 <div class="image-box">
                     <img src="images/huongdan5.png">
@@ -256,12 +262,9 @@ h1 {
             <div class="step">
                 <div class="step-title">Bước 7: Gặp lỗi & báo lỗi</div>
                 <div class="step-desc">
-                    Trường hợp quên nội dung chuyển khoản hoặc lỗi nạp, vui lòng
-                    bấm
-                    <a href="/contact.html">ĐÂY</a> để liên hệ hỗ trợ.
-                </div>
-                <div class="image-box">
-                    <img src="images/huongdan7.png">
+                    Nếu quên nội dung chuyển khoản hoặc gặp lỗi nạp,
+                    vui lòng bấm <a href="/contact.html">ĐÂY</a> để liên hệ hỗ
+                    trợ.
                 </div>
             </div>
 
@@ -274,35 +277,62 @@ h1 {
         <script>
 (function () {
     const ua = navigator.userAgent.toLowerCase();
-    const isPreview =
-        ua.includes("zalo") ||
-        ua.includes("fbav") ||
-        ua.includes("fban") ||
-        ua.includes("messenger");
+    const warning = document.getElementById("topWarning");
 
-    const isAndroid = ua.includes("android");
-    const isIOS = ua.includes("iphone") || ua.includes("ipad");
+    let os = "máy tính";
+    if (ua.includes("iphone") || ua.includes("ipad")) os = "iPhone";
+    else if (ua.includes("android")) os = "Android";
+    else if (ua.includes("mac")) os = "macOS";
+    else if (ua.includes("win")) os = "Windows";
 
-    if (isPreview) {
-        const warning = document.getElementById("topWarning");
-        warning.style.display = "block";
+    let app = null;
+    if (ua.includes("zalo")) app = "Zalo";
+    else if (ua.includes("fbav") || ua.includes("fban")) app = "Facebook";
+    else if (ua.includes("messenger")) app = "Messenger";
 
-        if (isAndroid) {
-            warning.innerHTML = "⚠️ Bạn đang mở bằng trình xem trước.<br>Vui lòng copy link và mở bằng <b>Chrome</b>.";
-        }
-        if (isIOS) {
-            warning.innerHTML = "⚠️ Bạn đang mở bằng trình xem trước.<br>Vui lòng copy link và mở bằng <b>Safari</b>.";
-        }
+    const link = "https://thanhdi.com/huongdannap";
+
+    let html = `
+        <b>Hướng dẫn mở trang nạp</b><br>
+        Để nạp game ổn định trên <b>${os}</b>, bạn nên mở trang này bằng
+        <b>Safari</b> hoặc <b>Chrome</b>.
+        <br>
+        Trình xem trước trong ứng dụng mạng xã hội có thể không hỗ trợ chức năng nạp.
+        <button class="copy-btn" onclick="copyNapLink()">📋 Copy link hướng dẫn nạp</button>
+    `;
+
+    if (app) {
+        html = `
+            <b>Bạn đang mở trang này trong ${app}</b><br>
+            ${app} đang dùng trình xem trước nên không thể nạp game.
+            <br>
+            Vui lòng copy link bên dưới và mở bằng
+            <b>${os === "iPhone" ? "Safari" : "Chrome"}</b> để tiếp tục.
+            <button class="copy-btn" onclick="copyNapLink()">📋 Copy link hướng dẫn nạp</button>
+        `;
 
         document.querySelectorAll(".server-link").forEach(btn => {
+            btn.classList.add("disabled");
             btn.addEventListener("click", function (e) {
                 e.preventDefault();
-                alert("Bạn cần copy link và mở bằng Chrome hoặc Safari để nạp game.");
+                copyNapLink();
             });
-            btn.classList.add("disabled");
         });
     }
+
+    warning.innerHTML = html;
 })();
+
+function copyNapLink() {
+    const link = "https://thanhdi.com/huongdannap";
+    navigator.clipboard.writeText(link).then(() => {
+        alert(
+            "Đã copy link hướng dẫn nạp:\n\n" +
+            link +
+            "\n\nHãy mở bằng Safari hoặc Chrome để tiếp tục."
+        );
+    });
+}
 </script>
 
     </body>
