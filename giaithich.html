@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quy trình Trạng thái Game</title>
+<title>Tiến trình trạng thái Game</title>
 
 <style>
     body {
@@ -12,7 +12,8 @@
         font-family: Arial, Helvetica, sans-serif;
         color: #222;
     }
-    .box {
+
+    .container {
         max-width: 720px;
         margin: 32px auto;
         background: #fff;
@@ -20,85 +21,122 @@
         border-radius: 10px;
         box-shadow: 0 6px 16px rgba(0,0,0,0.08);
     }
+
     h1 {
         margin-top: 0;
         font-size: 22px;
-        color: #c0392b;
-    }
-    .time {
-        background: #eef2ff;
-        border-left: 4px solid #4f46e5;
-        padding: 12px 14px;
-        margin: 16px 0;
-        font-size: 15px;
-    }
-    .step {
-        margin-top: 16px;
-        padding-left: 16px;
-        border-left: 3px solid #ddd;
-    }
-    .step strong {
         color: #2c3e50;
+        text-align: center;
     }
-    ul {
-        margin: 8px 0 0 18px;
-        padding: 0;
+
+    .timeline {
+        margin-top: 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
-    li {
+
+    .step {
+        width: 100%;
+        max-width: 520px;
+        background: #ecf0f1;
+        border-radius: 8px;
+        padding: 14px 16px;
+        text-align: center;
+        font-size: 15px;
+        color: #333;
+    }
+
+    .step.current {
+        background: #eaf4ff;
+        border: 2px solid #3498db;
+        color: #1f4ed8;
+        font-weight: bold;
+        position: relative;
+    }
+
+    .step.current::after {
+        content: "ĐANG DIỄN RA";
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        background: #e74c3c;
+        color: #fff;
+        font-size: 11px;
+        padding: 4px 8px;
+        border-radius: 12px;
+    }
+
+    .arrow {
+        font-size: 26px;
+        color: #999;
         margin: 6px 0;
-        font-size: 14px;
     }
-    .note {
+
+    .time-box {
         margin-top: 20px;
+        background: #fff8e1;
+        border-left: 4px solid #f1c40f;
+        padding: 12px 14px;
+        font-size: 14px;
+        color: #444;
+    }
+
+    .note {
+        margin-top: 18px;
         font-size: 14px;
         color: #555;
-        background: #fff8e1;
-        padding: 12px 14px;
-        border-left: 4px solid #f1c40f;
     }
 </style>
 </head>
 
 <body>
-<div class="box">
-    <h1>Trạng thái hiện tại của Game</h1>
+<div class="container">
+    <h1>Tiến trình trạng thái Game</h1>
 
-    <div class="time">
-        <strong>ĐUA TOP TEST</strong><br>
-        Bắt đầu: <strong>19:00 – 23/12/2025</strong><br>
-        Kết thúc: <strong>19:00 – 26/12/2025</strong>
+    <div class="timeline">
+        <div class="step">
+            Game Test<br>
+            <small>(Có free 5M coin)</small>
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <div class="step current">
+            Đua Top Test<br>
+            <small>Không free coin – Nạp được & hoàn lại</small>
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <div class="step">
+            Reset dữ liệu
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <div class="step">
+            Đua Top Open (Chính thức)<br>
+            <small>Không free coin</small>
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <div class="step">
+            Game Chính Thức<br>
+            <small>Không reset về sau</small>
+        </div>
     </div>
 
-    <div class="step">
-        <strong>Trong thời gian đua top test:</strong>
-        <ul>
-            <li>Không có free coin</li>
-            <li>Người chơi vẫn có thể nạp tiền</li>
-            <li>Toàn bộ tiền nạp sẽ được hoàn lại khi mở đua top chính thức</li>
-            <li>Người chơi đạt thứ hạng sẽ nhận quà đua top test</li>
-        </ul>
-    </div>
-
-    <div class="step">
-        <strong>Sau khi kết thúc đua top test:</strong>
-        <ul>
-            <li>Game sẽ reset toàn bộ dữ liệu</li>
-            <li>Chuẩn bị mở giai đoạn đua top open (chính thức)</li>
-        </ul>
-    </div>
-
-    <div class="step">
-        <strong>Giai đoạn đua top open & game chính thức:</strong>
-        <ul>
-            <li>Không free coin</li>
-            <li>Game vận hành ổn định</li>
-            <li>Không reset dữ liệu về sau</li>
-        </ul>
+    <div class="time-box">
+        <strong>Thời gian đua top test:</strong><br>
+        Bắt đầu: 19:00 – 23/12/2025<br>
+        Kết thúc: 19:00 – 26/12/2025
     </div>
 
     <div class="note">
-        Người chơi nên tham gia đua top test để làm quen cơ chế và chuẩn bị chiến thuật
-        cho giai đoạn đua top chính thức.
+        Sau khi kết thúc đua top test, game sẽ reset để chuẩn bị cho giai đoạn
+        đua top open và vận hành chính thức lâu dài.
     </div>
 </div>
 </body>
