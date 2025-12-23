@@ -13,50 +13,53 @@
         color: #222;
     }
 
-    .container {
+    .wrap {
         max-width: 720px;
-        margin: 32px auto;
+        margin: 24px auto;
         background: #fff;
+        border-radius: 12px;
         padding: 24px;
-        border-radius: 10px;
-        box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+        box-shadow: 0 6px 18px rgba(0,0,0,0.08);
     }
 
     h1 {
-        margin-top: 0;
+        margin: 0 0 20px;
+        text-align: center;
         font-size: 22px;
         color: #2c3e50;
-        text-align: center;
-    }
-
-    .timeline {
-        margin-top: 24px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
     }
 
     .step {
-        width: 100%;
-        max-width: 520px;
         background: #ecf0f1;
-        border-radius: 8px;
+        border-radius: 10px;
         padding: 14px 16px;
-        text-align: center;
-        font-size: 15px;
-        color: #333;
+        margin-bottom: 6px;
+    }
+
+    .step h3 {
+        margin: 0;
+        font-size: 16px;
+        color: #2c3e50;
+    }
+
+    .step p {
+        margin: 6px 0 0;
+        font-size: 14px;
+        color: #555;
+        line-height: 1.5;
+    }
+
+    .step.done {
+        opacity: 0.7;
     }
 
     .step.current {
         background: #eaf4ff;
         border: 2px solid #3498db;
-        color: #1f4ed8;
-        font-weight: bold;
         position: relative;
     }
 
-    .step.current::after {
-        content: "ĐANG DIỄN RA";
+    .badge {
         position: absolute;
         top: -10px;
         right: -10px;
@@ -65,10 +68,12 @@
         font-size: 11px;
         padding: 4px 8px;
         border-radius: 12px;
+        font-weight: bold;
     }
 
     .arrow {
-        font-size: 26px;
+        text-align: center;
+        font-size: 22px;
         color: #999;
         margin: 6px 0;
     }
@@ -79,11 +84,11 @@
         border-left: 4px solid #f1c40f;
         padding: 12px 14px;
         font-size: 14px;
-        color: #444;
+        line-height: 1.5;
     }
 
-    .note {
-        margin-top: 18px;
+    .footer-note {
+        margin-top: 16px;
         font-size: 14px;
         color: #555;
     }
@@ -91,51 +96,77 @@
 </head>
 
 <body>
-<div class="container">
+<div class="wrap">
     <h1>Tiến trình trạng thái Game</h1>
 
-    <div class="timeline">
-        <div class="step">
-            Game Test<br>
-            <small>(Có free 5M coin)</small>
-        </div>
-
-        <div class="arrow">↓</div>
-
-        <div class="step current">
-            Đua Top Test<br>
-            <small>Không free coin – Nạp được & hoàn lại</small>
-        </div>
-
-        <div class="arrow">↓</div>
-
-        <div class="step">
-            Reset dữ liệu
-        </div>
-
-        <div class="arrow">↓</div>
-
-        <div class="step">
-            Đua Top Open (Chính thức)<br>
-            <small>Không free coin</small>
-        </div>
-
-        <div class="arrow">↓</div>
-
-        <div class="step">
-            Game Chính Thức<br>
-            <small>Không reset về sau</small>
-        </div>
+    <!-- Game Test -->
+    <div class="step done">
+        <h3>Game Test</h3>
+        <p>
+            Giai đoạn test ban đầu để người chơi làm quen game.<br>
+            Hệ thống hỗ trợ <strong>free 5M coin</strong> để trải nghiệm tính năng.
+        </p>
     </div>
 
+    <div class="arrow">↓</div>
+
+    <!-- Đua Top Test -->
+    <div class="step current">
+        <div class="badge">ĐANG DIỄN RA</div>
+        <h3>Đua Top Test</h3>
+        <p>
+            Giai đoạn đua top thử nghiệm trước khi mở chính thức.<br>
+            – <strong>Không free coin</strong><br>
+            – <strong>Nạp tiền được</strong><br>
+            – Toàn bộ tiền nạp sẽ <strong>được hoàn lại</strong> khi game mở đua top chính thức.<br>
+            – Người chơi đạt thứ hạng sẽ nhận <strong>quà đua top test</strong>.
+        </p>
+    </div>
+
+    <div class="arrow">↓</div>
+
+    <!-- Reset -->
+    <div class="step">
+        <h3>Reset dữ liệu</h3>
+        <p>
+            Sau khi kết thúc đua top test, hệ thống sẽ reset toàn bộ dữ liệu
+            để đảm bảo công bằng cho giai đoạn tiếp theo.
+        </p>
+    </div>
+
+    <div class="arrow">↓</div>
+
+    <!-- Đua Top Open -->
+    <div class="step">
+        <h3>Đua Top Open (Chính thức)</h3>
+        <p>
+            Giai đoạn đua top chính thức của game.<br>
+            – <strong>Không free coin</strong><br>
+            – Bắt đầu tính thành tích thật.
+        </p>
+    </div>
+
+    <div class="arrow">↓</div>
+
+    <!-- Game Official -->
+    <div class="step">
+        <h3>Game Chính Thức</h3>
+        <p>
+            Game đi vào vận hành lâu dài.<br>
+            – <strong>Không reset dữ liệu về sau</strong><br>
+            – Người chơi yên tâm gắn bó lâu dài.
+        </p>
+    </div>
+
+    <!-- Time -->
     <div class="time-box">
         <strong>Thời gian đua top test:</strong><br>
-        Bắt đầu: 19:00 – 23/12/2025<br>
-        Kết thúc: 19:00 – 26/12/2025
+        Bắt đầu: <strong>19:00 – 23/12/2025</strong><br>
+        Kết thúc: <strong>19:00 – 26/12/2025</strong>
     </div>
 
-    <div class="note">
-        Sau khi kết thúc đua top test, game sẽ reset để chuẩn bị cho giai đoạn
+    <div class="footer-note">
+        Sau khi kết thúc đua top test, game sẽ reset để chuẩn bị cho
         đua top open và vận hành chính thức lâu dài.
     </div>
 </div>
