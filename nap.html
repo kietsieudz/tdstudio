@@ -83,6 +83,37 @@ padding:6px 4px;border-radius:6px;
 font-size:12px;text-decoration:none
 }
 .server-btn.disabled{background:#9aa0a6}
+
+.extra-actions{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:10px;
+}
+
+.step .extra-actions{
+margin-top:2px;      /* không bị dính server */
+margin-bottom:4px;   /* không đẩy Bước 1 quá xa */
+}
+
+.extra-btn{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:4px;
+padding:10px 6px;
+border-radius:8px;
+font-size:13px;
+font-weight:600;
+color:#fff;
+text-decoration:none;
+white-space:nowrap;
+}
+
+.extra-btn{background:#02b411}
+.extra-btn.orange{background:#02b411}
+.extra-btn.red{background:#02b411}
+
+
 .image-box{
 margin-top:10px;background:#e9ecef;
 border:2px dashed #c0c4c7;
@@ -143,8 +174,27 @@ margin-top:8px;border-radius:6px
                         class="server-btn server-link">Server Indo</a>
                 </div>
             </div>
+            <div class="step">
+                <div class="extra-actions">
+                    <a href="/mocnap.html"
+                        class="extra-btn extra-link"
+                        data-name="Quà mốc nạp">
+                        🎁 Quà mốc nạp
+                    </a>
 
-            <!-- ===== PHẦN HƯỚNG DẪN ĐẦY ĐỦ ===== -->
+                    <a href="/quaduatop.html"
+                        class="extra-btn orange extra-link"
+                        data-name="Quà top nạp">
+                        🏆 Quà top nạp
+                    </a>
+
+                    <a href="/contact.html"
+                        class="extra-btn red extra-link"
+                        data-name="Báo lỗi">
+                        ⚠️ Báo lỗi
+                    </a>
+                </div>
+            </div>
 
             <div class="step">
                 <div class="step-title">Bước 1: Truy cập trang nạp</div>
@@ -336,6 +386,32 @@ function copyServerLink() {
     if (!selectedServerLink) return;
     navigator.clipboard.writeText(selectedServerLink).then(showSuccessPopup);
 }
+</script>
+        <script>
+    /* ===== EXTRA BUTTON CLICK ===== */
+document.querySelectorAll(".extra-link").forEach(btn => {
+    const url = btn.href;
+    const name = btn.dataset.name;
+
+    if (isInSocial) {
+        btn.onclick = e => {
+            e.preventDefault();
+            selectedServerLink = url;
+            openPopup(
+                "Không thể mở trong trình xem trước",
+                `
+                Bạn đang mở bằng <b>${app}</b> trên <b>${os}</b>.<br><br>
+                Trình xem trước <b>không hỗ trợ</b> chức năng <b>${name}</b>.<br>
+                Vui lòng <b>copy link</b> và mở bằng
+                <b>${browserSuggest}</b>.
+                `,
+                "📋 Copy link",
+                copyServerLink
+            );
+        };
+    }
+});
+
 </script>
 
     </body>
