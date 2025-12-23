@@ -8,7 +8,8 @@
             content="TDStudio – Trang hướng dẫn nạp chi tiết.">
         <meta name="robots" content="index, follow, max-image-preview:large">
         <title>TDStudio – Hướng dẫn nạp - Guide Top-up</title>
-        <!-- Open Graph (Facebook, Zalo, Discord...) -->
+
+        <!-- Open Graph -->
         <meta property="og:locale" content="vi_VN" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="TDStudio" />
@@ -23,75 +24,91 @@
             content="https://sv1.thanhdi.games/static/sonic/img/graph.png?v=123" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
+
         <link rel="icon" type="image/x-icon"
             href="https://sv1.thanhdi.games/static/sonic/img/favicon.png?v=12">
 
-        <!-- Twitter Card -->
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@YourTwitterHandle" />
-        <meta name="twitter:title"
-            content="TDStudio – Trang hướng dẫn nạp chi tiết" />
-        <meta name="twitter:description"
-            content="TDStudio – Trang hướng dẫn nạp chi tiết." />
-        <meta name="twitter:image"
-            content="https://sv1.thanhdi.games/static/sonic/img/graph.png?v=123" />
-
-        <!-- Optional: Facebook app id (only if bạn có) -->
-        <meta property="fb:app_id" content="30456920760618695" />
-
         <style>
-        * {
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
+* {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
 
-        body {
-            margin: 0;
-            background: #f4f6f8;
-            color: #333;
-        }
+body {
+    margin: 0;
+    background: #f4f6f8;
+    color: #333;
+}
 
-        .container {
-            max-width: 720px;
-            margin: auto;
-            padding: 16px;
-        }
+/* CẢNH BÁO DÍNH TRÊN */
+.top-warning {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background: #ffe9e9;
+    border-bottom: 2px solid #ff4d4f;
+    padding: 8px 10px;
+    font-size: 13px;
+    color: #b10000;
+    text-align: center;
+    display: none;
+}
 
-        h1 {
-            font-size: 20px;
-            margin-bottom: 12px;
-            text-align: center;
-        }
+.container {
+    max-width: 720px;
+    margin: auto;
+    padding: 16px;
+}
 
-        .step {
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 14px;
-            margin-bottom: 14px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-        }
+h1 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    text-align: center;
+}
 
-        .step-title {
-            font-weight: 600;
-            margin-bottom: 6px;
-            color: #1a73e8;
-        }
+.step {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
 
-        .step-desc {
-            font-size: 14px;
-            line-height: 1.6;
-        }
+.step-title {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #1a73e8;
+}
 
-        .note {
-            background: #fff7e6;
-            border-left: 4px solid #ffb300;
-            padding: 10px;
-            font-size: 13px;
-            margin-top: 8px;
-            border-radius: 6px;
-        }
+.step-desc {
+    font-size: 14px;
+    line-height: 1.6;
+}
 
-        .image-box {
+/* ===== SERVER LIST (THU NHỎ – KHÔNG CHOÁN MÀN) ===== */
+.server-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin-top: 6px;
+}
+
+.server-btn {
+    background: #1a73e8;
+    color: #fff;
+    text-align: center;
+    padding: 6px 4px;
+    border-radius: 6px;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.server-btn.disabled {
+    background: #9aa0a6;
+}
+
+/* ===== IMAGE ===== */
+.image-box {
     margin-top: 10px;
     background: #e9ecef;
     border: 2px dashed #c0c4c7;
@@ -101,147 +118,192 @@
 
 .image-box img {
     width: 100%;
-    height: auto;          /* ✅ QUAN TRỌNG NHẤT */
+    height: auto;
     display: block;
-
     border: 2px solid #1a73e8;
     border-radius: 8px;
     background: #fff;
 }
 
+.note {
+    background: #fff7e6;
+    border-left: 4px solid #ffb300;
+    padding: 10px;
+    font-size: 13px;
+    margin-top: 8px;
+    border-radius: 6px;
+}
 
-        .footer {
-            text-align: center;
-            font-size: 12px;
-            color: #777;
-            margin-top: 20px;
-        }
-    </style>
+.footer {
+    text-align: center;
+    font-size: 12px;
+    color: #777;
+    margin-top: 20px;
+}
+</style>
     </head>
 
     <body>
+
+        <div id="topWarning" class="top-warning">
+            ⚠️ Bạn đang mở trang này trong trình xem trước mạng xã hội.
+            Vui lòng <b>copy link</b> và mở bằng <b>Chrome (Android)</b> hoặc
+            <b>Safari (iPhone)</b> để nạp game.
+        </div>
+
         <div class="container">
 
             <h1>HƯỚNG DẪN NẠP GAME</h1>
 
-            <!-- BƯỚC 1 -->
+            <div class="step">
+                <div class="step-title">Bạn muốn nạp cho server nào?</div>
+                <div class="step-desc">
+                    Vui lòng chọn đúng server bạn đang chơi.
+                </div>
+                <div class="server-list">
+                    <a href="https://sv1.thanhdi.games"
+                        class="server-btn server-link">Server 1</a>
+                    <a href="https://sv2.thanhdi.games"
+                        class="server-btn server-link">Server 2</a>
+                    <a href="https://sv3.thanhdi.games"
+                        class="server-btn server-link">Server 3</a>
+                    <a href="https://sv4.thanhdi.games"
+                        class="server-btn server-link">Server 4</a>
+                    <a href="https://sv5.thanhdi.games"
+                        class="server-btn server-link">Server 5</a>
+                    <a href="https://sv6.thanhdi.games"
+                        class="server-btn server-link">Server 6</a>
+                    <a href="https://sv7.thanhdi.games"
+                        class="server-btn server-link">Server 7</a>
+                </div>
+            </div>
+
+            <!-- ===== PHẦN HƯỚNG DẪN GIỮ NGUYÊN CỦA ANH ===== -->
+
             <div class="step">
                 <div class="step-title">Bước 1: Truy cập trang nạp</div>
                 <div class="step-desc">
-                    Truy cập vào <b>ThanhDi.Com</b>→ chọn nút <b>Đăng ký, Tải
-                        game</b> → chọn <b>Server</b> bạn
-                    muốn nạp.
+                    Truy cập vào <b>ThanhDi.Com</b> → chọn <b>Đăng ký, Tải
+                        game</b> → chọn <b>Server</b> bạn muốn nạp.
                 </div>
                 <div class="image-box">
-                    <img src="images/huongdan1.png" alt="Hướng dẫn nạp bước 1">
+                    <img src="images/huongdan1.png">
                 </div>
             </div>
 
-            <!-- BƯỚC 2 -->
             <div class="step">
                 <div class="step-title">Bước 2: Vào trang chủ server game</div>
                 <div class="step-desc">
-                    Bấm vào nút <b>đăng nhập</b>, rồi đăng nhập <b>tài khoản
-                        game</b> vào
-                    → bạn bấm tiếp vào nút <b>Diễn đàn</b>.
-                    <br>
+                    Bấm vào nút <b>Đăng nhập</b> → đăng nhập tài khoản → bấm
+                    <b>Diễn đàn</b>.
                 </div>
                 <div class="image-box">
-                    <img src="images/huongdan2.png" alt="Hướng dẫn nạp bước 2">
+                    <img src="images/huongdan2.png">
                 </div>
             </div>
 
-            <!-- BƯỚC 2 -->
             <div class="step">
                 <div class="step-title">Bước 3: Vào diễn đàn & chọn nạp</div>
                 <div class="step-desc">
-                    Sau khi đăng nhập, bấm vào <b>Diễn đàn</b> → tại đây sẽ hiển
-                    thị nút <b>Nạp thẻ</b>.
-                    <br>
-                    Hình thức nạp <b>Bank</b> hay <b>Card</b> đều giống nhau.
+                    Trong diễn đàn sẽ hiển thị nút <b>Nạp thẻ</b>.
+                    Hình thức <b>Bank</b> hay <b>Card</b> đều giống nhau.
                 </div>
                 <div class="image-box">
-                    <img src="images/huongdan3.png" alt="Hướng dẫn nạp bước 3">
+                    <img src="images/huongdan3.png">
                 </div>
             </div>
 
-            <!-- BƯỚC 3 -->
             <div class="step">
                 <div class="step-title">Bước 4: Chọn loại nạp & thanh toán</div>
                 <div class="step-desc">
-                    Chọn <b>loại nạp</b> phù hợp → <b>tiến hành nạp theo hướng
-                        dẫn</b>.
-                    <br>
-                    Sau khi nạp xong, vui lòng chờ vài phút để hệ thống xử lý.
+                    Chọn loại nạp phù hợp → tiến hành thanh toán → chờ xử lý.
                 </div>
-
                 <div class="note">
-                    ⚠️ Coin sẽ vào nick sau khi xử lý xong (thường 3->15 phút).
-                    Khi coin đã hiện ở <b>website</b>.
-                    Bạn cần <b>thoát game và vào lại</b> để coin hiển thị trong
-                    game.
+                    Coin sẽ vào web trước (3–15 phút).
+                    Khi coin đã có, <b>thoát game và vào lại</b> để cập nhật
+                    trong game.
                 </div>
-                <br>
                 <div class="image-box">
-                    <img src="images/huongdan4.png" alt="Hướng dẫn nạp bước 1">
+                    <img src="images/huongdan4.png">
                 </div>
             </div>
 
-            <!-- BƯỚC 4 -->
             <div class="step">
                 <div class="step-title">Bước 5: Quy đổi trong game</div>
                 <div class="step-desc">
-                    Khi <b>Coin đã vào</b> nick trong Web → <b>Thoát game</b> và
-                    Đăng
-                    nhập lại
-                    vào
-                    game → đến
-                    <b>NPC trong nhà</b> → chọn nút
-                    <b>Nạp
-                        tiền & Quy
-                        đổi</b>.
-                    <br>
-                    Tại đây bạn có thể:
-                    <br>• Đổi sang <b>Hồng Ngọc</b>
-                    <br>• Đổi sang <b>Thỏi Vàng</b>
+                    Sau khi <b>coin vào web</b> → Hãy <b>thoát game</b> và Đăng
+                    nhập
+                    lại → Gặp
+                    <b>NPC trong nhà</b> → <b>Nạp
+                        tiền & Quy đổi</b> → đổi
+                    sang <b>Hồng Ngọc</b> hoặc <b>Thỏi Vàng</b>.
                 </div>
                 <div class="image-box">
-                    <img src="images/huongdan5.png" alt="Hướng dẫn nạp bước 1">
+                    <img src="images/huongdan5.png">
                 </div>
             </div>
 
-            <!-- BƯỚC 5 -->
             <div class="step">
                 <div class="step-title">Bước 6: Nhận quà nạp</div>
                 <div class="step-desc">
-                    Đừng quên <b>nhận quà tặng</b> và <b>quà mốc nạp</b> ngay
-                    tại NPC để không bị bỏ lỡ quyền lợi.
+                    Nhớ nhận <b>quà tặng</b> và <b>quà mốc nạp</b> tại NPC.
                 </div>
                 <div class="image-box">
-                    <img src="images/huongdan7.png" alt="Hướng dẫn nạp bước 1">
+                    <img src="images/huongdan7.png">
                 </div>
             </div>
 
-            <!-- BƯỚC 5 -->
             <div class="step">
-                <div class="step-title">Bước 7: Gặp Lỗi & Báo Lỗi</div>
+                <div class="step-title">Bước 7: Gặp lỗi & báo lỗi</div>
                 <div class="step-desc">
-                    Trường hợp quên <b>nội dung chuyển khoản</b> hoặc phát sinh
-                    <b>lỗi nạp</b>,
-                    vui lòng bấm <a href="/contact.html">ĐÂY</a> để liên hệ hỗ
-                    trợ và chờ xử lý.
+                    Trường hợp quên nội dung chuyển khoản hoặc lỗi nạp, vui lòng
+                    bấm
+                    <a href="/contact.html">ĐÂY</a> để liên hệ hỗ trợ.
                 </div>
-
                 <div class="image-box">
-                    <img src="images/huongdan7.png" alt="Hướng dẫn nạp bước 1">
+                    <img src="images/huongdan7.png">
                 </div>
             </div>
 
             <div class="footer">
-                © TDStudio • Hỗ trợ 24/7 • Giao dịch được xử lý tự động, mọi sự
-                cố sẽ được kiểm tra và hỗ trợ đầy đủ
+                © TDStudio • Hỗ trợ 24/7 • Giao dịch được xử lý tự động
             </div>
 
         </div>
+
+        <script>
+(function () {
+    const ua = navigator.userAgent.toLowerCase();
+    const isPreview =
+        ua.includes("zalo") ||
+        ua.includes("fbav") ||
+        ua.includes("fban") ||
+        ua.includes("messenger");
+
+    const isAndroid = ua.includes("android");
+    const isIOS = ua.includes("iphone") || ua.includes("ipad");
+
+    if (isPreview) {
+        const warning = document.getElementById("topWarning");
+        warning.style.display = "block";
+
+        if (isAndroid) {
+            warning.innerHTML = "⚠️ Bạn đang mở bằng trình xem trước.<br>Vui lòng copy link và mở bằng <b>Chrome</b>.";
+        }
+        if (isIOS) {
+            warning.innerHTML = "⚠️ Bạn đang mở bằng trình xem trước.<br>Vui lòng copy link và mở bằng <b>Safari</b>.";
+        }
+
+        document.querySelectorAll(".server-link").forEach(btn => {
+            btn.addEventListener("click", function (e) {
+                e.preventDefault();
+                alert("Bạn cần copy link và mở bằng Chrome hoặc Safari để nạp game.");
+            });
+            btn.classList.add("disabled");
+        });
+    }
+})();
+</script>
+
     </body>
 </html>
