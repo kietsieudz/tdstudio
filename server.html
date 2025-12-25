@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- SEO cơ bản -->
+        <meta name="description"
+            content="TDStudio – Trang danh sách máy chủ.">
+        <meta name="robots" content="index, follow, max-image-preview:large">
+        <title>TDStudio – Trang danh sách máy chủ</title>
+        <!-- Open Graph (Facebook, Zalo, Discord...) -->
+        <meta property="og:locale" content="vi_VN" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="TDStudio" />
+        <meta property="og:title"
+            content="TDStudio – Trang danh sách máy chủ" />
+        <meta property="og:description"
+            content="TDStudio – Trang danh sách máy chủ." />
+        <meta property="og:url" content="https://thanhdi.com/server" />
+        <meta property="og:image"
+            content="https://sv1.thanhdi.games/static/sonic/img/server.png?v=123" />
+        <meta property="og:image:secure_url"
+            content="https://sv1.thanhdi.games/static/sonic/img/server.png?v=123" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@YourTwitterHandle" />
+        <meta name="twitter:title"
+            content="TDStudio – Trang danh sách máy chủ" />
+        <meta name="twitter:description"
+            content="TDStudio – Trang danh sách máy chủ." />
+        <meta name="twitter:image"
+            content="https://sv1.thanhdi.games/static/sonic/img/server.png?v=123" />
+
+        <!-- Optional: Facebook app id (only if bạn có) -->
+        <meta property="fb:app_id" content="30456920760618695" />
+
+        <style>
+body{
+  margin:0;
+  background:#f9fafb;
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:100vh;
+  color:#111827;
+}
+.box{
+  background:#fff;
+  padding:20px 22px;
+  border-radius:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+  text-align:center;
+  max-width:360px;
+}
+h1{
+  font-size:1.05rem;
+  margin:0 0 6px;
+}
+p{
+  font-size:.9rem;
+  color:#6b7280;
+  margin:0;
+}
+</style>
+    </head>
+
+    <body>
+        <div class="box">
+            <h1>Đang vào server…</h1>
+            <p>Vui lòng chờ trong giây lát</p>
+        </div>
+
+        <script>
+/* ================= CONFIG ================= */
+
+// Map server → URL đích
+const SERVER_MAP = {
+  "1": "https://sv1.thanhdi.games",
+  "2": "https://sv2.thanhdi.games",
+  "3": "https://sv3.thanhdi.games",
+  "4": "https://sv4.thanhdi.games",
+  "5": "https://sv5.thanhdi.games",
+  "6": "https://sv6.thanhdi.games",
+  "indo": "https://indo.thanhdi.games"
+};
+
+// Server mặc định nếu không truyền param
+const DEFAULT_URL = "https://thanhdi.games";
+
+// Delay để pixel fire chắc chắn (ms)
+const REDIRECT_DELAY = 450;
+
+/* ================= LOGIC ================= */
+
+const params = new URLSearchParams(window.location.search);
+const sv = params.get("sv");
+
+const target = SERVER_MAP[sv] || DEFAULT_URL;
+
+// Track thêm event theo server (rất có lợi cho ads)
+if (typeof fbq === "function") {
+  fbq('trackCustom', 'SelectServer', {
+    server: sv || "default",
+    target: target
+  });
+}
+
+setTimeout(() => {
+  window.location.href = target;
+}, REDIRECT_DELAY);
+
+</script>
+    </body>
+</html>
