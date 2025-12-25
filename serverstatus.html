@@ -1,278 +1,272 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trạng thái Server – TDStudio</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Trạng thái Server – TDStudio</title>
 
-<style>
-* {
-    box-sizing: border-box;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    margin: 0;
-    padding: 0;
+        <style>
+*{
+    box-sizing:border-box;
+    font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    margin:0;
+    padding:0;
+}
+body{
+    background:#f9fafb;
+    color:#111827;
+    padding:14px;
+}
+.container{
+    max-width:520px;
+    margin:auto;
 }
 
-body {
-    background: #f9fafb;
-    color: #111827;
-    padding: 16px;
+/* ===== TITLE ===== */
+.title{
+    font-size:20px;
+    font-weight:800;
+    text-align:center;
 }
-
-.container {
-    max-width: 520px;
-    margin: auto;
-}
-
-/* ===== TITLE EFFECT ===== */
-.title-anim {
-    font-size: 22px;
-    font-weight: 800;
-    text-align: center;
-    margin-bottom: 6px;
-    background: linear-gradient(
-        90deg,
-        #111827,
-        #22c55e,
-        #facc15,
-        #dc2626,
-        #111827
-    );
-    background-size: 300% 100%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: titleFlow 4s linear infinite;
-}
-
-.subtitle {
-    text-align: center;
-    font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    color: #4b5563;
-}
-
-@keyframes titleFlow {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 300% 50%; }
+.subtitle{
+    text-align:center;
+    font-size:12px;
+    color:#6b7280;
+    margin:6px 0 16px;
 }
 
 /* ===== CARD ===== */
-.card {
-    margin-bottom: 14px;
-    border-radius: 14px;
-    padding: 1px;
-    background:
-        linear-gradient(#ffffff, #ffffff) padding-box,
-        linear-gradient(
-            120deg,
-            #111827,
-            #22c55e,
-            #facc15,
-            #dc2626,
-            #111827
-        ) border-box;
-    border: 2px solid transparent;
-    background-size: 220% 220%;
-    animation: borderFlow 6s linear infinite;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-}
-
-.card-inner {
-    background: #ffffff;
-    border-radius: 12px;
-    padding: 14px;
-}
-
-@keyframes borderFlow {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 220% 50%; }
+.card{
+    background:#fff;
+    border-radius:14px;
+    padding:12px;
+    margin-bottom:12px;
+    box-shadow:0 4px 10px rgba(0,0,0,.05);
 }
 
 /* ===== SERVER ROW ===== */
-.server-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
+.server-row{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+}
+.server-name{
+    font-size:14px;
+    font-weight:800;
+}
+.server-desc{
+    font-size:12px;
+    color:#4b5563;
+    margin-top:4px;
 }
 
-.server-name {
-    font-size: 15px;
-    font-weight: 700;
+/* ===== STATUS ===== */
+.status{
+    font-size:10px;
+    font-weight:700;
+    padding:4px 8px;
+    border-radius:999px;
+    height:fit-content;
+}
+.open{
+    background:#dcfce7;
+    color:#166534;
+    border:1px solid #22c55e;
+}
+.testing{
+    background:#fef3c7;
+    color:#92400e;
+    border:1px solid #facc15;
 }
 
-.server-desc {
-    font-size: 12px;
-    color: #4b5563;
-    margin-top: 4px;
+/* ===== SCHEDULE BOX ===== */
+.schedule{
+    margin-top:10px;
+    padding:10px;
+    border-radius:10px;
+    background:#f8fafc;
+    border:1px dashed #e5e7eb;
+}
+.schedule div{
+    font-size:12px;
+    margin-bottom:6px;
 }
 
-/* ===== STATUS BADGE ===== */
-.status {
-    font-size: 11px;
-    font-weight: 700;
-    padding: 4px 10px;
-    border-radius: 999px;
-    white-space: nowrap;
+/* ===== BUTTONS ===== */
+.actions{
+    display:flex;
+    gap:8px;
+    margin-top:8px;
+}
+.btn{
+    flex:1;
+    text-align:center;
+    padding:8px 4px;
+    font-size:12px;
+    font-weight:700;
+    border-radius:8px;
+    text-decoration:none;
+}
+.btn-test{
+    background:#fff7ed;
+    color:#9a3412;
+    border:1px solid #fdba74;
+}
+.btn-open{
+    background:#ecfeff;
+    color:#155e75;
+    border:1px solid #67e8f9;
 }
 
-.open {
-    background: #dcfce7;
-    color: #166534;
-    border: 1px solid #22c55e;
+/* ===== COMPACT LIST ===== */
+.compact{
+    padding:10px 12px;
+}
+.compact .server-desc{
+    margin-top:2px;
 }
 
-.testing {
-    background: #fef3c7;
-    color: #92400e;
-    border: 1px solid #facc15;
-}
-
-.coming {
-    background: #e0e7ff;
-    color: #3730a3;
-    border: 1px solid #6366f1;
-}
-
-.maintenance {
-    background: #fee2e2;
-    color: #991b1b;
-    border: 1px solid #ef4444;
-}
-
-footer {
-    text-align: center;
-    font-size: 11px;
-    color: #9ca3af;
-    margin-top: 20px;
+footer{
+    text-align:center;
+    font-size:11px;
+    color:#9ca3af;
+    margin-top:18px;
 }
 </style>
-</head>
+    </head>
 
-<body>
-<div class="container">
+    <body>
+        <div class="container">
 
-    <div class="title-anim">Trạng thái Server TDStudio</div>
-    <div class="subtitle">Cập nhật tình trạng hoạt động các máy chủ</div>
+            <div class="title">Trạng thái Server TDStudio</div>
+            <div class="subtitle">Cập nhật nhanh tình trạng các máy chủ</div>
 
-    <!-- ===== SERVER 1 ===== -->
-    <div class="card">
-        <div class="card-inner">
-            <div class="server-row">
-                <div>
-                    <div class="server-name">Server 1</div>
-                    <div class="server-desc">Open chính thức – ổn định lâu dài</div>
-                    <div class="server-desc">Free mở thành viên, free vàng, ngọc vô hạn, tặng đệ tử, tặng 999 bộ 3 sao</div>
+            <!-- ===== SERVER 6 (ƯU TIÊN) ===== -->
+            <div class="card">
+                <div class="server-row">
+                    <div>
+                        <div class="server-name">Server 6</div>
+                    </div>
+                    <div class="status testing">ĐUA TOP TEST</div>
                 </div>
-                <div class="status open">OPEN</div>
-            </div>
-        </div>
-    </div>
 
-    <!-- ===== SERVER 2 ===== -->
-    <div class="card">
-        <div class="card-inner">
-            <div class="server-row">
-                <div>
-                    <div class="server-name">Server 2</div>
-                    <div class="server-desc">Open chính thức – ổn định lâu dài</div>
-                    <div class="server-desc">Free mở thành viên, free vàng, ngọc vô hạn, tặng đệ tử, tặng 999 bộ 3 sao</div>
+                <div class="schedule">
+                    <div>⏱ <b>Đua Top Test:</b> 19:00 23/12 → 19:00 26/12</div>
+                    <div>🚀 <b>Đua Top Open:</b> 20:00 26/12 → 20:00 31/12</div>
+                    <div>💎 Nạp test được hoàn đủ khi open (không mất 1
+                        xu)</div>
                 </div>
-                <div class="status open">OPEN</div>
-            </div>
-        </div>
-    </div>
 
-    <!-- ===== SERVER 3 ===== -->
-    <div class="card">
-        <div class="card-inner">
-            <div class="server-row">
-                <div>
-                    <div class="server-name">Server 3</div>
-                    <div class="server-desc">Open chính thức – ổn định lâu dài</div>
-                    <div class="server-desc">Free mở thành viên, free vàng, ngọc vô hạn, tặng đệ tử, tặng 999 bộ 3 sao</div>
+                <div class="actions">
+                    <a class="btn btn-test"
+                        href="https://thanhdi.com/duatoptest" target="_blank">🎁
+                        Quà Test</a>
+                    <a class="btn btn-open" href="https://thanhdi.com/duatop"
+                        target="_blank">🏆 Quà Open</a>
                 </div>
-                <div class="status open">OPEN</div>
             </div>
-        </div>
-    </div>
 
-    <!-- ===== SERVER 4 ===== -->
-    <div class="card">
-        <div class="card-inner">
-            <div class="server-row">
-                <div>
-                    <div class="server-name">Server 4</div>
-                    <div class="server-desc">Open chính thức – ổn định lâu dài</div>
-                    <div class="server-desc">Free mở thành viên, free vàng, ngọc vô hạn, tặng đệ tử, tặng 999 bộ 3 sao</div>
+            <!-- ===== SERVER INDO (ƯU TIÊN) ===== -->
+            <div class="card">
+                <div class="server-row">
+                    <div>
+                        <div class="server-name">Server Indo</div>
+                    </div>
+                    <div class="status testing">RANK TEST</div>
                 </div>
-                <div class="status open">OPEN</div>
-            </div>
-        </div>
-    </div>
 
-    <!-- ===== SERVER 5 ===== -->
-    <div class="card">
-        <div class="card-inner">
-            <div class="server-row">
-                <div>
-                    <div class="server-name">Server 5</div>
-                    <div class="server-desc">Open chính thức – ổn định lâu dài</div>
-                    <div class="server-desc">Free mở thành viên, free vàng, ngọc vô hạn, tặng đệ tử, tặng 999 bộ 3 sao</div>
+                <div class="schedule">
+                    <div>⏱ <b>Top Test:</b> 19:00 23/12 → 19:00 26/12</div>
+                    <div>🚀 <b>Top Open:</b> 20:00 26/12 → 20:00 31/12</div>
+                    <div>💎 Top-up test dikembalikan penuh saat open (0 koin
+                        hilang)
+                    </div>
                 </div>
-                <div class="status open">OPEN</div>
-            </div>
-        </div>
-    </div>
 
-    <!-- ===== SERVER 6 ===== -->
-    <div class="card">
-        <div class="card-inner">
-            <div class="server-row">
-                <div>
-                    <div class="server-name">Server 6</div>
-                    <div class="server-desc">Đang đua Top Test (19:00 23/12/2025- 19:00 26/12/2025)</div>
-                    <div class="server-desc">Nạp đua test vẫn được hoàn đầy đủ khi open (không mất)</div>
-                    <div class="server-desc">
-    <a href="https://thanhdi.com/duatoptest" target="_blank" rel="noopener">
-        Quà đua top test bấm vào đây
-    </a>
-</div>
-
+                <div class="actions">
+                    <a class="btn btn-test"
+                        href="https://thanhdi.com/duatoptest" target="_blank">🎁
+                        Test</a>
+                    <a class="btn btn-open" href="https://thanhdi.com/duatop"
+                        target="_blank">🏆 Open</a>
                 </div>
-                <div class="status testing">TESTING</div>
             </div>
-        </div>
-    </div>
 
-    <!-- ===== SERVER 7 ===== -->
-    <div class="card">
-        <div class="card-inner">
-            <div class="server-row">
-                <div>
-                    <div class="server-name">Server Indo</div>
-                    <div class="server-desc">Sedang berlangsung uji coba event Top (19:00 23/12/2025 – 19:00 26/12/2025)</div>
-                    <div class="server-desc">
-    Top-up selama test tetap akan dikembalikan đầy đủ saat server open (tidak hilang)
-</div>
-
-                    <div class="server-desc">
-    <a href="https://thanhdi.com/duatoptest" target="_blank" rel="noopener">
-        Hadiah balapan Top test, klik di sini
-    </a>
-</div>
-
+            <!-- ===== SERVER KHÁC (GỌN) ===== -->
+            <div class="card compact">
+                <div class="server-row">
+                    <div>
+                        <div class="server-name">Server 1</div>
+                        <div class="server-desc">Open chính thức – ổn định</div>
+                        <div class="server-desc">- Không cần mở thành viên,
+                            vàng ngọc miễn phí, tặng đệ tử thường, tặng full
+                            trang
+                            bị tân thủ</div>
+                    </div>
+                    <div class="status open">OPEN</div>
                 </div>
-                <div class="status testing">TESTING</div>
             </div>
+
+            <div class="card compact">
+                <div class="server-row">
+                    <div>
+                        <div class="server-name">Server 2</div>
+                        <div class="server-desc">Open chính thức – ổn định</div>
+                        <div class="server-desc">- Không cần mở thành viên,
+                            vàng ngọc miễn phí, tặng đệ tử thường, tặng full
+                            trang
+                            bị tân thủ</div>
+                    </div>
+                    <div class="status open">OPEN</div>
+                </div>
+            </div>
+
+            <div class="card compact">
+                <div class="server-row">
+                    <div>
+                        <div class="server-name">Server 3</div>
+                        <div class="server-desc">Open chính thức – ổn định</div>
+                        <div class="server-desc">- Không cần mở thành viên,
+                            vàng ngọc miễn phí, tặng đệ tử thường, tặng full
+                            trang
+                            bị tân thủ</div>
+                    </div>
+                    <div class="status open">OPEN</div>
+                </div>
+            </div>
+
+            <div class="card compact">
+                <div class="server-row">
+                    <div>
+                        <div class="server-name">Server 4</div>
+                        <div class="server-desc">Open chính thức – ổn định</div>
+                        <div class="server-desc">- Không cần mở thành viên,
+                            vàng ngọc miễn phí, tặng đệ tử thường, tặng full
+                            trang
+                            bị tân thủ</div>
+                    </div>
+                    <div class="status open">OPEN</div>
+                </div>
+            </div>
+
+            <div class="card compact">
+                <div class="server-row">
+                    <div>
+                        <div class="server-name">Server 5</div>
+                        <div class="server-desc">Open chính thức – ổn định</div>
+                        <div class="server-desc">- Không cần mở thành viên,
+                            vàng ngọc miễn phí, tặng đệ tử thường, tặng full
+                            trang
+                            bị tân thủ</div>
+                    </div>
+                    <div class="status open">OPEN</div>
+                </div>
+            </div>
+
+            <footer>
+                © TDStudio – Trang trạng thái server chính thức
+            </footer>
+
         </div>
-    </div>
-
-    <footer>
-        © TDStudio – Trang trạng thái server chính thức
-    </footer>
-
-</div>
-</body>
+    </body>
 </html>
