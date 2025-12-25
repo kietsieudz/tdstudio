@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>TDStudio – Tải Game Android</title>
+
+        <meta name="description"
+            content="Trang tải game Android chính thức – TDStudio">
+        <meta name="robots" content="index, follow">
+
+        <style>
+* {
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+    margin: 0;
+    background: #f6f7f9;
+    color: #1f2937;
+}
+
+/* ===== SOCIAL BLOCK (CHỈ HIỆN KHI MỞ TRONG MXH) ===== */
+.social-block {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: #fff7ed;
+    border-bottom: 1px solid #fde68a;
+    padding: 12px 12px 14px;
+    display: none;
+}
+
+/* COPY BUTTON */
+.copy-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 10px;
+    background: #111827;
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 8px;
+}
+
+/* WARNING TEXT */
+.social-warning {
+    font-size: 14px;
+    text-align: center;
+    color: #9a3412;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+    max-width: 520px;
+    margin: auto;
+    padding: 16px;
+}
+
+/* ===== HEADER ===== */
+.header {
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.header h1 {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+.header p {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+/* ===== VERSION CARD ===== */
+.version-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    border: 1px solid #e5e7eb;
+}
+
+.version-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.version-meta {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.version-desc {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #4b5563;
+    margin-bottom: 14px;
+}
+
+/* ===== BUTTON ===== */
+.download-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 12px;
+    text-decoration: none;
+    color: white;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+
+/* ===== TOAST ===== */
+.toast {
+    position: fixed;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #111827;
+    color: white;
+    padding: 14px 18px;
+    border-radius: 12px;
+    font-size: 14px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+.toast.show {
+    opacity: 1;
+}
+</style>
+    </head>
+
+    <body>
+
+        <!-- SOCIAL ONLY BLOCK -->
+        <div id="socialBlock" class="social-block">
+            <a href="javascript:void(0)" class="copy-btn"
+                onclick="copyPageLink()">
+                🔗 Copy link & mở bằng Chrome
+            </a>
+            <div id="socialWarning" class="social-warning"></div>
+        </div>
+
+        <div class="container">
+
+            <div class="header">
+                <h1>Tải Game Android</h1>
+                <p>Phiên bản chính thức từ TDStudio</p>
+            </div>
+
+            <!-- VERSION STABLE -->
+            <div class="version-card">
+                <div class="version-title">Phiên bản Android (Ổn định)</div>
+                <div class="version-meta">Version: <b>1.0.6</b> • APK</div>
+                <div class="version-desc">
+                    Phiên bản khuyến nghị cho đa số người chơi. Hoạt động ổn
+                    định, ít lỗi.
+                </div>
+                <a class="download-btn btn-primary"
+                    href="https://your-domain.com/download/android-stable.apk">
+                    ⬇️ Tải phiên bản ổn định
+                </a>
+            </div>
+
+            <!-- VERSION BETA -->
+            <div class="version-card">
+                <div class="version-title">Phiên bản Android (Thử nghiệm)</div>
+                <div class="version-meta">Version: <b>1.0.7 Beta</b> • APK</div>
+                <div class="version-desc">
+                    Phiên bản mới nhất, có thể phát sinh lỗi nhỏ.
+                </div>
+                <a class="download-btn btn-secondary"
+                    href="https://your-domain.com/download/android-beta.apk">
+                    ⬇️ Tải phiên bản thử nghiệm
+                </a>
+            </div>
+
+        </div>
+
+        <!-- TOAST -->
+        <div id="toast" class="toast">
+            ✅ Đã sao chép link. Hãy dán vào Chrome hoặc trình duyệt khác để tải
+            game.
+        </div>
+
+        <script>
+(function detectSocialPreview() {
+    const ua = navigator.userAgent.toLowerCase();
+    let app = null;
+
+    if (ua.includes("fbav") || ua.includes("fban")) app = "Facebook";
+    else if (ua.includes("messenger")) app = "Messenger";
+    else if (ua.includes("zalo")) app = "Zalo";
+
+    if (app) {
+        document.getElementById("socialBlock").style.display = "block";
+        document.getElementById("socialWarning").innerHTML =
+            `⚠️ Bạn đang mở bằng <b>${app}</b>. Trình này không hỗ trợ tải game.<br>
+             Hãy copy link và mở bằng <b>Chrome</b> hoặc trình duyệt khác.`;
+    }
+})();
+
+function copyPageLink() {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+        const toast = document.getElementById("toast");
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 2800);
+    });
+}
+</script>
+
+    </body>
+</html>
