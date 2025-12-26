@@ -2,10 +2,26 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TDStudio – Giftcode</title>
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>TDStudio – Giftcode Server</title>
+
+<meta name="description" content="Trang tổng hợp giftcode server – TDStudio">
+<meta name="robots" content="index, follow">
 
 <style>
+:root{
+    --bg:#f3f4f6;
+    --card:#ffffff;
+    --text:#1f2937;
+    --muted:#6b7280;
+    --primary:#2563eb;
+    --vip1:#fbbf24;
+    --vip2:#f59e0b;
+    --radius:14px;
+}
+
 *{
     box-sizing:border-box;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -13,72 +29,98 @@
 
 body{
     margin:0;
-    background:#f2f3f5;
-    color:#1f2937;
+    background:var(--bg);
+    color:var(--text);
 }
 
+/* ===== LAYOUT ===== */
 .container{
     max-width:460px;
     margin:auto;
     padding:16px;
 }
 
-/* CARD */
-.card{
-    background:#ffffff;
-    border-radius:12px;
-    padding:18px 16px;
-    box-shadow:0 4px 12px rgba(0,0,0,.05);
+/* ===== HEADER ===== */
+.header{
+    text-align:center;
     margin-bottom:18px;
 }
 
-/* TITLE */
-.card h2{
-    margin:0 0 16px;
-    font-size:17px;
-    font-weight:600;
-    text-align:center;
-    letter-spacing:.2px;
+.header h1{
+    font-size:20px;
+    margin:0 0 6px;
+    font-weight:700;
 }
 
-/* CODE GRID */
+.header p{
+    margin:0;
+    font-size:13px;
+    color:var(--muted);
+}
+
+/* ===== CARD ===== */
+.card{
+    background:var(--card);
+    border-radius:var(--radius);
+    padding:18px 16px;
+    box-shadow:0 6px 18px rgba(0,0,0,.06);
+    margin-bottom:20px;
+}
+
+/* ===== CARD TITLE ===== */
+.card h2{
+    margin:0 0 14px;
+    font-size:16px;
+    font-weight:600;
+    text-align:center;
+}
+
+/* ===== CODE GRID ===== */
 .code-list{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:12px;
 }
 
-/* CODE ITEM */
+/* ===== CODE ITEM ===== */
 .code{
-    padding:10px 0;
-    background:#f5f7fb;
+    background:#f8fafc;
+    border:1px solid #e5e7eb;
     border-radius:10px;
+    padding:10px 0;
     text-align:center;
     font-size:14px;
-    font-weight:500;
+    font-weight:600;
     color:#374151;
+    user-select:all;
 }
 
 /* FANPAGE CODE */
 .code.fan{
     grid-column:1/-1;
-    background:#eef9f7;
+    background:#ecfdf5;
+    border-color:#a7f3d0;
     color:#065f46;
-    font-weight:600;
+    font-weight:700;
 }
 
-/* VIP CARD */
+/* ===== VIP SECTION ===== */
 .vip-card{
-    padding:20px 16px;
-    background:linear-gradient(135deg,#fbbf24,#f59e0b);
-    border-radius:14px;
+    background:linear-gradient(135deg,var(--vip1),var(--vip2));
+    color:#1f2937;
 }
 
 .vip-card h2{
-    margin-bottom:14px;
-    font-size:18px;
+    font-size:17px;
     font-weight:700;
+    margin-bottom:10px;
+}
+
+.vip-card p{
+    margin:0 0 16px;
+    font-size:13px;
     text-align:center;
+    opacity:.9;
 }
 
 /* VIP BUTTON */
@@ -86,54 +128,104 @@ body{
     display:block;
     width:100%;
     background:#0f172a;
-    color:#fff;
+    color:#ffffff;
     padding:14px 0;
     border-radius:12px;
-    font-size:16px;
-    font-weight:600;
+    font-size:15px;
+    font-weight:700;
     text-align:center;
     text-decoration:none;
+    transition:transform .1s ease, opacity .1s ease;
 }
 
 .vip-btn:active{
-    transform:scale(.98);
+    transform:scale(.97);
+    opacity:.9;
+}
+
+/* ===== FOOTER ===== */
+.footer{
+    margin-top:28px;
+    padding:16px 12px;
+    text-align:center;
+    font-size:12px;
+    color:#6b7280;
+    line-height:1.6;
+}
+
+.footer strong{
+    color:#111827;
+}
+
+.footer a{
+    color:var(--primary);
+    text-decoration:none;
+    font-weight:600;
+}
+
+.footer .divider{
+    margin:6px 0;
+    opacity:.4;
 }
 </style>
 </head>
 
 <body>
+
 <div class="container">
 
-    <!-- VÙNG GIFT CODE -->
+    <!-- HEADER -->
+    <div class="header">
+        <h1>Giftcode Server</h1>
+        <p>Tổng hợp giftcode đang hoạt động</p>
+    </div>
+
+    <!-- GIFT CODE -->
     <div class="card">
-        <h2>Trang Giftcode Server</h2>
+        <h2>Danh sách Giftcode</h2>
 
         <div class="code-list">
             <div class="code">open1</div>
             <div class="code">open2</div>
             <div class="code">open3</div>
             <div class="code">open4</div>
+
             <div class="code">open5</div>
             <div class="code">open6</div>
             <div class="code">open7</div>
             <div class="code">open8</div>
+
             <div class="code">open9</div>
             <div class="code">open10</div>
             <div class="code">open11</div>
             <div class="code">open12</div>
+
             <div class="code">open13</div>
             <div class="code">open14</div>
             <div class="code">open15</div>
+
             <div class="code fan">yeufanpage</div>
         </div>
     </div>
 
-    <!-- VÙNG VIP -->
+    <!-- VIP -->
     <div class="card vip-card">
-        <h2>Các Code VIP cũ (Nhập không được là hết hạn)</h2>
-        <a href="/posts" class="vip-btn">Nhận Giftcode VIP</a>
+        <h2>Giftcode VIP</h2>
+        <p>Các code VIP cũ có thể đã hết hạn</p>
+        <a href="/posts" class="vip-btn">Xem & Nhận Giftcode VIP</a>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <strong>© TDStudio</strong> — Game Server & Community
+        <div class="divider">—</div>
+        Trang giftcode chính thức.  
+        Không mua bán giftcode ngoài hệ thống.
+        <div class="divider">—</div>
+        <a href="/support">Hỗ trợ 24/24</a>
     </div>
 
 </div>
+
 </body>
 </html>
