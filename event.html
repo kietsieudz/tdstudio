@@ -65,6 +65,21 @@ p{
 .btn.gray{
     background:#6b7280;
 }
+.event-img{
+    display:block;
+    max-width:100%;
+    width:100%;
+    height:auto;
+    border-radius:10px;
+    margin:8px 0 14px;
+}
+
+/* Nếu muốn ảnh nhỏ hơn card một chút */
+.event-img.sm{
+    max-width:360px;
+    margin-left:auto;
+    margin-right:auto;
+}
 .servers{
     display:flex;
     flex-wrap:wrap;
@@ -128,7 +143,7 @@ function copyLink(){
         <p>Tại trang diễn đàn sẽ có nút:</p>
         <p><b>🎁 Event Tân Thủ – Nhận Quà</b></p>
     </div>
-    <img src="https://i.postimg.cc/t48cQzWM/IMG-8477.jpg">
+    <img class="event-img" src="https://i.postimg.cc/t48cQzWM/IMG-8477.jpg">
     <div class="card">
         <h2>Bước 4: Làm Event</h2>
         <p>Trong danh sách event, chọn <b>Event Muốn Làm</b>.</p>
