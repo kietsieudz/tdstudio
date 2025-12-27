@@ -61,9 +61,14 @@ p{
     border-radius:8px;
     text-decoration:none;
     margin:4px 4px 0 0;
+    border:none;
+    cursor:pointer;
 }
 .btn.gray{
     background:#6b7280;
+}
+.btn.success{
+    background:#16a34a;
 }
 .event-img{
     display:block;
@@ -73,8 +78,6 @@ p{
     border-radius:10px;
     margin:8px 0 14px;
 }
-
-/* Nếu muốn ảnh nhỏ hơn card một chút */
 .event-img.sm{
     max-width:360px;
     margin-left:auto;
@@ -94,9 +97,20 @@ p{
 </style>
 
 <script>
-function copyLink(){
-    navigator.clipboard.writeText("https://thanhdi.com/event");
-    alert("Đã copy link. Vui lòng mở link bằng Chrome hoặc Safari để làm event.");
+function copyLink(btn){
+    const link = "https://thanhdi.com/event";
+    navigator.clipboard.writeText(link);
+
+    const oldText = btn.innerText;
+    btn.innerText = "✅ Đã copy link";
+    btn.classList.add("success");
+    btn.disabled = true;
+
+    setTimeout(()=>{
+        btn.innerText = oldText;
+        btn.classList.remove("success");
+        btn.disabled = false;
+    }, 2500);
 }
 </script>
 
@@ -108,9 +122,9 @@ function copyLink(){
     <div class="card">
         <h1>Event Chia Sẻ Bài Viết</h1>
         <p>Event này <b>bắt buộc mở bằng <b>Chrome</b> hoặc <b>Safari</b></b>.  
-        Nếu bạn đang mở trong Messenger / Facebook / Zalo thì vui lòng copy link và mở bằng <b>Chrome</b> hoặc <b>Safari</b> .</p>
+        Nếu bạn đang mở trong Messenger / Facebook / Zalo thì vui lòng copy link và mở bằng <b>Chrome</b> hoặc <b>Safari</b>.</p>
 
-        <button class="btn" onclick="copyLink()">Copy link mở ngoài trình duyệt</button>
+        <button class="btn" onclick="copyLink(this)">Copy link mở ngoài trình duyệt</button>
 
         <div class="notice" style="margin-top:10px">
             ⚠️ Mở trong trình duyệt mạng xã hội sẽ <b>không tham gia được</b>.
@@ -143,7 +157,9 @@ function copyLink(){
         <p>Tại trang diễn đàn sẽ có nút:</p>
         <p><b>🎁 Nhiệm Vụ Tân Thủ Nhận Quà Sốc</b></p>
     </div>
+
     <img class="event-img" src="https://i.postimg.cc/t48cQzWM/IMG-8477.jpg">
+
     <div class="card">
         <h2>Bước 4: Làm Event</h2>
         <p>Trong danh sách event, chọn <b>Event Muốn Làm</b>.</p>
