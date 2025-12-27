@@ -1,217 +1,167 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Danh sách sự kiện — TDStudio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hướng dẫn Event Chia Sẻ Bài Viết – TDStudio</title>
+
 <style>
-  :root{
-    --bg-1:#041022;
-    --bg-2:#061028;
-    --card:#0b2033;
-    --muted:#8fa3b8;
-    --accent:#63c7ff;
-    --radius:12px;
-    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
-    color-scheme: dark;
-  }
-
-  html,body{
-    height:100%;
-    margin:0;
-    background:linear-gradient(180deg,var(--bg-1) 0%, var(--bg-2) 70%);
-    color:#eaf6ff;
-    padding:18px;
-  }
-
-  .wrap{ max-width:980px; margin:0 auto; }
-
-  header{ display:flex; align-items:center; gap:12px; margin-bottom:16px; }
-  .logo{ width:56px; height:56px; border-radius:10px; background:linear-gradient(135deg,#7a5aff,#63c7ff); display:flex; align-items:center; justify-content:center; font-weight:800; color:#021225; flex-shrink:0; }
-  h1{ font-size:17px; margin:0; font-weight:800; }
-  p.lead{ font-size:12px; margin:4px 0 0 0; color:var(--muted); }
-
-  /* list */
-  .list{ display:flex; flex-direction:column; gap:10px; }
-
-  /* card - giảm chiều cao, padding nhỏ */
-  .card{
-    display:flex;
-    gap:12px;
-    background:rgba(255,255,255,0.02);
-    border:1px solid rgba(255,255,255,0.03);
-    border-radius:var(--radius);
-    padding:10px;
-    box-shadow:0 8px 18px rgba(0,0,0,0.45);
-    transition: transform .12s ease;
-    align-items:stretch; /* make thumb fill height */
-    min-height:88px;    /* giảm so với trước */
-    overflow:hidden;
-  }
-  .card:hover{ transform:translateY(-3px); }
-
-  /* thumb vừa khít chiều cao thẻ (min-height - padding) */
-  .thumb{
-    width:84px;
-    flex:0 0 84px;
-    border-radius:10px;
-    background:#082234;
-    background-size:cover;
-    background-position:center;
-    align-self:stretch; /* chiếm toàn chiều cao nội dung */
-    box-shadow:0 6px 12px rgba(0,0,0,0.45);
-  }
-
-  .body{ flex:1; min-width:0; display:flex; flex-direction:column; justify-content:center; }
-
-  /* Tiêu đề 1 dòng, nhỏ */
-  .title{
-    font-size:13px;
-    font-weight:800;
-    margin:0 0 6px 0;
-    line-height:1.15;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
-  }
-
-  /* Mô tả 1 dòng, nhỏ, mờ */
-  .desc{
-    font-size:12px;
-    color:var(--muted);
-    margin:0;
-    line-height:1.1;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
-  }
-
-.logo img {
-    width: 50px;      /* chỉnh kích thước theo ý bạn */
-    height: 50px;
-    object-fit: cover;
-    border-radius: 8px; /* nếu muốn bo góc */
+*{
+    box-sizing:border-box;
+    font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 }
-  /* lượt xem nhỏ gọn, nằm bên phải dưới (dạng text) */
-  .meta{
+body{
+    margin:0;
+    background:#f4f6f8;
+    color:#1f2937;
+}
+.container{
+    max-width:520px;
+    margin:auto;
+    padding:16px;
+}
+.card{
+    background:#fff;
+    border-radius:12px;
+    padding:16px;
+    margin-bottom:14px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+h1{
+    font-size:20px;
+    margin:0 0 8px;
+}
+h2{
+    font-size:16px;
+    margin:0 0 6px;
+}
+p{
+    font-size:14px;
+    line-height:1.5;
+    margin:6px 0;
+}
+.step{
+    font-size:14px;
+    margin:6px 0;
+}
+.notice{
+    background:#fff7ed;
+    border:1px solid #fed7aa;
+    border-radius:8px;
+    padding:10px;
+    font-size:13px;
+    color:#9a3412;
+}
+.btn{
+    display:inline-block;
+    padding:8px 12px;
+    font-size:13px;
+    background:#2563eb;
+    color:#fff;
+    border-radius:8px;
+    text-decoration:none;
+    margin:4px 4px 0 0;
+}
+.btn.gray{
+    background:#6b7280;
+}
+.servers{
     display:flex;
-    justify-content:flex-end;
-    margin-top:6px;
-  }
-  .views{
-    font-size:11px;
-    color:var(--muted);
-    font-weight:500;
-  }
-
-  a.card-link{ display:flex; gap:12px; align-items:stretch; text-decoration:none; color:inherit; width:100%; }
-
-  /* responsive - mobile nhỏ hơn */
-  @media (max-width:520px){
-    html,body{ padding:14px; }
-    .thumb{ width:72px; flex:0 0 72px; }
-    .card{ min-height:76px; padding:8px; gap:10px; }
-    .title{ font-size:12px; }
-    .desc{ font-size:11px; }
-    .views{ font-size:10px; }
-  }
-
+    flex-wrap:wrap;
+    gap:6px;
+}
+.footer{
+    text-align:center;
+    font-size:12px;
+    color:#6b7280;
+    padding:12px 0;
+}
 </style>
-</head>
-<body>
-  <div class="wrap">
-    <header>
-      <div class="logo">
-    <img src="https://thanhdi.com/images/logo.png" alt="TD Logo">
-</div>
-      <div>
-        <h1>Danh sách sự kiện - TDStudio</h1>
-        <p class="lead">Thường xuyên ghé để theo dõi sự kiện nhé.</p>
-      </div>
-    </header>
-
-    <main class="list" id="postsList">
-
-      <!-- MẪU (admin copy & paste, đổi data-id, href, background-image, title, desc) -->
-
-      <article class="card" data-id="post-open-server">
-        <a class="card-link" data-link href="https://www.facebook.com/share/p/17wDrc3XDm/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
-          <div class="thumb" style="background-image:url('https://i.postimg.cc/tCFktnQc/IMG-7532.jpg')"></div>
-          <div class="body">
-            <div class="title">Tương tác Fanpage - Nhận coin hàng tuần</div>
-            <div class="desc">Theo dõi và tương tác với các Fanpage.</div>
-            <div class="meta"><div class="views">lượt xem: <span data-count>0</span></div></div>
-          </div>
-        </a>
-      </article>
-
-      <article class="card" data-id="post-event-2011">
-        <a class="card-link" data-link href="https://www.facebook.com/share/p/17ffUfHXN1/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
-          <div class="thumb" style="background-image:url('https://i.postimg.cc/8kHBjmT6/IMG-7530.jpg')"></div>
-          <div class="body">
-            <div class="title">Sự Kiện 20 tháng 11 - Nhà Giáo Việt Nam</div>
-            <div class="desc">Giftcode sự kiện trên ảnh, Theo dõi fanpage.</div>
-            <div class="meta"><div class="views">lượt xem: <span data-count>1</span></div></div>
-          </div>
-        </a>
-      </article>
-
-      <article class="card" data-id="post-minigame">
-        <a class="card-link" data-link href="https://youtube.com/shorts/-Wi1UxGJ3Zo?si=lt7brl66y-__SzLM" target="_blank" rel="noopener noreferrer">
-          <div class="thumb" style="background-image:url('https://img.pikbest.com/png-images/qianku/q-version-cartoon-hand-painted-bow-gift-box-decoration-pattern_2032502.png!f305cw')"></div>
-          <div class="body">
-            <div class="title">Hướng dẫn lấy Giftcode sự kiện - Tương tác</div>
-            <div class="desc">Tham gia quay may mắn để nhận phần thưởng.</div>
-            <div class="meta"><div class="views">lượt xem: <span data-count>1</span></div></div>
-          </div>
-        </a>
-      </article>
-
-      <!-- copy thêm bài ở đây -->
-
-    </main>
-  </div>
 
 <script>
-/* view counter (mỗi trình duyệt 1 lượt / bài) */
-const VIEWS_KEY = 'td_events_views_v5';
-const VIEWED_KEY = 'td_events_viewed_v5';
-
-function loadViews(){ try{ return JSON.parse(localStorage.getItem(VIEWS_KEY) || '{}'); }catch(e){ return {}; } }
-function saveViews(v){ localStorage.setItem(VIEWS_KEY, JSON.stringify(v)); }
-function loadViewed(){ try{ return JSON.parse(localStorage.getItem(VIEWED_KEY) || '[]'); }catch(e){ return []; } }
-function saveViewed(a){ localStorage.setItem(VIEWED_KEY, JSON.stringify(a)); }
-
-function updateCounts(){
-  const views = loadViews();
-  document.querySelectorAll('[data-count]').forEach(span=>{
-    const card = span.closest('.card');
-    if(!card) return;
-    const id = card.getAttribute('data-id');
-    span.textContent = (views[id] || 0).toLocaleString();
-  });
+function copyLink(){
+    navigator.clipboard.writeText(window.location.href);
+    alert("Đã copy link. Vui lòng mở link bằng Chrome hoặc Safari để làm event.");
 }
-
-document.getElementById('postsList').addEventListener('click', function(ev){
-  const a = ev.target.closest('a[data-link]');
-  if(!a) return;
-  const card = a.closest('.card');
-  if(!card) return;
-  const id = card.getAttribute('data-id');
-  if(!id) return;
-  const viewed = loadViewed();
-  if(!viewed.includes(id)){
-    const views = loadViews();
-    views[id] = (views[id] || 0) + 1;
-    saveViews(views);
-    viewed.push(id);
-    saveViewed(viewed);
-    updateCounts();
-  }
-  // mở link bình thường (target _blank)
-});
-
-updateCounts();
 </script>
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="card">
+        <h1>Event Chia Sẻ Bài Viết</h1>
+        <p>Event này <b>bắt buộc mở bằng Chrome hoặc Safari</b>.  
+        Nếu bạn đang mở trong Messenger / Facebook / Zalo thì vui lòng làm theo bước dưới.</p>
+
+        <button class="btn" onclick="copyLink()">Copy link mở ngoài trình duyệt</button>
+
+        <div class="notice" style="margin-top:10px">
+            ⚠️ Mở trong trình duyệt mạng xã hội sẽ <b>không thấy nút Event</b>.
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Bước 1: Chọn Server</h2>
+        <p>Chọn đúng server bạn đang chơi:</p>
+
+        <div class="servers">
+            <a class="btn gray" href="https://server1.example.com">Server 1</a>
+            <a class="btn gray" href="https://server2.example.com">Server 2</a>
+            <a class="btn gray" href="https://server3.example.com">Server 3</a>
+            <a class="btn gray" href="https://server4.example.com">Server 4</a>
+            <a class="btn gray" href="https://server5.example.com">Server 5</a>
+            <a class="btn gray" href="https://server6.example.com">Server 6</a>
+            <a class="btn gray" href="https://server7.example.com">Server 7</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Bước 2: Đăng nhập</h2>
+        <p>Đăng nhập tài khoản game của bạn trên website.</p>
+    </div>
+
+    <div class="card">
+        <h2>Bước 3: Vào Diễn Đàn</h2>
+        <p>Sau khi đăng nhập, bấm vào mục <b>Diễn đàn</b>.</p>
+        <p>Tại trang diễn đàn sẽ có nút:</p>
+        <p><b>🎁 Event Tân Thủ – Nhận Quà</b></p>
+    </div>
+
+    <div class="card">
+        <h2>Bước 4: Làm Event</h2>
+        <p>Trong danh sách event, chọn <b>Event Chia Sẻ Bài Viết</b>.</p>
+
+        <p class="step">✔ Chia sẻ <b>10 bài viết</b></p>
+        <p class="step">✔ Mỗi bài ở <b>10 nhóm Facebook khác nhau</b></p>
+        <p class="step">✔ Không trùng nhóm</p>
+
+        <p>Sau khi làm xong, bấm nút <b>Gửi cho Admin</b> ngay trong trang event.</p>
+    </div>
+
+    <div class="card">
+        <h2>Yêu cầu khi gửi Admin</h2>
+        <p>Vui lòng gửi đầy đủ:</p>
+        <p class="step">• Tài khoản đăng nhập</p>
+        <p class="step">• Server đang chơi</p>
+        <p class="step">• <b>KHÔNG gửi mật khẩu</b></p>
+    </div>
+
+    <div class="card">
+        <h2>Nhận quà trong game</h2>
+        <p>Sau khi Admin duyệt:</p>
+        <p class="step">▶ Vào game</p>
+        <p class="step">▶ Gặp NPC trong nhà</p>
+        <p class="step">▶ Chọn <b>Nhiệm vụ tân thủ</b></p>
+        <p class="step">▶ Chọn event đã được kích hoạt để nhận quà</p>
+    </div>
+
+    <div class="footer">
+        © TDStudio — Hệ thống Event & Cộng đồng Game
+    </div>
+
+</div>
+
 </body>
 </html>
