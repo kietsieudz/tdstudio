@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="vi">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport"
-            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-        <title>TDStudio – Chat Bot Hỗ Trợ</title>
+    <title>Chat hỗ trợ 1v1 Ngọc Rồng Online | TDStudio</title>
 
-        <style>
+    <meta name="description"
+      content="Trang chat hỗ trợ 1v1 Ngọc Rồng Online tại TDStudio. Trò chuyện trực tiếp với chatbot và đội ngũ hỗ trợ để được giải đáp nhanh chóng.">
+
+    <style>
 :root{
     --brand:#2563eb;
     --bg:#eef2f7;
@@ -229,47 +232,47 @@ body{
     text-decoration:none;
 }
 </style>
-    </head>
+  </head>
 
-    <body>
+  <body>
 
-        <div class="wrap">
-            <div class="header">
-                <div class="title">TDStudio – Hỗ Trợ Bởi Bot</div>
-                <div class="sub">Trực 24/24 · Fanpage · Website · Game</div>
+    <div class="wrap">
+      <div class="header">
+        <div class="title">TDStudio – Hỗ Trợ Bởi Bot</div>
+        <div class="sub">Trực 24/24 · Fanpage · Website · Game</div>
+      </div>
+
+      <div id="chat" class="chat">
+        <div id="emptyState" class="empty-popup">
+          <div class="empty-box">
+            <div class="empty-title">Bạn có thể hỏi về:</div>
+
+            <div class="empty-text">
+              • Trang chủ<br>
+              • Cộng đồng<br>
+              • Cách tải game<br>
+              • Vật phẩm, item<br>
+              • Sự kiệnm Giftcode<br>
+              • Hướng dẫn kỹ thuật<br>
+              • Chức năng, nhiệm vụ
             </div>
 
-            <div id="chat" class="chat">
-                <div id="emptyState" class="empty-popup">
-                    <div class="empty-box">
-                        <div class="empty-title">Bạn có thể hỏi về:</div>
-
-                        <div class="empty-text">
-                            • Trang chủ<br>
-                            • Cộng đồng<br>
-                            • Cách tải game<br>
-                            • Vật phẩm, item<br>
-                            • Sự kiệnm Giftcode<br>
-                            • Hướng dẫn kỹ thuật<br>
-                            • Chức năng, nhiệm vụ
-                        </div>
-
-                        <a class="empty-btn"
-                            href="https://www.facebook.com/tdstudiogame"
-                            target="_blank">
-                            👉 Chat với Admin Fanpage
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="input">
-                <input id="txt" placeholder="Nhập nội dung cần hỗ trợ…" />
-                <button onclick="send()">Gửi</button>
-            </div>
+            <a class="empty-btn"
+              href="https://www.facebook.com/tdstudiogame"
+              target="_blank">
+              👉 Chat với Admin Fanpage
+            </a>
+          </div>
         </div>
+      </div>
 
-        <script>
+      <div class="input">
+        <input id="txt" placeholder="Nhập nội dung cần hỗ trợ…" />
+        <button onclick="send()">Gửi</button>
+      </div>
+    </div>
+
+    <script>
 const RULES_URL =
 "https://raw.githubusercontent.com/kietsieudz/text/refs/heads/main/support_messenger.txt";
 const MAX_REPLIES = 10;
@@ -395,5 +398,5 @@ txt.addEventListener("keydown",e=>{
 });
 </script>
 
-    </body>
+  </body>
 </html>
