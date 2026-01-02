@@ -377,13 +377,17 @@ function matchRules(input){
   const seen = new Set();
 
   for(const line of RULE_LINES){
-    if(out.length>=MAX_REPLIES) break;
-    if(!line.includes("|")) continue;
+    if(out.length >= MAX_REPLIES) break;
 
-    const [keysPart,replyRaw] = line.split("|",2);
-    const keys = keysPart.split(",").map(k=>normalize(k));
+    const idx = line.indexOf("|");
+    if(idx === -1) continue;
 
-    if(keys.some(k=>phraseMatch(plain,k))){
+    const keysPart = line.slice(0, idx);
+    const replyRaw = line.slice(idx + 1);
+
+    const keys = keysPart.split(",").map(k => normalize(k));
+
+    if(keys.some(k => phraseMatch(plain, k))){
       let r = spin(replyRaw.replace(/\\n/g,"\n"));
       if(seen.has(r)) continue;
       seen.add(r);
@@ -392,7 +396,6 @@ function matchRules(input){
   }
   return out;
 }
-
 txt.addEventListener("keydown",e=>{
   if(e.key==="Enter") send();
 });
