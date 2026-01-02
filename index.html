@@ -66,7 +66,235 @@ img.emoji {
 	background: none !important;
 	padding: 0 !important;
 }
+#petalContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 99999;
+    overflow: hidden;
+}
+
+.petal {
+    position: absolute;
+    top: -40px;
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 1;
+}
+
+/* Rơi xuống */
+@keyframes fall {
+    from {
+        top: -40px;
+    }
+
+    to {
+        top: 110vh;
+    }
+}
+
+/* Lắc trái */
+@keyframes sway-left {
+    0% {
+        transform: translateX(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateX(-30px) rotate(180deg);
+    }
+
+    100% {
+        transform: translateX(0) rotate(360deg);
+    }
+}
+
+/* Lắc phải */
+@keyframes sway-right {
+    0% {
+        transform: translateX(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateX(30px) rotate(180deg);
+    }
+
+    100% {
+        transform: translateX(0) rotate(360deg);
+    }
+}
+
+/* Rơi thẳng */
+@keyframes straight {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+/* ===== Bong bóng Messenger (gọn, không che nhiều) ===== */
+.msg-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: #ff3b30;
+    color: #fff;
+    min-width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 0 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .2);
+}
+
+.msg-bubble {
+    position: fixed;
+    right: 80px;
+    bottom: 74px;
+    max-width: 260px;
+    background: #1c9dea;
+    color: #fff;
+    padding: 8px 10px;
+    border-radius: 12px;
+    border-top-right-radius: 4px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .25);
+    line-height: 1.35;
+    font-size: 9px;
+    display: none;
+    z-index: 9999;
+    user-select: none;
+}
+
+.msg-bubble.show {
+    display: block;
+}
+
+#tdMsgText {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.msg-tail {
+    position: fixed;
+    right: 68px;
+    bottom: 86px;
+    width: 0;
+    height: 0;
+    display: none;
+    z-index: 9999;
+    border-left: 8px solid #1c9dea;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+}
+
+.msg-tail.show {
+    display: block;
+}
+
+.msg-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    margin-left: 8px;
+    font-weight: bold;
+    font-size: 12px;
+    background: rgba(255, 255, 255, 0.85);
+    /* nền trắng mờ dễ thấy */
+    color: #1c9dea;
+    /* xanh đồng bộ bong bóng */
+    border-radius: 4px;
+    /* bo nhẹ vuông */
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.msg-close:hover {
+    background: #fff;
+    color: #0078d4;
+    /* sáng hơn khi hover */
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+.messenger-fab {
+    position: fixed;
+    right: 16px;
+    bottom: 32px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #0084ff;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, .18), 0 6px 10px rgba(0, 0, 0, .12);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 9999;
+    transition: transform .15s ease, box-shadow .2s ease, background .2s;
+}
+
+.messenger-fab:hover {
+    transform: translateY(-2px);
+}
+
+.messenger-fab:active {
+    transform: translateY(0);
+}
+
+.messenger-fab svg {
+    width: 28px;
+    height: 28px;
+    fill: #fff;
+}
+
+/* Tooltip nhỏ (tùy chọn) */
+.messenger-fab::after {
+    content: "Chat Fanpage";
+    position: absolute;
+    right: 64px;
+    bottom: 50%;
+    transform: translateY(50%);
+    background: rgba(0, 0, 0, .78);
+    color: #fff;
+    font-size: 12px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .2s ease;
+    white-space: nowrap;
+}
+
+.messenger-fab:hover::after {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .messenger-fab {
+        bottom: 48px;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .messenger-fab {
+        box-shadow: 0 10px 24px rgba(0, 0, 0, .35), 0 6px 10px rgba(0, 0, 0, .25);
+    }
+}
+
 </style>
+
 	<style id='wp-block-site-logo-inline-css'>
 .wp-block-site-logo{box-sizing:border-box;line-height:0}.wp-block-site-logo a{display:inline-block}.wp-block-site-logo.is-default-size img{height:auto;width:120px}.wp-block-site-logo img{height:auto;max-width:100%}.wp-block-site-logo a,.wp-block-site-logo img{border-radius:inherit}.wp-block-site-logo.aligncenter{margin-left:auto;margin-right:auto;text-align:center}.wp-block-site-logo.is-style-rounded{border-radius:9999px}
 </style>
@@ -188,7 +416,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 	<body
 		class="home page-template page-template-header-footer page page-id-7 wp-custom-logo wp-embed-responsive">
-
+		<div id="petalContainer"></div>
 		<div class="wp-site-blocks"><header class="wp-block-template-part">
 				<div
 					class="wp-block-group site-header is-layout-flow wp-block-group-is-layout-flow"
@@ -244,7 +472,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 														class="wp-block-navigation__container has-text-color has-font-primary-color has-text-xs-font-size is-responsive items-justified-left wp-block-navigation has-text-xs-font-size"><li
 															class="has-text-xs-font-size wp-block-navigation-item wp-block-navigation-link"><a
 																class="wp-block-navigation-item__content"
-																href="https://thanhdi.games"><span
+																href="/support"><span
 																	class="wp-block-navigation-item__label">Giới
 																	thiệu</span></a></li><li
 															class="has-text-xs-font-size wp-block-navigation-item wp-block-navigation-link"><a
@@ -257,7 +485,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 																	class="wp-block-navigation-item__label">Fanpage</span></a></li><li
 															class="has-text-xs-font-size wp-block-navigation-item wp-block-navigation-link"><a
 																class="wp-block-navigation-item__content"
-																href="https://www.facebook.com/tdstudiogame"><span
+																href="/support"><span
 																	class="wp-block-navigation-item__label">Liên
 																	hệ</span></a></li></ul>
 												</div>
@@ -1108,7 +1336,24 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 											href="https://t.me/kietsieudz">Telegram</a></p>
 								</div>
 							</div>
+							<!-- ===== Bong bóng + đuôi + badge Messenger ===== -->
+							<div id="tdMsgBubble" class="msg-bubble" role="dialog"
+								aria-label="Gợi ý chat">
+								<span id="tdMsgText">Chat "xin code" để nhận giftcode fan cứng và code
+									đặc biệt khác</span>
+								<span id="tdMsgClose" class="msg-close" aria-label="Đóng">✕</span>
+							</div>
+							<span id="tdMsgTail" class="msg-tail"></span>
 
+							<button class="messenger-fab" id="messengerFab"
+								aria-label="Mở chat Messenger fanpage" title="Chat Fanpage">
+								<span id="tdMsgBadge" class="msg-badge">1</span>
+								<!-- Biểu tượng Messenger (SVG) -->
+								<svg viewBox="0 0 36 36" aria-hidden="true" focusable="false">
+									<path
+										d="M18 3C9.716 3 3 9.268 3 17.5c0 4.39 1.994 8.317 5.183 10.943.202.162.327.401.34.659l.07 4.102a.9.9 0 0 0 1.297.79l4.581-2.226a1.05 1.05 0 0 1 .6-.083c.877.128 1.78.195 2.63.195 8.284 0 15-6.268 15-14.5S26.284 3 18 3Zm8.088 10.78-4.957 5.26a1.8 1.8 0 0 1-2.444.175l-2.62-2.094a.9.9 0 0 0-1.13-.014l-5.08 3.91c.636.49-1.48-.283-1.04-.95l4.957-5.26a1.8 1.8 0 0 1 2.444-.175l2.62 2.094a.9.9 0 0 0 1.13.014l5.08-3.91c.635-.49 1.48.283 1.04.95Z" />
+								</svg>
+							</button>
 							<div
 								class="wp-block-ainoblocks-grid-item col_start_d__2 col_end_d__9 col_start_t__1 col_end_t__13 col_start_m__1 col_end_m__13 align-self__center justify-self__stretch no-stacking mt_d__10 pt__8">
 								<div
@@ -1120,6 +1365,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 									</div>
 								</div>
 							</div>
+
 						</div>
 					</div>
 				</div>
@@ -1217,5 +1463,109 @@ var wpcf7 = {"api":{"root":"https:\/\/themes.ainoblocks.io\/solarone\/wp-json\/"
 		<script
 			src='/wp-content/plugins/contact-form-7/includes/js/index.js?ver=5.8'
 			id='contact-form-7-js'></script>
+		<script>
+    (function() {
+        const container = document.getElementById("petalContainer");
+        const IMAGE_URL =
+            "https://sv1.thanhdi.games/static/sonic/img/hoamai.png";
+
+        const MAX = 30;
+
+        let interval = 120; // tốc độ ban đầu (nhanh)
+        const maxInterval = 600; // tốc độ ổn định (chậm)
+        const duration = 2000; // 2 giây chuyển tiếp
+        const startTime = Date.now();
+
+        function spawn() {
+            if (container.children.length >= MAX) return;
+
+            const p = document.createElement("div");
+            p.className = "petal";
+            p.style.backgroundImage = `url('${IMAGE_URL}')`;
+
+            const size = Math.random() * 10 + 14;
+            const left = Math.random() * window.innerWidth;
+            const time = Math.random() * 6 + 8;
+
+            p.style.width = size + "px";
+            p.style.height = size + "px";
+            p.style.left = left + "px";
+            p.style.opacity = 0.95;
+
+            const type = Math.floor(Math.random() * 3);
+            if (type === 0) {
+                p.style.animation = `fall ${time}s linear infinite, sway-left ${time}s ease-in-out infinite`;
+            } else if (type === 1) {
+                p.style.animation = `fall ${time}s linear infinite, sway-right ${time}s ease-in-out infinite`;
+            } else {
+                p.style.animation = `fall ${time}s linear infinite, straight ${time}s linear infinite`;
+            }
+
+            container.appendChild(p);
+            setTimeout(() => p.remove(), time * 1000);
+        }
+
+        function loop() {
+            const elapsed = Date.now() - startTime;
+
+            // ease-out: chậm dần trong 2s
+            if (elapsed < duration) {
+                const t = elapsed / duration; // 0 → 1
+                interval = 120 + (maxInterval - 120) * t;
+            } else {
+                interval = maxInterval;
+            }
+
+            spawn();
+            setTimeout(loop, interval);
+        }
+
+        loop();
+    })();
+    </script>
+		<link rel="preconnect" href="/support">
+
+		<!-- ===== JS Support FAB: hiện sau 3s, không tự ẩn ===== -->
+		<script>
+(function() {
+    // URL hỗ trợ nội bộ
+    const SUPPORT_URL = "/support";
+    const OPEN_DELAY_SECONDS = 3; // hiện sau 3s
+    const FIXED_TEXT = 'Anh đang gặp vấn đề gì không ạ? Em sẵn sàng hỗ trợ ngay cho anh.';
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const fab = document.getElementById("messengerFab");
+        const badge = document.getElementById("tdMsgBadge");
+        const bubble = document.getElementById("tdMsgBubble");
+        const bubbleText = document.getElementById("tdMsgText");
+        const bubbleClose = document.getElementById("tdMsgClose");
+        const tail = document.getElementById("tdMsgTail");
+
+        if (!fab || !bubble || !bubbleText || !bubbleClose || !tail) return;
+
+        // Nội dung cố định
+        bubbleText.textContent = FIXED_TEXT;
+
+        // Luôn hiện lại sau delay mỗi lần load trang
+        setTimeout(() => {
+            bubble.classList.add('show');
+            tail.classList.add('show');
+        }, OPEN_DELAY_SECONDS * 1000);
+
+        // Đóng bubble (chỉ trong phiên hiện tại)
+        bubbleClose.addEventListener('click', () => {
+            bubble.classList.remove('show');
+            tail.classList.remove('show');
+        });
+
+        // Click FAB → chuyển sang trang /support
+        fab.addEventListener("click", () => {
+            window.location.href = SUPPORT_URL;
+            if (badge) badge.style.display = 'none';
+        });
+    });
+})();
+</script>
+
 	</body>
 </html>
