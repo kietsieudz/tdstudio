@@ -783,15 +783,18 @@ body{margin:0;background:var(--bg);color:var(--text)}
     </script>
     <script>
 (function() {
-    // Fanpage slug
     const PAGE_SLUG = "tdstudiogame";
 
-    // Link theo từng nền tảng
     const FB_PAGE_URL = "https://www.facebook.com/" + PAGE_SLUG;
     const MESSENGER_WEB = "https://m.me/" + PAGE_SLUG;
 
-    // Deep link Messenger app
-    const MESSENGER_APP = "fb-messenger://user-thread/" + PAGE_SLUG;
+    // Android Intent (CHỐT)
+    const MESSENGER_INTENT =
+        "intent://user-thread/" + PAGE_SLUG +
+        "#Intent;scheme=fb-messenger;package=com.facebook.orca;end";
+
+    // iOS deep link
+    const MESSENGER_IOS = "fb-messenger://user-thread/" + PAGE_SLUG;
 
     const FIXED_TEXT = 'Chat "xin code" để nhận code xịn';
     const OPEN_DELAY_SECONDS = 3;
@@ -799,7 +802,6 @@ body{margin:0;background:var(--bg);color:var(--text)}
     const ua = navigator.userAgent;
     const isAndroid = /Android/i.test(ua);
     const isIOS = /iPhone|iPad|iPod/i.test(ua);
-    const isMobile = isAndroid || isIOS;
 
     document.addEventListener('DOMContentLoaded', function() {
         const fab = document.getElementById("messengerFab");
@@ -814,30 +816,39 @@ body{margin:0;background:var(--bg);color:var(--text)}
         bubbleText.textContent = FIXED_TEXT;
 
         setTimeout(() => {
-            bubble.classList.add('show');
-            tail.classList.add('show');
+            bubble.classList.add("show");
+            tail.classList.add("show");
         }, OPEN_DELAY_SECONDS * 1000);
 
-        bubbleClose.addEventListener('click', () => {
-            bubble.classList.remove('show');
-            tail.classList.remove('show');
+        bubbleClose.addEventListener("click", () => {
+            bubble.classList.remove("show");
+            tail.classList.remove("show");
         });
 
         fab.addEventListener("click", () => {
-            if (isMobile) {
-                // Android & iOS: ưu tiên mở Messenger app
-                window.location.href = MESSENGER_APP;
+            if (isAndroid) {
+                // ANDROID: mở Messenger app, KHÔNG qua CH Play
+                window.location.href = MESSENGER_INTENT;
 
-                // Fallback nếu app không mở được
+                // fallback nếu máy không có Messenger
                 setTimeout(() => {
                     window.location.href = MESSENGER_WEB;
                 }, 800);
+
+            } else if (isIOS) {
+                // iOS: deep link mượt
+                window.location.href = MESSENGER_IOS;
+
+                setTimeout(() => {
+                    window.location.href = MESSENGER_WEB;
+                }, 800);
+
             } else {
-                // PC: vào thẳng fanpage
+                // PC
                 window.open(FB_PAGE_URL, "_blank", "noopener,noreferrer");
             }
 
-            if (badge) badge.style.display = 'none';
+            if (badge) badge.style.display = "none";
         });
     });
 })();
