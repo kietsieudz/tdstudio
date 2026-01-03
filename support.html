@@ -3,353 +3,313 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- SEO cơ bản -->
+
+        <title>Ngọc Rồng Online – Trung tâm hỗ trợ | TDStudio</title>
         <meta name="description"
-            content="Trang hỗ trợ chính thức Ngọc Rồng Online của TDStudio, tiếp nhận và giải đáp các vấn đề liên quan đến tài khoản, nạp và sự cố trong game">
-            
-        <meta name="robots" content="index, follow, max-image-preview:large">
-        <title>Trung tâm hỗ trợ Ngọc Rồng Online – TDStudio</title>
-        <link rel="canonical" href="https://thanhdi.com/support" />
-        <!-- Open Graph (Facebook, Zalo, Discord...) -->
-        <meta property="og:locale" content="vi_VN" />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="TDStudio" />
-        <meta property="og:title"
-            content="Trang hỗ trợ chính thức Ngọc Rồng Online của TDStudio, tiếp nhận và giải đáp các vấn đề liên quan đến tài khoản, nạp và sự cố trong game" />
-        <meta property="og:description"
-            content="Trang hỗ trợ chính thức Ngọc Rồng Online của TDStudio, tiếp nhận và giải đáp các vấn đề liên quan đến tài khoản, nạp và sự cố trong game" />
-        <meta property="og:url" content="https://thanhdi.com/support" />
-        <meta property="og:image"
-            content="https://sv1.thanhdi.games/static/sonic/img/graph.png?v=123" />
-        <meta property="og:image:secure_url"
-            content="https://sv1.thanhdi.games/static/sonic/img/graph.png?v=123" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-
-        <!-- Twitter Card -->
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@YourTwitterHandle" />
-        <meta name="twitter:title"
-            content="Trang hỗ trợ chính thức Ngọc Rồng Online của TDStudio, tiếp nhận và giải đáp các vấn đề liên quan đến tài khoản, nạp và sự cố trong game" />
-        <meta name="twitter:description"
-            content="Trang hỗ trợ chính thức Ngọc Rồng Online của TDStudio, tiếp nhận và giải đáp các vấn đề liên quan đến tài khoản, nạp và sự cố trong game." />
-        <meta name="twitter:image"
-            content="https://sv1.thanhdi.games/static/sonic/img/graph.png?v=123" />
-
-        <!-- Optional: Facebook app id (only if bạn có) -->
-        <meta property="fb:app_id" content="30456920760618695" />
+            content="Trung tâm hỗ trợ chính thức Ngọc Rồng Online của TDStudio.">
+        <link rel="canonical" href="https://thanhdi.com/support">
 
         <style>
 :root{
-    --bg:#f5f7fb;
+    --bg:#f1f4f9;
     --card:#ffffff;
     --primary:#2563eb;
-    --text:#1f2937;
-    --sub:#6b7280;
+    --primary-soft:#eef2ff;
+    --text:#0f172a;
+    --sub:#64748b;
     --border:#e5e7eb;
 }
 
-*{
-    box-sizing:border-box;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+*{box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+body{margin:0;background:var(--bg);color:var(--text)}
+
+/* BANNER */
+.banner{
+    height:190px;
+    background:
+      linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,.65)),
+      url("/images/banner.png") center/cover no-repeat;
+    border-bottom-left-radius:28px;
+    border-bottom-right-radius:28px;
 }
 
-body{
-    margin:0;
-    background:var(--bg);
-    color:var(--text);
-}
-
+/* CONTAINER */
 .container{
-    max-width:720px;
-    margin:36px auto;
-    padding:0 16px;
+    max-width:420px;
+    margin:-42px auto 0;
+    padding:0 16px 28px;
 }
 
-.header{
-    text-align:center;
-    margin-bottom:22px;
-}
-
-.header h1{
-    margin:0;
-    font-size:26px;
-}
-
-.header p{
-    margin-top:6px;
-    color:var(--sub);
-    font-size:14px;
-}
-
-.card{
+/* BRAND */
+.brand{
     background:var(--card);
-    border-radius:14px;
-    border:1px solid var(--border);
-    box-shadow:0 8px 24px rgba(0,0,0,0.04);
-    padding:8px 18px;
-}
-
-.item{
+    border-radius:20px;
+    padding:10px 14px;
     display:flex;
     align-items:center;
-    justify-content:space-between;
-    padding:14px 0;
-    border-bottom:1px solid var(--border);
-}
-
-.item:last-child{
-    border-bottom:none;
-}
-
-.left{
-    display:flex;
     gap:12px;
-    align-items:center;
+    box-shadow:0 10px 26px rgba(0,0,0,.08);
+    margin-bottom:20px;
 }
-
-.icon{
-    font-size:20px;
+.avatar{
+    width:64px;height:64px;border-radius:16px;
+    background:#fff;padding:3px;
+    box-shadow:0 6px 16px rgba(0,0,0,.15);
 }
-
-.title{
-    font-weight:500;
+.avatar img{
+    width:100%;height:100%;border-radius:13px;object-fit:cover;
 }
+.brand-text h1{margin:0;font-size:17px;font-weight:600}
+.brand-text p{margin-top:4px;font-size:12.5px;color:var(--sub)}
 
-.desc{
-    font-size:13px;
-    color:var(--sub);
+/* QUICK */
+.quick{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    margin-bottom:26px;
 }
-
-.btn{
-    display:inline-block;
-    min-width:80px;       /* 👈 tất cả nút cùng kích thước */
-    text-align:center;
-    padding:8px 0;
-    background:var(--primary);
+.quick a{
+    height:78px; /* 🔒 cố định */
+    background:linear-gradient(180deg,#2563eb,#1e40af);
+    border-radius:18px;
+    box-shadow:0 10px 26px rgba(37,99,235,.35);
     color:#fff;
     text-decoration:none;
-    border-radius:8px;
-    font-size:14px;
-    transition:0.2s;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+}
+.quick img{
+    width:22px;
+    height:22px;
+    filter:brightness(0) invert(1);
+}
+.quick span{
+    font-size:12.5px;
+    font-weight:500;
+    line-height:1.1;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    max-width:100%;
 }
 
-.btn:hover{
-    opacity:0.9;
-}
+/* SECTION */
+.section{margin-bottom:26px}
+.section h2{font-size:14px;font-weight:600;margin-bottom:14px}
 
-.footer{
-    text-align:center;
-    margin-top:18px;
-    font-size:13px;
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+}
+.card{
+    height:86px; /* 🔒 cố định */
+    background:var(--card);
+    border-radius:16px;
+    box-shadow:0 6px 16px rgba(0,0,0,.05);
+    text-decoration:none;
+    color:var(--text);
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+}
+.card:hover{transform:translateY(-2px)}
+
+.icon-wrap{
+    width:32px;
+    height:32px;
+    border-radius:12px;
+    background:var(--primary-soft);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.icon-wrap img{
+    width:16px;
+    height:16px;
+    filter: invert(27%) sepia(96%) saturate(1864%)
+            hue-rotate(213deg) brightness(92%) contrast(101%);
+}
+.card small{
+    font-size:10.4px;
     color:var(--sub);
+    line-height:1.1;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    max-width:100%;
+}
+
+/* FOOTER */
+.footer{
+    margin-top:30px;
+    padding-top:18px;
+    border-top:1px solid var(--border);
+    text-align:center;
+    font-size:12px;
+    color:var(--sub);
+    line-height:1.6;
+}
+
+/* DESKTOP */
+@media(min-width:768px){
+    .container{max-width:760px}
 }
 </style>
     </head>
 
     <body>
+
+        <div class="banner"></div>
+
         <div class="container">
 
-            <div class="header">
-                <h1>🎮 TDStudio Support</h1>
-                <p>Trung tâm hỗ trợ & tài nguyên game</p>
+            <!-- BRAND -->
+            <div class="brand">
+                <div class="avatar">
+                    <img src="/images/logo.png" alt="Ngọc Rồng Online">
+                </div>
+                <div class="brand-text">
+                    <h1>TDStudio - Ngọc Rồng Online</h1>
+                    <p>Hệ sinh thái game · TDStudio</p>
+                </div>
             </div>
 
-            <div class="card">
+            <!-- QUICK -->
+            <div class="quick">
+                <a href="https://m.me/tdstudiogame">
+                    <img src="/icons/chat-bubble-bottom-center.svg">
+                    <span>Hỗ trợ 24/24</span>
+                </a>
+                <a href="https://thanhdi.games/">
+                    <img src="/icons/server-stack.svg">
+                    <span>Server Game</span>
+                </a>
+                <a href="https://thanhdi.games/trangthai.php">
+                    <img src="/icons/exclamation-triangle.svg">
+                    <span>Trạng Thái</span>
+                </a>
+            </div>
 
-                <div class="item">
-                    <div class="left">
-                        <div class="icon">🛠</div>
-                        <div>
-                            <div class="title">Hỗ trợ qua Fanpage [24/24]</div>
-                            <div class="desc">Liên hệ trực tiếp</div>
-                        </div>
-                    </div>
-                    <a class="btn" href="https://www.facebook.com/tdstudiogame"
-                        target="_blank">Mở</a>
+            <!-- VẤN ĐỀ -->
+            <div class="section">
+                <h2>Vấn đề thường gặp</h2>
+                <div class="grid">
+                    <a class="card" href="/fixloi">
+                        <div class="icon-wrap"><img
+                                src="/icons/wrench-screwdriver.svg"></div>
+                        <small>Fix lỗi</small>
+                    </a>
+                    <a class="card" href="/nap">
+                        <div class="icon-wrap"><img
+                                src="/icons/wallet.svg"></div>
+                        <small>Nạp Game</small>
+                    </a>
+                    <a class="card" href="/huongdantai">
+                        <div class="icon-wrap"><img
+                                src="/icons/cog-8-tooth.svg"></div>
+                        <small>Cách Cài đặt</small>
+                    </a>
+                    <a class="card" href="/contact">
+                        <div class="icon-wrap"><img
+                                src="/icons/phone.svg"></div>
+                        <small>Liên hệ</small>
+                    </a>
                 </div>
+            </div>
 
-                <div class="item">
-                    <div class="left">
-                        <div class="icon">🌐</div>
-                        <div>
-                            <div class="title">Trang chủ game</div>
-                            <div class="desc">Website chính thức</div>
-                        </div>
-                    </div>
-                    <a class="btn" href="https://thanhdi.games"
-                        target="_blank">Mở</a>
+            <!-- SỰ KIỆN -->
+            <div class="section">
+                <h2>Sự kiện & quà tặng ở trang chủ</h2>
+                <div class="grid">
+                    <a class="card" href="/event">
+                        <div class="icon-wrap"><img
+                                src="/icons/calendar-days.svg"></div>
+                        <small>Event Share</small>
+                    </a>
+                    <a class="card" href="/posts">
+                        <div class="icon-wrap"><img src="/icons/gift.svg"></div>
+                        <small>Code VIP</small>
+                    </a>
+                    <a class="card" href="/tuongtac">
+                        <div class="icon-wrap"><img
+                                src="/icons/heart.svg"></div>
+                        <small>Event Coin</small>
+                    </a>
+                    <a class="card" href="/groups">
+                        <div class="icon-wrap"><img
+                                src="/icons/users.svg"></div>
+                        <small>Cộng đồng</small>
+                    </a>
                 </div>
+            </div>
 
-                <div class="item">
-                    <div class="left">
-                        <div class="icon">💰</div>
-                        <div>
-                            <div class="title">Hướng dẫn nạp</div>
-                            <div class="desc">Quà tặng, mốc nạp</div>
-                        </div>
-                    </div>
-                    <a class="btn" href="/nap" target="_blank">Mở</a>
+            <!-- SỰ KIỆN -->
+            <div class="section">
+                <h2>Sự kiện đang diễn ra trong game</h2>
+                <div class="grid">
+                    <a class="card"
+                        href="/su-kien/su-kien-noel-2025">
+                        <div class="icon-wrap"><img
+                                src="/icons/sparkles.svg"></div>
+                        <small>Noel 2025</small>
+                    </a>
+                    <a class="card" href="/su-kien/tieu-hong-ngoc">
+                        <div class="icon-wrap"><img src="/icons/bolt.svg"></div>
+                        <small>Tiêu Phí</small>
+                    </a>
+                    <a class="card" href="/quaduatop">
+                        <div class="icon-wrap"><img
+                                src="/icons/trophy.svg"></div>
+                        <small>Top Tháng</small>
+                    </a>
+                    <a class="card" href="/mocnap">
+                        <div class="icon-wrap"><img
+                                src="/icons/gift-top.svg"></div>
+                        <small>Mốc Nạp</small>
+                    </a>
                 </div>
+            </div>
 
-                <div class="item">
-                    <div class="left">
-                        <div class="icon">👥</div>
-                        <div>
-                            <div class="title">Cộng đồng</div>
-                            <div class="desc">Group người chơi</div>
-                        </div>
-                    </div>
-                    <a class="btn" href="https://thanhdi.com/groups"
-                        target="_blank">Mở</a>
+            <!-- KIẾN THỨC -->
+            <div class="section">
+                <h2>Kiến thức & hướng dẫn</h2>
+                <div class="grid">
+                    <a class="card" href="/cochegame">
+                        <div class="icon-wrap"><img
+                                src="/icons/academic-cap.svg"></div>
+                        <small>Cơ chế</small>
+                    </a>
+                    <a class="card" href="/body">
+                        <div class="icon-wrap"><img
+                                src="/icons/shield-check.svg"></div>
+                        <small>Trang bị</small>
+                    </a>
+                    <a class="card" href="/posts">
+                        <div class="icon-wrap"><img
+                                src="/icons/light-bulb.svg"></div>
+                        <small>Mẹo chơi</small>
+                    </a>
+                    <a class="card" href="https://ngocrongtdstudio.com">
+                        <div class="icon-wrap"><img
+                                src="/icons/book-open.svg"></div>
+                        <small>Hướng dẫn</small>
+                    </a>
                 </div>
-
-                <div class="item">
-                    <div class="left">
-                        <div class="icon">🎪</div>
-                        <div>
-                            <div class="title">Sự kiện noel 2025</div>
-                            <div class="desc">Đang diễn ra</div>
-                        </div>
-                    </div>
-                    <a class="btn"
-                        href="https://ngocrongtdstudio.com/sukien/su-kien-giang-sinh-ngoc-rong-nam-2025.html"
-                        target="_blank">Mở</a>
-                </div>
-
-                <div class="item">
-                    <div class="left">
-                        <div class="icon">📥</div>
-                        <div>
-                            <div class="title">Hướng dẫn cài đặt</div>
-                            <div class="desc">Android / PC / iOS / Java</div>
-                        </div>
-                    </div>
-                    <a class="btn" href="https://thanhdi.com/huongdantai"
-                        target="_blank">Mở</a>
-                </div>
-
-                <div class="item">
-                    <div class="left">
-                        <div class="icon">📡</div>
-                        <div>
-                            <div class="title">Trạng thái server</div>
-                            <div class="desc">Online / bảo trì</div>
-                        </div>
-                    </div>
-                    <a class="btn" href="https://thanhdi.games/trangthai.php"
-                        target="_blank">Mở</a>
-                </div>
-
-                <div class="item">
-                    <div class="left">
-                        <div class="icon">🎁</div>
-                        <div>
-                            <div class="title">Code Vip</div>
-                            <div class="desc">Event đang diễn ra</div>
-                        </div>
-                    </div>
-                    <a class="btn" href="/posts" target="_blank">Mở</a>
-                </div>
-
-                <div class="item">
-                    <div class="left">
-                        <div class="icon">🎉</div>
-                        <div>
-                            <div class="title">Sự Kiện</div>
-                            <div class="desc">Event đang diễn ra</div>
-                        </div>
-                    </div>
-                    <a class="btn" href="/posts" target="_blank">Mở</a>
-                </div>
-                
-                <div class="item">
-                    <div class="left">
-                        <div class="icon">🎉</div>
-                        <div>
-                            <div class="title">Quà chia sẻ bài viết</div>
-                            <div class="desc">Event đang diễn ra</div>
-                        </div>
-                    </div>
-                    <a class="btn" href="/event" target="_blank">Mở</a>
-                </div>
-
-                <div class="item">
-                    <div class="left">
-                        <div class="icon">🔥</div>
-                        <div>
-                            <div class="title">Event tương tác</div>
-                            <div class="desc">Coin – quà tặng</div>
-                        </div>
-                    </div>
-                    <a class="btn" href="/tuongtac" target="_blank">Mở</a>
-                </div>
-
-                <div class="item">
-                    <div class="left">
-                        <div class="icon">⚙️</div>
-                        <div>
-                            <div class="title">Thông tin cơ chế</div>
-                            <div class="desc">Chỉ số – hệ thống</div>
-                        </div>
-                    </div>
-                    <a class="btn" href="/cochegame" target="_blank">Mở</a>
-                </div>
-
-                <div class="item">
-                    <div class="left">
-                        <div class="icon">💪</div>
-                        <div>
-                            <div class="title">Các ô trên người</div>
-                            <div class="desc">Thông tin các ô trên người</div>
-                        </div>
-                    </div>
-                    <a class="btn" href="/body" target="_blank">Mở</a>
-                </div>
-
-                <div class="item">
-                    <div class="left">
-                        <div class="icon">💡</div>
-                        <div>
-                            <div class="title">Thủ thuật game</div>
-                            <div class="desc">Mẹo chơi hiệu quả</div>
-                        </div>
-                    </div>
-                    <a class="btn" href="https://ngocrongtdstudio.com"
-                        target="_blank">Mở</a>
-                </div>
-
-                <div class="item">
-                    <div class="left">
-                        <div class="icon">🧩</div>
-                        <div>
-                            <div class="title">Fix lỗi game</div>
-                            <div class="desc">Các lỗi thường gặp</div>
-                        </div>
-                    </div>
-                    <a class="btn" href="/fixloi" target="_blank">Mở</a>
-                </div>
-
-                <div class="item">
-                    <div class="left">
-                        <div class="icon">📞</div>
-                        <div>
-                            <div class="title">Kênh hỗ trợ khác</div>
-                            <div class="desc">Discord / Zalo / Email</div>
-                        </div>
-                    </div>
-                    <a class="btn" href="/contact" target="_blank">Mở</a>
-                </div>
-
             </div>
 
             <div class="footer">
-                © TDStudio — Game Server & Community Platform<br>
-                Hệ thống máy chủ & nội dung được vận hành bởi TDStudio. Mọi
-                phiên bản, dữ liệu người chơi và cập nhật đều phát hành qua kênh
-                chính thức.<br>
-                Khuyến nghị chỉ tải game và nhận hỗ trợ từ website & fanpage
-                thuộc TDStudio để đảm bảo an toàn tài khoản.
+                © 2026 TDStudio · Ngọc Rồng Online<br>
+                Hệ thống máy chủ & trung tâm hỗ trợ chính thức
             </div>
 
         </div>
