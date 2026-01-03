@@ -149,26 +149,156 @@ body{margin:0;background:var(--bg);color:var(--text)}
     max-width:100%;
 }
 
+#petalContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 99999;
+    overflow: hidden;
+}
+
+.petal {
+    position: absolute;
+    top: -40px;
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 1;
+}
+
+/* Rơi xuống */
+@keyframes fall {
+    from {
+        top: -40px;
+    }
+
+    to {
+        top: 110vh;
+    }
+}
+
+/* Lắc trái */
+@keyframes sway-left {
+    0% {
+        transform: translateX(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateX(-30px) rotate(180deg);
+    }
+
+    100% {
+        transform: translateX(0) rotate(360deg);
+    }
+}
+
+/* Lắc phải */
+@keyframes sway-right {
+    0% {
+        transform: translateX(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateX(30px) rotate(180deg);
+    }
+
+    100% {
+        transform: translateX(0) rotate(360deg);
+    }
+}
+
+/* Rơi thẳng */
+@keyframes straight {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 /* FOOTER */
 .footer{
-    margin-top:30px;
-    padding-top:18px;
-    border-top:1px solid var(--border);
+    margin-top:36px;
+    padding:20px 12px 10px;
     text-align:center;
-    font-size:12px;
-    color:var(--sub);
-    line-height:1.6;
+    border-top:1px solid rgba(148,163,184,.2);
+    color:#94a3b8;
 }
+
+.footer .footer-brand{
+    font-size:12.5px;
+    font-weight:600;
+    color:#475569;
+}
+
+.footer .footer-sub{
+    font-size:11.5px;
+    margin-top:4px;
+}
+
 
 /* DESKTOP */
 @media(min-width:768px){
     .container{max-width:760px}
 }
+
+/* ===============================
+   PC / DESKTOP SCALE (>=1024px)
+   =============================== */
+@media (min-width:1024px){
+
+    /* tiêu đề section */
+    .section h2{
+        font-size:16px;
+        margin-bottom:18px;
+    }
+
+    /* text trong quick button */
+    .quick span{
+        font-size:14px;
+    }
+
+    /* text trong card */
+    .card small{
+        font-size:12.5px;
+    }
+
+    /* brand title */
+    .brand-text h1{
+        font-size:18.5px;
+    }
+
+    .brand-text p{
+        font-size:13.5px;
+    }
+
+    /* footer */
+    .footer .footer-brand{
+        font-size:13.5px;
+    }
+
+    .footer .footer-sub{
+        font-size:12.5px;
+    }
+}
+
+@media (min-width:1440px){
+    body{
+        font-size:15.5px;
+    }
+}
+
 </style>
     </head>
 
     <body>
-
+        <div id="petalContainer"></div>
         <div class="banner"></div>
 
         <div class="container">
@@ -294,24 +424,87 @@ body{margin:0;background:var(--bg);color:var(--text)}
                                 src="/icons/shield-check.svg"></div>
                         <small>Trang bị</small>
                     </a>
-                    <a class="card" href="/posts">
+                    <a class="card" href="https://ngocrongtdstudio.com">
                         <div class="icon-wrap"><img
                                 src="/icons/light-bulb.svg"></div>
                         <small>Mẹo chơi</small>
                     </a>
-                    <a class="card" href="https://ngocrongtdstudio.com">
+                    <a class="card" href="/chat">
                         <div class="icon-wrap"><img
-                                src="/icons/book-open.svg"></div>
-                        <small>Hướng dẫn</small>
+                                src="/icons/chat-bubble-oval-left.svg"></div>
+                        <small>Chat Bot</small>
                     </a>
                 </div>
             </div>
 
             <div class="footer">
-                © 2026 TDStudio · Ngọc Rồng Online<br>
-                Hệ thống máy chủ & trung tâm hỗ trợ chính thức
+                <div class="footer-brand">
+                    © 2026 TDStudio · Ngọc Rồng Online
+                </div>
+                <div class="footer-sub">
+                    Hệ thống máy chủ & trung tâm hỗ trợ chính thức
+                </div>
             </div>
-
         </div>
+        <script>
+    (function() {
+        const container = document.getElementById("petalContainer");
+        const IMAGE_URL =
+            "https://sv1.thanhdi.games/static/sonic/img/hoamai.png";
+
+        const MAX = 30;
+
+        let interval = 120; // tốc độ ban đầu (nhanh)
+        const maxInterval = 600; // tốc độ ổn định (chậm)
+        const duration = 2000; // 2 giây chuyển tiếp
+        const startTime = Date.now();
+
+        function spawn() {
+            if (container.children.length >= MAX) return;
+
+            const p = document.createElement("div");
+            p.className = "petal";
+            p.style.backgroundImage = `url('${IMAGE_URL}')`;
+
+            const size = Math.random() * 10 + 14;
+            const left = Math.random() * window.innerWidth;
+            const time = Math.random() * 6 + 8;
+
+            p.style.width = size + "px";
+            p.style.height = size + "px";
+            p.style.left = left + "px";
+            p.style.opacity = 0.95;
+
+            const type = Math.floor(Math.random() * 3);
+            if (type === 0) {
+                p.style.animation = `fall ${time}s linear infinite, sway-left ${time}s ease-in-out infinite`;
+            } else if (type === 1) {
+                p.style.animation = `fall ${time}s linear infinite, sway-right ${time}s ease-in-out infinite`;
+            } else {
+                p.style.animation = `fall ${time}s linear infinite, straight ${time}s linear infinite`;
+            }
+
+            container.appendChild(p);
+            setTimeout(() => p.remove(), time * 1000);
+        }
+
+        function loop() {
+            const elapsed = Date.now() - startTime;
+
+            // ease-out: chậm dần trong 2s
+            if (elapsed < duration) {
+                const t = elapsed / duration; // 0 → 1
+                interval = 120 + (maxInterval - 120) * t;
+            } else {
+                interval = maxInterval;
+            }
+
+            spawn();
+            setTimeout(loop, interval);
+        }
+
+        loop();
+    })();
+    </script>
     </body>
 </html>
