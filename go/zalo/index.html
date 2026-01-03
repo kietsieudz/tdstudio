@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
 
-        <!-- TITLE (hiển thị khi share + tab browser) -->
+        <!-- TITLE -->
         <title>TDStudio – Hỗ trợ Ngọc Rồng Online</title>
 
         <!-- META CƠ BẢN -->
@@ -13,7 +13,7 @@
         <!-- KHÔNG ẢNH HƯỞNG SEO SITE CHÍNH -->
         <meta name="robots" content="noindex,nofollow">
 
-        <!-- OPEN GRAPH (Zalo / Facebook / Messenger) -->
+        <!-- OPEN GRAPH -->
         <meta property="og:type" content="website">
         <meta property="og:title" content="Hỗ trợ Ngọc Rồng Online – TDStudio">
         <meta property="og:description"
@@ -22,19 +22,29 @@
             content="https://thanhdi.com/images/graph.png">
         <meta property="og:url" content="https://thanhdi.com/go/zalo">
 
-        <!-- HẠN CHẾ GOOGLE TRANSLATE ĐỔI TITLE -->
+        <!-- CHẶN GOOGLE TRANSLATE -->
         <meta name="google" content="notranslate">
 
-        <!-- REDIRECT + TRACKING -->
+        <!-- ✅ GOOGLE ANALYTICS 4 (BẮT BUỘC) -->
+        <script async
+            src="https://www.googletagmanager.com/gtag/js?id=G-BQCBVHE2GN"></script>
+        <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BQCBVHE2GN');
+  </script>
+
+        <!-- EVENT + REDIRECT -->
         <script>
     (function () {
-      if (typeof gtag === 'function') {
-        gtag('event', 'go_platform', {
-          source: 'zalo',
-          target: 'support'
-        });
-      }
+      // Gửi event tracking
+      gtag('event', 'go_platform', {
+        source: 'zalo',
+        target: 'support'
+      });
 
+      // Redirect nhanh
       setTimeout(function () {
         window.location.href = '/support.html';
       }, 120);
