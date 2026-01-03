@@ -785,6 +785,37 @@ body{margin:0;background:var(--bg);color:var(--text)}
     });
 })();
 </script>
+<script>
+(function () {
+    const FIXED_TEXT = 'Chat "xin code" để nhận giftcode fan cứng và code đặc biệt khác';
+    const SHOW_AFTER = 3000; // 3 giây
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const bubble = document.getElementById("tdMsgBubble");
+        const tail = document.getElementById("tdMsgTail");
+        const text = document.getElementById("tdMsgText");
+        const close = document.getElementById("tdMsgClose");
+
+        if (!bubble || !tail || !text) return;
+
+        text.textContent = FIXED_TEXT;
+
+        // hiện bong bóng sau vài giây
+        setTimeout(() => {
+            bubble.classList.add("show");
+            tail.classList.add("show");
+        }, SHOW_AFTER);
+
+        // nút X để tắt
+        if (close) {
+            close.addEventListener("click", () => {
+                bubble.classList.remove("show");
+                tail.classList.remove("show");
+            });
+        }
+    });
+})();
+</script>
         <script>
     (function() {
         const container = document.getElementById("petalContainer");
