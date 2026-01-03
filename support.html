@@ -702,28 +702,89 @@ body{margin:0;background:var(--bg);color:var(--text)}
                     Hệ thống máy chủ & trung tâm hỗ trợ chính thức
                 </div>
             </div>
-            <!-- ===== Bong bóng + đuôi + badge Messenger ===== -->
-    <div id="tdMsgBubble" class="msg-bubble" role="dialog" aria-label="Gợi ý chat">
-        <span id="tdMsgText">Chat "xin code" để nhận giftcode fan cứng và code đặc biệt khác</span>
-        <span id="tdMsgClose" class="msg-close" aria-label="Đóng">✕</span>
-    </div>
-    <span id="tdMsgTail" class="msg-tail"></span>
+            <!-- ===== Bong bóng gợi ý Messenger ===== -->
+<div id="tdMsgBubble" class="msg-bubble" role="dialog" aria-label="Gợi ý chat Messenger">
+    <span id="tdMsgText">
+        Chat "xin code" để nhận giftcode fan cứng và code đặc biệt khác
+    </span>
+    <span id="tdMsgClose" class="msg-close" aria-label="Đóng">✕</span>
+</div>
 
-    <button class="messenger-fab" id="messengerFab"
-        aria-label="Chat Messenger Fanpage"
-        title="Chat Fanpage">
-    <span id="tdMsgBadge" class="msg-badge">1</span>
+<span id="tdMsgTail" class="msg-tail" aria-hidden="true"></span>
 
-    <!-- Messenger official icon -->
-    <svg viewBox="0 0 48 48" width="28" height="28" aria-hidden="true">
-        <path fill="#fff"
-            d="M24 4C13.4 4 5 12.1 5 22.2c0 5.3 2.6 9.9 6.7 13.1.3.2.4.5.4.8l.1 4.8c0 .7.8 1.1 1.4.8l5.6-2.7c.2-.1.5-.2.7-.1 1.3.2 2.7.4 4.1.4 10.6 0 19-8.1 19-18.2S34.6 4 24 4zm2.3 23.9-5-5.3-9.3 5.3 10.2-10.8 5 5.3 9.2-5.3-10.1 10.8z" />
+<!-- ===== Nút Messenger FAB ===== -->
+<button type="button"
+        class="messenger-fab"
+        id="messengerFab"
+        aria-label="Chat Messenger Fanpage TDStudio"
+        title="Chat Fanpage TDStudio">
+
+    <span id="tdMsgBadge" class="msg-badge" aria-hidden="true">1</span>
+
+    <!-- Messenger official icon (SVG) -->
+    <svg viewBox="0 0 48 48"
+         width="28"
+         height="28"
+         aria-hidden="true"
+         focusable="false">
+        <path fill="#ffffff"
+            d="M24 4C13.4 4 5 12.1 5 22.2c0 5.3 2.6 9.9 6.7 13.1
+               .3.2.4.5.4.8l.1 4.8c0 .7.8 1.1 1.4.8l5.6-2.7
+               c.2-.1.5-.2.7-.1 1.3.2 2.7.4 4.1.4
+               10.6 0 19-8.1 19-18.2S34.6 4 24 4zm2.3 23.9
+               -5-5.3-9.3 5.3 10.2-10.8 5 5.3 9.2-5.3
+               -10.1 10.8z"/>
     </svg>
 </button>
     </header>
 
     <link rel="preconnect" href="https://m.me">
         </div>
+       <script>
+(function () {
+    const PAGE = "tdstudiogame";
+
+    // Mobile: mở Messenger (m.me tự xử lý app/web rất tốt)
+    const MME = "https://m.me/" + PAGE;
+
+    // PC: về thẳng fanpage
+    const FB_PAGE = "https://www.facebook.com/" + PAGE;
+
+    const ua = navigator.userAgent;
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(ua);
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const fab = document.getElementById("messengerFab");
+        const badge = document.getElementById("tdMsgBadge");
+        const bubble = document.getElementById("tdMsgBubble");
+        const tail = document.getElementById("tdMsgTail");
+        const close = document.getElementById("tdMsgClose");
+
+        if (!fab) return;
+
+        fab.addEventListener("click", () => {
+            if (isMobile) {
+                // ✅ ANDROID + iOS
+                window.location.href = MME;
+            } else {
+                // ✅ PC / Laptop
+                window.open(FB_PAGE, "_blank", "noopener,noreferrer");
+            }
+
+            if (badge) badge.style.display = "none";
+            if (bubble) bubble.classList.remove("show");
+            if (tail) tail.classList.remove("show");
+        });
+
+        if (close) {
+            close.addEventListener("click", () => {
+                bubble.classList.remove("show");
+                tail.classList.remove("show");
+            });
+        }
+    });
+})();
+</script>
         <script>
     (function() {
         const container = document.getElementById("petalContainer");
@@ -784,48 +845,6 @@ body{margin:0;background:var(--bg);color:var(--text)}
         loop();
     })();
     </script>
-    <script>
-(function () {
-    const PAGE = "tdstudiogame";
-
-    const MME = "https://m.me/" + PAGE;
-    const FB_WEB_CHAT = "https://www.facebook.com/messages/t/" + PAGE;
-
-    const ua = navigator.userAgent;
-    const isIOS = /iPhone|iPad|iPod/i.test(ua);
-    const isAndroid = /Android/i.test(ua);
-
-    document.addEventListener("DOMContentLoaded", () => {
-        const fab = document.getElementById("messengerFab");
-        const badge = document.getElementById("tdMsgBadge");
-        const bubble = document.getElementById("tdMsgBubble");
-        const tail = document.getElementById("tdMsgTail");
-        const close = document.getElementById("tdMsgClose");
-
-        if (!fab) return;
-
-        fab.addEventListener("click", () => {
-            if (isIOS) {
-                // iOS: mở web Messenger → không App Store
-                window.location.href = FB_WEB_CHAT;
-            } else {
-                // Android + PC
-                window.location.href = MME;
-            }
-
-            if (badge) badge.style.display = "none";
-            if (bubble) bubble.classList.remove("show");
-            if (tail) tail.classList.remove("show");
-        });
-
-        if (close) {
-            close.addEventListener("click", () => {
-                bubble.classList.remove("show");
-                tail.classList.remove("show");
-            });
-        }
-    });
-})();
-</script>
+    
     </body>
 </html>
