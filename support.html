@@ -104,15 +104,42 @@ body{margin:0;background:var(--bg);color:var(--text)}
 .brand-text h1{margin:0;font-size:17px;font-weight:600}
 .brand-text p{margin-top:4px;font-size:12.5px;color:var(--sub)}
 
+
+
+/* Nút 2 bên */
+.btn-side {
+  min-height: 64px;
+  padding: 10px 8px;
+  font-size: 13px;
+}
+
+/* Nút giữa */
+.btn-server {
+  min-height: 78px;
+  padding: 14px 10px;
+  transform: translateY(-2px);
+}
+
+
+
+.btn-server strong {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.btn-server small {
+  font-size: 11px;
+  opacity: 0.85;
+}
+
 /* QUICK */
-.quick{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:12px;
-    margin-bottom:26px;
+.quick {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr; /* nút giữa rộng hơn */
+  gap: 12px;
 }
 .quick a{
-    height:78px; /* 🔒 cố định */
+    /* ❌ bỏ height:78px */
     background:linear-gradient(180deg,#2563eb,#1e40af);
     border-radius:18px;
     box-shadow:0 10px 26px rgba(37,99,235,.35);
@@ -125,6 +152,7 @@ body{margin:0;background:var(--bg);color:var(--text)}
     justify-content:center;
     gap:6px;
 }
+
 .quick img{
     width:22px;
     height:22px;
@@ -488,6 +516,23 @@ body{margin:0;background:var(--bg);color:var(--text)}
     75%  { transform: translateX(-2px); }
     100% { transform: translateX(0); }
 }
+@keyframes soft-shake {
+  0%   { transform: translateX(0); }
+  10%  { transform: translateX(-2px); }
+  20%  { transform: translateX(2px); }
+  30%  { transform: translateX(-2px); }
+  40%  { transform: translateX(2px); }
+  50%  { transform: translateX(0); }
+  100% { transform: translateX(0); }
+}
+
+/* hiệu ứng chú ý */
+.pulse-attention {
+  animation: soft-shake 0.6s ease-in-out;
+  animation-delay: 3s;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+}
 
 /* khi có tin mới */
 .messenger-fab.shake {
@@ -515,19 +560,22 @@ body{margin:0;background:var(--bg);color:var(--text)}
 
             <!-- QUICK -->
             <div class="quick">
-                <a href="https://m.me/tdstudiogame">
-                    <img src="/icons/chat-bubble-bottom-center.svg">
-                    <span>Hỗ trợ 24/24</span>
-                </a>
-                <a href="https://thanhdi.games/">
-                    <img src="/icons/server-stack.svg">
-                    <span>Server Game</span>
-                </a>
-                <a href="https://thanhdi.games/trangthai.php">
-                    <img src="/icons/exclamation-triangle.svg">
-                    <span>Trạng Thái</span>
-                </a>
-            </div>
+  <a class="btn btn-side" href="https://m.me/tdstudiogame">
+    <img src="/icons/chat-bubble-bottom-center.svg">
+    <span>Hỗ trợ 24/24</span>
+  </a>
+
+  <a class="btn btn-server pulse-attention" href="https://thanhdi.games">
+    <strong>Server Game</strong>
+    <small>Đăng ký • Tải game</small>
+  </a>
+
+  <a class="btn btn-side" href="https://thanhdi.games/trangthai.php">
+    <img src="/icons/exclamation-triangle.svg">
+    <span>Trạng Thái</span>
+  </a>
+</div>
+
 
             <!-- VẤN ĐỀ -->
             <div class="section">
@@ -755,6 +803,17 @@ body{margin:0;background:var(--bg);color:var(--text)}
 
     <link rel="preconnect" href="https://m.me">
         </div>
+        <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.querySelector(".pulse-attention");
+    if (!btn) return;
+
+    setInterval(() => {
+      btn.classList.add("shake");
+      setTimeout(() => btn.classList.remove("shake"), 600);
+    }, 1000); // rung mỗi 1 giây
+  });
+</script>
        <script>
 (function () {
     const PAGE = "tdstudiogame";
@@ -942,6 +1001,8 @@ document.addEventListener('keydown', e => {
     }
 });
 </script>
+
+
     
     </body>
 </html>
