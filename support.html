@@ -212,6 +212,148 @@ body{margin:0;background:var(--bg);color:var(--text)}
     opacity: 1;
 }
 
+.msg-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: #ff3b30;
+    color: #fff;
+    min-width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 0 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .2);
+}
+
+.msg-bubble {
+    position: fixed;
+    right: 80px;
+    bottom: 74px;
+    max-width: 260px;
+    background: #1c9dea;
+    color: #fff;
+    padding: 8px 10px;
+    border-radius: 12px;
+    border-top-right-radius: 4px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .25);
+    line-height: 1.35;
+    font-size: 14px;
+    display: none;
+    z-index: 9999;
+    user-select: none;
+}
+
+.msg-bubble.show {
+    display: block;
+}
+
+#tdMsgText {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.msg-tail {
+    position: fixed;
+    right: 68px;
+    bottom: 86px;
+    width: 0;
+    height: 0;
+    display: none;
+    z-index: 9999;
+    border-left: 8px solid #1c9dea;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+}
+
+.msg-tail.show {
+    display: block;
+}
+
+.msg-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    margin-left: 8px;
+    font-weight: bold;
+    font-size: 12px;
+    background: rgba(255, 255, 255, 0.85);
+    /* nền trắng mờ dễ thấy */
+    color: #1c9dea;
+    /* xanh đồng bộ bong bóng */
+    border-radius: 4px;
+    /* bo nhẹ vuông */
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.msg-close:hover {
+    background: #fff;
+    color: #0078d4;
+    /* sáng hơn khi hover */
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+.messenger-fab {
+    position: fixed;
+    right: 16px;
+    bottom: 32px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #0084ff;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, .18), 0 6px 10px rgba(0, 0, 0, .12);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 9999;
+    transition: transform .15s ease, box-shadow .2s ease, background .2s;
+}
+
+.messenger-fab:hover {
+    transform: translateY(-2px);
+}
+
+.messenger-fab:active {
+    transform: translateY(0);
+}
+
+.messenger-fab svg {
+    width: 28px;
+    height: 28px;
+    fill: #fff;
+}
+
+/* Tooltip nhỏ (tùy chọn) */
+.messenger-fab::after {
+    content: "Chat Fanpage";
+    position: absolute;
+    right: 64px;
+    bottom: 50%;
+    transform: translateY(50%);
+    background: rgba(0, 0, 0, .78);
+    color: #fff;
+    font-size: 12px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .2s ease;
+    white-space: nowrap;
+}
+
+.messenger-fab:hover::after {
+    opacity: 1;
+}
+
 /* Rơi xuống */
 @keyframes fall {
     from {
