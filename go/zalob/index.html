@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="utf-8">
+        <title>Redirecting...</title>
+
+        <script>
+    (function () {
+      // Ghi nhận click từ BOT Zalo
+      if (typeof gtag === 'function') {
+        gtag('event', 'go_platform', {
+          source: 'zalob',
+          target: 'support'
+        });
+      }
+
+      // Redirect về trang support
+      setTimeout(function () {
+        window.location.href = '/support.html';
+      }, 150);
+    })();
+  </script>
+    </head>
+    <body></body>
+</html>
