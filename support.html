@@ -802,9 +802,38 @@ body{margin:0;background:var(--bg);color:var(--text)}
 </script>
 <script>
 (function () {
-    const FIXED_TEXT = 'Chat "xin code" để nhận giftcode fan cứng và code đặc biệt khác';
-    const SHOW_AFTER = 2000; // 2s
-    const SHAKE_DELAY = 400; // rung sau khi hiện bubble
+    const FIXED_TEXT =
+        'Chat "xin code" để nhận giftcode fan cứng và code đặc biệt khác';
+
+    const SHOW_AFTER = 2000;      // hiện bong bóng sau 2s
+    const SHAKE_EVERY = 4000;     // mỗi 7s lắc 1 lần
+    const SHAKE_DURATION = 600;  // thời gian 1 lần lắc
+
+    let shakeTimer = null;
+    let stopped = false;
+
+    function startShakeLoop(fab) {
+        if (shakeTimer) return;
+
+        // lắc ngay 1 lần đầu
+        fab.classList.add("shake");
+        setTimeout(() => fab.classList.remove("shake"), SHAKE_DURATION);
+
+        // lặp lại
+        shakeTimer = setInterval(() => {
+            if (stopped) return;
+            fab.classList.add("shake");
+            setTimeout(() => fab.classList.remove("shake"), SHAKE_DURATION);
+        }, SHAKE_EVERY);
+    }
+
+    function stopShakeLoop() {
+        stopped = true;
+        if (shakeTimer) {
+            clearInterval(shakeTimer);
+            shakeTimer = null;
+        }
+    }
 
     document.addEventListener("DOMContentLoaded", () => {
         const bubble = document.getElementById("tdMsgBubble");
@@ -817,24 +846,26 @@ body{margin:0;background:var(--bg);color:var(--text)}
 
         text.textContent = FIXED_TEXT;
 
+        // hiện bong bóng
         setTimeout(() => {
             bubble.classList.add("show");
             tail.classList.add("show");
-
-            // 💥 rung nút messenger như có tin mới
-            setTimeout(() => {
-                fab.classList.add("shake");
-                setTimeout(() => fab.classList.remove("shake"), 700);
-            }, SHAKE_DELAY);
-
+            startShakeLoop(fab);
         }, SHOW_AFTER);
 
+        // bấm X → dừng lắc
         if (close) {
             close.addEventListener("click", () => {
                 bubble.classList.remove("show");
                 tail.classList.remove("show");
+                stopShakeLoop();
             });
         }
+
+        // bấm nút Messenger → dừng lắc
+        fab.addEventListener("click", () => {
+            stopShakeLoop();
+        });
     });
 })();
 </script>
