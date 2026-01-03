@@ -478,6 +478,21 @@ body{margin:0;background:var(--bg);color:var(--text)}
     }
 }
 
+/* ===== Messenger shake (giả lập tin nhắn mới) ===== */
+@keyframes messenger-shake {
+    0%   { transform: translateX(0); }
+    15%  { transform: translateX(-4px); }
+    30%  { transform: translateX(4px); }
+    45%  { transform: translateX(-3px); }
+    60%  { transform: translateX(3px); }
+    75%  { transform: translateX(-2px); }
+    100% { transform: translateX(0); }
+}
+
+/* khi có tin mới */
+.messenger-fab.shake {
+    animation: messenger-shake 0.6s ease-in-out;
+}
 </style>
     </head>
 
@@ -788,25 +803,32 @@ body{margin:0;background:var(--bg);color:var(--text)}
 <script>
 (function () {
     const FIXED_TEXT = 'Chat "xin code" để nhận giftcode fan cứng và code đặc biệt khác';
-    const SHOW_AFTER = 2000; // 3 giây
+    const SHOW_AFTER = 2000; // 2s
+    const SHAKE_DELAY = 400; // rung sau khi hiện bubble
 
     document.addEventListener("DOMContentLoaded", () => {
         const bubble = document.getElementById("tdMsgBubble");
         const tail = document.getElementById("tdMsgTail");
         const text = document.getElementById("tdMsgText");
         const close = document.getElementById("tdMsgClose");
+        const fab = document.getElementById("messengerFab");
 
-        if (!bubble || !tail || !text) return;
+        if (!bubble || !tail || !text || !fab) return;
 
         text.textContent = FIXED_TEXT;
 
-        // hiện bong bóng sau vài giây
         setTimeout(() => {
             bubble.classList.add("show");
             tail.classList.add("show");
+
+            // 💥 rung nút messenger như có tin mới
+            setTimeout(() => {
+                fab.classList.add("shake");
+                setTimeout(() => fab.classList.remove("shake"), 700);
+            }, SHAKE_DELAY);
+
         }, SHOW_AFTER);
 
-        // nút X để tắt
         if (close) {
             close.addEventListener("click", () => {
                 bubble.classList.remove("show");
