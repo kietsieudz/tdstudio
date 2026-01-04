@@ -30,7 +30,7 @@ body{
 }
 
 .container{
-  max-width:720px;
+  max-width:760px;
   margin:auto;
 }
 
@@ -49,7 +49,7 @@ body{
   margin-top:6px;
 }
 
-/* ===== INFO BOX (CHUNG) ===== */
+/* ===== INFO BOX ===== */
 .info-box{
   background:#ffffff;
   border-radius:16px;
@@ -76,59 +76,68 @@ body{
 .server-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:12px;
+  gap:14px;
 }
-
 @media(min-width:640px){
   .server-grid{
     grid-template-columns:repeat(3,1fr);
   }
 }
 
-/* ===== SERVER CARD ===== */
+/* ===== SERVER CARD (CLICKABLE) ===== */
 .server-card{
+  display:block;
+  text-decoration:none;
   background:#ffffff;
-  border-radius:14px;
-  padding:14px;
+  border-radius:16px;
+  padding:16px 14px;
   text-align:center;
-  box-shadow:0 4px 12px rgba(0,0,0,.05);
   border:1px solid #e5e7eb;
+
+  box-shadow:
+    0 10px 24px rgba(15,23,42,.12),
+    0 2px 4px rgba(15,23,42,.06);
+
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease,
+    border-color .18s ease;
+}
+
+.server-card:hover{
+  transform:translateY(-3px);
+  border-color:#c7d2fe;
+  box-shadow:
+    0 18px 36px rgba(37,99,235,.22),
+    0 4px 10px rgba(15,23,42,.10);
 }
 
 .server-name{
   font-size:14px;
   font-weight:800;
-  margin-bottom:8px;
+  margin-bottom:10px;
+  color:#0f172a;
 }
 
+/* ===== STATUS ===== */
 .status{
   display:inline-block;
-  padding:6px 14px;
+  padding:6px 16px;
   border-radius:999px;
   font-size:12px;
   font-weight:800;
+  letter-spacing:.3px;
 }
 
-/* ===== STATUS COLOR ===== */
 .open{
   background:#dcfce7;
   color:#166534;
   border:1px solid #22c55e;
 }
-.testing{
-  background:#fef3c7;
-  color:#92400e;
-  border:1px solid #facc15;
-}
-.down{
-  background:#fee2e2;
-  color:#991b1b;
-  border:1px solid #ef4444;
-}
 
 /* ===== NOTICE ===== */
 .notice{
-  margin-top:18px;
+  margin-top:20px;
   padding:12px 14px;
   text-align:center;
   font-size:13px;
@@ -155,50 +164,56 @@ footer{
   <!-- HEADER -->
   <div class="header">
     <h1>Trạng thái Server TDStudio</h1>
-    <p>Trang giám sát & công bố tình trạng máy chủ chính thức</p>
+    <p>Trang giám sát & điều hướng máy chủ chính thức</p>
   </div>
 
-  <!-- THÔNG TIN CHUNG -->
+  <!-- INFO -->
   <div class="info-box">
-    <h2>Thông tin máy chủ</h2>
+    <h2>Thông tin chung</h2>
     <ul>
       <li>Không cần mở thành viên</li>
       <li>Vàng & ngọc miễn phí</li>
       <li>Tặng đệ tử thường + full trang bị tân thủ</li>
-      <li>Hệ thống vận hành ổn định, cập nhật liên tục</li>
+      <li>Hệ thống vận hành ổn định</li>
     </ul>
   </div>
 
-  <!-- GRID SERVER -->
+  <!-- SERVER GRID (CLICKABLE) -->
   <div class="server-grid">
-    <div class="server-card">
+    <a class="server-card" href="https://sv1.thanhdi.games">
       <div class="server-name">Server 1</div>
       <span class="status open">OPEN</span>
-    </div>
-    <div class="server-card">
+    </a>
+
+    <a class="server-card" href="https://sv2.thanhdi.games">
       <div class="server-name">Server 2</div>
       <span class="status open">OPEN</span>
-    </div>
-    <div class="server-card">
+    </a>
+
+    <a class="server-card" href="https://sv3.thanhdi.games">
       <div class="server-name">Server 3</div>
       <span class="status open">OPEN</span>
-    </div>
-    <div class="server-card">
+    </a>
+
+    <a class="server-card" href="https://sv4.thanhdi.games">
       <div class="server-name">Server 4</div>
       <span class="status open">OPEN</span>
-    </div>
-    <div class="server-card">
+    </a>
+
+    <a class="server-card" href="https://sv5.thanhdi.games">
       <div class="server-name">Server 5</div>
       <span class="status open">OPEN</span>
-    </div>
-    <div class="server-card">
+    </a>
+
+    <a class="server-card" href="https://sv6.thanhdi.games">
       <div class="server-name">Server 6</div>
       <span class="status open">OPEN</span>
-    </div>
-    <div class="server-card">
+    </a>
+
+    <a class="server-card" href="https://sv1.thanhdi.games">
       <div class="server-name">Server Indo</div>
       <span class="status open">OPEN</span>
-    </div>
+    </a>
   </div>
 
   <!-- NOTICE -->
@@ -209,8 +224,7 @@ footer{
   <!-- FOOTER -->
   <footer>
     © TDStudio — Game Server & Community Platform<br>
-    Hệ thống máy chủ & nội dung được vận hành bởi TDStudio.<br>
-    Chỉ tải game & nhận hỗ trợ qua các kênh chính thức để đảm bảo an toàn tài khoản.
+    Chỉ điều hướng & hỗ trợ qua các kênh chính thức để đảm bảo an toàn tài khoản.
   </footer>
 
 </div>
