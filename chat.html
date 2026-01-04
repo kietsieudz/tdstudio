@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport"
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<title>Chat hỗ trợ 1v1 Ngọc Rồng Online | TDStudio</title>
-<link rel="canonical" href="https://thanhdi.com/chat" />
-<meta name="description"
+    <title>Chat hỗ trợ 1v1 Ngọc Rồng Online | TDStudio</title>
+    <link rel="canonical" href="https://thanhdi.com/chat" />
+    <!-- Google tag (GA4) -->
+    <script async
+      src="https://www.googletagmanager.com/gtag/js?id=G-BQCBVHE2GN"></script>
+    <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-BQCBVHE2GN');
+</script>
+
+    <meta name="description"
       content="Trang chat hỗ trợ 1v1 Ngọc Rồng Online tại TDStudio.">
 
-<style>
+    <style>
 :root{
   --brand:#2563eb;
   --bg:#eef2f7;
@@ -163,46 +173,46 @@ body{
   font-weight:600;
 }
 </style>
-</head>
+  </head>
 
-<body>
+  <body>
 
-<div class="wrap">
-  <div class="header">
-    <div class="title">TDStudio – Hỗ Trợ Bởi Bot</div>
-    <div class="sub">Trực 24/24 · Fanpage · Website · Game</div>
-  </div>
+    <div class="wrap">
+      <div class="header">
+        <div class="title">TDStudio – Hỗ Trợ Bởi Bot</div>
+        <div class="sub">Trực 24/24 · Fanpage · Website · Game</div>
+      </div>
 
-  <div id="chat" class="chat">
-    <div id="emptyState" class="empty-popup">
-      <div class="empty-box">
-        <div class="empty-title">Bạn có thể hỏi về:</div>
-        <div class="empty-text">
-          • Trang chủ<br>
-          • Cách tải game<br>
-          • Hướng dẫn cài đặt<br>
-          • Vật phẩm, item<br>
-          • Chức năng trong game<br>
-          • Nhiệm vụ, phụ bản<br>
-          • Sự kiện, giftcode<br>
-          • Lỗi đăng nhập, lỗi game
+      <div id="chat" class="chat">
+        <div id="emptyState" class="empty-popup">
+          <div class="empty-box">
+            <div class="empty-title">Bạn có thể hỏi về:</div>
+            <div class="empty-text">
+              • Trang chủ<br>
+              • Cách tải game<br>
+              • Hướng dẫn cài đặt<br>
+              • Vật phẩm, item<br>
+              • Chức năng trong game<br>
+              • Nhiệm vụ, phụ bản<br>
+              • Sự kiện, giftcode<br>
+              • Lỗi đăng nhập, lỗi game
+            </div>
+            <a class="empty-btn"
+              href="/support"
+              target="_blank">
+              👉 Chat với Admin Fanpage
+            </a>
+          </div>
         </div>
-        <a class="empty-btn"
-           href="/support"
-           target="_blank">
-          👉 Chat với Admin Fanpage
-        </a>
+      </div>
+
+      <div class="input">
+        <input id="txt" placeholder="Nhập nội dung cần hỗ trợ…" />
+        <button onclick="send()">Gửi</button>
       </div>
     </div>
-  </div>
 
-  <div class="input">
-    <input id="txt" placeholder="Nhập nội dung cần hỗ trợ…" />
-    <button onclick="send()">Gửi</button>
-  </div>
-</div>
-
-<script>
+    <script>
 const RULES_URL =
 "https://raw.githubusercontent.com/kietsieudz/text/refs/heads/main/support_messenger.txt";
 const MAX_REPLIES = 10;
@@ -339,5 +349,5 @@ txt.addEventListener("keydown",e=>{
 });
 </script>
 
-</body>
+  </body>
 </html>

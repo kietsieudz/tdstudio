@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tiến trình trạng thái Game</title>
-<link rel="canonical" href="https://thanhdi.com/giaithich" />
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tiến trình trạng thái Game</title>
+        <link rel="canonical" href="https://thanhdi.com/giaithich" />
+        <!-- Google tag (GA4) -->
+        <script async
+            src="https://www.googletagmanager.com/gtag/js?id=G-BQCBVHE2GN"></script>
+        <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-BQCBVHE2GN');
+</script>
 
-<style>
+        <style>
     body {
         margin: 0;
         background: #f2f4f7;
@@ -94,82 +103,86 @@
         color: #555;
     }
 </style>
-</head>
+    </head>
 
-<body>
-<div class="wrap">
-    <h1>Tiến trình trạng thái Game</h1>
+    <body>
+        <div class="wrap">
+            <h1>Tiến trình trạng thái Game</h1>
 
-    <!-- Game Test -->
-    <div class="step done">
-        <h3>Game Test</h3>
-        <p>
-            Giai đoạn test ban đầu để người chơi làm quen game.<br>
-            Hệ thống hỗ trợ <strong>free 5M coin</strong> để trải nghiệm tính năng.
-        </p>
-    </div>
+            <!-- Game Test -->
+            <div class="step done">
+                <h3>Game Test</h3>
+                <p>
+                    Giai đoạn test ban đầu để người chơi làm quen game.<br>
+                    Hệ thống hỗ trợ <strong>free 5M coin</strong> để trải nghiệm
+                    tính năng.
+                </p>
+            </div>
 
-    <div class="arrow">↓</div>
+            <div class="arrow">↓</div>
 
-    <!-- Đua Top Test -->
-    <div class="step current">
-        <div class="badge">ĐANG DIỄN RA</div>
-        <h3>Đua Top Test</h3>
-        <p>
-            Giai đoạn đua top thử nghiệm trước khi mở chính thức.<br>
-            – <strong>Không free coin</strong><br>
-            – <strong>Nạp tiền được</strong><br>
-            – Toàn bộ tiền nạp sẽ <strong>được hoàn lại</strong> khi game mở đua top chính thức.<br>
-            – Người chơi đạt thứ hạng sẽ nhận <strong>quà đua top test</strong>.
-        </p>
-    </div>
+            <!-- Đua Top Test -->
+            <div class="step current">
+                <div class="badge">ĐANG DIỄN RA</div>
+                <h3>Đua Top Test</h3>
+                <p>
+                    Giai đoạn đua top thử nghiệm trước khi mở chính thức.<br>
+                    – <strong>Không free coin</strong><br>
+                    – <strong>Nạp tiền được</strong><br>
+                    – Toàn bộ tiền nạp sẽ <strong>được hoàn lại</strong> khi
+                    game mở đua top chính thức.<br>
+                    – Người chơi đạt thứ hạng sẽ nhận <strong>quà đua top
+                        test</strong>.
+                </p>
+            </div>
 
-    <div class="arrow">↓</div>
+            <div class="arrow">↓</div>
 
-    <!-- Reset -->
-    <div class="step">
-        <h3>Reset dữ liệu</h3>
-        <p>
-            Sau khi kết thúc đua top test, hệ thống sẽ reset toàn bộ dữ liệu
-            để đảm bảo công bằng cho giai đoạn tiếp theo.
-        </p>
-    </div>
+            <!-- Reset -->
+            <div class="step">
+                <h3>Reset dữ liệu</h3>
+                <p>
+                    Sau khi kết thúc đua top test, hệ thống sẽ reset toàn bộ dữ
+                    liệu
+                    để đảm bảo công bằng cho giai đoạn tiếp theo.
+                </p>
+            </div>
 
-    <div class="arrow">↓</div>
+            <div class="arrow">↓</div>
 
-    <!-- Đua Top Open -->
-    <div class="step">
-        <h3>Đua Top Open (Chính thức)</h3>
-        <p>
-            Giai đoạn đua top chính thức của game.<br>
-            – <strong>Không free coin</strong><br>
-            – Bắt đầu tính thành tích thật.
-        </p>
-    </div>
+            <!-- Đua Top Open -->
+            <div class="step">
+                <h3>Đua Top Open (Chính thức)</h3>
+                <p>
+                    Giai đoạn đua top chính thức của game.<br>
+                    – <strong>Không free coin</strong><br>
+                    – Bắt đầu tính thành tích thật.
+                </p>
+            </div>
 
-    <div class="arrow">↓</div>
+            <div class="arrow">↓</div>
 
-    <!-- Game Official -->
-    <div class="step">
-        <h3>Game Chính Thức</h3>
-        <p>
-            Game đi vào vận hành lâu dài.<br>
-            – <strong>Không reset dữ liệu về sau</strong><br>
-            – Người chơi yên tâm gắn bó lâu dài.
-        </p>
-    </div>
+            <!-- Game Official -->
+            <div class="step">
+                <h3>Game Chính Thức</h3>
+                <p>
+                    Game đi vào vận hành lâu dài.<br>
+                    – <strong>Không reset dữ liệu về sau</strong><br>
+                    – Người chơi yên tâm gắn bó lâu dài.
+                </p>
+            </div>
 
-    <!-- Time -->
-    <div class="time-box">
-        <strong>Thời gian đua top test:</strong><br>
-        Bắt đầu: <strong>19:00 – 23/12/2025</strong><br>
-        Kết thúc: <strong>19:00 – 26/12/2025</strong>
-    </div>
+            <!-- Time -->
+            <div class="time-box">
+                <strong>Thời gian đua top test:</strong><br>
+                Bắt đầu: <strong>19:00 – 23/12/2025</strong><br>
+                Kết thúc: <strong>19:00 – 26/12/2025</strong>
+            </div>
 
-    <div class="footer-note">
-        Sau khi kết thúc đua top test, game sẽ reset để chuẩn bị cho
-        đua top open và vận hành chính thức lâu dài.
-    </div>
-</div>
-</body>
+            <div class="footer-note">
+                Sau khi kết thúc đua top test, game sẽ reset để chuẩn bị cho
+                đua top open và vận hành chính thức lâu dài.
+            </div>
+        </div>
+    </body>
 </html>
