@@ -1,243 +1,297 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport"
-            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Giftcode Server Ngọc Rồng Online | TDStudio</title>
+        <title>Giftcode Ngọc Rồng Online | TDStudio</title>
         <link rel="canonical" href="https://thanhdi.com/giftcode" />
-        <!-- Google tag (GA4) -->
+
+        <meta name="description"
+            content="Tổng hợp giftcode tân thủ và giftcode cũ từ fanpage Ngọc Rồng Online – TDStudio.">
+        <meta name="robots" content="index, follow">
+
+        <!-- GA4 -->
         <script async
             src="https://www.googletagmanager.com/gtag/js?id=G-BQCBVHE2GN"></script>
         <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-BQCBVHE2GN');
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-BQCBVHE2GN');
 </script>
-
-        <meta name="description"
-            content="Trang tổng hợp giftcode server Ngọc Rồng Online tại TDStudio, cập nhật giftcode mới nhất cho người chơi.">
-
-        <meta name="robots" content="index, follow">
 
         <style>
 :root{
-    --bg:#f3f4f6;
-    --card:#ffffff;
-    --text:#1f2937;
-    --muted:#6b7280;
-    --primary:#2563eb;
-    --vip1:#fbbf24;
-    --vip2:#f59e0b;
-    --radius:14px;
+  --bg:#f4f6f8;
+  --card:#ffffff;
+  --text:#111827;
+  --muted:#6b7280;
+  --accent:#ff7a00;
+  --radius:14px;
 }
 
-*{
-    box-sizing:border-box;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
-    margin:0;
-    background:var(--bg);
-    color:var(--text);
+  background:var(--bg);
+  color:var(--text);
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
 }
 
-/* ===== LAYOUT ===== */
 .container{
-    max-width:460px;
-    margin:auto;
-    padding:16px;
+  max-width:920px;
+  margin:auto;
+  padding:12px;
 }
 
 /* ===== HEADER ===== */
-.header{
-    text-align:center;
-    margin-bottom:18px;
+.page-title{
+  font-size:20px;
+  font-weight:900;
+  color:#ff6a00;
+  line-height:1.2;
 }
 
-.header h1{
-    font-size:20px;
-    margin:0 0 6px;
-    font-weight:700;
-}
-
-.header p{
-    margin:0;
-    font-size:13px;
-    color:var(--muted);
+.page-sub{
+  font-size:12.5px;
+  color:var(--muted);
+  margin:4px 0 12px;
 }
 
 /* ===== CARD ===== */
 .card{
-    background:var(--card);
-    border-radius:var(--radius);
-    padding:18px 16px;
-    box-shadow:0 6px 18px rgba(0,0,0,.06);
-    margin-bottom:20px;
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:12px;
+  margin-bottom:14px;
+  box-shadow:0 4px 14px rgba(0,0,0,.05);
 }
 
-/* ===== CARD TITLE ===== */
 .card h2{
-    margin:0 0 14px;
-    font-size:16px;
-    font-weight:600;
-    text-align:center;
+  font-size:15px;
+  font-weight:800;
+  margin-bottom:8px;
 }
 
-/* ===== CODE GRID ===== */
-.code-list{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:12px;
+/* ===== GIFT CODE GRID ===== */
+.code-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:6px;
 }
 
-/* ===== CODE ITEM ===== */
 .code{
-    background:#f8fafc;
-    border:1px solid #e5e7eb;
-    border-radius:10px;
-    padding:10px 0;
-    text-align:center;
-    font-size:14px;
-    font-weight:600;
-    color:#374151;
-    user-select:all;
+  background:#f9fafb;
+  border:1px solid #e5e7eb;
+  border-radius:9px;
+  padding:7px 2px;
+  text-align:center;
+  font-weight:800;
+  font-size:12.5px;
+  user-select:all;
 }
 
-/* FANPAGE CODE */
-.code.fan{
-    grid-column:1/-1;
-    background:#ecfdf5;
-    border-color:#a7f3d0;
-    color:#065f46;
-    font-weight:700;
+/* sắp hết hạn */
+.code.highlight{
+  grid-column:1/-1;
+  background:#ecfdf5;
+  border-color:#86efac;
+  color:#065f46;
+  font-size:12.5px;
 }
 
-/* ===== VIP SECTION ===== */
-.vip-card{
-    background:linear-gradient(135deg,var(--vip1),var(--vip2));
-    color:#1f2937;
+/* ===== NOTICE ===== */
+.notice{
+  font-size:12px;
+  color:#2563eb;
+  margin-bottom:8px;
 }
 
-.vip-card h2{
-    font-size:17px;
-    font-weight:700;
-    margin-bottom:10px;
+/* ===== POSTS ===== */
+.post-list{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
 }
 
-.vip-card p{
-    margin:0 0 16px;
-    font-size:13px;
-    text-align:center;
-    opacity:.9;
+.post-card{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+  border-radius:12px;
+  padding:1px;
+  background:
+    linear-gradient(#fff,#fff) padding-box,
+    linear-gradient(120deg,#ff7a00,#ffcf66) border-box;
+  border:2px solid transparent;
 }
 
-/* VIP BUTTON */
-.vip-btn{
-    display:block;
-    width:100%;
-    background:#0f172a;
-    color:#ffffff;
-    padding:14px 0;
-    border-radius:12px;
-    font-size:15px;
-    font-weight:700;
-    text-align:center;
-    text-decoration:none;
-    transition:transform .1s ease, opacity .1s ease;
+.post-card-inner{
+  display:flex;
+  gap:8px;
+  padding:6px;
+  background:#fff;
+  border-radius:10px;
 }
 
-.vip-btn:active{
-    transform:scale(.97);
-    opacity:.9;
+.post-avatar{
+  width:44px;
+  height:44px;
+  border-radius:8px;
+  overflow:hidden;
+  background:#e5e7eb;
+  flex-shrink:0;
 }
 
-/* ===== FOOTER ===== */
-.footer{
-    margin-top:28px;
-    padding:16px 12px;
-    text-align:center;
-    font-size:12px;
-    color:#6b7280;
-    line-height:1.6;
+.post-avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
-.footer strong{
-    color:#111827;
+.post-title{
+  font-size:13.5px;
+  font-weight:800;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
-.footer a{
-    color:var(--primary);
-    text-decoration:none;
-    font-weight:600;
+.post-sub{
+  font-size:11.5px;
+  color:var(--muted);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
-.footer .divider{
-    margin:6px 0;
-    opacity:.4;
+/* ===== PAGINATION ===== */
+.pager{
+  display:flex;
+  justify-content:center;
+  gap:4px;
+  margin-top:10px;
+  flex-wrap:wrap;
+}
+
+.pager button{
+  padding:5px 10px;
+  border-radius:999px;
+  border:1px solid #e5e7eb;
+  background:#fff;
+  font-weight:700;
+  font-size:12px;
+}
+
+.pager button.active{
+  background:#ff7a00;
+  color:#fff;
+  border-color:#ff7a00;
+}
+
+/* ===== PC CHỈ NÂNG NHẸ ===== */
+@media(min-width:768px){
+  .code-grid{
+    grid-template-columns:repeat(5,1fr);
+  }
 }
 </style>
     </head>
 
     <body>
-
         <div class="container">
 
-            <!-- HEADER -->
-            <div class="header">
-                <h1>Giftcode Server</h1>
-                <p>Tổng hợp giftcode đang hoạt động</p>
+            <h1 class="page-title">TDStudio - Giftcode Ngọc Rồng Online</h1>
+            <div class="page-sub">
+                Tổng hợp code tân thủ & giftcode cũ từ fanpage TDStudio
             </div>
 
             <!-- GIFT CODE -->
             <div class="card">
-                <h2>Danh sách Giftcode</h2>
-
-                <div class="code-list">
+                <h2>🎁 Giftcode tân thủ đang hoạt động</h2>
+                <div class="code-grid">
                     <div class="code">open1</div>
                     <div class="code">open2</div>
                     <div class="code">open3</div>
                     <div class="code">open4</div>
-
                     <div class="code">open5</div>
                     <div class="code">open6</div>
                     <div class="code">open7</div>
                     <div class="code">open8</div>
-
                     <div class="code">open9</div>
                     <div class="code">open10</div>
                     <div class="code">open11</div>
                     <div class="code">open12</div>
-
                     <div class="code">open13</div>
                     <div class="code">open14</div>
                     <div class="code">open15</div>
 
-                    <div class="code fan">yeufanpage</div>
-                    <div class="code fan">quavip</div>
+                    <div class="code highlight">quavip · Sắp hết hạn</div>
+                    <div class="code highlight">yeufanpage · Sắp hết hạn</div>
+                    <div class="code highlight">20thang11 · Sắp hết hạn</div>
+                    <div class="code highlight">toiyeufanpage · Sắp hết
+                        hạn</div>
+                    <div class="code highlight">happynewyear · Sắp hết hạn</div>
                 </div>
             </div>
 
-            <!-- VIP -->
-            <div class="card vip-card">
-                <h2>XEM THÊM CODE KHÁC</h2>
-                <p>Nhập Code Cũ Xin Hãy Để Lại 1 CMT Ủng Hộ Game Ạ!</p>
-                <a href="/posts" class="vip-btn">Các Code Khác Cũ Hơn</a>
+            <div class="notice">
+                📌 Giftcode cũ được đăng trong bài viết fanpage bên dưới
             </div>
 
-            <!-- FOOTER -->
-            <div class="footer">
-                <strong>© TDStudio</strong> — Game Server & Community
-                <div class="divider">—</div>
-                Trang giftcode chính thức.
-                <div class="divider">—</div>
-                <a href="/support">Hỗ trợ 24/24</a>
+            <!-- POSTS -->
+            <div class="card">
+                <h2>📍 Hãy Like & Comment Để Ủng Hộ Game</h2>
+                <div id="postList" class="post-list"></div>
+                <div id="pager" class="pager"></div>
             </div>
 
         </div>
+
+        <script>
+const JSON_PATH='posts.json';
+const PAGE_SIZE=20;
+const root=document.getElementById('postList');
+const pager=document.getElementById('pager');
+let posts=[],page=1;
+
+function render(){
+  root.innerHTML='';
+  const start=(page-1)*PAGE_SIZE;
+  posts.slice(start,start+PAGE_SIZE).forEach(p=>{
+    const a=document.createElement('a');
+    a.className='post-card';
+    a.href=p.link;
+    a.target='_blank';
+    a.innerHTML=`
+      <div class="post-card-inner">
+        <div class="post-avatar">
+          <img src="${p.avatar||'https://via.placeholder.com/150'}">
+        </div>
+        <div>
+          <div class="post-title">${p.title||''}</div>
+          <div class="post-sub">${p.subtitle||''}</div>
+        </div>
+      </div>`;
+    root.appendChild(a);
+  });
+
+  const total=Math.ceil(posts.length/PAGE_SIZE);
+  pager.innerHTML='';
+  for(let i=1;i<=total;i++){
+    const b=document.createElement('button');
+    b.textContent=i;
+    if(i===page)b.classList.add('active');
+    b.onclick=()=>{page=i;render();};
+    pager.appendChild(b);
+  }
+}
+
+fetch(JSON_PATH,{cache:'no-cache'})
+  .then(r=>r.json())
+  .then(d=>{posts=d;render();});
+</script>
 
     </body>
 </html>
