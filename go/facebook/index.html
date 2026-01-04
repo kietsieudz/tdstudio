@@ -26,16 +26,18 @@
     gtag('config', 'G-BQCBVHE2GN');
   </script>
     <script>
-  gtag('event', 'go_platform', {
-    source: 'facebook',
-    target: 'support',
-    debug_mode: true,
-    event_callback: function () {
-      window.location.href = '/support';
-    }
-  });
-</script>
-
+    (function () {
+      if (typeof gtag === 'function') {
+        gtag('event', 'go_platform', {
+          source: 'facebook',
+          target: 'support'
+        });
+      }
+      setTimeout(function () {
+        window.location.href = '/support';
+      }, 120);
+    })();
+  </script>
   </head>
   <body></body>
 </html>
