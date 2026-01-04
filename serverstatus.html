@@ -1,264 +1,218 @@
 <!DOCTYPE html>
 <html lang="vi">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Trạng thái Server – TDStudio</title>
-        <link rel="canonical" href="https://thanhdi.com/serverstatus" />
-        <!-- Google tag (GA4) -->
-        <script async
-            src="https://www.googletagmanager.com/gtag/js?id=G-BQCBVHE2GN"></script>
-        <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-BQCBVHE2GN');
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trạng thái Server – TDStudio</title>
+<link rel="canonical" href="https://thanhdi.com/serverstatus" />
+
+<!-- Google tag (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BQCBVHE2GN"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-BQCBVHE2GN');
 </script>
 
-        <style>
+<style>
 *{
-    box-sizing:border-box;
-    font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-    margin:0;
-    padding:0;
+  box-sizing:border-box;
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  margin:0;
+  padding:0;
 }
+
 body{
-    background:#f9fafb;
-    color:#111827;
-    padding:14px;
+  background:#f5f7fb;
+  color:#0f172a;
+  padding:16px;
 }
+
 .container{
-    max-width:520px;
-    margin:auto;
+  max-width:720px;
+  margin:auto;
 }
 
-/* ===== TITLE ===== */
-.title{
-    font-size:20px;
-    font-weight:800;
-    text-align:center;
+/* ===== HEADER ===== */
+.header{
+  text-align:center;
+  margin-bottom:18px;
 }
-.subtitle{
-    text-align:center;
-    font-size:12px;
-    color:#6b7280;
-    margin:6px 0 16px;
+.header h1{
+  font-size:22px;
+  font-weight:800;
 }
-
-/* ===== CARD ===== */
-.card{
-    background:#fff;
-    border-radius:14px;
-    padding:12px;
-    margin-bottom:12px;
-    box-shadow:0 4px 10px rgba(0,0,0,.05);
+.header p{
+  font-size:13px;
+  color:#64748b;
+  margin-top:6px;
 }
 
-/* ===== SERVER ROW ===== */
-.server-row{
-    display:flex;
-    justify-content:space-between;
-    gap:10px;
+/* ===== INFO BOX (CHUNG) ===== */
+.info-box{
+  background:#ffffff;
+  border-radius:16px;
+  padding:14px 16px;
+  box-shadow:0 6px 18px rgba(15,23,42,.06);
+  border-left:5px solid #2563eb;
+  margin-bottom:18px;
 }
+.info-box h2{
+  font-size:14px;
+  font-weight:800;
+  margin-bottom:6px;
+}
+.info-box ul{
+  font-size:13px;
+  color:#334155;
+  padding-left:18px;
+}
+.info-box li{
+  margin:4px 0;
+}
+
+/* ===== SERVER GRID ===== */
+.server-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+@media(min-width:640px){
+  .server-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+}
+
+/* ===== SERVER CARD ===== */
+.server-card{
+  background:#ffffff;
+  border-radius:14px;
+  padding:14px;
+  text-align:center;
+  box-shadow:0 4px 12px rgba(0,0,0,.05);
+  border:1px solid #e5e7eb;
+}
+
 .server-name{
-    font-size:14px;
-    font-weight:800;
-}
-.server-desc{
-    font-size:12px;
-    color:#4b5563;
-    margin-top:4px;
+  font-size:14px;
+  font-weight:800;
+  margin-bottom:8px;
 }
 
-/* ===== STATUS ===== */
 .status{
-    font-size:10px;
-    font-weight:700;
-    padding:4px 8px;
-    border-radius:999px;
-    height:fit-content;
+  display:inline-block;
+  padding:6px 14px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:800;
 }
+
+/* ===== STATUS COLOR ===== */
 .open{
-    background:#dcfce7;
-    color:#166534;
-    border:1px solid #22c55e;
+  background:#dcfce7;
+  color:#166534;
+  border:1px solid #22c55e;
 }
 .testing{
-    background:#fef3c7;
-    color:#92400e;
-    border:1px solid #facc15;
+  background:#fef3c7;
+  color:#92400e;
+  border:1px solid #facc15;
+}
+.down{
+  background:#fee2e2;
+  color:#991b1b;
+  border:1px solid #ef4444;
 }
 
-/* ===== SCHEDULE BOX ===== */
-.schedule{
-    margin-top:10px;
-    padding:10px;
-    border-radius:10px;
-    background:#f8fafc;
-    border:1px dashed #e5e7eb;
-}
-.schedule div{
-    font-size:12px;
-    margin-bottom:6px;
-}
-
-/* ===== BUTTONS ===== */
-.actions{
-    display:flex;
-    gap:8px;
-    margin-top:8px;
-}
-.btn{
-    flex:1;
-    text-align:center;
-    padding:8px 4px;
-    font-size:12px;
-    font-weight:700;
-    border-radius:8px;
-    text-decoration:none;
-}
-.btn-test{
-    background:#fff7ed;
-    color:#9a3412;
-    border:1px solid #fdba74;
-}
-.btn-open{
-    background:#ecfeff;
-    color:#155e75;
-    border:1px solid #67e8f9;
+/* ===== NOTICE ===== */
+.notice{
+  margin-top:18px;
+  padding:12px 14px;
+  text-align:center;
+  font-size:13px;
+  background:#eef2ff;
+  border-radius:12px;
+  border:1px dashed #c7d2fe;
+  color:#1e3a8a;
 }
 
-/* ===== COMPACT LIST ===== */
-.compact{
-    padding:10px 12px;
-}
-.compact .server-desc{
-    margin-top:2px;
-}
-
+/* ===== FOOTER ===== */
 footer{
-    text-align:center;
-    font-size:11px;
-    color:#9ca3af;
-    margin-top:18px;
+  margin-top:22px;
+  text-align:center;
+  font-size:11px;
+  color:#94a3b8;
+  line-height:1.5;
 }
 </style>
-    </head>
+</head>
 
-    <body>
-        <div class="container">
+<body>
+<div class="container">
 
-            <div class="title">Trạng thái Server TDStudio</div>
-            <div class="subtitle">Cập nhật nhanh tình trạng các máy chủ</div>
+  <!-- HEADER -->
+  <div class="header">
+    <h1>Trạng thái Server TDStudio</h1>
+    <p>Trang giám sát & công bố tình trạng máy chủ chính thức</p>
+  </div>
 
-            <!-- ===== SERVER KHÁC (GỌN) ===== -->
-            <div class="card compact">
-                <div class="server-row">
-                    <div>
-                        <div class="server-name">Server 1</div>
-                        <div class="server-desc">Open chính thức – ổn định</div>
-                        <div class="server-desc">- Không cần mở thành viên,
-                            vàng ngọc miễn phí, tặng đệ tử thường, tặng full
-                            trang
-                            bị tân thủ</div>
-                    </div>
-                    <div class="status open">OPEN</div>
-                </div>
-            </div>
+  <!-- THÔNG TIN CHUNG -->
+  <div class="info-box">
+    <h2>Thông tin máy chủ</h2>
+    <ul>
+      <li>Không cần mở thành viên</li>
+      <li>Vàng & ngọc miễn phí</li>
+      <li>Tặng đệ tử thường + full trang bị tân thủ</li>
+      <li>Hệ thống vận hành ổn định, cập nhật liên tục</li>
+    </ul>
+  </div>
 
-            <div class="card compact">
-                <div class="server-row">
-                    <div>
-                        <div class="server-name">Server 2</div>
-                        <div class="server-desc">Open chính thức – ổn định</div>
-                        <div class="server-desc">- Không cần mở thành viên,
-                            vàng ngọc miễn phí, tặng đệ tử thường, tặng full
-                            trang
-                            bị tân thủ</div>
-                    </div>
-                    <div class="status open">OPEN</div>
-                </div>
-            </div>
+  <!-- GRID SERVER -->
+  <div class="server-grid">
+    <div class="server-card">
+      <div class="server-name">Server 1</div>
+      <span class="status open">OPEN</span>
+    </div>
+    <div class="server-card">
+      <div class="server-name">Server 2</div>
+      <span class="status open">OPEN</span>
+    </div>
+    <div class="server-card">
+      <div class="server-name">Server 3</div>
+      <span class="status open">OPEN</span>
+    </div>
+    <div class="server-card">
+      <div class="server-name">Server 4</div>
+      <span class="status open">OPEN</span>
+    </div>
+    <div class="server-card">
+      <div class="server-name">Server 5</div>
+      <span class="status open">OPEN</span>
+    </div>
+    <div class="server-card">
+      <div class="server-name">Server 6</div>
+      <span class="status open">OPEN</span>
+    </div>
+    <div class="server-card">
+      <div class="server-name">Server Indo</div>
+      <span class="status open">OPEN</span>
+    </div>
+  </div>
 
-            <div class="card compact">
-                <div class="server-row">
-                    <div>
-                        <div class="server-name">Server 3</div>
-                        <div class="server-desc">Open chính thức – ổn định</div>
-                        <div class="server-desc">- Không cần mở thành viên,
-                            vàng ngọc miễn phí, tặng đệ tử thường, tặng full
-                            trang
-                            bị tân thủ</div>
-                    </div>
-                    <div class="status open">OPEN</div>
-                </div>
-            </div>
+  <!-- NOTICE -->
+  <div class="notice">
+    ⚠️ Máy chủ bảo trì <b>30 giây</b> hàng ngày lúc <b>06:00</b> mỗi sáng
+  </div>
 
-            <div class="card compact">
-                <div class="server-row">
-                    <div>
-                        <div class="server-name">Server 4</div>
-                        <div class="server-desc">Open chính thức – ổn định</div>
-                        <div class="server-desc">- Không cần mở thành viên,
-                            vàng ngọc miễn phí, tặng đệ tử thường, tặng full
-                            trang
-                            bị tân thủ</div>
-                    </div>
-                    <div class="status open">OPEN</div>
-                </div>
-            </div>
+  <!-- FOOTER -->
+  <footer>
+    © TDStudio — Game Server & Community Platform<br>
+    Hệ thống máy chủ & nội dung được vận hành bởi TDStudio.<br>
+    Chỉ tải game & nhận hỗ trợ qua các kênh chính thức để đảm bảo an toàn tài khoản.
+  </footer>
 
-            <div class="card compact">
-                <div class="server-row">
-                    <div>
-                        <div class="server-name">Server 5</div>
-                        <div class="server-desc">Open chính thức – ổn định</div>
-                        <div class="server-desc">- Không cần mở thành viên,
-                            vàng ngọc miễn phí, tặng đệ tử thường, tặng full
-                            trang
-                            bị tân thủ</div>
-                    </div>
-                    <div class="status open">OPEN</div>
-                </div>
-            </div>
-
-            <div class="card compact">
-                <div class="server-row">
-                    <div>
-                        <div class="server-name">Server 6</div>
-                        <div class="server-desc">Open chính thức – ổn định</div>
-                        <div class="server-desc">- Không cần mở thành viên,
-                            vàng ngọc miễn phí, tặng đệ tử thường, tặng full
-                            trang
-                            bị tân thủ</div>
-                    </div>
-                    <div class="status open">OPEN</div>
-                </div>
-            </div>
-
-            <div class="card compact">
-                <div class="server-row">
-                    <div>
-                        <div class="server-name">Server Indo</div>
-                        <div class="server-desc">Open chính thức – ổn định</div>
-                        <div class="server-desc">- Không cần mở thành viên,
-                            vàng ngọc miễn phí, tặng đệ tử thường, tặng full
-                            trang
-                            bị tân thủ</div>
-                    </div>
-                    <div class="status open">OPEN</div>
-                </div>
-            </div>
-
-            <div class="footer">
-                © TDStudio — Game Server & Community Platform<br>
-                Hệ thống máy chủ & nội dung được vận hành bởi TDStudio. Mọi
-                phiên bản, dữ liệu người chơi và cập nhật đều phát hành qua kênh
-                chính thức.<br>
-                Khuyến nghị chỉ tải game và nhận hỗ trợ từ website & fanpage
-                thuộc TDStudio để đảm bảo an toàn tài khoản.
-            </div>
-
-        </div>
-    </body>
+</div>
+</body>
 </html>
