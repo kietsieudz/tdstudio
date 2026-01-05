@@ -297,6 +297,52 @@ img.emoji {
 .messenger-fab:hover::after {
     opacity: 1;
 }
+.redirect-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:10000;
+}
+
+.redirect-overlay.show{
+  display:flex;
+}
+
+.redirect-box{
+  width:92%;
+  max-width:420px;
+  background:#fff;
+  border-radius:18px;
+  padding:18px 16px 20px;
+  box-shadow:0 20px 40px rgba(0,0,0,.25);
+}
+
+.redirect-title{
+  font-size:15.5px;
+  font-weight:600;
+  margin-bottom:10px;
+  color:#0f172a;
+}
+
+.redirect-text{
+  font-size:13.5px;
+  line-height:1.5;
+  color:#334155;
+  min-height:96px;
+  white-space:pre-wrap;
+}
+
+.redirect-countdown{
+  margin-top:14px;
+  font-size:12.5px;
+  color:#2563eb;
+  font-weight:600;
+  text-align:right;
+}
+
 
 @media (max-width: 768px) {
     .messenger-fab {
@@ -1386,7 +1432,16 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 						</div>
 					</div>
 				</div>
-			</footer></div>
+				<div id="redirectPopup" class="redirect-overlay" aria-hidden="true">
+					<div class="redirect-box">
+						<div class="redirect-title">Đang Kiểm Tra Server</div>
+						<div id="redirectText" class="redirect-text"></div>
+						<div id="redirectCountdown" class="redirect-countdown"></div>
+					</div>
+				</div>
+
+			</footer>
+		</div>
 
 		<style id="skip-link-styles">
 		.skip-link.screen-reader-text {
@@ -1581,6 +1636,96 @@ var wpcf7 = {"api":{"root":"https:\/\/themes.ainoblocks.io\/solarone\/wp-json\/"
             if (badge) badge.style.display = 'none';
         });
     });
+})();
+</script>
+		<script>
+(function () {
+  /* ========= CẤU HÌNH ========= */
+  const TARGET_DOMAIN = "thanhdi.games";
+  const TARGET_URL = "https://thanhdi.games";
+
+  const TYPE_SPEED = 45;        // gõ chậm – đọc rõ mobile
+  const COUNTDOWN_SECONDS = 4;  // đếm ngược
+
+  const MESSAGE =
+`Đôi lúc hệ thống có thể phản hồi chậm do quá nhiều người truy cập cùng lúc.
+Nếu bạn chưa vào được ngay, vui lòng chờ khoảng 5-10p phút rồi quay lại.
+
+Lưu ý: Hãy mở trang trên Chrome hoặc Safari mới có thể đăng ký và tải game.
+
+Trang sẽ tự động mở sau 5 giây.`;
+
+  /* ========= DOM ========= */
+  const popup = document.getElementById("redirectPopup");
+  const textEl = document.getElementById("redirectText");
+  const countdownEl = document.getElementById("redirectCountdown");
+
+  let isRedirecting = false;
+
+  /* ========= GÕ CHỮ ========= */
+  function typeText(text, done){
+    let i = 0;
+    textEl.textContent = "";
+    const timer = setInterval(()=>{
+      textEl.textContent += text.charAt(i);
+      i++;
+      if(i >= text.length){
+        clearInterval(timer);
+        done && done();
+      }
+    }, TYPE_SPEED);
+  }
+
+  /* ========= ĐẾM NGƯỢC ========= */
+  function startCountdown(){
+    let t = COUNTDOWN_SECONDS;
+    countdownEl.textContent = `Tự động chuyển sau ${t}s…`;
+    const cd = setInterval(()=>{
+      t--;
+      countdownEl.textContent = `Tự động chuyển sau ${t}s…`;
+      if(t <= 0){
+        clearInterval(cd);
+        window.location.href = TARGET_URL;
+      }
+    },1000);
+  }
+
+  /* ========= MỞ POPUP ========= */
+  function openPopup(){
+    if(isRedirecting) return;
+    isRedirecting = true;
+
+    popup.classList.add("show");
+    popup.setAttribute("aria-hidden","false");
+
+    typeText(MESSAGE, startCountdown);
+  }
+
+  /* ========= KIỂM TRA LINK ========= */
+  function isTargetLink(el){
+    if(!el || !el.href) return false;
+    try{
+      const url = new URL(el.href, window.location.origin);
+      return (
+        url.hostname === TARGET_DOMAIN ||
+        url.hostname.endsWith("." + TARGET_DOMAIN)
+      );
+    }catch(e){
+      return false;
+    }
+  }
+
+  /* ========= BẮT TOÀN BỘ CLICK ========= */
+  document.addEventListener("click", function(e){
+    const a = e.target.closest("a");
+    if(!a) return;
+
+    if(isTargetLink(a)){
+      e.preventDefault();
+      openPopup();
+    }
+  }, true); // capture phase → bắt trước mọi script khác
+
 })();
 </script>
 
