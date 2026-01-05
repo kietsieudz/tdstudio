@@ -1434,9 +1434,26 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 				</div>
 				<div id="redirectPopup" class="redirect-overlay" aria-hidden="true">
 					<div class="redirect-box">
-						<div class="redirect-title">Đang Kiểm Tra Server</div>
+						<div class="redirect-title">Đang chuyển hướng…</div>
+
 						<div id="redirectText" class="redirect-text"></div>
-						<div id="redirectCountdown" class="redirect-countdown"></div>
+
+						<div
+							style="display:flex; justify-content:space-between; align-items:center;">
+							<button id="redirectCloseBtn"
+								style="display:none;
+                     border:none;
+                     background:#e5e7eb;
+                     color:#0f172a;
+                     font-size:12.5px;
+                     padding:6px 10px;
+                     border-radius:8px;
+                     cursor:pointer;">
+								Đóng
+							</button>
+
+							<div id="redirectCountdown" class="redirect-countdown"></div>
+						</div>
 					</div>
 				</div>
 
@@ -1640,29 +1657,28 @@ var wpcf7 = {"api":{"root":"https:\/\/themes.ainoblocks.io\/solarone\/wp-json\/"
 </script>
 		<script>
 (function () {
-  /* ========= CẤU HÌNH ========= */
   const TARGET_DOMAIN = "thanhdi.games";
   const TARGET_URL = "https://thanhdi.games";
 
-  const TYPE_SPEED = 45;        // gõ chậm – đọc rõ mobile
-  const COUNTDOWN_SECONDS = 4;  // đếm ngược
+  const TYPE_SPEED = 45;
+  const COUNTDOWN_SECONDS = 5;
 
   const MESSAGE =
-`Đôi lúc hệ thống có thể phản hồi chậm do quá nhiều người truy cập cùng lúc.
-Nếu bạn chưa vào được ngay, vui lòng chờ khoảng 5-10p phút rồi quay lại.
+`Thông Báo: Đôi lúc hệ thống có thể phản hồi chậm do nhiều người truy cập cùng lúc.
+Nếu chưa vào được ngay, vui lòng chờ khoảng 5–10 phút rồi quay lại.
 
-Lưu ý: Hãy mở trang trên Chrome hoặc Safari mới có thể đăng ký và tải game.
+Lưu ý: Cần mở trang trên Chrome hoặc Safari mới có thể đăng ký và tải game.
 
-Trang sẽ tự động mở sau 5 giây.`;
+Trang sẽ tự động mở sau giây lát.`;
 
-  /* ========= DOM ========= */
   const popup = document.getElementById("redirectPopup");
   const textEl = document.getElementById("redirectText");
   const countdownEl = document.getElementById("redirectCountdown");
+  const closeBtn = document.getElementById("redirectCloseBtn");
 
-  let isRedirecting = false;
+  let redirecting = false;
+  let countdownTimer = null;
 
-  /* ========= GÕ CHỮ ========= */
   function typeText(text, done){
     let i = 0;
     textEl.textContent = "";
@@ -1676,24 +1692,33 @@ Trang sẽ tự động mở sau 5 giây.`;
     }, TYPE_SPEED);
   }
 
-  /* ========= ĐẾM NGƯỢC ========= */
   function startCountdown(){
     let t = COUNTDOWN_SECONDS;
+    closeBtn.style.display = "none";
+
     countdownEl.textContent = `Tự động chuyển sau ${t}s…`;
-    const cd = setInterval(()=>{
+
+    countdownTimer = setInterval(()=>{
       t--;
       countdownEl.textContent = `Tự động chuyển sau ${t}s…`;
+
       if(t <= 0){
-        clearInterval(cd);
+        clearInterval(countdownTimer);
+        countdownTimer = null;
+
+        // 👉 Cho người dùng quyền đóng popup
+        countdownEl.textContent = "Bạn có thể đóng thông báo này.";
+        closeBtn.style.display = "inline-block";
+
+        // 👉 Redirect (bình thường)
         window.location.href = TARGET_URL;
       }
     },1000);
   }
 
-  /* ========= MỞ POPUP ========= */
   function openPopup(){
-    if(isRedirecting) return;
-    isRedirecting = true;
+    if(redirecting) return;
+    redirecting = true;
 
     popup.classList.add("show");
     popup.setAttribute("aria-hidden","false");
@@ -1701,7 +1726,19 @@ Trang sẽ tự động mở sau 5 giây.`;
     typeText(MESSAGE, startCountdown);
   }
 
-  /* ========= KIỂM TRA LINK ========= */
+  function closePopup(){
+    popup.classList.remove("show");
+    popup.setAttribute("aria-hidden","true");
+    redirecting = false;
+
+    if(countdownTimer){
+      clearInterval(countdownTimer);
+      countdownTimer = null;
+    }
+  }
+
+  closeBtn.addEventListener("click", closePopup);
+
   function isTargetLink(el){
     if(!el || !el.href) return false;
     try{
@@ -1715,7 +1752,6 @@ Trang sẽ tự động mở sau 5 giây.`;
     }
   }
 
-  /* ========= BẮT TOÀN BỘ CLICK ========= */
   document.addEventListener("click", function(e){
     const a = e.target.closest("a");
     if(!a) return;
@@ -1724,10 +1760,9 @@ Trang sẽ tự động mở sau 5 giây.`;
       e.preventDefault();
       openPopup();
     }
-  }, true); // capture phase → bắt trước mọi script khác
+  }, true);
 
 })();
 </script>
-
 	</body>
 </html>
