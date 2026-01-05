@@ -1171,16 +1171,20 @@ Trang sẽ tự động mở sau giây lát.`;
     typeText(MESSAGE, startCountdown);
   }
 
-  /* ========= KIỂM TRA LINK ========= */
+  /* ========= KIỂM TRA LINK (CHỈ DOMAIN GỐC) ========= */
   function isTargetLink(el){
     if(!el || !el.href) return false;
-    try{
+
+    try {
       const url = new URL(el.href, window.location.origin);
+
+      // ✅ CHỈ bắt đúng https://thanhdi.games hoặc /
       return (
-        url.hostname === TARGET_DOMAIN ||
-        url.hostname.endsWith("." + TARGET_DOMAIN)
+        url.protocol === "https:" &&
+        url.hostname === TARGET_DOMAIN &&
+        (url.pathname === "/" || url.pathname === "")
       );
-    }catch(e){
+    } catch (e) {
       return false;
     }
   }
@@ -1198,6 +1202,7 @@ Trang sẽ tự động mở sau giây lát.`;
 
 })();
 </script>
+
 
 
     </body>
