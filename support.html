@@ -574,7 +574,6 @@ body{margin:0;background:var(--bg);color:var(--text)}
   font-weight:600;
   text-align:right;
 }
-
 @media (min-width:1440px){
     body{
         font-size:15.5px;
@@ -871,11 +870,14 @@ body{margin:0;background:var(--bg);color:var(--text)}
     </svg>
 </button>
 <!-- ===== Popup Redirect BẮT BUỘC ===== -->
-<div id="tdRedirectPopup" class="td-redirect-overlay" aria-hidden="true">
-  <div class="td-redirect-box">
-    <div class="td-redirect-title">Đang chuyển hướng…</div>
-    <div id="tdRedirectText" class="td-redirect-text"></div>
-    <div id="tdRedirectCountdown" class="td-redirect-countdown"></div>
+<!-- ===== Redirect Popup ===== -->
+<div id="redirectPopup" class="redirect-overlay" aria-hidden="true">
+  <div class="redirect-box">
+    <div class="redirect-title">Đang chuyển hướng…</div>
+
+    <div id="redirectText" class="redirect-text"></div>
+
+    <div class="redirect-countdown" id="redirectCountdown"></div>
   </div>
 </div>
 
@@ -1088,14 +1090,15 @@ document.addEventListener('keydown', e => {
   const TARGET_DOMAIN = "thanhdi.games";
   const TARGET_URL = "https://thanhdi.games";
 
-  const TYPE_SPEED = 45;        // tốc độ gõ (mobile đọc kịp)
+  const TYPE_SPEED = 45;        // gõ chậm, dễ đọc mobile
   const COUNTDOWN_SECONDS = 5;  // đếm ngược
 
   const MESSAGE =
-`Thông Báo: Đôi lúc hệ thống có thể phản hồi chậm do nhiều người truy cập cùng lúc.
+`Thông báo:
+Đôi lúc hệ thống có thể phản hồi chậm do nhiều người truy cập cùng lúc.
 Nếu chưa vào được ngay, vui lòng chờ khoảng 5–10 phút rồi quay lại.
 
-Lưu ý: Cần mở trang trên Chrome hoặc Safari mới có thể đăng ký và tải game.
+Lưu ý: Nên mở trang bằng Chrome hoặc Safari để đăng ký và tải game.
 
 Trang sẽ tự động mở sau giây lát.`;
 
@@ -1103,105 +1106,99 @@ Trang sẽ tự động mở sau giây lát.`;
   const popup = document.getElementById("redirectPopup");
   const textEl = document.getElementById("redirectText");
   const countdownEl = document.getElementById("redirectCountdown");
-  const closeBtn = document.getElementById("redirectCloseBtn"); // nếu có thì dùng
 
   let redirecting = false;
   let countdownTimer = null;
 
   /* ========= GÕ CHỮ ========= */
-  function typeText(text, done) {
+  function typeText(text, done){
     let i = 0;
     textEl.textContent = "";
-    const timer = setInterval(() => {
+    const timer = setInterval(()=>{
       textEl.textContent += text.charAt(i);
       i++;
-      if (i >= text.length) {
+      if(i >= text.length){
         clearInterval(timer);
         done && done();
       }
     }, TYPE_SPEED);
   }
 
-  /* ========= ĐÓNG POPUP (RESET TRẠNG THÁI) ========= */
-  function closePopup() {
+  /* ========= ĐÓNG POPUP (RESET STATE) ========= */
+  function closePopup(){
     popup.classList.remove("show");
-    popup.setAttribute("aria-hidden", "true");
+    popup.setAttribute("aria-hidden","true");
     redirecting = false;
 
-    if (countdownTimer) {
+    if(countdownTimer){
       clearInterval(countdownTimer);
       countdownTimer = null;
     }
   }
 
   /* ========= ĐẾM NGƯỢC ========= */
-  function startCountdown() {
+  function startCountdown(){
     let t = COUNTDOWN_SECONDS;
-
-    if (closeBtn) closeBtn.style.display = "none";
     countdownEl.textContent = `Tự động chuyển sau ${t}s…`;
 
-    countdownTimer = setInterval(() => {
+    countdownTimer = setInterval(()=>{
       t--;
       countdownEl.textContent = `Tự động chuyển sau ${t}s…`;
 
-      if (t <= 0) {
+      if(t <= 0){
         clearInterval(countdownTimer);
         countdownTimer = null;
 
-        // ✅ QUAN TRỌNG: đóng popup TRƯỚC khi redirect
+        // ✅ đóng popup trước → tránh kẹt khi back
         closePopup();
 
-        // ✅ redirect sau 1 tick nhỏ để tránh kẹt khi back
-        setTimeout(() => {
+        // redirect sau 1 tick nhỏ
+        setTimeout(()=>{
           window.location.href = TARGET_URL;
-        }, 50);
+        },50);
       }
-    }, 1000);
+    },1000);
   }
 
   /* ========= MỞ POPUP ========= */
-  function openPopup() {
-    if (redirecting) return;
+  function openPopup(){
+    if(redirecting) return;
     redirecting = true;
 
     popup.classList.add("show");
-    popup.setAttribute("aria-hidden", "false");
+    popup.setAttribute("aria-hidden","false");
 
     typeText(MESSAGE, startCountdown);
   }
 
-  /* ========= NÚT CLOSE (PHÒNG TRƯỜNG HỢP CÓ) ========= */
-  if (closeBtn) {
-    closeBtn.addEventListener("click", closePopup);
-  }
-
   /* ========= KIỂM TRA LINK ========= */
-  function isTargetLink(el) {
-    if (!el || !el.href) return false;
-    try {
+  function isTargetLink(el){
+    if(!el || !el.href) return false;
+    try{
       const url = new URL(el.href, window.location.origin);
       return (
         url.hostname === TARGET_DOMAIN ||
         url.hostname.endsWith("." + TARGET_DOMAIN)
       );
-    } catch (e) {
+    }catch(e){
       return false;
     }
   }
 
   /* ========= BẮT TOÀN BỘ CLICK ========= */
-  document.addEventListener("click", function (e) {
+  document.addEventListener("click", function(e){
     const a = e.target.closest("a");
-    if (!a) return;
+    if(!a) return;
 
-    if (isTargetLink(a)) {
+    if(isTargetLink(a)){
       e.preventDefault();
       openPopup();
     }
   }, true); // capture = true → bắt trước mọi script khác
+
 })();
 </script>
+
 
     </body>
 </html>
