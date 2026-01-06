@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Sự kiện Top Chat Zalo – TDStudio</title>
+        <meta name="description"
+            content="Sự kiện Top Chat Zalo hàng tháng của TDStudio. Thưởng coin cho người chơi tương tác tích cực trong box. Xem bảng xếp hạng trực tiếp qua bot.">
+        <meta name="robots" content="index, follow">
+
+        <style>
+        :root {
+            --bg: #f4f6f8;
+            --card: #ffffff;
+            --primary: #2f80ed;
+            --accent: #27ae60;
+            --text: #1f2937;
+            --muted: #6b7280;
+            --border: #e5e7eb;
+            --radius: 14px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                         Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 20px 14px 60px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2f80ed, #56ccf2);
+            color: #fff;
+            border-radius: var(--radius);
+            padding: 26px 22px;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            margin: 0 0 8px;
+            font-size: 22px;
+        }
+
+        .header p {
+            margin: 0;
+            opacity: 0.95;
+            font-size: 15px;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 22px 20px;
+            margin-bottom: 16px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+        }
+
+        .card h2 {
+            margin: 0 0 12px;
+            font-size: 18px;
+            color: #111827;
+        }
+
+        .card p {
+            margin: 8px 0;
+            color: var(--text);
+        }
+
+        .muted {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .reward-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .reward-item {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px;
+            background: #fafafa;
+        }
+
+        .reward-item strong {
+            font-size: 16px;
+            color: var(--accent);
+        }
+
+        .rule-list {
+            padding-left: 18px;
+            margin: 10px 0 0;
+        }
+
+        .rule-list li {
+            margin: 8px 0;
+        }
+
+        .highlight {
+            background: #eef4ff;
+            border-left: 4px solid var(--primary);
+            padding: 12px 14px;
+            border-radius: 8px;
+            margin: 12px 0;
+            font-size: 15px;
+        }
+
+        .code-box {
+            background: #0f172a;
+            color: #e5e7eb;
+            padding: 14px;
+            border-radius: 10px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 14px;
+            color: var(--muted);
+            margin-top: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .header h1 {
+                font-size: 26px;
+            }
+        }
+    </style>
+    </head>
+    <body>
+
+        <div class="container">
+
+            <div class="header">
+                <h1>🏆 Sự kiện Top Chat Zalo hàng tháng</h1>
+                <p>Tôn vinh người chơi tương tác tích cực & xây dựng cộng
+                    đồng</p>
+            </div>
+
+            <div class="card">
+                <h2>📅 Thời gian & cách chốt</h2>
+                <p>
+                    Sự kiện diễn ra <strong>mỗi tháng</strong>.
+                </p>
+                <div class="highlight">
+                    ⏰ <strong>12:00 trưa – ngày đầu tiên mỗi tháng</strong><br>
+                    Hệ thống sẽ chốt điểm chat của <strong>tháng trước
+                        đó</strong>.
+                </div>
+                <p class="muted">
+                    Sau thời điểm chốt, bảng xếp hạng sẽ được cố định và tiến
+                    hành trao thưởng.
+                </p>
+            </div>
+
+            <div class="card">
+                <h2>🎁 Phần thưởng</h2>
+                <div class="reward-list">
+                    <div class="reward-item">
+                        🥇 <strong>Top 1</strong><br>
+                        100.000 coin trong game
+                    </div>
+                    <div class="reward-item">
+                        🥈 <strong>Top 2</strong><br>
+                        50.000 coin trong game
+                    </div>
+                    <div class="reward-item">
+                        🥉 <strong>Top 3</strong><br>
+                        30.000 coin trong game
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📊 Điều kiện được tính điểm</h2>
+                <ul class="rule-list">
+                    <li>
+                        Yêu cầu tối thiểu: <strong>1.000 tin nhắn hợp
+                            lệ</strong> trong tháng.
+                    </li>
+                    <li>
+                        Tin nhắn hợp lệ là các tin nhắn <strong>có nội dung, có
+                            ý nghĩa</strong>.
+                    </li>
+                    <li>
+                        Ví dụ tin nhắn hợp lệ:
+                        <ul class="rule-list">
+                            <li>Hỏi đáp về game, sự kiện, tính năng</li>
+                            <li>Trả lời, hỗ trợ người chơi khác</li>
+                            <li>Thảo luận, góp ý, trao đổi trong box</li>
+                        </ul>
+                    </li>
+                    <li>
+                        ❌ Tin nhắn spam, lặp ký tự, gửi cho đủ số lượng
+                        <strong>không được tính</strong>.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>🔍 Cách xem bảng xếp hạng</h2>
+                <p>
+                    Người chơi có thể xem bảng xếp hạng chat theo server
+                    bằng cách nhắn tin cho <strong>Nhân Viên Tên Mèo</strong>
+                    (avatar <em>con mèo đeo micro</em>).
+                </p>
+
+                <div class="highlight">
+                    👉 <strong>Khuyến khích nhắn tin riêng</strong> để tránh
+                    spam box.
+                </div>
+
+                <p>
+                    Cú pháp xem bảng xếp hạng:
+                </p>
+
+                <div class="code-box">
+                    rank sv(X)
+                </div>
+
+                <p class="muted">
+                    Trong đó <strong>X</strong> là số server bạn muốn xem.
+                </p>
+
+                <p>
+                    Ví dụ: xem bảng xếp hạng của server 1:
+                </p>
+
+                <div class="code-box">
+                    rank sv1
+                </div>
+            </div>
+
+            <div class="footer-note">
+                © TDStudio – Sự kiện nhằm khuyến khích giao lưu lành mạnh<br>
+                Quyết định cuối cùng thuộc về hệ thống & ban quản trị
+            </div>
+
+        </div>
+
+    </body>
+</html>
