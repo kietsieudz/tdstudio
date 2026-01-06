@@ -4,112 +4,190 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Hướng dẫn cài đặt Ngọc Rồng Online – TDStudio</title>
+
     <link rel="canonical" href="https://thanhdi.com/huongdantai" />
-    <!-- Google tag (GA4) -->
+
+    <!-- GA4 -->
     <script async
       src="https://www.googletagmanager.com/gtag/js?id=G-BQCBVHE2GN"></script>
     <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-BQCBVHE2GN');
-</script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BQCBVHE2GN');
+  </script>
+
     <meta name="description"
-      content="Trang hướng dẫn cài đặt Ngọc Rồng Online của TDStudio, giúp người chơi tải và cài đặt game đúng cách trên các nền tảng hỗ trợ.">
+      content="Hướng dẫn cài đặt Ngọc Rồng Online của TDStudio. Xem video hướng dẫn cài đặt game trên Jar, PC, iPhone và Android.">
     <meta name="robots" content="index, follow">
 
     <style>
-  :root{
-    --bg:#0a1220;
-    --accent:#6b46ff;
-    --muted:#9aa4b2;
-  }
+    :root{
+      --bg:#f2f7f6;
+      --card:#ffffff;
+      --primary:#14b8a6;   /* xanh nước */
+      --primary-dark:#0f766e;
+      --text:#0f172a;
+      --muted:#64748b;
+      --radius:16px;
+    }
 
-  body{
-    margin:0;
-    background:var(--bg);
-    font-family:Inter,system-ui,Segoe UI,Roboto;
-    color:white;
-    padding:20px 16px; /* padding nhỏ, không gây tràn */
-    -webkit-font-smoothing:antialiased;
-  }
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                   "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
 
-  .wrap{
-    max-width:480px;
-    margin:0 auto; /* căn giữa tuyệt đối */
-  }
+    body{
+      background:var(--bg);
+      color:var(--text);
+      padding:24px 16px;
+      -webkit-font-smoothing:antialiased;
+    }
 
-  h1{
-    font-size:24px;
-    margin:0 0 8px;
-    text-align:center;
-    font-weight:700;
-  }
+    .wrap{
+      max-width:460px;
+      margin:0 auto;
+    }
 
-  p{
-    text-align:center;
-    margin:0 0 24px;
-    color:var(--muted);
-    font-size:15px;
-  }
+    /* ===== HEADER ===== */
+    .header{
+      background:linear-gradient(135deg,#14b8a6,#2dd4bf);
+      color:#ffffff;
+      border-radius:20px;
+      padding:24px 20px;
+      margin-bottom:18px;
+      box-shadow:0 10px 24px rgba(20,184,166,.25);
+    }
 
-  /* NÚT FULL WIDTH – KHÔNG LỆCH */
-  .btn{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    width:100%;
+    .header h1{
+      font-size:22px;
+      font-weight:800;
+      margin-bottom:6px;
+    }
 
-    padding:16px;
-    margin-bottom:14px;
+    .header p{
+      font-size:14px;
+      opacity:.95;
+      line-height:1.45;
+    }
 
-    background:var(--accent);
-    color:white;
-    border-radius:14px;
-    font-weight:700;
-    text-decoration:none;
-    font-size:16px;
+    /* ===== CARD ===== */
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:0 8px 22px rgba(0,0,0,.06);
+    }
 
-    box-sizing:border-box;
-    transition:0.15s ease;
-  }
+    .card-title{
+      font-size:15px;
+      font-weight:700;
+      margin-bottom:14px;
+      color:#0f172a;
+    }
 
-  .btn:last-child{
-    margin-bottom:0;
-  }
+    /* ===== BUTTONS ===== */
+    .btn{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      width:100%;
 
-  .btn:active{
-    transform:scale(.97);
-  }
-</style>
+      padding:14px 16px;
+      margin-bottom:12px;
+
+      background:#f8fafc;
+      border:1px solid #e2e8f0;
+      border-radius:14px;
+
+      text-decoration:none;
+      color:var(--text);
+      font-weight:600;
+      font-size:15px;
+
+      transition:.15s ease;
+    }
+
+    .btn:last-child{
+      margin-bottom:0;
+    }
+
+    .btn span{
+      color:var(--muted);
+      font-size:13px;
+      font-weight:500;
+    }
+
+    .btn:hover{
+      border-color:var(--primary);
+      background:#ecfeff;
+    }
+
+    .btn:active{
+      transform:scale(.97);
+    }
+
+    /* ===== FOOTER ===== */
+    footer{
+      margin-top:18px;
+      text-align:center;
+      font-size:12px;
+      color:var(--muted);
+    }
+  </style>
   </head>
 
   <body>
     <div class="wrap">
 
-      <h1>Hướng Dẫn Cài Đặt</h1>
-      <p>Chọn loại thiết bị bạn muốn xem video hướng dẫn trên YouTube.</p>
+      <!-- HEADER -->
+      <div class="header">
+        <h1>Hướng dẫn cài đặt</h1>
+        <p>
+          Chọn thiết bị bạn đang sử dụng để xem video hướng dẫn cài đặt
+          Ngọc Rồng Online chính xác nhất.
+        </p>
+      </div>
 
-      <!-- 4 NÚT THẲNG HÀNG, KHÔNG BỊ LỆCH -->
-      <a class="btn" href="https://youtube.com/shorts/TuIAYZRr6bw"
-        target="_blank">
-        Hướng dẫn cài đặt bản Jar
-      </a>
+      <!-- CONTENT -->
+      <div class="card">
+        <div class="card-title">📥 Video hướng dẫn</div>
 
-      <a class="btn" href="https://youtu.be/7BZywuB4fgQ">
-        Hướng dẫn cài đặt bản PC
-      </a>
+        <a class="btn" href="https://youtube.com/shorts/TuIAYZRr6bw"
+          target="_blank">
+          <div>📱 Bản Jar</div>
+          <span>YouTube Shorts</span>
+        </a>
 
-      <a class="btn" href="https://youtube.com/shorts/zTtoxYDWr6Y"
-        target="_blank">
-        Hướng dẫn cài đặt bản iPhone
-      </a>
+        <a class="btn" href="https://youtu.be/7BZywuB4fgQ" target="_blank">
+          <div>💻 Bản PC</div>
+          <span>YouTube</span>
+        </a>
 
-      <a class="btn" href="https://youtube.com/shorts/X0-0zOu9EFc"
-        target="_blank">
-        Hướng dẫn cài đặt bản Android
-      </a>
+        <a class="btn" href="https://youtube.com/shorts/zTtoxYDWr6Y"
+          target="_blank">
+          <div>🍎 Bản iPhone</div>
+          <span>YouTube Shorts</span>
+        </a>
+
+        <a class="btn" href="https://youtube.com/shorts/X0-0zOu9EFc"
+          target="_blank">
+          <div>🤖 Bản Android</div>
+          <span>YouTube Shorts</span>
+        </a>
+      </div>
+
+      <footer>
+        © <span id="y"></span> TDStudio • Trung tâm hỗ trợ chính thức
+      </footer>
 
     </div>
+
+    <script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+</script>
   </body>
 </html>
