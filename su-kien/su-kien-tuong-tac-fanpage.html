@@ -3,261 +3,139 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hướng dẫn tham gia sự kiện Top Tương Tác Fanpage Ngọc Rồng Online –
-      TDStudio</title>
+    <title>Sự kiện Top Tương Tác Fanpage – TDStudio</title>
+
     <link rel="canonical"
       href="https://thanhdi.com/su-kien/su-kien-tuong-tac-fanpage" />
-    <!-- Google tag (GA4) -->
+
+    <!-- GA4 -->
     <script async
       src="https://www.googletagmanager.com/gtag/js?id=G-BQCBVHE2GN"></script>
     <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-BQCBVHE2GN');
-</script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BQCBVHE2GN');
+  </script>
+
     <meta name="description"
-      content="Trang hướng dẫn tham gia sự kiện Top Tương Tác Ngọc Rồng Online của TDStudio, giúp người chơi nắm rõ cách thức và điều kiện tham gia sự kiện.">
+      content="Sự kiện Top Tương Tác Fanpage Ngọc Rồng Online – TDStudio. Thể lệ rõ ràng, minh bạch, xem top dễ dàng.">
     <meta name="robots" content="index, follow">
+
     <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
     }
 
     body {
-      background: #f9fafb;
+      background: #eef1f5;
       color: #111827;
-      padding: 16px;
+      padding: 14px;
     }
 
     .container {
-      max-width: 980px;
+      max-width: 760px;
       margin: auto;
     }
 
-    /* ===== TITLE EFFECT (BLACK - YELLOW - RED) ===== */
-    .title-anim {
-      font-size: 24px;
-      font-weight: 800;
-      text-align: center;
-      margin-bottom: 6px;
-      background: linear-gradient(
-        90deg,
-        #111827,
-        #facc15,
-        #dc2626,
-        #facc15,
-        #111827
-      );
-      background-size: 300% 100%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: titleFlow 4s linear infinite;
-    }
-
-    .subtitle {
-      text-align: center;
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 20px;
-      background: linear-gradient(
-        90deg,
-        #111827,
-        #facc15,
-        #dc2626,
-        #facc15,
-        #111827
-      );
-      background-size: 300% 100%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: titleFlow 5s linear infinite;
-    }
-
-    @keyframes titleFlow {
-      0%   { background-position:   0% 50%; }
-      100% { background-position: 300% 50%; }
-    }
-
-    /* ===== NOTICE BASE ===== */
-    .notice {
+    /* ===== ZALO HEADER ===== */
+    .zalo-header {
+      background: #ffffff;
       border-radius: 14px;
       padding: 14px;
+      margin-bottom: 12px;
       border: 1px solid #e5e7eb;
-      margin-bottom: 14px;
-      background: #ffffff;
     }
 
-    .notice-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 6px;
-    }
-
-    /* ===== NOTICE TITLE EFFECT ===== */
-    .notice-title {
-      font-size: 16px;
+    .zalo-title {
+      font-size: 17px;
       font-weight: 700;
-      background: linear-gradient(
-        90deg,
-        #111827,
-        #facc15,
-        #dc2626,
-        #facc15,
-        #111827
-      );
-      background-size: 200% 100%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: titleFlow 6s linear infinite;
-    }
-
-    /* ===== BADGE ===== */
-    .badge {
-      font-size: 11px;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 999px;
-      white-space: nowrap;
-    }
-
-    .warning { background: #fef3c7; color: #92400e; }
-    .error   { background: #fee2e2; color: #991b1b; }
-
-    /* ===== CONTENT ===== */
-    .notice-content {
-      font-size: 14px;
-      color: #374151;
-      line-height: 1.55;
-      margin-top: 4px;
-    }
-
-    .notice-content p {
-      margin-bottom: 8px;
-    }
-
-    .notice-content ul,
-    .notice-content ol {
-      padding-left: 20px;
-      margin: 6px 0 0;
-    }
-
-    .notice-content li {
       margin-bottom: 4px;
     }
 
-    .note {
+    .zalo-subtitle {
       font-size: 13px;
       color: #6b7280;
-      background: #f9fafb;
-      padding: 10px;
-      border-radius: 8px;
-      margin-top: 10px;
     }
 
-    /* ===== ALERT (HOT) BORDER EFFECT ===== */
-    .notice.alert {
-      position: relative;
-      border: 2px solid transparent;
-      background:
-        linear-gradient(#ffffff, #ffffff) padding-box,
-        linear-gradient(
-          120deg,
-          #111827,
-          #facc15,
-          #dc2626,
-          #facc15,
-          #111827
-        ) border-box;
-      background-size: 200% 200%;
-      animation:
-        borderFlow 4s linear infinite,
-        alertGlow 2.5s ease-in-out infinite;
-    }
-
-    @keyframes borderFlow {
-      0%   { background-position:   0% 50%; }
-      100% { background-position: 200% 50%; }
-    }
-
-    @keyframes alertGlow {
-      0%   { box-shadow: 0 0 8px rgba(220,38,38,0.25); }
-      50%  { box-shadow: 0 0 20px rgba(250,204,21,0.45); }
-      100% { box-shadow: 0 0 8px rgba(220,38,38,0.25); }
-    }
-
-    /* ===== BUTTON ===== */
-    .btn {
-      display: inline-block;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: #111827;
-      color: #ffffff;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 600;
-      margin-top: 6px;
-    }
-
-    .btn:hover {
-      opacity: 0.9;
-    }
-
-    /* ===== PAGE CARDS ===== */
-    .pages {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 8px;
-    }
-
-    .page-card {
-      flex: 1 1 260px;
-      border-radius: 12px;
-      padding: 12px;
-      background: #f9fafb;
+    /* ===== MESSAGE CARD ===== */
+    .msg {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin-bottom: 10px;
       border: 1px solid #e5e7eb;
     }
 
-    .page-card h3 {
-      margin: 0 0 6px;
+    .msg-title {
       font-size: 15px;
       font-weight: 700;
+      margin-bottom: 6px;
     }
 
-    .page-card p {
-      margin: 2px 0;
+    .msg-content {
+      font-size: 14px;
+      color: #374151;
+      line-height: 1.55;
+    }
+
+    .msg-content p {
+      margin-bottom: 6px;
+    }
+
+    .msg-content ul,
+    .msg-content ol {
+      padding-left: 18px;
+      margin-top: 6px;
+    }
+
+    .msg-content li {
+      margin-bottom: 5px;
+    }
+
+    .hint {
+      margin-top: 8px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      background: #f3f4f6;
       font-size: 13px;
       color: #4b5563;
     }
 
-    .page-card strong {
-      color: #111827;
+    /* ===== IMPORTANT ===== */
+    .important {
+      border-left: 4px solid #2563eb;
+      background: #eff6ff;
     }
 
-    /* ===== TOP GUIDE ===== */
-    .top-guide {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      margin-top: 8px;
+    .warning {
+      border-left: 4px solid #dc2626;
+      background: #fef2f2;
     }
 
-    .top-guide img {
-      max-width: 360px;
-      width: 100%;
+    /* ===== CODE STYLE ===== */
+    .code {
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 10px;
       border-radius: 10px;
-      border: 1px solid #e5e7eb;
-    }
-
-    .top-guide ol {
-      padding-left: 20px;
+      font-family:
+        ui-monospace,
+        SFMono-Regular,
+        Menlo,
+        Consolas,
+        monospace;
+      font-size: 13px;
       margin-top: 6px;
     }
 
@@ -267,182 +145,136 @@
       color: #9ca3af;
       text-align: center;
     }
-
-    @media (max-width: 640px) {
-      .container {
-        margin: 0 auto;
-        padding: 0;
-      }
-    }
   </style>
   </head>
+
   <body>
     <div class="container">
-      <header>
-        <div class="title-anim">
-          Sự kiện <span>Top Tương Tác</span>
-        </div>
-        <div class="subtitle">
-          Trang tổng hợp: thể lệ chung, thưởng từng fanpage và link trực tiếp
-          sang từng fanpage để bạn tương tác nhanh.
-        </div>
-      </header>
 
-      <section class="notice">
-        <div class="notice-header">
-          <div class="notice-title">Tương tác là gì?</div>
+      <!-- HEADER -->
+      <div class="zalo-header">
+        <div class="zalo-title">📌 Sự kiện Top Tương Tác Fanpage</div>
+        <div class="zalo-subtitle">
+          Áp dụng cho các fanpage Ngọc Rồng Online – TDStudio
         </div>
-        <div class="notice-content">
+      </div>
+
+      <!-- WHAT IS INTERACTION -->
+      <div class="msg">
+        <div class="msg-title">💬 Tương tác là gì?</div>
+        <div class="msg-content">
           <p>
-            Tương tác là mọi hành động bạn thực hiện trên bài đăng của fanpage,
-            giúp bài viết hoạt động mạnh hơn và được Facebook ghi nhận. Bao gồm:
+            Tương tác là các hành động bạn thực hiện trên bài đăng của fanpage,
+            giúp bài viết hoạt động tốt hơn và được hệ thống ghi nhận.
           </p>
           <ul>
-            <li>Thả Reaction: Like, Tim, Haha, Wow…</li>
-            <li>Comment nội dung có liên quan đến bài viết. Comment không liên
-              quan sẽ không tính điểm</li>
-            <li>Rep comment người khác (được tính như một comment nếu có nội
-              dung).</li>
-            <li>Tag bạn bè vào bài viết.</li>
-            <li>Share bài viết ở chế độ công khai.</li>
+            <li>Reaction: Like, Tim, Haha, Wow…</li>
+            <li>Comment có nội dung liên quan bài viết</li>
+            <li>Reply comment người khác (nếu có nội dung)</li>
+            <li>Tag bạn bè</li>
+            <li>Share bài viết ở chế độ <strong>công khai</strong></li>
           </ul>
-          <div class="note">
-            Mọi hành động trên phải do bạn thực hiện thật, không dùng công cụ
-            auto.
+          <div class="hint">
+            ❗ Không dùng tool auto, không tương tác ảo.
           </div>
         </div>
-      </section>
+      </div>
 
-      <section class="notice">
-        <div class="notice-header">
-          <div class="notice-title">Quy định Event (áp dụng cho all
-            fanpage)</div>
-        </div>
-        <div class="notice-content">
+      <!-- RULES -->
+      <div class="msg important">
+        <div class="msg-title">📋 Quy định chung</div>
+        <div class="msg-content">
           <ol>
-            <li>Follow fanpage tương ứng trước khi tương tác — Facebook sẽ tự
-              ghi điểm khi bạn đã Follow.</li>
-            <li>Không spam share: mỗi bài chỉ được share tối đa <strong>3
-                lần</strong>, share nhiều hơn 3 bài ở mỗi bài viết sẽ không được
-              nhận quà.</li>
-            <li>Không comment sticker hoặc emoji. Comment phải có nội dung liên
-              quan bài viết.</li>
-            <li>Không comment liên tục trên cùng một bài. Nếu muốn bổ sung ý,
-              hãy reply comment cũ của bạn thay vì tạo comment mới.</li>
-            <li>Các bài thưởng sẽ đăng vào các khung giờ vàng: <strong>10:00,
-                10:30, 18:00, 18:30</strong>. Ai tương tác sớm sẽ nhận thêm
-              điểm.</li>
-            <li>Được phép rep comment người khác câu cho người ta quay lại rep
-              tiếp.</li>
-            <li>Vi phạm nhiều lần (spam, auto, comment không hợp lệ) sẽ bị trừ
-              điểm hoặc hủy toàn bộ điểm tuần.</li>
+            <li>Phải <strong>Follow fanpage</strong> trước khi tương tác.</li>
+            <li>Mỗi bài chỉ được share tối đa <strong>3 lần</strong>.</li>
+            <li>Không comment sticker, emoji, nội dung không liên quan.</li>
+            <li>
+              Không spam comment liên tục trên cùng một bài.<br>
+              Muốn bổ sung ý → reply comment cũ của bạn.
+            </li>
+            <li>
+              Bài thưởng thường đăng vào khung giờ:
+              <strong>10:00 – 10:30 – 18:00 – 18:30</strong>.
+            </li>
+            <li>Vi phạm nhiều lần sẽ bị trừ điểm hoặc hủy toàn bộ điểm.</li>
           </ol>
-          <div class="note">
-            Giữ tương tác minh bạch giúp sự kiện công bằng và duy trì lâu dài.
+        </div>
+      </div>
+
+      <!-- PARTICIPATION -->
+      <div class="msg">
+        <div class="msg-title">✅ Thể lệ tham gia</div>
+        <div class="msg-content">
+          <ul>
+            <li>Tương tác hợp lệ: Reaction, Comment, Share công khai.</li>
+            <li>Một số bài có nhiệm vụ riêng → làm đúng mới được cộng điểm.</li>
+            <li>Cấm mọi hình thức mua tương tác, spam tag, auto.</li>
+            <li>Khi đạt top, liên hệ inbox fanpage để nhận thưởng.</li>
+          </ul>
+          <div class="hint">
+            Mỗi fanpage có hệ số điểm và phần thưởng khác nhau.
           </div>
         </div>
-      </section>
+      </div>
 
-      <section class="notice">
-        <div class="notice-header">
-          <div class="notice-title">Thể lệ tham gia chung (áp dụng cho cả 3
-            fanpage)</div>
+      <!-- FANPAGE INFO -->
+      <div class="msg warning">
+        <div class="msg-title">🏆 Fanpage & phần thưởng</div>
+        <div class="msg-content">
+          <p><strong>Fanpage TDStudio (chính)</strong></p>
+          <ul>
+            <li>Top 1: 100K</li>
+            <li>Top 2: 80K</li>
+            <li>Top 3: 50K</li>
+          </ul>
+
+          <p style="margin-top:6px;"><strong>Fanpage TDStudio – Game
+              Mobile</strong></p>
+          <ul>
+            <li>Top 1: 70K</li>
+            <li>Top 2: 50K</li>
+            <li>Top 3: 30K</li>
+          </ul>
+
+          <div class="hint">
+            💡 Mẹo: rep comment người khác để tạo hội thoại sẽ được tính điểm
+            tốt hơn.
+          </div>
         </div>
-        <div class="notice-content">
+      </div>
+
+      <!-- VIEW TOP -->
+      <div class="msg">
+        <div class="msg-title">📊 Xem top tương tác</div>
+        <div class="msg-content">
           <ol>
-            <li>Follow fanpage tương ứng trước khi tương tác.</li>
-            <li>Tương tác được tính: Like/Reaction, Comment, Share (share cần để
-              chế độ <strong>công khai</strong>).</li>
-            <li>Một số bài sẽ có nhiệm vụ đặc biệt (ví dụ: comment theo chủ đề,
-              tag bạn bè) — làm đúng mới được cộng điểm thưởng.</li>
-            <li>Hành vi gian lận (auto, mua tương tác, spam tag) sẽ bị loại khỏi
-              cuộc thi.</li>
-            <li>Khi đạt top 1,2,3, bạn hãy liên hệ qua inbox fanpage để nhận
-              thưởng.</li>
+            <li>Vào fanpage → mục <strong>Giới thiệu</strong>.</li>
+            <li>Tìm phần <strong>Tuần này ai tương tác</strong>.</li>
+            <li>Bấm <strong>Xem thêm</strong> để xem chi tiết.</li>
           </ol>
-          <div class="note">
-            Ghi chú: mỗi fanpage có hệ số điểm và phần thưởng khác nhau — xem
-            chi tiết bên dưới.
-          </div>
         </div>
-      </section>
+      </div>
 
-      <section class="notice alert">
-        <div class="notice-header">
-          <div class="notice-title">Fanpage & phần thưởng</div>
-          <div class="badge warning">QUAN TRỌNG</div>
+      <!-- FINAL -->
+      <div class="msg">
+        <div class="msg-title">⚠️ Lưu ý</div>
+        <div class="msg-content">
+          <p>
+            Vui lòng đọc kỹ thể lệ trước khi tham gia.
+            Sự kiện ưu tiên <strong>tương tác thật – lâu dài – minh
+              bạch</strong>.
+          </p>
         </div>
-        <div class="notice-content">
-          <div class="pages">
-            <div class="page-card">
-              <h3>Fanpage 1: TDStudio (Lớn)</h3>
-              <p>Phần thưởng: Top 1 — 100K.</p>
-              <p>Phần thưởng: Top 2 — 80K.</p>
-              <p>Phần thưởng: Top 3 — 50K.</p>
-              <p><strong>Mẹo:</strong> Có thể rep comment người khác để họ quay
-                lại comment sẽ được nhiều điểm hơn. Không comment liên tục trên
-                nhiều bài viết hoặc comment không liên quan bài viết</p>
-              <p>
-                <a class="btn" href="https://www.facebook.com/tdstudiogame"
-                  target="_blank">Đến Fanpage</a>
-              </p>
-            </div>
+      </div>
 
-            <div class="page-card">
-              <h3>Fanpage 2: TDStudio - Game Mobile (Phụ)</h3>
-              <p>Phần thưởng: Top 1 — 70K.</p>
-              <p>Phần thưởng: Top 2 — 50K.</p>
-              <p>Phần thưởng: Top 3 — 30K.</p>
-              <p><strong>Mẹo:</strong> Có thể rep comment người khác để họ quay
-                lại comment sẽ được nhiều điểm hơn. Không comment liên tục trên
-                nhiều bài viết hoặc comment không liên quan bài viết</p>
-              <p>
-                <a class="btn" href="https://www.facebook.com/tdstudiogame"
-                  target="_blank">Đến Fanpage</a>
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="notice">
-        <div class="notice-header">
-          <div class="notice-title">Xem Top tương tác tuần</div>
-        </div>
-        <div class="notice-content">
-          <div class="top-guide">
-            <img src="images/huongdantuongtac.png"
-              alt="Hướng dẫn xem Top tương tác tuần" />
-            <div>
-              <p>Hướng dẫn xem Bảng Xếp Hạng:</p>
-              <ol>
-                <li>Vào fanpage bấm vào phần "GIỚI THIỆU".</li>
-                <li>Lướt xuống tìm "TUẦN NÀY AI TƯƠNG TÁC".</li>
-                <li>Bấm vào "Xem Thêm" để xem chi tiết.</li>
-              </ol>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="notice">
-        <div class="notice-header">
-          <div class="notice-title">Vui lòng đọc kĩ các thể lệ và quy định bên
-            trên</div>
-        </div>
-      </section>
-
-      <footer class="footer">
-        <small>© <span id="y"></span> TDStudio • Hướng dẫn Tương tác</small>
+      <footer>
+        © <span id="y"></span> TDStudio • Thông báo sự kiện
       </footer>
+
     </div>
 
     <script>
-    // tự điền năm hiện tại (không đổi nội dung hiển thị, chỉ auto năm)
-    (function () {
-      var y = document.getElementById('y');
-      if (y) y.textContent = new Date().getFullYear();
-    })();
-  </script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+</script>
   </body>
 </html>
