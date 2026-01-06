@@ -2,134 +2,318 @@
 <html lang="vi">
     <head>
         <meta charset="UTF-8">
-        <title>Thuê VPS Treo Game TDStudio</title>
-        <link rel="canonical" href="https://thanhdi.com/odervps" />
-        <!-- Google tag (GA4) -->
+        <title>Thuê VPS Treo Game TDStudio | 100.000đ / Tháng</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description"
+            content="Dịch vụ thuê VPS treo game TDStudio. VPS Windows Server đã setup sẵn game, chỉ cần đăng nhập và treo. Giá 100.000đ / tháng.">
+        <meta name="robots" content="index, follow">
+        <link rel="canonical" href="https://thanhdi.com/odervps">
+
+        <!-- GA4 -->
         <script async
             src="https://www.googletagmanager.com/gtag/js?id=G-BQCBVHE2GN"></script>
         <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-BQCBVHE2GN');
-</script>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-BQCBVHE2GN');
+    </script>
+
+        <style>
+        :root{
+            --bg:#f4f6f8;
+            --card:#ffffff;
+            --text:#1f2937;
+            --muted:#6b7280;
+            --primary:#2563eb;
+            --border:#e5e7eb;
+            --warning:#fff7ed;
+        }
+
+        *{
+            box-sizing:border-box;
+            font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",
+            Roboto,Helvetica,Arial,sans-serif;
+        }
+
+        body{
+            margin:0;
+            background:var(--bg);
+            color:var(--text);
+            line-height:1.65;
+        }
+
+        .container{
+            max-width:1100px;
+            margin:0 auto;
+            padding:28px 16px 64px;
+        }
+
+        /* ===== HEADER ===== */
+        header{
+            margin-bottom:40px;
+        }
+
+        header h1{
+            font-size:30px;
+            margin:0 0 10px;
+        }
+
+        header p{
+            max-width:760px;
+            color:var(--muted);
+            margin:0;
+        }
+
+        /* ===== PRODUCT ===== */
+        .products{
+            display:grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+            gap:24px;
+        }
+
+        .product{
+            background:var(--card);
+            border:1px solid var(--border);
+            border-radius:14px;
+            padding:22px;
+            display:flex;
+            flex-direction:column;
+        }
+
+        .product h3{
+            margin:0 0 6px;
+            font-size:20px;
+        }
+
+        .price{
+            font-size:22px;
+            font-weight:700;
+            color:var(--primary);
+            margin-bottom:16px;
+        }
+
+        .spec{
+            border-top:1px solid var(--border);
+            border-bottom:1px solid var(--border);
+            padding:14px 0;
+            margin-bottom:16px;
+        }
+
+        .spec div{
+            display:flex;
+            justify-content:space-between;
+            font-size:14px;
+            margin-bottom:6px;
+            color:var(--muted);
+        }
+
+        .spec div span{
+            color:var(--text);
+            font-weight:500;
+        }
+
+        .note{
+            font-size:14px;
+            color:var(--muted);
+            margin-bottom:16px;
+        }
+
+        .btn{
+            margin-top:auto;
+            text-align:center;
+            background:var(--primary);
+            color:#fff;
+            text-decoration:none;
+            padding:12px;
+            border-radius:10px;
+            font-weight:600;
+        }
+
+        /* ===== SECTIONS ===== */
+        .section{
+            margin-top:64px;
+        }
+
+        .section h2{
+            font-size:22px;
+            margin-bottom:16px;
+        }
+
+        .section-card{
+            background:var(--card);
+            border:1px solid var(--border);
+            border-radius:14px;
+            padding:22px;
+        }
+
+        .list{
+            display:grid;
+            gap:10px;
+            font-size:15px;
+        }
+
+        .list div{
+            padding-left:14px;
+            position:relative;
+        }
+
+        .list div::before{
+            content:"•";
+            position:absolute;
+            left:0;
+            color:var(--primary);
+            font-weight:700;
+        }
+
+        .warning{
+            background:var(--warning);
+            border:1px solid #fed7aa;
+            border-radius:14px;
+            padding:20px;
+            font-size:14px;
+            color:#7c2d12;
+        }
+
+        /* ===== GUIDE ===== */
+        .guide-steps{
+            display:grid;
+            gap:24px;
+            margin-top:24px;
+        }
+
+        .guide-step{
+            background:var(--card);
+            border:1px solid var(--border);
+            border-radius:14px;
+            padding:20px;
+        }
+
+        .guide-step h3{
+            margin:0 0 8px;
+            font-size:18px;
+        }
+
+        .guide-step p{
+            margin:0 0 14px;
+            color:var(--muted);
+            font-size:14px;
+            max-width:820px;
+        }
+
+        .guide-image{
+            width:100%;
+            background:#f8fafc;
+            border:1px solid var(--border);
+            border-radius:12px;
+            padding:12px;
+        }
+
+        .guide-image img{
+            width:100%;
+            height:auto;
+            display:block;
+            border-radius:8px;
+        }
+
+        footer{
+            margin-top:72px;
+            border-top:1px solid var(--border);
+            padding-top:24px;
+            font-size:13px;
+            color:var(--muted);
+        }
+    </style>
     </head>
+
     <body>
+        <div class="container">
 
-        <h1>Thuê VPS Treo Game TDStudio (Setup Sẵn)</h1>
+            <!-- HEADER -->
+            <header>
+                <h1>Thuê VPS - TDStudio</h1>
+                <p>
+                    VPS Windows Server đã được setup sẵn game TDStudio.
+                    Chỉ cần đăng nhập VPS và treo game, không cần cài đặt hay
+                    cấu hình thêm.
+                </p>
+            </header>
 
-        <p>
-            Trang này dùng để giới thiệu dịch vụ thuê VPS treo game TDStudio.
-            Vui lòng đọc kỹ toàn bộ nội dung trước khi liên hệ.
-        </p>
+            <!-- PRODUCT -->
+            <div class="products">
+                <div class="product">
+                    <h3>VPS Treo Game TDStudio</h3>
+                    <div class="price">100.000đ / tháng</div>
 
-        <hr>
+                    <div class="spec">
+                        <div>Hệ điều hành <span>Windows Server (bản
+                                nhẹ)</span></div>
+                        <div>Cấu hình <span>1 vCPU • 1GB RAM</span></div>
+                        <div>Lưu trữ <span>~35GB SSD</span></div>
+                        <div>Tối ưu <span>Treo ~3 tab game</span></div>
+                    </div>
 
-        <h2>1. Cấu hình VPS & giá thuê</h2>
+                    <div class="note">
+                        Game TDStudio được setup sẵn. Admin hỗ trợ cập nhật game
+                        khi có phiên bản mới.
+                    </div>
 
-        <ul>
-            <li>Hệ điều hành: Windows Server (bản nhẹ)</li>
-            <li>CPU: 1 vCPU</li>
-            <li>RAM: 1 GB</li>
-            <li>Ổ cứng: ~35 GB SSD</li>
-            <li>Giá thuê: <strong>100.000đ / tháng</strong></li>
-        </ul>
+                    <a href="/contact" class="btn">
+                        Liên hệ admin để mua
+                    </a>
+                </div>
+            </div>
 
-        <p>
-            VPS đã được <strong>setup sẵn game TDStudio</strong>.
-            Người thuê <strong>chỉ cần đăng nhập VPS và vào game để
-                treo</strong>, không cần cài đặt thêm.
-        </p>
+            <!-- DESCRIPTION -->
+            <div class="section">
+                <h2>Mô tả dịch vụ</h2>
+                <div class="section-card">
+                    <div class="list">
+                        <div>Thuê VPS theo tháng, không phải mua vĩnh viễn</div>
+                        <div>Phù hợp treo game đánh quái, treo up đệ, treo up
+                            chiến thần, auto cơ
+                            bản</div>
+                        <div>Không phù hợp săn boss hoặc thao tác quá
+                            nhanh</div>
+                        <div>Bàn giao VPS sau khi xác nhận thanh toán</div>
+                    </div>
+                </div>
+            </div>
 
-        <hr>
+            <!-- TERMS -->
+            <div class="section">
+                <h2>Điều khoản & lưu ý</h2>
+                <div class="warning">
+                    Người thuê tự chịu trách nhiệm trong quá trình sử dụng VPS.
+                    Không mở quá số tab khuyến nghị để tránh lag hoặc sập VPS.
+                    VPS sẽ bị hủy khi hết hạn nếu không gia hạn trước.
+                </div>
+            </div>
 
-        <h2>2. Hình thức thuê</h2>
+            <!-- GUIDE -->
+            <div class="section">
+                <div class="guide-steps">
 
-        <ul>
-            <li>Thanh toán trước theo tháng.</li>
-            <li>Sau khi nhận thanh toán, admin tiến hành tạo VPS và setup.</li>
-            <li>Khi hoàn tất, admin bàn giao thông tin đăng nhập VPS.</li>
-        </ul>
+                    <div class="guide-step">
+                        <h3>Nhận thông tin VPS từ admin</h3>
+                        <p>
+                            Admin sẽ gửi IP, tài khoản và mật khẩu VPS sau khi
+                            thanh toán.
+                            Vui lòng lưu lại thông tin để sử dụng lâu dài.
+                        </p>
+                        <div class="guide-image">
+                            <img src="/images/thongtinvps.png"
+                                alt="Thông tin đăng nhập VPS">
+                        </div>
+                    </div>
+                </div>
 
-        <p>
-            Đây là hình thức <strong>thuê VPS theo tháng</strong>, không phải
-            mua vĩnh viễn.
-        </p>
+                <footer>
+                    Liên hệ thuê VPS đồng nghĩa với việc bạn đã đọc và chấp nhận
+                    toàn bộ nội dung và điều khoản sử dụng.
+                </footer>
 
-        <hr>
-
-        <h2>3. Khuyến nghị sử dụng</h2>
-
-        <ul>
-            <li>Khuyến nghị treo <strong>2–3 tab</strong>.</li>
-            <li>Không nên mở quá số tab khuyến nghị.</li>
-            <li>Mở quá nhiều tab có thể gây <strong>lag hoặc sập
-                    VPS</strong>.</li>
-        </ul>
-
-        <p>
-            VPS cấu hình thấp, phù hợp treo game và auto, không phù hợp yêu cầu
-            hiệu năng cao.
-        </p>
-
-        <hr>
-
-        <h2>4. Hỗ trợ & cập nhật</h2>
-
-        <ul>
-            <li>Admin hỗ trợ setup ban đầu.</li>
-            <li>Admin hỗ trợ <strong>cập nhật phiên bản game TDStudio</strong>
-                khi có bản mới.</li>
-            <li>Người thuê <strong>không cần lo cập nhật game</strong>.</li>
-        </ul>
-
-        <hr>
-
-        <h2>5. Trách nhiệm người thuê</h2>
-
-        <ul>
-            <li>Sau khi bàn giao, người thuê tự quản lý tài khoản VPS.</li>
-            <li>Người thuê tự chịu trách nhiệm trong quá trình sử dụng.</li>
-            <li>Không hỗ trợ khi sử dụng sai mục đích hoặc mở quá tải.</li>
-        </ul>
-
-        <hr>
-
-        <h2>6. Thời hạn & gia hạn</h2>
-
-        <ul>
-            <li>Thời hạn thuê: 1 tháng kể từ ngày bàn giao VPS.</li>
-            <li>Vui lòng <strong>nhắn tin gia hạn trước khi hết
-                    hạn</strong>.</li>
-            <li>Nếu không gia hạn, VPS sẽ bị hủy khi hết thời gian thuê.</li>
-        </ul>
-
-        <hr>
-
-        <h2>7. Liên hệ thuê VPS</h2>
-
-        <p>
-            Nếu đã đọc kỹ và chấp nhận toàn bộ nội dung trên, vui lòng liên hệ:
-        </p>
-
-        <ul>
-            <li>Zalo: <strong>THAY_ZALO_TẠI_ĐÂY</strong></li>
-            <li>Telegram: <strong>THAY_TELEGRAM_TẠI_ĐÂY</strong></li>
-        </ul>
-
-        <p>
-            Vui lòng nhắn tin trực tiếp để thuê VPS.
-        </p>
-
-        <hr>
-
-        <p>
-            <em>
-                Liên hệ thuê VPS đồng nghĩa với việc bạn đã đọc và chấp nhận
-                toàn bộ nội dung trên.
-            </em>
-        </p>
-
-    </body>
-</html>
+            </div>
+        </body>
+    </html>
