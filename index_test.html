@@ -1498,7 +1498,6 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 			z-index: 100000;
 		}
 	</style>
-
 		<script>
 	( function() {
 		var skipLinkTarget = document.querySelector( 'main' ),
@@ -1665,183 +1664,119 @@ var wpcf7 = {"api":{"root":"https:\/\/themes.ainoblocks.io\/solarone\/wp-json\/"
 </script>
 		<script>
 (function () {
+  /* ========= CẤU HÌNH ========= */
+  const TARGET_DOMAIN = "thanhdi.games";
+  const TARGET_URL = "https://thanhdi.games";
 
-  /* ================= CONFIG ================= */
+  const TYPE_SPEED = 45;        // gõ chậm, dễ đọc mobile
+  const COUNTDOWN_SECONDS = 5;  // đếm ngược
 
-  const HUB_URL = 'https://thanhdi.games';
+  const MESSAGE =
+`Thông báo:
+Đôi lúc hệ thống có thể phản hồi chậm do nhiều người truy cập cùng lúc.
+Nếu chưa vào được ngay, vui lòng chờ khoảng 5–10 phút rồi quay lại.
 
-  // DEV ONLY: giả lập PC là preview để test popup
-  const FORCE_PREVIEW_DEV = false; // ← đổi false khi deploy
+Lưu ý: Nên mở trang bằng Chrome hoặc Safari để đăng ký và tải game.
 
-  /* ================= DETECT ================= */
+Trang sẽ tự động mở sau giây lát.`;
 
-  function isPreviewBrowser() {
-    if (FORCE_PREVIEW_DEV) return true;
-    const ua = navigator.userAgent || '';
-    return /FBAN|FBAV|Facebook|Zalo|TikTok|Instagram/i.test(ua);
+  /* ========= DOM ========= */
+  const popup = document.getElementById("redirectPopup");
+  const textEl = document.getElementById("redirectText");
+  const countdownEl = document.getElementById("redirectCountdown");
+
+  let redirecting = false;
+  let countdownTimer = null;
+
+  /* ========= GÕ CHỮ ========= */
+  function typeText(text, done){
+    let i = 0;
+    textEl.textContent = "";
+    const timer = setInterval(()=>{
+      textEl.textContent += text.charAt(i);
+      i++;
+      if(i >= text.length){
+        clearInterval(timer);
+        done && done();
+      }
+    }, TYPE_SPEED);
   }
 
-  function detectPlatformName() {
-    const ua = navigator.userAgent || '';
-    if (/FBAN|FBAV|Facebook/i.test(ua)) return 'Facebook';
-    if (/Zalo/i.test(ua)) return 'Zalo';
-    if (/TikTok/i.test(ua)) return 'TikTok';
-    if (/Instagram/i.test(ua)) return 'Instagram';
-    return 'ứng dụng mạng xã hội';
-  }
+  /* ========= ĐÓNG POPUP (RESET STATE) ========= */
+  function closePopup(){
+    popup.classList.remove("show");
+    popup.setAttribute("aria-hidden","true");
+    redirecting = false;
 
-  function detectRecommendedBrowser() {
-    const ua = navigator.userAgent || '';
-    if (/Android/i.test(ua)) return 'Chrome';
-    if (/iPhone|iPad|iPod/i.test(ua)) return 'Safari';
-    return 'Chrome';
-  }
-
-  /* ================= UTM ================= */
-
-  function getUTM() {
-    const url = new URL(window.location.href);
-    const utm_source = url.searchParams.get('utm_source');
-    const utm_campaign = url.searchParams.get('utm_campaign');
-    if (utm_source && utm_campaign) return { utm_source, utm_campaign };
-    return null;
-  }
-
-  function buildHubLink(utm) {
-    if (!utm) return HUB_URL;
-    const u = new URL(HUB_URL);
-    u.searchParams.set('utm_source', utm.utm_source);
-    u.searchParams.set('utm_campaign', utm.utm_campaign);
-    return u.toString();
-  }
-
-  /* ================= POPUP ================= */
-
-  function showPopup(linkToCopy) {
-    const platform = detectPlatformName();
-    const browser = detectRecommendedBrowser();
-
-    let popup = document.getElementById('td-preview-popup');
-    if (popup) popup.remove();
-
-    popup = document.createElement('div');
-    popup.id = 'td-preview-popup';
-    popup.style = `
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,.45);
-      z-index:999999;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-    `;
-
-    popup.innerHTML = `
-      <div style="
-        position:relative;
-        background:#fff;
-        border-radius:12px;
-        max-width:360px;
-        width:90%;
-        padding:18px 16px 16px;
-        box-shadow:0 10px 30px rgba(0,0,0,.15);
-        text-align:center;
-      ">
-        <!-- CLOSE -->
-        <button id="td-close-popup" style="
-          position:absolute;
-          top:10px;
-          right:10px;
-          width:28px;
-          height:28px;
-          border-radius:50%;
-          border:none;
-          background:#f3f4f6;
-          color:#374151;
-          font-size:16px;
-          cursor:pointer;
-          line-height:1;
-        " aria-label="Đóng">×</button>
-
-        <div style="
-          font-size:15px;
-          font-weight:600;
-          margin-bottom:8px;
-          color:#111827;
-        ">
-          Thông báo
-        </div>
-
-        <div id="td-popup-text" style="
-          font-size:14px;
-          line-height:1.5;
-          color:#374151;
-          margin-bottom:14px;
-        ">
-          Bạn đang mở trang trên <strong>${platform}</strong>,<br>
-          không thể đăng ký hoặc tải game được.<br><br>
-          Vui lòng <strong>copy link</strong> và mở bằng
-          <strong>${browser}</strong> để tiếp tục.
-        </div>
-
-        <button id="td-copy-btn" style="
-          width:100%;
-          height:40px;
-          border-radius:8px;
-          border:none;
-          background:#2563eb;
-          color:#ffffff;
-          font-size:14px;
-          font-weight:600;
-          cursor:pointer;
-        ">
-          Copy link
-        </button>
-      </div>
-    `;
-
-    document.body.appendChild(popup);
-
-    // đóng popup
-    document.getElementById('td-close-popup').onclick = function () {
-      popup.remove();
-    };
-
-    // copy link
-    const btn = document.getElementById('td-copy-btn');
-    const text = document.getElementById('td-popup-text');
-
-    btn.onclick = function () {
-      navigator.clipboard.writeText(linkToCopy).then(() => {
-        btn.innerText = 'Đã copy ✓';
-        btn.style.background = '#16a34a';
-        text.innerHTML = `
-          <strong>Đã copy link.</strong><br>
-          Hãy dán link vào <strong>${browser}</strong><br>
-          để đăng ký và tải game nhé.
-        `;
-      });
-    };
-  }
-
-  /* ================= MAIN ================= */
-
-  document.addEventListener('click', function (e) {
-    const link = e.target.closest('a[href="https://thanhdi.games"]');
-    if (!link) return;
-
-    e.preventDefault();
-
-    const utm = getUTM();
-    const targetLink = buildHubLink(utm);
-
-    if (isPreviewBrowser()) {
-      showPopup(targetLink);
-    } else {
-      window.location.href = targetLink;
+    if(countdownTimer){
+      clearInterval(countdownTimer);
+      countdownTimer = null;
     }
-  });
+  }
+
+  /* ========= ĐẾM NGƯỢC ========= */
+  function startCountdown(){
+    let t = COUNTDOWN_SECONDS;
+    countdownEl.textContent = `Tự động chuyển sau ${t}s…`;
+
+    countdownTimer = setInterval(()=>{
+      t--;
+      countdownEl.textContent = `Tự động chuyển sau ${t}s…`;
+
+      if(t <= 0){
+        clearInterval(countdownTimer);
+        countdownTimer = null;
+
+        // ✅ đóng popup trước → tránh kẹt khi back
+        closePopup();
+
+        // redirect sau 1 tick nhỏ
+        setTimeout(()=>{
+          window.location.href = TARGET_URL;
+        },50);
+      }
+    },1000);
+  }
+
+  /* ========= MỞ POPUP ========= */
+  function openPopup(){
+    if(redirecting) return;
+    redirecting = true;
+
+    popup.classList.add("show");
+    popup.setAttribute("aria-hidden","false");
+
+    typeText(MESSAGE, startCountdown);
+  }
+
+  /* ========= KIỂM TRA LINK (CHỈ DOMAIN GỐC) ========= */
+  function isTargetLink(el){
+    if(!el || !el.href) return false;
+
+    try {
+      const url = new URL(el.href, window.location.origin);
+
+      // ✅ CHỈ bắt đúng https://thanhdi.games hoặc /
+      return (
+        url.protocol === "https:" &&
+        url.hostname === TARGET_DOMAIN &&
+        (url.pathname === "/" || url.pathname === "")
+      );
+    } catch (e) {
+      return false;
+    }
+  }
+
+  /* ========= BẮT TOÀN BỘ CLICK ========= */
+  document.addEventListener("click", function(e){
+    const a = e.target.closest("a");
+    if(!a) return;
+
+    if(isTargetLink(a)){
+      e.preventDefault();
+      openPopup();
+    }
+  }, true); // capture = true → bắt trước mọi script khác
 
 })();
 </script>
