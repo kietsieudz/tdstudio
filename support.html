@@ -982,16 +982,25 @@ body{margin:0;background:var(--bg);color:var(--text)}
     }, 200);
   }
 
-  /* ✅ 1. DOM đã sẵn sàng (layout + HTML ok) */
-  document.addEventListener("DOMContentLoaded", hideLoader);
+  // 🔑 TRẠNG THÁI TÀI LIỆU
+  if (document.readyState === "loading") {
+    // HTML CHƯA xong → chờ event
+    document.addEventListener("DOMContentLoaded", hideLoader);
+  } else {
+    // HTML ĐÃ xong → cho loader sống ít nhất 1 frame
+    requestAnimationFrame(() => {
+      requestAnimationFrame(hideLoader);
+    });
+  }
 
-  /* ✅ 2. Fallback an toàn: nếu DOMContentLoaded không bắn (hiếm) */
+  // backup an toàn
   window.addEventListener("load", hideLoader);
 
-  /* ✅ 3. Fallback cứng: không bao giờ để loader kẹt */
-  setTimeout(hideLoader, 8000); // 8s là quá đủ
+  // chống kẹt
+  setTimeout(hideLoader, 8000);
 })();
 </script>
+
 
 
        <script>
