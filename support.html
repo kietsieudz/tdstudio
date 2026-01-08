@@ -612,10 +612,70 @@ body{margin:0;background:var(--bg);color:var(--text)}
 .messenger-fab.shake {
     animation: messenger-shake 0.6s ease-in-out;
 }
+/* ===== PAGE LOADER ===== */
+#page-loader{
+  position:fixed;
+  inset:0;
+  background:#f1f4f9;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:99999;
+}
+
+.loader-box{
+  background:#ffffff;
+  padding:20px 22px 22px;
+  border-radius:20px;
+  text-align:center;
+  width:260px;
+}
+
+/* ===== NGỌC XOAY ===== */
+.gem-spinner{
+  width:64px;
+  height:64px;
+  margin:0 auto 12px;
+
+  background-image:url("/images/icon_loading.png");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:100% 100%;
+
+  animation:gem-spin 1s linear infinite;
+}
+
+
+@keyframes gem-spin{
+  from{ transform:rotate(0deg); }
+  to{ transform:rotate(360deg); }
+}
+
+.loader-text{
+  font-size:14.5px;
+  font-weight:600;
+  color:#0f172a;
+}
+
+.loader-sub{
+  font-size:12.5px;
+  color:#64748b;
+  margin-top:6px;
+}
+
 </style>
     </head>
 
     <body>
+        <!-- ===== PAGE LOADER ===== -->
+<div id="page-loader">
+  <div class="loader-box">
+    <div class="gem-spinner"></div>
+    <div class="loader-text">Đang tải trang…</div>
+    <div class="loader-sub">Vui lòng chờ trong giây lát</div>
+  </div>
+</div>
+
         <div id="petalContainer"></div>
         <div class="banner"></div>
 
@@ -902,16 +962,38 @@ body{margin:0;background:var(--bg);color:var(--text)}
     <link rel="preconnect" href="https://m.me">
         </div>
         <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const btn = document.querySelector(".pulse-attention");
-    if (!btn) return;
+(function () {
+  const loader = document.getElementById("page-loader");
+  if (!loader) return;
 
-    setInterval(() => {
-      btn.classList.add("shake");
-      setTimeout(() => btn.classList.remove("shake"), 600);
-    }, 1000); // rung mỗi 1 giây
-  });
+  let hidden = false;
+
+  function hideLoader() {
+    if (hidden) return;
+    hidden = true;
+
+    loader.style.opacity = "0";
+    loader.style.pointerEvents = "none";
+
+    setTimeout(() => {
+      if (loader && loader.parentNode) {
+        loader.parentNode.removeChild(loader);
+      }
+    }, 200);
+  }
+
+  /* ✅ 1. DOM đã sẵn sàng (layout + HTML ok) */
+  document.addEventListener("DOMContentLoaded", hideLoader);
+
+  /* ✅ 2. Fallback an toàn: nếu DOMContentLoaded không bắn (hiếm) */
+  window.addEventListener("load", hideLoader);
+
+  /* ✅ 3. Fallback cứng: không bao giờ để loader kẹt */
+  setTimeout(hideLoader, 8000); // 8s là quá đủ
+})();
 </script>
+
+
        <script>
 (function () {
     const PAGE = "ngocrongtuoitho";
