@@ -1676,19 +1676,26 @@ var wpcf7 = {"api":{"root":"https:\/\/themes.ainoblocks.io\/solarone\/wp-json\/"
   /* ================= DETECT ================= */
 
   function isPreviewBrowser() {
-    if (FORCE_PREVIEW_DEV) return true;
-    const ua = navigator.userAgent || '';
-    return /FBAN|FBAV|Facebook|Zalo|TikTok|Instagram/i.test(ua);
-  }
+  if (FORCE_PREVIEW_DEV) return true;
+
+  const ua = navigator.userAgent || '';
+
+  return /FBAN|FBAV|Facebook|Zalo|TikTok|Instagram|Telegram/i.test(ua);
+}
+
 
   function detectPlatformName() {
-    const ua = navigator.userAgent || '';
-    if (/FBAN|FBAV|Facebook/i.test(ua)) return 'Facebook';
-    if (/Zalo/i.test(ua)) return 'Zalo';
-    if (/TikTok/i.test(ua)) return 'TikTok';
-    if (/Instagram/i.test(ua)) return 'Instagram';
-    return 'ứng dụng mạng xã hội';
-  }
+  const ua = navigator.userAgent || '';
+
+  if (/FBAN|FBAV|Facebook/i.test(ua)) return 'Facebook';
+  if (/Zalo/i.test(ua)) return 'Zalo';
+  if (/TikTok/i.test(ua)) return 'TikTok';
+  if (/Instagram/i.test(ua)) return 'Instagram';
+  if (/Telegram/i.test(ua)) return 'Telegram';
+
+  return 'ứng dụng mạng xã hội';
+}
+
 
   function detectRecommendedBrowser() {
     const ua = navigator.userAgent || '';
