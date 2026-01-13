@@ -9,92 +9,127 @@
 
 <url>
   <loc>https://thanhdi.com/</loc>
-  <lastmod>2026-01-03T05:47:24+00:00</lastmod>
+  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://thanhdi.com/support</loc>
-  <lastmod>2026-01-03T05:47:24+00:00</lastmod>
+  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://thanhdi.com/nap</loc>
-  <lastmod>2026-01-03T05:47:24+00:00</lastmod>
-  <priority>0.64</priority>
+  <loc>https://thanhdi.com/su-kien/su-kien-noel-2025</loc>
+  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://thanhdi.com/groups</loc>
-  <lastmod>2026-01-03T05:47:24+00:00</lastmod>
+  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://thanhdi.com/fixloi</loc>
+  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://thanhdi.com/nap</loc>
+  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://thanhdi.com/huongdantai</loc>
-  <lastmod>2026-01-03T05:47:24+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://thanhdi.com/posts</loc>
-  <lastmod>2026-01-03T05:47:24+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://thanhdi.com/event</loc>
-  <lastmod>2026-01-03T05:47:24+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://thanhdi.com/tuongtac</loc>
-  <lastmod>2026-01-03T05:47:24+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://thanhdi.com/cochegame</loc>
-  <lastmod>2026-01-03T05:47:24+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://thanhdi.com/body</loc>
-  <lastmod>2026-01-03T05:47:24+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://thanhdi.com/fixloi</loc>
-  <lastmod>2026-01-03T05:47:24+00:00</lastmod>
+  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://thanhdi.com/contact</loc>
-  <lastmod>2026-01-03T05:47:24+00:00</lastmod>
+  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://thanhdi.com/odervps</loc>
+  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://thanhdi.com/services/giao-dich-trung-gian</loc>
+  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://thanhdi.com/event</loc>
+  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://thanhdi.com/su-kien/su-kien-tuong-tac-fanpage</loc>
+  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://thanhdi.com/su-kien/su-kien-tuong-tac-cong-dong-zalo</loc>
+  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://thanhdi.com/su-kien/tieu-hong-ngoc</loc>
+  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://thanhdi.com/quaduatop</loc>
+  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://thanhdi.com/mocnap</loc>
-  <lastmod>2026-01-03T05:47:24+00:00</lastmod>
-  <priority>0.51</priority>
+  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://thanhdi.com/quaduatop</loc>
-  <lastmod>2026-01-03T05:47:24+00:00</lastmod>
+  <loc>https://thanhdi.com/cochegame</loc>
+  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://thanhdi.com/body</loc>
+  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://thanhdi.com/chat</loc>
+  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://thanhdi.com/fanpage</loc>
+  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://thanhdi.com/tylenap</loc>
+  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://thanhdi.com/cochegame/coban</loc>
-  <lastmod>2026-01-03T05:47:24+00:00</lastmod>
+  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://thanhdi.com/cochegame/newbie</loc>
-  <lastmod>2026-01-03T05:47:24+00:00</lastmod>
+  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://thanhdi.com/cochegame/equipment</loc>
-  <lastmod>2026-01-03T05:47:24+00:00</lastmod>
+  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://thanhdi.com/cochegame/quests</loc>
-  <lastmod>2026-01-03T05:47:24+00:00</lastmod>
+  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 
