@@ -3405,10 +3405,7 @@
   const HUB_URL = "https://thanhdi.games";
 
   // ===== PREVIEW DEV =====
-  const FORCE_PREVIEW_DEV = false; // test preview trên PC
-
-  // ===== 4G DEV =====
-  const FORCE_CELLULAR_DEV = false; // true để test popup 4G
+  const FORCE_PREVIEW_DEV = false;
 
   // ===== 4G POPUP CONFIG =====
   const WARNING_IMAGE = "/images/network-warning.png";
@@ -3502,8 +3499,7 @@
           Thông báo
         </div>
 
-        <div id="td-preview-text" style="
-          font-size:14px;line-height:1.5;margin-bottom:14px;">
+        <div style="font-size:14px;line-height:1.5;margin-bottom:14px;">
           Bạn đang mở trang trong <b>${platform}</b>.<br>
           Không thể đăng ký hoặc tải game.<br>
           Vui lòng copy link và mở bằng <b>${browser}</b>.
@@ -3522,34 +3518,15 @@
 
     document.getElementById("td-close-preview").onclick = () => popup.remove();
 
-    const copyBtn = document.getElementById("td-copy-link");
-
-    copyBtn.onclick = () => {
+    document.getElementById("td-copy-link").onclick = () => {
       navigator.clipboard.writeText(linkToCopy).then(() => {
-        copyBtn.innerText = "Đã copy thành công ✓";
-        copyBtn.style.background = "#16a34a";
-        copyBtn.style.cursor = "default";
-        copyBtn.disabled = true;
-
-        setTimeout(() => {
-          popup.remove();
-        }, 1200);
+        const btn = document.getElementById("td-copy-link");
+        btn.innerText = "Đã copy thành công ✓";
+        btn.style.background = "#16a34a";
+        btn.disabled = true;
+        setTimeout(() => popup.remove(), 1200);
       });
     };
-  }
-
-  /* ================= 4G DETECT (FIXED BUG) ================= */
-
-  function isCellular() {
-    if (FORCE_CELLULAR_DEV) return true;
-
-    const nav = navigator;
-    if (!nav.connection) return false;
-
-    if (nav.connection.type === "cellular") return true;
-    if (/2g|3g|slow-2g/.test(nav.connection.effectiveType || "")) return true;
-
-    return false;
   }
 
   /* ================= TYPE EFFECT ================= */
@@ -3566,9 +3543,9 @@
     }, TYPE_SPEED);
   }
 
-  /* ================= 4G POPUP ================= */
+  /* ================= 4G POPUP (ALWAYS SHOW) ================= */
 
-  function show4GPopup(link) {
+  function show4GPopupAndRedirect(link) {
     if (document.getElementById("td-4g-popup")) return;
 
     const popup = document.createElement("div");
@@ -3625,20 +3602,18 @@
     const utm = getUTM();
     const targetLink = buildHubLink(utm);
 
+    // 1️⃣ Ưu tiên preview MXH
     if (isPreviewBrowser()) {
       showPreviewPopup(targetLink);
       return;
     }
 
-    if (isCellular()) {
-      show4GPopup(targetLink);
-      return;
-    }
-
-    window.location.href = targetLink;
+    // 2️⃣ Không phải preview → LUÔN hiện popup 4G
+    show4GPopupAndRedirect(targetLink);
   });
 })();
 </script>
+
 
 	</body>
 </html>
