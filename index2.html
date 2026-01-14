@@ -3404,41 +3404,45 @@
 
   const HUB_URL = "https://thanhdi.games";
 
-  // ===== PREVIEW DEV =====
-  const FORCE_PREVIEW_DEV = false;
+  // DEV ONLY: giả lập PC là preview để test popup
+  const FORCE_PREVIEW_DEV = false; // ← đổi false khi deploy
 
   // ===== 4G POPUP CONFIG =====
   const WARNING_IMAGE = "/images/network-warning.png";
   const TEXT_4G =
     "Nếu gặp lỗi như trên ảnh, Vui lòng đổi mạng từ 4G sang Wifi để vào.";
   const TYPE_SPEED = 60;
-  const AFTER_DONE_DELAY = 3000; // tổng thời gian chờ (ms)
 
-  /* ================= PREVIEW DETECT ================= */
+  /* ================= DETECT (GIỮ NGUYÊN) ================= */
 
   function isPreviewBrowser() {
     if (FORCE_PREVIEW_DEV) return true;
+
     const ua = navigator.userAgent || "";
+
     return /FBAN|FBAV|Facebook|Zalo|TikTok|Instagram|Telegram/i.test(ua);
   }
 
   function detectPlatformName() {
     const ua = navigator.userAgent || "";
+
     if (/FBAN|FBAV|Facebook/i.test(ua)) return "Facebook";
     if (/Zalo/i.test(ua)) return "Zalo";
     if (/TikTok/i.test(ua)) return "TikTok";
     if (/Instagram/i.test(ua)) return "Instagram";
     if (/Telegram/i.test(ua)) return "Telegram";
+
     return "ứng dụng mạng xã hội";
   }
 
   function detectRecommendedBrowser() {
     const ua = navigator.userAgent || "";
+    if (/Android/i.test(ua)) return "Chrome";
     if (/iPhone|iPad|iPod/i.test(ua)) return "Safari";
     return "Chrome";
   }
 
-  /* ================= UTM ================= */
+  /* ================= UTM (GIỮ NGUYÊN) ================= */
 
   function getUTM() {
     const url = new URL(window.location.href);
@@ -3456,9 +3460,9 @@
     return u.toString();
   }
 
-  /* ================= PREVIEW POPUP ================= */
+  /* ================= PREVIEW POPUP (Y HỆT BẢN GỐC) ================= */
 
-  function showPreviewPopup(linkToCopy) {
+  function showPopup(linkToCopy) {
     const platform = detectPlatformName();
     const browser = detectRecommendedBrowser();
 
@@ -3489,26 +3493,54 @@
         box-shadow:0 10px 30px rgba(0,0,0,.15);
         text-align:center;
       ">
-        <button id="td-close-preview" style="
-          position:absolute;top:10px;right:10px;
-          width:28px;height:28px;border:none;
-          border-radius:50%;background:#f3f4f6;
-          font-size:16px;cursor:pointer;">×</button>
+        <!-- CLOSE -->
+        <button id="td-close-popup" style="
+          position:absolute;
+          top:10px;
+          right:10px;
+          width:28px;
+          height:28px;
+          border-radius:50%;
+          border:none;
+          background:#f3f4f6;
+          color:#374151;
+          font-size:16px;
+          cursor:pointer;
+          line-height:1;
+        " aria-label="Đóng">×</button>
 
-        <div style="font-size:15px;font-weight:600;margin-bottom:8px;">
+        <div style="
+          font-size:15px;
+          font-weight:600;
+          margin-bottom:8px;
+          color:#111827;
+        ">
           Thông báo
         </div>
 
-        <div style="font-size:14px;line-height:1.5;margin-bottom:14px;">
-          Bạn đang mở trang trong <b>${platform}</b>.<br>
-          Không thể đăng ký hoặc tải game.<br>
-          Vui lòng copy link và mở bằng <b>${browser}</b>.
+        <div id="td-popup-text" style="
+          font-size:14px;
+          line-height:1.5;
+          color:#374151;
+          margin-bottom:14px;
+        ">
+          Bạn đang mở trang trên <strong>${platform}</strong>,<br>
+          không thể đăng ký hoặc tải game được.<br><br>
+          Vui lòng <strong>copy link</strong> và mở bằng
+          <strong>${browser}</strong> để tiếp tục.
         </div>
 
-        <button id="td-copy-link" style="
-          width:100%;height:40px;border:none;
-          border-radius:8px;background:#2563eb;
-          color:#fff;font-weight:600;cursor:pointer;">
+        <button id="td-copy-btn" style="
+          width:100%;
+          height:40px;
+          border-radius:8px;
+          border:none;
+          background:#2563eb;
+          color:#ffffff;
+          font-size:14px;
+          font-weight:600;
+          cursor:pointer;
+        ">
           Copy link
         </button>
       </div>
@@ -3516,20 +3548,27 @@
 
     document.body.appendChild(popup);
 
-    document.getElementById("td-close-preview").onclick = () => popup.remove();
+    document.getElementById("td-close-popup").onclick = function () {
+      popup.remove();
+    };
 
-    document.getElementById("td-copy-link").onclick = () => {
+    const btn = document.getElementById("td-copy-btn");
+    const text = document.getElementById("td-popup-text");
+
+    btn.onclick = function () {
       navigator.clipboard.writeText(linkToCopy).then(() => {
-        const btn = document.getElementById("td-copy-link");
-        btn.innerText = "Đã copy thành công ✓";
+        btn.innerText = "Đã copy ✓";
         btn.style.background = "#16a34a";
-        btn.disabled = true;
-        setTimeout(() => popup.remove(), 1200);
+        text.innerHTML = `
+          <strong>Đã copy link.</strong><br>
+          Hãy dán link vào <strong>${browser}</strong><br>
+          để đăng ký và tải game nhé.
+        `;
       });
     };
   }
 
-  /* ================= TYPE EFFECT ================= */
+  /* ================= TYPE EFFECT (4G) ================= */
 
   function typeText(el, text, done) {
     let i = 0;
@@ -3543,7 +3582,7 @@
     }, TYPE_SPEED);
   }
 
-  /* ================= 4G POPUP + COUNTDOWN ================= */
+  /* ================= 4G POPUP ================= */
 
   function show4GPopupAndRedirect(link) {
     if (document.getElementById("td-4g-popup")) return;
@@ -3564,25 +3603,38 @@
     popup.innerHTML = `
       <div style="
         width:90%;max-width:360px;
-        background:#fff;border-radius:14px;
+        background:#fff;
+        border-radius:14px;
         padding:18px 16px 20px;
         text-align:center;
         box-shadow:0 15px 40px rgba(0,0,0,.2);
       ">
         <img src="${WARNING_IMAGE}" style="
-          width:220px;margin:0 auto 14px;display:block;">
-        <div id="td-4g-text" style="
-          font-size:16px;
-          line-height:1.7;
-          min-height:3.4em;
-          font-weight:500;"></div>
+          width:220px;
+          margin:0 auto 14px;
+          display:block;
+        ">
+
+        <div style="
+          background:#f8fafc;
+          border:1px solid #e5e7eb;
+          border-radius:10px;
+          padding:12px 10px;
+          margin-bottom:10px;
+        ">
+          <div id="td-4g-text" style="
+            font-size:15px;
+            line-height:1.6;
+            font-weight:500;
+            min-height:3.2em;
+          "></div>
+        </div>
 
         <div id="td-countdown" style="
-          margin-top:10px;
           font-size:14px;
-          color:#555;">
-          Đang chuyển sau <b>3</b> giây...
-        </div>
+          color:#555;
+          display:none;
+        "></div>
       </div>
     `;
 
@@ -3593,10 +3645,13 @@
 
     typeText(textEl, TEXT_4G, () => {
       let seconds = 3;
+      countdownEl.style.display = "block";
+      countdownEl.innerHTML = `Đến server game sau <b>${seconds}</b> giây...`;
+
       const timer = setInterval(() => {
         seconds--;
         if (seconds > 0) {
-          countdownEl.innerHTML = `Đang chuyển sau <b>${seconds}</b> giây...`;
+          countdownEl.innerHTML = `Đến server game sau <b>${seconds}</b> giây...`;
         } else {
           clearInterval(timer);
           popup.remove();
@@ -3606,25 +3661,22 @@
     });
   }
 
-  /* ================= MAIN CLICK HOOK ================= */
+  /* ================= MAIN ================= */
 
   document.addEventListener("click", function (e) {
-    const linkEl = e.target.closest('a[href="https://thanhdi.games"]');
-    if (!linkEl) return;
+    const link = e.target.closest('a[href="https://thanhdi.games"]');
+    if (!link) return;
 
     e.preventDefault();
 
     const utm = getUTM();
     const targetLink = buildHubLink(utm);
 
-    // 1️⃣ Ưu tiên preview MXH
     if (isPreviewBrowser()) {
-      showPreviewPopup(targetLink);
-      return;
+      showPopup(targetLink); // y hệt cũ
+    } else {
+      show4GPopupAndRedirect(targetLink); // thêm 4G
     }
-
-    // 2️⃣ Không phải preview → luôn hiện popup + đếm ngược
-    show4GPopupAndRedirect(targetLink);
   });
 })();
 </script>
