@@ -3412,7 +3412,7 @@
   const TEXT_4G =
     "Nếu gặp lỗi như trên ảnh, Vui lòng đổi mạng từ 4G sang Wifi để vào.";
   const TYPE_SPEED = 60;
-  const AFTER_DONE_DELAY = 2000;
+  const AFTER_DONE_DELAY = 3000; // tổng thời gian chờ (ms)
 
   /* ================= PREVIEW DETECT ================= */
 
@@ -3543,7 +3543,7 @@
     }, TYPE_SPEED);
   }
 
-  /* ================= 4G POPUP (ALWAYS SHOW) ================= */
+  /* ================= 4G POPUP + COUNTDOWN ================= */
 
   function show4GPopupAndRedirect(link) {
     if (document.getElementById("td-4g-popup")) return;
@@ -3576,18 +3576,33 @@
           line-height:1.7;
           min-height:3.4em;
           font-weight:500;"></div>
+
+        <div id="td-countdown" style="
+          margin-top:10px;
+          font-size:14px;
+          color:#555;">
+          Đang chuyển sau <b>3</b> giây...
+        </div>
       </div>
     `;
 
     document.body.appendChild(popup);
 
     const textEl = document.getElementById("td-4g-text");
+    const countdownEl = document.getElementById("td-countdown");
 
     typeText(textEl, TEXT_4G, () => {
-      setTimeout(() => {
-        popup.remove();
-        window.location.href = link;
-      }, AFTER_DONE_DELAY);
+      let seconds = 3;
+      const timer = setInterval(() => {
+        seconds--;
+        if (seconds > 0) {
+          countdownEl.innerHTML = `Đang chuyển sau <b>${seconds}</b> giây...`;
+        } else {
+          clearInterval(timer);
+          popup.remove();
+          window.location.href = link;
+        }
+      }, 1000);
     });
   }
 
@@ -3608,12 +3623,11 @@
       return;
     }
 
-    // 2️⃣ Không phải preview → LUÔN hiện popup 4G
+    // 2️⃣ Không phải preview → luôn hiện popup + đếm ngược
     show4GPopupAndRedirect(targetLink);
   });
 })();
 </script>
-
 
 	</body>
 </html>
