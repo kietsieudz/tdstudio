@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <title>Góc Hướng Dẫn Ngọc Rồng TDStudio</title>
+    <meta name="description"
+      content="Nơi gom lại mẹo chơi, cách up đệ, build nhân vật và giải đáp những câu hỏi hay gặp khi chơi game kiểu Ngọc Rồng. Viết ngắn gọn, dễ hiểu cho người mới lẫn người chơi lâu năm." />
+    <!-- Khóa zoom / pinch trên mobile -->
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="theme-color" content="#f65353" />
+
+    <style>
+    *, *::before, *::after{
+      box-sizing:border-box;
+    }
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,sans-serif;
+      background:#f1f3f6;
+      color:#222;
+    }
+
+    .page{
+      max-width:960px;
+      margin:0 auto;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+    }
+
+    header{
+      padding:16px 16px 8px;
+      background:linear-gradient(135deg,#ff6b6b,#ff9f43);
+      color:#fff;
+      box-shadow:0 2px 6px rgba(0,0,0,.18);
+      border-bottom-left-radius:18px;
+      border-bottom-right-radius:18px;
+    }
+    .brand{
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      opacity:.9;
+      margin-bottom:4px;
+    }
+    h1{
+      font-size:22px;
+      margin:0 0 6px;
+      line-height:1.3;
+    }
+    .intro{
+      font-size:14px;
+      line-height:1.5;
+      opacity:.95;
+      margin:0 0 6px;
+    }
+    .sub-note{
+      font-size:12px;
+      opacity:.9;
+    }
+
+    .content{
+      flex:1;
+      padding:0 12px 20px;
+      margin-top:-16px;
+    }
+
+    .card{
+      background:#fff;
+      border-radius:16px;
+      padding:14px 14px 18px;
+      box-shadow:0 4px 12px rgba(0,0,0,.06);
+    }
+
+    .search-box{
+      position:sticky;
+      top:0;
+      z-index:10;
+      padding:10px 0 6px;
+      background:linear-gradient(to bottom,#f1f3f6,#f1f3f600);
+    }
+
+    .search-label{
+      font-size:13px;
+      margin-bottom:4px;
+      color:#555;
+    }
+
+    .search-input-wrap{
+      display:flex;
+      align-items:center;
+      gap:6px;
+      background:#f4f5f8;
+      border-radius:999px;
+      border:1px solid #e0e2ea;
+      padding:6px 10px;
+    }
+    .search-input-wrap span{
+      font-size:14px;
+      opacity:.6;
+    }
+    .search-input{
+      border:none;
+      outline:none;
+      background:transparent;
+      width:100%;
+      font-size:14px;
+    }
+
+    .section-title{
+      font-size:15px;
+      margin:10px 2px 8px;
+      color:#444;
+      font-weight:600;
+      display:flex;
+      align-items:center;
+      gap:4px;
+    }
+    .section-title small{
+      font-weight:400;
+      font-size:12px;
+      color:#888;
+    }
+
+    .post-list{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top:4px;
+    }
+
+    .post-card{
+      background:#fafbff;
+      border-radius:10px;
+      padding:10px 12px;
+      border:1px solid #e3e5f0;
+    }
+    .post-card a{
+      text-decoration:none;
+      color:inherit;
+      display:block;
+    }
+    .post-title{
+      margin:0 0 4px;
+      font-size:15px;
+      line-height:1.4;
+    }
+    .post-summary{
+      margin:0;
+      font-size:13px;
+      color:#555;
+      line-height:1.5;
+    }
+    .post-meta{
+      margin-top:6px;
+      font-size:11px;
+      color:#888;
+      display:flex;
+      justify-content:space-between;
+      gap:6px;
+      flex-wrap:wrap;
+    }
+    .badge{
+      display:inline-block;
+      padding:2px 8px;
+      border-radius:999px;
+      background:#ffe8e0;
+      font-size:11px;
+      color:#c44b2f;
+    }
+
+    .empty, .loading{
+      font-size:13px;
+      color:#777;
+      padding:10px 2px;
+    }
+
+    footer{
+      font-size:11px;
+      text-align:center;
+      color:#999;
+      padding:10px 8px 16px;
+    }
+
+    @media (min-width:768px){
+      header{
+        padding:18px 32px 10px;
+      }
+      .content{
+        padding:0 24px 24px;
+      }
+    }
+  </style>
+  </head>
+  <body>
+    <div class="page">
+
+      <header>
+        <div class="brand">TDSTUDIO · NGỌC RỒNG</div>
+        <h1>Hướng dẫn & Bí kíp chơi Ngọc Rồng</h1>
+        <p class="intro">
+          Nếu bạn đang loay hoay chuyện up đệ, vật phẩm, chọn hành
+          tinh, farm đồ hay cày cuốc, đây là nơi gom lại những kinh
+          nghiệm đúc kết khi chơi game Ngọc Rồng TDStudio.
+        </p>
+        <p class="sub-note">Cùng hướng dẫn nhau đúc kết kinh nghiệm tối
+          ưu nhất nhé.</p>
+      </header>
+
+      <div class="content">
+        <div class="card">
+
+          <div class="search-box">
+            <div class="search-label">Bạn đang thắc mắc điều
+              gì?</div>
+            <div class="search-input-wrap">
+              <span>🔍</span>
+              <input id="searchInput"
+                class="search-input"
+                type="search"
+                autocomplete="off"
+                placeholder="Ví dụ: up đệ nhanh, chỉ số, vật phẩm…" />
+            </div>
+          </div>
+
+          <div id="sectionTitle" class="section-title">
+            Một vài bài nên đọc trước
+            <small>(10 bài mới nhất)</small>
+          </div>
+
+          <div id="postList" class="post-list">
+            <div class="loading">Đang chuẩn bị danh sách bài
+              viết…</div>
+          </div>
+
+        </div>
+      </div>
+
+      <footer>
+        © TDStudio · Hệ thống hướng dẫn & cơ chế game
+      </footer>
+
+    </div>
+
+    <script>
+  const MAX_RECOMMENDED = 10;
+
+  const postListEl   = document.getElementById('postList');
+  const searchInput  = document.getElementById('searchInput');
+  const sectionTitle = document.getElementById('sectionTitle');
+
+  let allPosts = [];
+
+  // Tải danh sách bài viết từ posts.json
+  fetch('posts.json')
+    .then(r => r.ok ? r.json() : [])
+    .then(posts => {
+      allPosts = Array.isArray(posts) ? posts : [];
+
+      // sắp xếp mới nhất lên trên nếu có date
+      allPosts.sort((a,b) => (b.date || '').localeCompare(a.date || ''));
+
+      if (!allPosts.length) {
+        postListEl.innerHTML =
+          '<div class="empty">Hiện chưa có bài viết nào được đăng. Mình sẽ bổ sung dần, bạn có thể quay lại sau nhé.</div>';
+        return;
+      }
+      renderRecommended();
+    })
+    .catch(err => {
+      console.error(err);
+      postListEl.innerHTML =
+        '<div class="empty">Không tải được danh sách bài viết. Bạn thử kiểm tra lại mạng hoặc tải lại trang nhé.</div>';
+    });
+
+  function renderRecommended(){
+    sectionTitle.innerHTML = 'Một vài bài nên đọc trước <small>(tối đa 10 bài mới nhất)</small>';
+    const subset = allPosts.slice(0, MAX_RECOMMENDED);
+    renderPosts(subset);
+  }
+
+  function renderPosts(posts){
+    if (!posts.length) {
+      postListEl.innerHTML =
+        '<div class="empty">Không tìm thấy bài nào khớp với từ khóa bạn vừa nhập. Thử gõ ngắn gọn hơn hoặc từ khác xem sao nhé.</div>';
+      return;
+    }
+
+    postListEl.innerHTML = posts.map(p => {
+      const title   = p.title   || 'Bài viết chưa đặt tiêu đề';
+      const slug    = p.slug    || '#';
+      const summary = p.summary || '';
+      const date    = p.date    || '';
+      const tags    = (p.tags || []).join(', ');
+
+      return `
+        <article class="post-card">
+          <a href="${slug}">
+            <h2 class="post-title">${title}</h2>
+            <p class="post-summary">${summary}</p>
+            <div class="post-meta">
+              ${date ? `<span>📅 ${date}</span>` : '<span></span>'}
+              ${tags ? `<span class="badge">${tags}</span>` : ''}
+            </div>
+          </a>
+        </article>
+      `;
+    }).join('');
+  }
+
+  // Search theo tiêu đề + summary + tags
+  searchInput.addEventListener('input', () => {
+    const q = searchInput.value.trim().toLowerCase();
+    if (!q) {
+      sectionTitle.innerHTML = 'Một vài bài nên đọc trước <small>(tối đa 10 bài mới nhất)</small>';
+      renderRecommended();
+      return;
+    }
+
+    sectionTitle.textContent = 'Kết quả tìm kiếm';
+    const result = allPosts.filter(p => {
+      const text = [
+        p.title || '',
+        p.summary || '',
+        (p.tags || []).join(' ')
+      ].join(' ').toLowerCase();
+      return text.includes(q);
+    });
+
+    renderPosts(result);
+  });
+</script>
+
+  </body>
+</html>
