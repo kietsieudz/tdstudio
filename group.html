@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TDStudio – Cộng đồng Server</title>
+<title>TDStudio – Cộng đồng</title>
 
 <style>
 * {
@@ -14,8 +14,8 @@
 }
 
 body {
-    background: linear-gradient(180deg, #0f172a, #020617);
-    color: #e5e7eb;
+    background: #f4f6fb;
+    color: #111827;
     padding: 14px;
 }
 
@@ -26,55 +26,59 @@ body {
 
 /* ===== HEADER ===== */
 .header {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 18px;
     text-align: center;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.05);
     margin-bottom: 16px;
 }
 
 .avatar {
-    width: 84px;
-    height: 84px;
+    width: 82px;
+    height: 82px;
     border-radius: 50%;
     margin: auto;
     background: url("https://i.imgur.com/6X4VQ0Z.png") center/cover no-repeat;
-    border: 3px solid #facc15;
+    border: 2px solid #e5e7eb;
 }
 
 .name {
     margin-top: 10px;
     font-size: 20px;
     font-weight: 800;
-    letter-spacing: .5px;
 }
 
 .download-btn {
-    margin-top: 10px;
+    margin-top: 12px;
     display: inline-block;
-    padding: 12px 20px;
-    background: linear-gradient(90deg, #facc15, #f97316);
-    color: #020617;
+    padding: 12px 22px;
+    background: linear-gradient(90deg, #facc15, #fb923c);
+    color: #111827;
     font-weight: 800;
-    border-radius: 12px;
+    border-radius: 14px;
     text-decoration: none;
 }
 
-/* ===== SERVER LIST ===== */
+/* ===== SECTION TITLE ===== */
 .section-title {
-    margin: 18px 0 10px;
     font-size: 14px;
-    font-weight: 700;
-    color: #facc15;
+    font-weight: 800;
+    margin: 16px 4px 10px;
+    color: #374151;
 }
 
+/* ===== SERVER CARD ===== */
 .server {
-    background: #020617;
-    border: 1px solid #1e293b;
-    border-radius: 12px;
-    margin-bottom: 8px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+    margin-bottom: 12px;
     overflow: hidden;
 }
 
 .server-header {
-    padding: 12px 14px;
+    padding: 14px 16px;
     font-weight: 700;
     display: flex;
     justify-content: space-between;
@@ -83,50 +87,56 @@ body {
 }
 
 .server-header span {
-    font-size: 13px;
-    color: #9ca3af;
+    color: #6b7280;
+    font-size: 12px;
 }
 
 .server-content {
     display: none;
-    padding: 10px 14px 14px;
-    gap: 8px;
+    padding: 0 16px 16px;
 }
 
-.server-content a {
+/* ===== ZALO BOX ===== */
+.zalo-box {
     display: block;
-    padding: 10px;
-    border-radius: 10px;
+    margin-top: 10px;
+    padding: 12px;
     text-align: center;
-    text-decoration: none;
     font-weight: 700;
-    font-size: 13px;
+    font-size: 14px;
+    border-radius: 12px;
+    background: #e0f2fe;
+    color: #075985;
+    text-decoration: none;
+    border: 1px solid #bae6fd;
 }
 
-.zalo {
-    background: #0ea5e9;
-    color: #020617;
+.zalo-box:hover {
+    background: #bae6fd;
 }
 
 /* ===== WHATSAPP ===== */
 .whatsapp {
     margin-top: 16px;
-    background: #16a34a;
-    color: #022c22;
+    display: block;
+    background: #dcfce7;
+    border: 1px solid #86efac;
+    color: #14532d;
     text-align: center;
     padding: 14px;
-    border-radius: 14px;
+    border-radius: 16px;
     font-weight: 800;
     text-decoration: none;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.04);
 }
 
-/* ===== FOOTER ===== */
 footer {
     margin-top: 18px;
     text-align: center;
     font-size: 11px;
-    color: #64748b;
+    color: #9ca3af;
 }
+
 </style>
 </head>
 
@@ -140,7 +150,6 @@ footer {
         <a class="download-btn" href="https://thanhdi.com/download">TẢI GAME</a>
     </div>
 
-    <!-- SERVERS -->
     <div class="section-title">CHỌN SERVER (ZALO)</div>
 
     <!-- SERVER 1 -->
@@ -149,9 +158,9 @@ footer {
             Server 1 <span>▼</span>
         </div>
         <div class="server-content">
-            <a class="zalo" href="#">Zalo Box 1</a>
-            <a class="zalo" href="#">Zalo Box 2</a>
-            <a class="zalo" href="#">Zalo Box 3</a>
+            <a class="zalo-box" href="#">Zalo Box 1</a>
+            <a class="zalo-box" href="#">Zalo Box 2</a>
+            <a class="zalo-box" href="#">Zalo Box 3</a>
         </div>
     </div>
 
@@ -161,9 +170,9 @@ footer {
             Server 2 <span>▼</span>
         </div>
         <div class="server-content">
-            <a class="zalo" href="#">Zalo Box 1</a>
-            <a class="zalo" href="#">Zalo Box 2</a>
-            <a class="zalo" href="#">Zalo Box 3</a>
+            <a class="zalo-box" href="#">Zalo Box 1</a>
+            <a class="zalo-box" href="#">Zalo Box 2</a>
+            <a class="zalo-box" href="#">Zalo Box 3</a>
         </div>
     </div>
 
@@ -173,9 +182,9 @@ footer {
             Server 3 <span>▼</span>
         </div>
         <div class="server-content">
-            <a class="zalo" href="#">Zalo Box 1</a>
-            <a class="zalo" href="#">Zalo Box 2</a>
-            <a class="zalo" href="#">Zalo Box 3</a>
+            <a class="zalo-box" href="#">Zalo Box 1</a>
+            <a class="zalo-box" href="#">Zalo Box 2</a>
+            <a class="zalo-box" href="#">Zalo Box 3</a>
         </div>
     </div>
 
@@ -187,6 +196,7 @@ footer {
     <footer>
         © TDStudio – Community Hub
     </footer>
+
 </div>
 
 <script>
