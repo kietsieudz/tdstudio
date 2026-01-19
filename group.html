@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TDStudio – Cộng đồng Server</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(180deg, #0f172a, #020617);
+    color: #e5e7eb;
+    padding: 14px;
+}
+
+.container {
+    max-width: 480px;
+    margin: auto;
+}
+
+/* ===== HEADER ===== */
+.header {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.avatar {
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    margin: auto;
+    background: url("https://i.imgur.com/6X4VQ0Z.png") center/cover no-repeat;
+    border: 3px solid #facc15;
+}
+
+.name {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: .5px;
+}
+
+.download-btn {
+    margin-top: 10px;
+    display: inline-block;
+    padding: 12px 20px;
+    background: linear-gradient(90deg, #facc15, #f97316);
+    color: #020617;
+    font-weight: 800;
+    border-radius: 12px;
+    text-decoration: none;
+}
+
+/* ===== SERVER LIST ===== */
+.section-title {
+    margin: 18px 0 10px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #facc15;
+}
+
+.server {
+    background: #020617;
+    border: 1px solid #1e293b;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    overflow: hidden;
+}
+
+.server-header {
+    padding: 12px 14px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.server-header span {
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+.server-content {
+    display: none;
+    padding: 10px 14px 14px;
+    gap: 8px;
+}
+
+.server-content a {
+    display: block;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.zalo {
+    background: #0ea5e9;
+    color: #020617;
+}
+
+/* ===== WHATSAPP ===== */
+.whatsapp {
+    margin-top: 16px;
+    background: #16a34a;
+    color: #022c22;
+    text-align: center;
+    padding: 14px;
+    border-radius: 14px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    margin-top: 18px;
+    text-align: center;
+    font-size: 11px;
+    color: #64748b;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="avatar"></div>
+        <div class="name">TDStudio</div>
+        <a class="download-btn" href="https://thanhdi.com/download">TẢI GAME</a>
+    </div>
+
+    <!-- SERVERS -->
+    <div class="section-title">CHỌN SERVER (ZALO)</div>
+
+    <!-- SERVER 1 -->
+    <div class="server">
+        <div class="server-header" onclick="toggle(this)">
+            Server 1 <span>▼</span>
+        </div>
+        <div class="server-content">
+            <a class="zalo" href="#">Zalo Box 1</a>
+            <a class="zalo" href="#">Zalo Box 2</a>
+            <a class="zalo" href="#">Zalo Box 3</a>
+        </div>
+    </div>
+
+    <!-- SERVER 2 -->
+    <div class="server">
+        <div class="server-header" onclick="toggle(this)">
+            Server 2 <span>▼</span>
+        </div>
+        <div class="server-content">
+            <a class="zalo" href="#">Zalo Box 1</a>
+            <a class="zalo" href="#">Zalo Box 2</a>
+            <a class="zalo" href="#">Zalo Box 3</a>
+        </div>
+    </div>
+
+    <!-- SERVER 3 -->
+    <div class="server">
+        <div class="server-header" onclick="toggle(this)">
+            Server 3 <span>▼</span>
+        </div>
+        <div class="server-content">
+            <a class="zalo" href="#">Zalo Box 1</a>
+            <a class="zalo" href="#">Zalo Box 2</a>
+            <a class="zalo" href="#">Zalo Box 3</a>
+        </div>
+    </div>
+
+    <!-- WHATSAPP -->
+    <a class="whatsapp" href="https://chat.whatsapp.com/xxxxx" target="_blank">
+        WhatsApp Cộng Đồng (Global)
+    </a>
+
+    <footer>
+        © TDStudio – Community Hub
+    </footer>
+</div>
+
+<script>
+function toggle(el) {
+    const content = el.nextElementSibling;
+    const opened = content.style.display === "block";
+    document.querySelectorAll('.server-content').forEach(c => c.style.display = "none");
+    content.style.display = opened ? "none" : "block";
+}
+</script>
+</body>
+</html>
