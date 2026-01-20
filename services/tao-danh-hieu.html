@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Thể lệ sự kiện – Danh hiệu Top 1 Nạp Tháng</title>
+
+        <style>
+        :root {
+            --bg: #f6f8fb;
+            --card: #ffffff;
+            --primary: #4f8cff;
+            --text-main: #1f2937;
+            --text-sub: #6b7280;
+            --border: #e5e7eb;
+            --radius: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text-main);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 760px;
+            margin: auto;
+        }
+
+        /* HEADER */
+        .header-box {
+            background: linear-gradient(135deg, #eef4ff, #ffffff);
+            border-radius: 20px;
+            padding: 24px 22px;
+            margin-bottom: 24px;
+            border: 1px solid var(--border);
+        }
+
+        .header-title {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .header-sub {
+            font-size: 0.95rem;
+            color: var(--text-sub);
+            line-height: 1.5;
+        }
+
+        /* CONTENT CARD */
+        .content-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .content-text {
+            font-size: 0.95rem;
+            line-height: 1.65;
+            color: var(--text-main);
+        }
+
+        .content-text ul {
+            padding-left: 18px;
+            margin-top: 8px;
+        }
+
+        .content-text li {
+            margin-bottom: 8px;
+        }
+
+        /* IMAGE */
+        .event-image {
+            width: 100%;
+            max-height: 360px;
+            object-fit: cover;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            margin-top: 14px;
+        }
+
+        /* NOTICE */
+        .notice-box {
+            background: #fff7ed;
+            border: 1px solid #fed7aa;
+            border-radius: 14px;
+            padding: 14px 16px;
+            font-size: 0.9rem;
+            color: #92400e;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 480px) {
+            .header-title {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+    </head>
+    <body>
+
+        <div class="container">
+
+            <!-- HEADER -->
+            <div class="header-box">
+                <div class="header-title">Thể lệ sự kiện Danh hiệu</div>
+                <div class="header-sub">
+                    Sự kiện dành cho người chơi đạt <b>Top 1 nạp hàng trong
+                        tháng</b>, mang tính vinh danh
+                    và thưởng sức mạnh đặc biệt trong game.
+                </div>
+            </div>
+
+            <!-- ĐIỀU KIỆN -->
+            <div class="content-card">
+                <div class="section-title">1. Điều kiện tham gia</div>
+                <div class="content-text">
+                    <ul>
+                        <li>Người chơi phải đạt <b>Top 1 nạp</b> tháng.</li>
+                        <li>Chỉ áp dụng cho <b>1 người chơi </b> mỗi
+                            tháng.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- QUYỀN LỢI -->
+            <div class="content-card">
+                <div class="section-title">2. Quyền lợi khi đạt Top 1</div>
+                <div class="content-text">
+                    Người chơi đạt Top 1 nạp hàng trong tháng sẽ được phép
+                    <b>yêu cầu tạo Danh hiệu riêng</b> theo tên <b>tùy ý</b>.
+
+                    <ul>
+                        <li>Danh hiệu tăng <b>5% Sức đánh</b>.</li>
+                        <li>Tăng <b>5% HP</b>.</li>
+                        <li>Tăng <b>5% KI</b>.</li>
+                        <li>Danh hiệu <b>không chiếm ô trang bị.</b></li>
+                        <li>Danh hiệu <b>vĩnh viễn</b></li>
+                        <li>Không có chỉ số ẩn.</li>
+                        <li>Khi online, danh hiệu sẽ <b>hiển thị trên nhân
+                                vật</b>.</li>
+                    </ul>
+
+                    <!-- IMAGE PLACEHOLDER -->
+                    <img
+                        src="/images/top1nap.png"
+                        alt="Danh hiệu Top 1 Nạp Tháng"
+                        class="event-image">
+                </div>
+            </div>
+
+            <!-- THỜI HẠN -->
+            <div class="content-card">
+                <div class="section-title">3. Thời hạn yêu cầu danh
+                    hiệu</div>
+                <div class="content-text">
+                    <ul>
+                        <li>
+                            Người chơi phải <b>liên hệ Admin trong vòng 02
+                                ngày</b>
+                            kể từ thời điểm nhận Top 1 nạp hàng.
+                        </li>
+                        <li>
+                            Quá thời hạn <b>02 ngày</b>, hệ thống sẽ <b>từ
+                                chối
+                                mọi yêu cầu</b>
+                            tạo danh hiệu, không có ngoại lệ.
+                        </li>
+                        <li>
+                            Ban quản trị <b>không chịu trách nhiệm</b> nếu
+                            người
+                            chơi không
+                            chủ động liên hệ trong thời gian quy định.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- LƯU Ý -->
+            <div class="notice-box">
+                Lưu ý: Danh hiệu được tạo là phần thưởng vinh danh cho Top 1
+                nạp
+                hàng mỗi tháng.
+                Mọi hành vi lợi dụng, tranh chấp hoặc yêu cầu ngoài thể lệ
+                sẽ
+                không được giải quyết.
+            </div>
+
+        </div>
+
+    </body>
+</html>
