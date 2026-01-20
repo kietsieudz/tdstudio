@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Thông tin cập nhật hàng ngày – TDStudio</title>
+
+        <style>
+        :root {
+            --bg: #f6f8fb;
+            --card: #ffffff;
+            --primary: #4f8cff;
+            --text-main: #1f2937;
+            --text-sub: #6b7280;
+            --border: #e5e7eb;
+            --radius: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text-main);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: auto;
+        }
+
+        /* ===== HEADER ===== */
+        .header-box {
+            background: linear-gradient(135deg, #eef4ff, #ffffff);
+            border-radius: 20px;
+            padding: 22px 20px;
+            margin-bottom: 24px;
+            border: 1px solid var(--border);
+        }
+
+        .header-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+
+        .header-sub {
+            font-size: 0.95rem;
+            color: var(--text-sub);
+            line-height: 1.5;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            margin-left: 4px;
+        }
+
+        .section-sub {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            margin-bottom: 16px;
+            margin-left: 4px;
+        }
+
+        .section-sub a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* ===== UPDATE CARD ===== */
+        .update-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 16px 18px;
+            margin-bottom: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        .update-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .update-title {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .update-time {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            background: #eef2ff;
+            padding: 4px 10px;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+
+        .update-content {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .update-content ul {
+            padding-left: 18px;
+            margin-top: 6px;
+        }
+
+        .update-content li {
+            margin-bottom: 8px;
+        }
+
+        /* Mobile */
+        @media (max-width: 480px) {
+            .header-title {
+                font-size: 1.35rem;
+            }
+        }
+    </style>
+    </head>
+    <body>
+
+        <div class="container">
+
+            <!-- HEADER -->
+            <div class="header-box">
+                <div class="header-title">Thông tin cập nhật TDStudio</div>
+                <div class="header-sub">
+                    Server bảo trì hàng ngày vào <b>06:00</b>, thời gian khoảng
+                    <b>30 giây</b>.
+                </div>
+            </div>
+
+            <!-- SECTION -->
+            <div class="section-title">📌 Thông tin cập nhật hàng ngày</div>
+            <div class="section-sub">
+                Sự kiện đang diễn ra: <a href="/su-kien">Xem chi tiết</a>
+            </div>
+
+            <!-- UPDATE CARD -->
+            <div class="update-card">
+                <div class="update-header">
+                    <div class="update-title">Cập nhật ngày 20/01/2026</div>
+                    <div class="update-time">17:10</div>
+                </div>
+
+                <div class="update-content">
+                    <ul>
+                        <li>Ra mắt 2 phụ kiện mới ở cửa hàng Santa.</li>
+                        <li>
+                            Cả 4 vật phẩm ở cửa hàng đệ tử là cả 4 ô của đệ tử
+                            (không còn vật phẩm bị trùng ô)
+                        </li>
+                        <li>Sắp ra mắt boss mới tại Bulma ở đảo kame.</li>
+                        <li>Mở lại tính năng yêu cầu: Người chơi đạt top 1 nạp
+                            hàng tháng được phép yêu cầu tạo Danh hiệu riêng
+                            theo tên Tùy ý (không chỉ số - không tốn ô đeo trên
+                            người - online là hiện danh hiệu).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- UPDATE CARD -->
+            <div class="update-card">
+                <div class="update-header">
+                    <div class="update-title">Cập nhật ngày 19/01/2026</div>
+                    <div class="update-time">15:20</div>
+                </div>
+
+                <div class="update-content">
+                    <ul>
+                        <li>Fix lỗi Bụng Mabư gây hiện tượng đánh người khác dù
+                            không PK hoặc chưa bật cờ.</li>
+                        <li>
+                            Thêm hiệu ứng <b>Choáng 30 giây</b> cho người ở gần
+                            khi sử dụng cải trang
+                            <b>Thiên Shin Han</b>.
+                            <br>
+                            (Những ai từng đổi ngoại hình làm mất hiệu ứng
+                            choáng vui lòng liên hệ admin để được thêm lại)
+                        </li>
+                        <li>Giảm thời gian chờ vứt đồ từ <b>5 giây</b> xuống
+                            <b>1 giây</b> để thao tác nhanh hơn.</li>
+                        <li>Đặt giá ký gửi tối thiểu cho <b>Đá nâng cấp</b> tại
+                            Cửa hàng ký gửi nhằm tránh phá giá.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </body>
+</html>
