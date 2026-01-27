@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Xem trước cải trang</title>
+
+        <style>
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    margin: 0;
+    padding: 12px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f2f3f7;
+}
+
+/* Khung */
+.section {
+    background: #fff;
+    border-radius: 18px;
+    padding: 12px;
+    margin-bottom: 16px;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+}
+
+.section-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* Grid 5 cột */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+/* Card */
+.card {
+    text-align: center;
+}
+
+/* Item ảnh */
+.item {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    border: 2px solid #e0e0e0;
+    background: #fafafa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item img {
+    width: 88%;
+    height: 88%;
+    object-fit: contain;
+}
+
+/* Tên cải trang */
+.name {
+    margin-top: 4px;
+    font-size: 11px;
+    line-height: 1.2;
+    color: #333;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;      /* tối đa 2 dòng */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* VIP */
+.vip {
+    border-color: #c58cff;
+    background: linear-gradient(145deg, #f7ebff, #ffffff);
+}
+
+.vip::after {
+    content: "VIP";
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 2px 5px;
+    border-radius: 8px;
+    background: #9b59b6;
+    color: #fff;
+}
+
+/* cảm giác bấm */
+.card:active {
+    transform: scale(0.95);
+}
+</style>
+    </head>
+
+    <body>
+        <h3 style="text-align: center;">Cải Trang Đổi Ngoại Hình Tại
+            Bà Hạt Mít</h3>
+        <!-- CẢI TRANG VIP -->
+        <div class="section">
+            <div class="section-title">🌟 Cải trang VIP</div>
+            <div class="grid">
+
+                <div class="card">
+                    <div class="item vip">
+                        <img src="/images/quatang/17337.png">
+                    </div>
+                    <div class="name">Vua Hùng</div>
+                </div>
+
+                <div class="card">
+                    <div class="item vip">
+                        <img src="/images/quatang/17304.png">
+                    </div>
+                    <div class="name">Mị Nương</div>
+                </div>
+
+                <div class="card">
+                    <div class="item vip">
+                        <img src="/images/quatang/8087.png">
+                    </div>
+                    <div class="name">Liễu Thần</div>
+                </div>
+
+                <div class="card">
+                    <div class="item vip">
+                        <img src="/images/quatang/10582.png">
+                    </div>
+                    <div class="name">Jiren</div>
+                </div>
+
+                <div class="card">
+                    <div class="item vip">
+                        <img src="/images/quatang/11934.png">
+                    </div>
+                    <div class="name">Jiren 2</div>
+                </div>
+
+                <div class="card">
+                    <div class="item vip">
+                        <img src="/images/quatang/11006.png">
+                    </div>
+                    <div class="name">Janemba</div>
+                </div>
+
+                <div class="card">
+                    <div class="item vip">
+                        <img src="/images/quatang/11665.png">
+                    </div>
+                    <div class="name">Frieren</div>
+                </div>
+
+                <div class="card">
+                    <div class="item vip">
+                        <img src="/images/quatang/15773.png">
+                    </div>
+                    <div class="name">Hằng Nga</div>
+                </div>
+
+                <div class="card">
+                    <div class="item vip">
+                        <img src="/images/quatang/15740.png">
+                    </div>
+                    <div class="name">New Uron</div>
+                </div>
+
+                <div class="card">
+                    <div class="item vip">
+                        <img src="/images/quatang/12552.png">
+                    </div>
+                    <div class="name">Ngài Himel</div>
+                </div>
+
+                <div class="card">
+                    <div class="item vip">
+                        <img src="/images/quatang/17236.png">
+                    </div>
+                    <div class="name">Mị Nương</div>
+                </div>
+
+                <div class="card">
+                    <div class="item vip">
+                        <img src="/images/quatang/14636.png">
+                    </div>
+                    <div class="name">Luffy Đỏ</div>
+                </div>
+
+                <div class="card">
+                    <div class="item vip">
+                        <img src="/images/quatang/14667.png">
+                    </div>
+                    <div class="name">Luffy Trắng</div>
+                </div>
+
+                <div class="card">
+                    <div class="item vip">
+                        <img src="/images/quatang/15042.png">
+                    </div>
+                    <div class="name">Wukong</div>
+                </div>
+
+                <div class="card">
+                    <div class="item vip">
+                        <img src="/images/quatang/17066.png">
+                    </div>
+                    <div class="name">Parasite</div>
+                </div>
+
+                <div class="card">
+                    <div class="item vip">
+                        <img src="/images/quatang/17035.png">
+                    </div>
+                    <div class="name">Baby Vegeta</div>
+                </div>
+
+                <div class="card">
+                    <div class="item vip">
+                        <img src="/images/quatang/20103.png">
+                    </div>
+                    <div class="name">Kochiro</div>
+                </div>
+
+                <div class="card">
+                    <div class="item vip">
+                        <img src="/images/quatang/20136.png">
+                    </div>
+                    <div class="name">Musashi</div>
+                </div>
+
+                <div class="card">
+                    <div class="item vip">
+                        <img src="/images/quatang/17230.png">
+                    </div>
+                    <div class="name">Goku Ssj4</div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- CẢI TRANG THƯỜNG -->
+        <div class="section">
+            <div class="section-title">🎁 Cải trang thường</div>
+            <div class="grid">
+
+                <div class="card">
+                    <div class="item">
+                        <img src="/images/quatang/17432.png">
+                    </div>
+                    <div class="name">Sơn Tinh</div>
+                </div>
+
+                <div class="card">
+                    <div class="item">
+                        <img src="/images/quatang/17465.png">
+                    </div>
+                    <div class="name">Thủy Tinh</div>
+                </div>
+
+                <div class="card">
+                    <div class="item">
+                        <img src="/images/quatang/16760.png">
+                    </div>
+                    <div class="name">Android 21</div>
+                </div>
+
+                <div class="card">
+                    <div class="item">
+                        <img src="/images/quatang/16621.png">
+                    </div>
+                    <div class="name">Android 21</div>
+                </div>
+
+                <div class="card">
+                    <div class="item">
+                        <img src="/images/quatang/16691.png">
+                    </div>
+                    <div class="name">Super Gogeta</div>
+                </div>
+
+                <div class="card">
+                    <div class="item">
+                        <img src="/images/quatang/6306.png">
+                    </div>
+                    <div class="name">Tiên Cá</div>
+                </div>
+
+                <div class="card">
+                    <div class="item">
+                        <img src="/images/quatang/10340.png">
+                    </div>
+                    <div class="name">Mèo Karin</div>
+                </div>
+
+                <div class="card">
+                    <div class="item">
+                        <img src="/images/quatang/6935.png">
+                    </div>
+                    <div class="name">Mặt Trăng</div>
+                </div>
+
+                <div class="card">
+                    <div class="item">
+                        <img src="/images/quatang/7419.png">
+                    </div>
+                    <div class="name">Mị Nương</div>
+                </div>
+
+                <div class="card">
+                    <div class="item">
+                        <img src="/images/quatang/7771.png">
+                    </div>
+                    <div class="name">Gohan Rose</div>
+                </div>
+
+                <div class="card">
+                    <div class="item">
+                        <img src="/images/quatang/4946.png">
+                    </div>
+                    <div class="name">Hit</div>
+                </div>
+
+                <div class="card">
+                    <div class="item">
+                        <img src="/images/quatang/7924.png">
+                    </div>
+                    <div class="name">White Goku</div>
+                </div>
+
+                <div class="card">
+                    <div class="item">
+                        <img src="/images/quatang/3883.png">
+                    </div>
+                    <div class="name">Thần Goku</div>
+                </div>
+
+                <div class="card">
+                    <div class="item">
+                        <img src="/images/quatang/14225.png">
+                    </div>
+                    <div class="name">Omega</div>
+                </div>
+
+                <div class="card">
+                    <div class="item">
+                        <img src="/images/quatang/10911.png">
+                    </div>
+                    <div class="name">Super Goku</div>
+                </div>
+
+                <div class="card">
+                    <div class="item">
+                        <img src="/images/quatang/11967.png">
+                    </div>
+                    <div class="name">Super Gold</div>
+                </div>
+
+                <div class="card">
+                    <div class="item">
+                        <img src="/images/quatang/11108.png">
+                    </div>
+                    <div class="name">Thần Abinus</div>
+                </div>
+
+                <div class="card">
+                    <div class="item">
+                        <img src="/images/quatang/12510.png">
+                    </div>
+                    <div class="name">Goku Ssj2</div>
+                </div>
+
+                <div class="card">
+                    <div class="item">
+                        <img src="/images/quatang/12504.png">
+                    </div>
+                    <div class="name">Goku Ssj3</div>
+                </div>
+
+                <div class="card">
+                    <div class="item">
+                        <img src="/images/quatang/12516.png">
+                    </div>
+                    <div class="name">Ssj Blue</div>
+                </div>
+
+                <div class="card">
+                    <div class="item">
+                        <img src="/images/quatang/12191.png">
+                    </div>
+                    <div class="name">Hutao</div>
+                </div>
+
+                <div class="card">
+                    <div class="item">
+                        <img src="/images/quatang/12224.png">
+                    </div>
+                    <div class="name">Xiao</div>
+                </div>
+
+                <div class="card">
+                    <div class="item">
+                        <img src="/images/quatang/12257.png">
+                    </div>
+                    <div class="name">Ayaka</div>
+                </div>
+
+                <div class="card">
+                    <div class="item">
+                        <img src="/images/quatang/10372.png">
+                    </div>
+                    <div class="name">Panther</div>
+                </div>
+
+                <div class="card">
+                    <div class="item">
+                        <img src="/images/quatang/10408.png">
+                    </div>
+                    <div class="name">Ironman</div>
+                </div>
+
+                <div class="card">
+                    <div class="item">
+                        <img src="/images/quatang/13506.png">
+                    </div>
+                    <div class="name">Gohan</div>
+                </div>
+
+                <div class="card">
+                    <div class="item">
+                        <img src="/images/quatang/15381.png">
+                    </div>
+                    <div class="name">Super Goku</div>
+                </div>
+
+                <div class="card">
+                    <div class="item">
+                        <img src="/images/quatang/15413.png">
+                    </div>
+                    <div class="name">Super Vegeta</div>
+                </div>
+
+                <div class="card">
+                    <div class="item">
+                        <img src="/images/quatang/15445.png">
+                    </div>
+                    <div class="name">Super Gogeta</div>
+                </div>
+
+                <div class="card">
+                    <div class="item">
+                        <img src="/images/quatang/13406.png">
+                    </div>
+                    <div class="name">Vegeta Ultra</div>
+                </div>
+
+                <div class="card">
+                    <div class="item">
+                        <img src="/images/quatang/15220.png">
+                    </div>
+                    <div class="name">Naruto</div>
+                </div>
+
+                <div class="card">
+                    <div class="item">
+                        <img src="/images/quatang/13608.png">
+                    </div>
+                    <div class="name">Super Fu</div>
+                </div>
+
+                <div class="card">
+                    <div class="item">
+                        <img src="/images/quatang/9442.png">
+                    </div>
+                    <div class="name">Bulma Hồng</div>
+                </div>
+
+                <div class="card">
+                    <div class="item">
+                        <img src="/images/quatang/9473.png">
+                    </div>
+                    <div class="name">Bulma Đỏ</div>
+                </div>
+
+                <div class="card">
+                    <div class="item">
+                        <img src="/images/quatang/9504.png">
+                    </div>
+                    <div class="name">Thỏ Poc</div>
+                </div>
+
+                <div class="card">
+                    <div class="item">
+                        <img src="/images/quatang/9904.png">
+                    </div>
+                    <div class="name">Poc Ác Qủy</div>
+                </div>
+
+                <div class="card">
+                    <div class="item">
+                        <img src="/images/quatang/9935.png">
+                    </div>
+                    <div class="name">Phù Thủy</div>
+                </div>
+
+                <div class="card">
+                    <div class="item">
+                        <img src="/images/quatang/5150.png">
+                    </div>
+                    <div class="name">Goku Rose</div>
+                </div>
+
+            </div>
+        </div>
+
+    </body>
+</html>
