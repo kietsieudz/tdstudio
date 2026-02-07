@@ -2,140 +2,168 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-            <meta name="viewport"
-                content="width=device-width, initial-scale=1.0">
-            <title>Cộng đồng Ngọc Rồng Online – TDStudio</title>
-            <link rel="canonical" href="https://thanhdi.com/groups" />
-            <!-- Google tag (GA4) -->
-            <script async
-                src="https://www.googletagmanager.com/gtag/js?id=G-BQCBVHE2GN"></script>
-            <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-BQCBVHE2GN');
-</script>
-            <meta name="description"
-                content="Trang cộng đồng Ngọc Rồng Online của TDStudio, nơi người chơi trao đổi, chia sẻ thông tin và kết nối trong hệ sinh thái TDStudio.">
-            <meta name="robots" content="index, follow">
-        </head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cộng đồng Ngọc Rồng Online – TDStudio</title>
 
 <style>
 /* =========================
-   TD ZALO COMMUNITY – V2
-   namespace riêng
+   TD COMMUNITY – FINAL UI
 ========================= */
-.td-zalo-wrap {
-    padding: 48px 16px;
-    background: linear-gradient(180deg, #ffbd6a, #ffab3f);
-    text-align: center;
+:root {
+    --bg-page: #eef1f4;
+
+    --card-bg: #ffffff;
+    --card-radius: 28px;
+
+    --primary: #4f7df3;        /* xanh lam dịu */
+    --primary-shadow: rgba(79,125,243,.35);
+
+    --community: #25b29a;      /* xanh ngọc dịu */
+    --community-shadow: rgba(37,178,154,.35);
+
+    --server-bg: #fdfdfd;
+    --server-border: #e6ebf0;
+    --server-shadow: rgba(0,0,0,.08);
+
+    --text-main: #1f2933;
 }
 
-.td-zalo-title {
-    margin-bottom: 32px;
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg-page);
+    color: var(--text-main);
+}
+
+.td-page {
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 24px 16px 48px;
+}
+
+/* khung bọc toàn bộ */
+.td-card {
+    background: var(--card-bg);
+    border-radius: var(--card-radius);
+    padding: 28px 20px 32px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.08);
+}
+
+.td-title {
     font-size: 20px;
     font-weight: 700;
-    color: #3b1f12;
+    text-align: center;
+    margin-bottom: 22px;
 }
 
-.td-zalo-grid {
-    max-width: 600px;
-    margin: 0 auto;
-
+/* grid */
+.td-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
 }
 
-/* nút dạng card */
-.td-zalo-btn {
-    position: relative;
-    height: 52px;
+/* base button */
+.td-btn {
+    height: 56px;
+    border-radius: 18px;
+    text-decoration: none;
+    font-size: 14.5px;
+    font-weight: 600;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    padding: 0 12px;
-
-    background: linear-gradient(180deg, #9a5234, #7f3f26);
-    color: #fff;
-
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 600;
-
-    border-radius: 12px;
-    box-shadow:
-        0 6px 0 #5e2c18,
-        0 10px 18px rgba(0, 0, 0, 0.18);
-
     transition: transform .12s ease, box-shadow .12s ease;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
-.td-zalo-btn:active {
-    transform: translateY(4px);
-    box-shadow:
-        0 2px 0 #5e2c18,
-        0 6px 10px rgba(0, 0, 0, 0.2);
+.td-btn:active {
+    transform: translateY(2px);
 }
 
-/* nhóm đặc biệt */
-.td-zalo-btn.notice {
-    background: linear-gradient(180deg, #2f7cff, #1f5fd4);
-    box-shadow:
-        0 6px 0 #1747a5,
-        0 10px 18px rgba(0, 0, 0, 0.18);
+/* full width */
+.td-btn.full {
+    grid-column: span 2;
+    height: 64px;
+    font-size: 15.5px;
 }
 
-.td-zalo-btn.notice:active {
+/* primary */
+.td-btn.primary {
+    background: var(--primary);
+    color: #fff;
     box-shadow:
-        0 2px 0 #1747a5,
-        0 6px 10px rgba(0, 0, 0, 0.2);
+        0 10px 24px var(--primary-shadow),
+        inset 0 1px 0 rgba(255,255,255,.25);
 }
 
-.td-zalo-btn.global {
-    background: linear-gradient(180deg, #00a884, #007f63);
-    box-shadow:
-        0 6px 0 #005f49,
-        0 10px 18px rgba(0, 0, 0, 0.18);
+/* server */
+.td-btn.server {
+    background: var(--server-bg);
+    color: var(--text-main);
+    border: 1px solid var(--server-border);
+    box-shadow: 0 10px 20px var(--server-shadow);
 }
 
-.td-zalo-btn.global:active {
+/* community */
+.td-btn.community {
+    background: var(--community);
+    color: #fff;
     box-shadow:
-        0 2px 0 #005f49,
-        0 6px 10px rgba(0, 0, 0, 0.2);
+        0 10px 24px var(--community-shadow),
+        inset 0 1px 0 rgba(255,255,255,.25);
 }
 </style>
+</head>
 
-<div class="td-zalo-wrap">
-    <h3 class="td-zalo-title">Tham gia cộng đồng để được hỗ trợ tốt nhất</h3>
+<body>
 
-    <div class="td-zalo-grid">
-        <a class="td-zalo-btn" href="https://zalo.me/g/guxxky409" target="_blank">Server 1 · Box 1</a>
-        <a class="td-zalo-btn" href="https://zalo.me/g/chhtoc951" target="_blank">Server 1 · Box 2</a>
+<div class="td-page">
+    <div class="td-card">
 
-        <a class="td-zalo-btn" href="https://zalo.me/g/pqaiqm424" target="_blank">Server 2 · Box 1</a>
-        <a class="td-zalo-btn" href="https://zalo.me/g/esmrkv396" target="_blank">Server 2 · Box 2</a>
+        <div class="td-title">
+            Tham gia cộng đồng để được hỗ trợ tốt nhất
+        </div>
 
-        <a class="td-zalo-btn" href="https://zalo.me/g/crnbag894" target="_blank">Server 3 · Box 1</a>
-        <a class="td-zalo-btn" href="https://zalo.me/g/wlhmmk033" target="_blank">Server 3 · Box 2</a>
+        <div class="td-grid">
 
-        <a class="td-zalo-btn" href="https://zalo.me/g/gfnekq114" target="_blank">Server 4 · Box 1</a>
-        <a class="td-zalo-btn" href="https://zalo.me/g/jcssww622" target="_blank">Server 4 · Box 2</a>
+            <!-- Thông báo -->
+            <a class="td-btn full primary"
+               href="https://zalo.me/g/asipuw133" target="_blank">
+                📢 Box Cộng Đồng Chung
+            </a>
 
-        <a class="td-zalo-btn" href="https://zalo.me/g/uelhmv606" target="_blank">Server 5 · Box 1</a>
-        <a class="td-zalo-btn" href="https://zalo.me/g/vmtbba265" target="_blank">Server 5 · Box 2</a>
+            <!-- Server -->
+            <a class="td-btn server" href="https://zalo.me/g/guxxky409" target="_blank">Server 1 · Box 1</a>
+            <a class="td-btn server" href="https://zalo.me/g/chhtoc951" target="_blank">Server 1 · Box 2</a>
 
-        <a class="td-zalo-btn" href="https://zalo.me/g/bfoxoi238" target="_blank">Server 6 · Box 1</a>
-        <a class="td-zalo-btn" href="https://zalo.me/g/cjqjbt811" target="_blank">Server 6 · Box 2</a>
+            <a class="td-btn server" href="https://zalo.me/g/pqaiqm424" target="_blank">Server 2 · Box 1</a>
+            <a class="td-btn server" href="https://zalo.me/g/esmrkv396" target="_blank">Server 2 · Box 2</a>
 
-        <a class="td-zalo-btn notice" href="https://zalo.me/g/vxcuux196" target="_blank">📢 Box Thông Báo</a>
-        <a class="td-zalo-btn global" href="https://zalo.me/g/hxcfwn534" target="_blank">🌐 Cộng Đồng Chung 1</a>
-        <a class="td-zalo-btn global" href="https://zalo.me/g/asipuw133" target="_blank">🌐 Cộng Đồng Chung 2</a>
-        <a class="td-zalo-btn global" href="https://zalo.me/g/acxvjw835" target="_blank">🌐 Cộng Đồng Chung 3</a>
+            <a class="td-btn server" href="https://zalo.me/g/crnbag894" target="_blank">Server 3 · Box 1</a>
+            <a class="td-btn server" href="https://zalo.me/g/wlhmmk033" target="_blank">Server 3 · Box 2</a>
+
+            <a class="td-btn server" href="https://zalo.me/g/gfnekq114" target="_blank">Server 4 · Box 1</a>
+            <a class="td-btn server" href="https://zalo.me/g/jcssww622" target="_blank">Server 4 · Box 2</a>
+
+            <a class="td-btn server" href="https://zalo.me/g/uelhmv606" target="_blank">Server 5 · Box 1</a>
+            <a class="td-btn server" href="https://zalo.me/g/vmtbba265" target="_blank">Server 5 · Box 2</a>
+
+            <a class="td-btn server" href="https://zalo.me/g/bfoxoi238" target="_blank">Server 6 · Box 1</a>
+            <a class="td-btn server" href="https://zalo.me/g/cjqjbt811" target="_blank">Server 6 · Box 2</a>
+
+            <!-- Community -->
+            <a class="td-btn community" href="https://zalo.me/g/hxcfwn534" target="_blank">🌐 Cộng Đồng Chung 1</a>
+            <a class="td-btn community" href="https://zalo.me/g/vxcuux196" target="_blank">🌐 Cộng Đồng Chung 2</a>
+
+            <a class="td-btn full community" href="https://zalo.me/g/acxvjw835" target="_blank">
+                🌐 Cộng Đồng Chung 3
+            </a>
+
+        </div>
     </div>
 </div>
+
+</body>
+</html>
