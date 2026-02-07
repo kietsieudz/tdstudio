@@ -21,52 +21,93 @@
         </head>
 
 <style>
-/* namespace riêng, CSS cũ không đụng được */
+/* =========================
+   TD ZALO COMMUNITY – V2
+   namespace riêng
+========================= */
 .td-zalo-wrap {
-    padding: 40px 16px;
-    background: #ffb85c;
+    padding: 48px 16px;
+    background: linear-gradient(180deg, #ffbd6a, #ffab3f);
     text-align: center;
 }
 
 .td-zalo-title {
-    margin-bottom: 28px;
-    font-weight: 600;
+    margin-bottom: 32px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #3b1f12;
 }
 
 .td-zalo-grid {
-    max-width: 560px;
+    max-width: 600px;
     margin: 0 auto;
 
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px 16px;
+    gap: 16px;
 }
 
+/* nút dạng card */
 .td-zalo-btn {
-    width: 100%;
-    height: 44px;
+    position: relative;
+    height: 52px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    padding: 0 10px;
-    box-sizing: border-box;
+    padding: 0 12px;
 
-    background: #8b4a2f;
-    color: #ffffff;
+    background: linear-gradient(180deg, #9a5234, #7f3f26);
+    color: #fff;
 
     text-decoration: none;
-    font-size: 12px;
-    font-weight: 500;
+    font-size: 13px;
+    font-weight: 600;
 
-    border-radius: 7px;
+    border-radius: 12px;
+    box-shadow:
+        0 6px 0 #5e2c18,
+        0 10px 18px rgba(0, 0, 0, 0.18);
 
+    transition: transform .12s ease, box-shadow .12s ease;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
 
-    line-height: 1;
+.td-zalo-btn:active {
+    transform: translateY(4px);
+    box-shadow:
+        0 2px 0 #5e2c18,
+        0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* nhóm đặc biệt */
+.td-zalo-btn.notice {
+    background: linear-gradient(180deg, #2f7cff, #1f5fd4);
+    box-shadow:
+        0 6px 0 #1747a5,
+        0 10px 18px rgba(0, 0, 0, 0.18);
+}
+
+.td-zalo-btn.notice:active {
+    box-shadow:
+        0 2px 0 #1747a5,
+        0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.td-zalo-btn.global {
+    background: linear-gradient(180deg, #00a884, #007f63);
+    box-shadow:
+        0 6px 0 #005f49,
+        0 10px 18px rgba(0, 0, 0, 0.18);
+}
+
+.td-zalo-btn.global:active {
+    box-shadow:
+        0 2px 0 #005f49,
+        0 6px 10px rgba(0, 0, 0, 0.2);
 }
 </style>
 
@@ -74,21 +115,27 @@
     <h3 class="td-zalo-title">Tham gia cộng đồng để được hỗ trợ tốt nhất</h3>
 
     <div class="td-zalo-grid">
-        <a class="td-zalo-btn" href="https://zalo.me/g/guxxky409" target="_blank">Server 1 [Box 1]</a>
-        <a class="td-zalo-btn" href="https://zalo.me/g/chhtoc951" target="_blank">Server 1 [Box 2]</a>
-        <a class="td-zalo-btn" href="https://zalo.me/g/pqaiqm424" target="_blank">Server 2 [Box 1]</a>
-        <a class="td-zalo-btn" href="https://zalo.me/g/esmrkv396" target="_blank">Server 2 [Box 2]</a>
-        <a class="td-zalo-btn" href="https://zalo.me/g/crnbag894" target="_blank">Server 3 [Box 1]</a>
-        <a class="td-zalo-btn" href="https://zalo.me/g/wlhmmk033" target="_blank">Server 3 [Box 2]</a>
-        <a class="td-zalo-btn" href="https://zalo.me/g/gfnekq114" target="_blank">Server 4 [Box 1]</a>
-        <a class="td-zalo-btn" href="https://zalo.me/g/jcssww622" target="_blank">Server 4 [Box 2]</a>
-        <a class="td-zalo-btn" href="https://zalo.me/g/uelhmv606" target="_blank">Server 5 [Box 1]</a>
-        <a class="td-zalo-btn" href="https://zalo.me/g/vmtbba265" target="_blank">Server 5 [Box 2]</a>
-        <a class="td-zalo-btn" href="https://zalo.me/g/bfoxoi238" target="_blank">Server 6 [Box 1]</a>
-        <a class="td-zalo-btn" href="https://zalo.me/g/cjqjbt811" target="_blank">Server 6 [Box 2]</a>
-        <a class="td-zalo-btn" href="https://zalo.me/g/vxcuux196" target="_blank">Box Thông Báo</a>
-        <a class="td-zalo-btn" href="https://zalo.me/g/hxcfwn534" target="_blank">Cộng Đồng Chung 1</a>
-        <a class="td-zalo-btn" href="https://zalo.me/g/asipuw133" target="_blank">Cộng Đồng Chung 2</a>
-        <a class="td-zalo-btn" href="https://zalo.me/g/acxvjw835" target="_blank">Cộng Đồng Chung 3</a>
+        <a class="td-zalo-btn" href="https://zalo.me/g/guxxky409" target="_blank">Server 1 · Box 1</a>
+        <a class="td-zalo-btn" href="https://zalo.me/g/chhtoc951" target="_blank">Server 1 · Box 2</a>
+
+        <a class="td-zalo-btn" href="https://zalo.me/g/pqaiqm424" target="_blank">Server 2 · Box 1</a>
+        <a class="td-zalo-btn" href="https://zalo.me/g/esmrkv396" target="_blank">Server 2 · Box 2</a>
+
+        <a class="td-zalo-btn" href="https://zalo.me/g/crnbag894" target="_blank">Server 3 · Box 1</a>
+        <a class="td-zalo-btn" href="https://zalo.me/g/wlhmmk033" target="_blank">Server 3 · Box 2</a>
+
+        <a class="td-zalo-btn" href="https://zalo.me/g/gfnekq114" target="_blank">Server 4 · Box 1</a>
+        <a class="td-zalo-btn" href="https://zalo.me/g/jcssww622" target="_blank">Server 4 · Box 2</a>
+
+        <a class="td-zalo-btn" href="https://zalo.me/g/uelhmv606" target="_blank">Server 5 · Box 1</a>
+        <a class="td-zalo-btn" href="https://zalo.me/g/vmtbba265" target="_blank">Server 5 · Box 2</a>
+
+        <a class="td-zalo-btn" href="https://zalo.me/g/bfoxoi238" target="_blank">Server 6 · Box 1</a>
+        <a class="td-zalo-btn" href="https://zalo.me/g/cjqjbt811" target="_blank">Server 6 · Box 2</a>
+
+        <a class="td-zalo-btn notice" href="https://zalo.me/g/vxcuux196" target="_blank">📢 Box Thông Báo</a>
+        <a class="td-zalo-btn global" href="https://zalo.me/g/hxcfwn534" target="_blank">🌐 Cộng Đồng Chung 1</a>
+        <a class="td-zalo-btn global" href="https://zalo.me/g/asipuw133" target="_blank">🌐 Cộng Đồng Chung 2</a>
+        <a class="td-zalo-btn global" href="https://zalo.me/g/acxvjw835" target="_blank">🌐 Cộng Đồng Chung 3</a>
     </div>
 </div>
