@@ -2,279 +2,135 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-            <meta name="viewport"
-                content="width=device-width, initial-scale=1.0">
-            <title>Cộng đồng Ngọc Rồng Online – TDStudio</title>
-            <link rel="canonical" href="https://thanhdi.com/groups" />
-            <!-- Google tag (GA4) -->
-            <script async
-                src="https://www.googletagmanager.com/gtag/js?id=G-BQCBVHE2GN"></script>
-            <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-BQCBVHE2GN');
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cộng đồng Ngọc Rồng Online – TDStudio</title>
+<link rel="canonical" href="https://thanhdi.com/groups" />
+
+<!-- Google tag (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BQCBVHE2GN"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-BQCBVHE2GN');
 </script>
-            <meta name="description"
-                content="Trang cộng đồng Ngọc Rồng Online của TDStudio, nơi người chơi trao đổi, chia sẻ thông tin và kết nối trong hệ sinh thái TDStudio.">
-            <meta name="robots" content="index, follow">
-        </head>
+
+<meta name="description" content="Trang cộng đồng Ngọc Rồng Online của TDStudio">
+<meta name="robots" content="index, follow">
 
 <style>
-* {
-    box-sizing: border-box;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
+/* =========================
+   TD COMMUNITY – MOBILE STYLE
+========================= */
 body {
-    background: #f4f6fb;
-    color: #111827;
-    padding: 14px;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #f5f6f8;
+    color: #333;
 }
 
-.container {
-    max-width: 480px;
-    margin: auto;
+.td-wrap {
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 24px 16px 48px;
 }
 
-/* ===== HEADER ===== */
-.header {
-    background: #ffffff;
-    border-radius: 20px;
-    padding: 18px;
-    text-align: center;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+.td-title {
+    font-size: 18px;
+    font-weight: 700;
     margin-bottom: 16px;
+    text-align: left;
 }
 
-.avatar {
-    width: 82px;
-    height: 82px;
-    border-radius: 50%;
-    margin: auto;
-    background: url("/wp-content/uploads/sites/images/logo-150x150.png") center/cover no-repeat;
-    border: 2px solid #e5e7eb;
+/* grid */
+.td-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
 }
 
-.name {
-    margin-top: 10px;
-    font-size: 20px;
-    font-weight: 800;
-}
-
-.download-btn {
-    margin-top: 12px;
-    display: inline-block;
-    padding: 12px 22px;
-    background: linear-gradient(90deg, #facc15, #fb923c);
-    color: #111827;
-    font-weight: 800;
-    border-radius: 14px;
-    text-decoration: none;
-}
-
-/* ===== SECTION TITLE ===== */
-.section-title {
-    font-size: 14px;
-    font-weight: 800;
-    margin: 16px 4px 10px;
-    color: #374151;
-}
-
-/* ===== SERVER CARD ===== */
-.server {
+/* button base */
+.td-btn {
+    height: 54px;
+    border-radius: 16px;
     background: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.05);
-    margin-bottom: 12px;
-    overflow: hidden;
-}
-
-.server-header {
-    padding: 14px 16px;
-    font-weight: 700;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-}
-
-.server-header span {
-    color: #6b7280;
-    font-size: 12px;
-}
-
-.server-content {
-    display: none;
-    padding: 0 16px 16px;
-}
-
-/* ===== ZALO BOX ===== */
-.zalo-box {
-    display: block;
-    margin-top: 10px;
-    padding: 12px;
-    text-align: center;
-    font-weight: 700;
+    text-decoration: none;
+    color: #222;
     font-size: 14px;
-    border-radius: 12px;
-    background: #e0f2fe;
-    color: #075985;
-    text-decoration: none;
-    border: 1px solid #bae6fd;
+    font-weight: 600;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 6px 18px rgba(0,0,0,.06);
+    transition: transform .12s ease, box-shadow .12s ease;
 }
 
-.zalo-box:hover {
-    background: #bae6fd;
+.td-btn:active {
+    transform: scale(.97);
+    box-shadow: 0 3px 10px rgba(0,0,0,.12);
 }
 
-/* ===== WHATSAPP ===== */
-.whatsapp {
-    margin-top: 16px;
-    display: block;
-    background: #dcfce7;
-    border: 1px solid #86efac;
-    color: #14532d;
-    text-align: center;
-    padding: 14px;
-    border-radius: 16px;
-    font-weight: 800;
-    text-decoration: none;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+/* full width button */
+.td-btn.full {
+    grid-column: span 2;
+    height: 60px;
+    font-size: 15px;
 }
 
-footer {
-    margin-top: 18px;
-    text-align: center;
-    font-size: 11px;
-    color: #9ca3af;
+/* type styles */
+.td-btn.notice {
+    background: #2f7cff;
+    color: #fff;
 }
 
+.td-btn.global {
+    background: #00a884;
+    color: #fff;
+}
 </style>
 </head>
 
 <body>
-<div class="container">
 
-    <!-- HEADER -->
-    <div class="header">
-        <div class="avatar"></div>
-        <div class="name">Cộng Đồng - TDStudio</div>
-        <a class="download-btn" href="/">TRANG CHỦ</a>
-    </div>
+<div class="td-wrap">
+    <div class="td-title">Tham gia cộng đồng để được hỗ trợ tốt nhất</div>
 
-    <div class="section-title">CHỌN CỘNG ĐỒNG - NHÓM SERVER</div>
+    <div class="td-grid">
+        <!-- nút đầu tiên 1 mình 1 hàng -->
+        <a class="td-btn full notice" href="https://zalo.me/g/vxcuux196" target="_blank">
+            📢 Box Thông Báo Chính Thức
+        </a>
 
-    <!-- SERVER 1 -->
-    <div class="server">
-        <div class="server-header" onclick="toggle(this)">
-            Cộng Đồng Server 1 <span>▼</span>
-        </div>
-        <div class="server-content">
-            <a class="zalo-box" href="https://zalo.me/g/guxxky409">Zalo Box 1</a>
-            <a class="zalo-box" href="https://zalo.me/g/chhtoc951">Zalo Box 2</a>
-            <a class="zalo-box" href="https://zalo.me/g/vxcuux196">Zalo Box 3</a>
-        </div>
-    </div>
+        <!-- server -->
+        <a class="td-btn" href="https://zalo.me/g/guxxky409" target="_blank">Server 1 · Box 1</a>
+        <a class="td-btn" href="https://zalo.me/g/chhtoc951" target="_blank">Server 1 · Box 2</a>
 
-    <!-- SERVER 2 -->
-    <div class="server">
-        <div class="server-header" onclick="toggle(this)">
-            Cộng Đồng Server 2 <span>▼</span>
-        </div>
-        <div class="server-content">
-            <a class="zalo-box" href="https://zalo.me/g/pqaiqm424">Zalo Box 1</a>
-            <a class="zalo-box" href="https://zalo.me/g/pqaiqm424">Zalo Box 2</a>
-            <a class="zalo-box" href="https://zalo.me/g/vxcuux196">Zalo Box 3</a>
-        </div>
-    </div>
+        <a class="td-btn" href="https://zalo.me/g/pqaiqm424" target="_blank">Server 2 · Box 1</a>
+        <a class="td-btn" href="https://zalo.me/g/esmrkv396" target="_blank">Server 2 · Box 2</a>
 
-    <!-- SERVER 3 -->
-    <div class="server">
-        <div class="server-header" onclick="toggle(this)">
-            Cộng Đồng Server 3 <span>▼</span>
-        </div>
-        <div class="server-content">
-            <a class="zalo-box" href="https://zalo.me/g/crnbag894">Zalo Box 1</a>
-            <a class="zalo-box" href="https://zalo.me/g/wlhmmk033">Zalo Box 2</a>
-            <a class="zalo-box" href="https://zalo.me/g/vxcuux196">Zalo Box 3</a>
-        </div>
-    </div>
-    
-    <!-- SERVER 4 -->
-    <div class="server">
-        <div class="server-header" onclick="toggle(this)">
-            Cộng Đồng Server 4 <span>▼</span>
-        </div>
-        <div class="server-content">
-            <a class="zalo-box" href="https://zalo.me/g/gfnekq114">Zalo Box 1</a>
-            <a class="zalo-box" href="https://zalo.me/g/jcssww622">Zalo Box 2</a>
-            <a class="zalo-box" href="https://zalo.me/g/vxcuux196">Zalo Box 3</a>
-        </div>
-    </div>
-    
-    <!-- SERVER 5 -->
-    <div class="server">
-        <div class="server-header" onclick="toggle(this)">
-            Cộng Đồng Server 5 <span>▼</span>
-        </div>
-        <div class="server-content">
-            <a class="zalo-box" href="https://zalo.me/g/uelhmv606">Zalo Box 1</a>
-            <a class="zalo-box" href="https://zalo.me/g/vmtbba265">Zalo Box 2</a>
-            <a class="zalo-box" href="https://zalo.me/g/vxcuux196">Zalo Box 3</a>
-        </div>
-    </div>
-    
-    <!-- SERVER 6 -->
-    <div class="server">
-        <div class="server-header" onclick="toggle(this)">
-            Cộng Đồng Server 6 <span>▼</span>
-        </div>
-        <div class="server-content">
-            <a class="zalo-box" href="https://zalo.me/g/bfoxoi238">Zalo Box 1</a>
-            <a class="zalo-box" href="https://zalo.me/g/cjqjbt811">Zalo Box 2</a>
-            <a class="zalo-box" href="https://zalo.me/g/vxcuux196">Zalo Box 3</a>
-        </div>
-    </div>
-    
-    <!-- SERVER INDO -->
-    <div class="server">
-        <div class="server-header" onclick="toggle(this)">
-            Cộng Đồng Server Indo <span>▼</span>
-        </div>
-        <div class="server-content">
-            <a class="zalo-box" href="https://chat.whatsapp.com/Hg4CqxRa31u9TCN8WbWSWy">Whatsapp Box 1</a>
-        </div>
-    </div>
-    
-    <!-- SERVER INDO -->
-    <div class="server">
-        <div class="server-header" onclick="toggle(this)">
-            Cộng Đồng All Server <span>▼</span>
-        </div>
-        <div class="server-content">
-            <a class="zalo-box" href="https://www.facebook.com/share/g/1H8VxWZwvG/">Group Facebook</a>
-        </div>
-        <div class="server-content">
-            <a class="zalo-box" href="https://t.me/gdthanhdi">Group Telegram</a>
-        </div>
-    </div>
+        <a class="td-btn" href="https://zalo.me/g/crnbag894" target="_blank">Server 3 · Box 1</a>
+        <a class="td-btn" href="https://zalo.me/g/wlhmmk033" target="_blank">Server 3 · Box 2</a>
 
-    <footer>
-        © TDStudio – Community Hub
-    </footer>
+        <a class="td-btn" href="https://zalo.me/g/gfnekq114" target="_blank">Server 4 · Box 1</a>
+        <a class="td-btn" href="https://zalo.me/g/jcssww622" target="_blank">Server 4 · Box 2</a>
 
+        <a class="td-btn" href="https://zalo.me/g/uelhmv606" target="_blank">Server 5 · Box 1</a>
+        <a class="td-btn" href="https://zalo.me/g/vmtbba265" target="_blank">Server 5 · Box 2</a>
+
+        <a class="td-btn" href="https://zalo.me/g/bfoxoi238" target="_blank">Server 6 · Box 1</a>
+        <a class="td-btn" href="https://zalo.me/g/cjqjbt811" target="_blank">Server 6 · Box 2</a>
+
+        <!-- cộng đồng chung -->
+        <a class="td-btn global" href="https://zalo.me/g/hxcfwn534" target="_blank">🌐 Cộng Đồng Chung 1</a>
+        <a class="td-btn global" href="https://zalo.me/g/asipuw133" target="_blank">🌐 Cộng Đồng Chung 2</a>
+
+        <a class="td-btn global full" href="https://zalo.me/g/acxvjw835" target="_blank">
+            🌐 Cộng Đồng Chung 3
+        </a>
+    </div>
 </div>
 
-<script>
-function toggle(el) {
-    const content = el.nextElementSibling;
-    const opened = content.style.display === "block";
-    document.querySelectorAll('.server-content').forEach(c => c.style.display = "none");
-    content.style.display = opened ? "none" : "block";
-}
-</script>
 </body>
 </html>
