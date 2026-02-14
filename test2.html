@@ -4,228 +4,136 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>TDStudio | Trang chủ chính thức</title>
-<meta name="description" content="TDStudio - Cộng đồng game thủ, cập nhật mới nhất và trải nghiệm game mượt mà.">
-<meta name="robots" content="index, follow">
+<title>TDStudio</title>
+<meta name="description" content="TDStudio - Cộng đồng game thủ và cập nhật game mới nhất.">
 <link rel="canonical" href="https://thanhdi.com/">
-
-<meta property="og:title" content="TDStudio – Trang chủ chính thức">
-<meta property="og:description" content="TDStudio - Cộng đồng game thủ và cập nhật game mới nhất.">
-<meta property="og:image" content="https://thanhdi.com/images/graph.png">
-
-<link rel="icon" href="/favicon.ico">
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BQCBVHE2GN"></script>
-<script>
-window.dataLayer=window.dataLayer||[];
-function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date());
-gtag('config','G-BQCBVHE2GN');
-</script>
 
 <style>
 :root{
---primary:#0f172a;
+--primary:#1e293b;
 --accent:#2563eb;
---support:#ff4d4f;
---bg:#f8fafc;
---radius:14px;
+--support:#ff5a3c;
+--bg:#f4f6f9;
+--radius:16px;
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
+
 body{
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
 background:var(--bg);
-color:#1e293b;
-line-height:1.6;
+color:var(--primary);
 }
 
 .container{
-max-width:1200px;
+max-width:520px;
 margin:auto;
-padding:0 20px;
+padding:20px;
 }
 
 header{
-background:#fff;
-padding:18px 0;
-box-shadow:0 4px 20px rgba(0,0,0,.05);
-position:sticky;
-top:0;
-z-index:100;
-}
-
-.nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-.logo{
 display:flex;
 align-items:center;
 gap:10px;
-font-weight:700;
-font-size:20px;
-color:var(--primary);
+margin-bottom:30px;
 }
 
-.logo img{
-width:40px;
-height:40px;
+.logo{
+width:36px;
+height:36px;
 border-radius:10px;
 }
 
-.nav-links{
-display:flex;
-gap:20px;
-align-items:center;
-}
-
-.nav-links a{
-text-decoration:none;
-font-weight:600;
-color:#334155;
-transition:.2s;
-}
-
-.nav-links a:hover{
-color:var(--accent);
+.brand{
+font-weight:700;
+font-size:18px;
 }
 
 .hero{
-padding:80px 0;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:60px;
-align-items:center;
+text-align:center;
 }
 
 .hero h1{
-font-size:48px;
+font-size:28px;
 font-weight:800;
-line-height:1.1;
-margin-bottom:20px;
-color:var(--primary);
+line-height:1.25;
+margin-bottom:14px;
 }
 
 .hero p{
-font-size:18px;
-margin-bottom:30px;
+font-size:15px;
 color:#475569;
+margin-bottom:24px;
 }
 
 .button-group{
 display:flex;
-flex-wrap:wrap;
-gap:15px;
+flex-direction:column;
+gap:12px;
 }
 
 .btn{
-padding:14px 22px;
+display:block;
+padding:13px;
 border-radius:var(--radius);
 text-decoration:none;
 font-weight:700;
-display:inline-block;
-transition:.25s;
+font-size:15px;
+text-align:center;
+transition:.2s;
 }
 
 .btn-primary{
 background:var(--accent);
 color:#fff;
-box-shadow:0 8px 20px rgba(37,99,235,.25);
-}
-
-.btn-primary:hover{
-transform:translateY(-2px);
 }
 
 .btn-outline{
 border:2px solid var(--accent);
 color:var(--accent);
+background:#fff;
 }
 
 .btn-support{
-background:linear-gradient(135deg,#ff4d4f,#ff7a45);
+background:var(--support);
 color:#fff;
-box-shadow:0 8px 20px rgba(255,77,79,.3);
 }
 
 .hero img{
 width:100%;
+margin-top:30px;
 border-radius:20px;
-box-shadow:0 20px 50px rgba(0,0,0,.15);
+box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
 
-.features{
-margin-top:100px;
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:30px;
-}
-
-.feature-card{
-background:#fff;
-padding:30px;
-border-radius:var(--radius);
-box-shadow:0 6px 20px rgba(0,0,0,.05);
-transition:.25s;
-}
-
-.feature-card:hover{
-transform:translateY(-4px);
-}
-
-.feature-card h3{
-margin-bottom:10px;
-font-size:18px;
-color:var(--primary);
-}
-
-footer{
-margin-top:120px;
-padding:40px 0;
-background:#fff;
-text-align:center;
-font-size:14px;
+.note{
+margin-top:18px;
+font-size:13px;
 color:#64748b;
 }
 
-@media(max-width:900px){
-.hero{
-grid-template-columns:1fr;
+footer{
+margin-top:40px;
 text-align:center;
-}
-.features{
-grid-template-columns:1fr;
-}
-.nav-links{
-display:none;
-}
+font-size:12px;
+color:#94a3b8;
 }
 </style>
 </head>
 
 <body>
 
+<div class="container">
+
 <header>
-<div class="container nav">
-<div class="logo">
-<img src="/images/logo-150x150.png" alt="">
-TDStudio
-</div>
-<div class="nav-links">
-<a href="/groups">Cộng đồng</a>
-<a href="/cap-nhat/">Cập nhật</a>
-<a href="/support">Hỗ trợ</a>
-</div>
-</div>
+<img src="/images/logo-150x150.png" class="logo">
+<div class="brand">TDStudio</div>
 </header>
 
-<section class="container hero">
-<div>
-<h1>Sống lại với<br>tuổi thơ xưa.</h1>
-<p>Tham gia cộng đồng game thủ, nhận giftcode và trải nghiệm phiên bản mới nhất từ TDStudio.</p>
+<section class="hero">
+<h1>Sống lại với<br>tuổi thơ xưa</h1>
+
+<p>Tham gia cộng đồng game thủ và trải nghiệm phiên bản mới nhất.</p>
 
 <div class="button-group">
 <a href="https://thanhdi.games" class="btn btn-primary">Đăng ký / Tải game</a>
@@ -233,36 +141,18 @@ TDStudio
 <a href="/support" class="btn btn-support">Hỗ trợ 24/24</a>
 </div>
 
-<p style="margin-top:20px;font-size:14px;">
+<div class="note">
 Vui lòng mở bằng <b>Chrome</b> hoặc <b>Safari</b> để tải game.
-</p>
 </div>
 
-<div>
 <img src="/images/post.gif" alt="">
-</div>
-</section>
-
-<section class="container features">
-<div class="feature-card">
-<h3>Tối ưu hiệu năng</h3>
-<p>Server ổn định, tốc độ mượt mà và bảo mật cao.</p>
-</div>
-
-<div class="feature-card">
-<h3>Cập nhật liên tục</h3>
-<p>Sự kiện, vật phẩm và nội dung mới được cập nhật thường xuyên.</p>
-</div>
-
-<div class="feature-card">
-<h3>Hỗ trợ nhanh chóng</h3>
-<p>Đội ngũ hỗ trợ hoạt động 24/24 giải quyết vấn đề nhanh nhất.</p>
-</div>
 </section>
 
 <footer>
-©2025 <strong>TDStudio</strong>. Mọi quyền được bảo lưu.
+©2025 TDStudio
 </footer>
+
+</div>
 
 <script>
 (function(){
@@ -271,7 +161,7 @@ document.querySelectorAll('a[href*="thanhdi.games"]').forEach(link=>{
 link.addEventListener("click",e=>{
 if(isPreview){
 e.preventDefault();
-alert("Vui lòng mở bằng Chrome hoặc Safari để tải game.");
+alert("Vui lòng mở bằng Chrome hoặc Safari.");
 }
 });
 });
