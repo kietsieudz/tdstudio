@@ -3,198 +3,247 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TDStudio - Ngọc Rồng Online</title>
+
+<title>Ngọc Rồng Online – Trang chủ chính thức | TDStudio</title>
+<meta name="description" content="Trang chủ chính thức Ngọc Rồng Online của TDStudio. Truy cập server, sự kiện, cộng đồng và hệ sinh thái game.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://thanhdi.com/" />
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BQCBVHE2GN"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-BQCBVHE2GN');
+</script>
+
+<link rel="icon" href="/images/favicon.ico">
 
 <style>
 :root{
---blue:#2f63d8;
---blue2:#224fba;
---bg:#f2f4f8;
+--bg:#f1f4f9;
 --card:#ffffff;
---text:#1e293b;
---radius:22px;
+--primary:#2563eb;
+--primary-soft:#eef2ff;
+--text:#0f172a;
+--sub:#64748b;
 }
 
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
-background:var(--bg);
-color:var(--text);
+*{box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+body{margin:0;background:var(--bg);color:var(--text)}
+
+.banner{
+height:190px;
+background:linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,.65)),url("/images/banner.png") center/cover no-repeat;
+border-bottom-left-radius:28px;
+border-bottom-right-radius:28px;
 }
 
 .container{
-max-width:540px;
-margin:auto;
-padding-bottom:40px;
+max-width:420px;
+margin:-42px auto 0;
+padding:0 16px 28px;
 }
 
-/* ===== Cover ===== */
-.cover{
-height:200px;
-background:url('/images/cover.jpg') center/cover no-repeat;
-position:relative;
-}
-
-.cover::after{
-content:"";
-position:absolute;
-inset:0;
-background:linear-gradient(to bottom, rgba(0,0,0,.2), rgba(0,0,0,.5));
-}
-
-/* ===== Profile Card ===== */
-.profile{
+.brand{
 background:var(--card);
-margin:-60px 16px 20px;
-padding:16px;
-border-radius:26px;
-box-shadow:0 15px 40px rgba(0,0,0,.1);
+border-radius:20px;
+padding:12px 14px;
 display:flex;
 align-items:center;
-gap:14px;
+gap:12px;
+box-shadow:0 10px 26px rgba(0,0,0,.08);
+margin-bottom:20px;
 }
-
-.profile img{
-width:60px;
-height:60px;
-border-radius:18px;
+.avatar{
+width:64px;height:64px;border-radius:16px;
+background:#fff;padding:3px;
+box-shadow:0 6px 16px rgba(0,0,0,.15);
 }
-
-.profile h1{
-font-size:18px;
-margin-bottom:4px;
+.avatar img{
+width:100%;height:100%;border-radius:13px;object-fit:cover;
 }
+.brand-text h1{margin:0;font-size:17px;font-weight:600}
+.brand-text p{margin-top:4px;font-size:12.5px;color:var(--sub)}
 
-.profile p{
-font-size:13px;
-color:#64748b;
-}
-
-/* ===== Main Buttons ===== */
-.main-actions{
+.quick{
 display:grid;
-grid-template-columns:1fr 1fr 1fr;
-gap:14px;
-padding:0 16px;
-margin-bottom:30px;
+grid-template-columns:1fr 1.2fr 1fr;
+gap:12px;
+margin-bottom:26px;
 }
-
-.action{
-background:linear-gradient(135deg,var(--blue),var(--blue2));
-border-radius:22px;
-padding:18px 10px;
-text-align:center;
+.quick a{
+background:linear-gradient(180deg,#2563eb,#1e40af);
+border-radius:18px;
+box-shadow:0 10px 26px rgba(37,99,235,.35);
 color:#fff;
-font-weight:700;
-font-size:14px;
-box-shadow:0 12px 25px rgba(47,99,216,.3);
 text-decoration:none;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+padding:14px 8px;
 }
+.quick img{
+width:22px;height:22px;
+filter:brightness(0) invert(1);
+}
+.quick span{font-size:12px;font-weight:500}
 
-/* ===== Section ===== */
-.section{
-padding:0 16px;
-margin-bottom:30px;
-}
-
-.section h2{
-font-size:17px;
-margin-bottom:16px;
-}
+.section{margin-bottom:28px}
+.section h2{font-size:14px;font-weight:600;margin-bottom:14px}
 
 .grid{
 display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:14px;
+grid-template-columns:repeat(4,1fr);
+gap:12px;
 }
-
 .card{
+height:86px;
 background:var(--card);
-border-radius:20px;
-padding:18px 10px;
-text-align:center;
-box-shadow:0 6px 20px rgba(0,0,0,.05);
+border-radius:16px;
+box-shadow:0 6px 16px rgba(0,0,0,.05);
 text-decoration:none;
 color:var(--text);
-font-weight:600;
-font-size:14px;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+gap:6px;
 }
-
-.preview-img{
-margin:20px 16px 0;
-border-radius:22px;
-overflow:hidden;
-box-shadow:0 15px 35px rgba(0,0,0,.1);
+.icon-wrap{
+width:32px;height:32px;border-radius:12px;
+background:var(--primary-soft);
+display:flex;align-items:center;justify-content:center;
 }
-
-.preview-img img{
-width:100%;
-display:block;
+.icon-wrap img{
+width:16px;height:16px;
+filter: invert(27%) sepia(96%) saturate(1864%)
+        hue-rotate(213deg) brightness(92%) contrast(101%);
 }
+.card small{font-size:10.5px;color:var(--sub)}
 
-footer{
+.footer{
+margin-top:36px;
+padding:20px 12px 10px;
 text-align:center;
-font-size:12px;
+border-top:1px solid rgba(148,163,184,.2);
 color:#94a3b8;
-margin-top:30px;
+}
+.footer .footer-brand{font-size:12.5px;font-weight:600;color:#475569}
+.footer .footer-sub{font-size:11.5px;margin-top:4px}
+
+@media(min-width:768px){
+.container{max-width:760px}
 }
 </style>
 </head>
 
 <body>
 
+<div class="banner"></div>
+
 <div class="container">
 
-<div class="cover"></div>
-
-<div class="profile">
-<img src="/wp-content/uploads/sites/images/logo-150x150.png" alt="">
-<div>
+<div class="brand">
+<div class="avatar">
+<img src="/images/logo.png" alt="Ngọc Rồng Online">
+</div>
+<div class="brand-text">
 <h1>TDStudio - Ngọc Rồng Online</h1>
-<p>Hệ sinh thái game · TDStudio</p>
+<p>Trang chủ chính thức · TDStudio</p>
 </div>
 </div>
 
-<div class="main-actions">
-<a href="https://thanhdi.games" class="action">Server Game</a>
-<a href="/su-kien/" class="action">Sự kiện</a>
-<a href="/groups" class="action">Cộng đồng</a>
+<!-- QUICK MAIN -->
+<div class="quick">
+<a href="/support">
+<img src="/icons/chat-bubble-bottom-center.svg">
+<span>Hỗ trợ</span>
+</a>
+
+<a href="https://thanhdi.games">
+<strong>Server Game</strong>
+<span>Đăng ký • Tải game</span>
+</a>
+
+<a href="https://thanhdi.games/trangthai.php">
+<img src="/icons/exclamation-triangle.svg">
+<span>Trạng thái</span>
+</a>
 </div>
 
+<!-- SỰ KIỆN & CỘNG ĐỒNG -->
 <div class="section">
-<h2>Sự kiện & quà tặng</h2>
+<h2>Sự kiện & cộng đồng</h2>
 <div class="grid">
-<a href="/su-kien/posts/su-kien-tet-nguyen-dan-2026.html" class="card">Tết 2026</a>
-<a href="/giftcode" class="card">Giftcode</a>
-<a href="/cap-nhat/" class="card">Cập nhật</a>
-<a href="/nap" class="card">Nạp game</a>
+<a class="card" href="/su-kien/posts/su-kien-tet-nguyen-dan-2026">
+<div class="icon-wrap"><img src="/icons/sparkles.svg"></div>
+<small>Sự kiện 2026</small>
+</a>
+
+<a class="card" href="/cap-nhat/">
+<div class="icon-wrap"><img src="/icons/calendar-days.svg"></div>
+<small>Cập nhật</small>
+</a>
+
+<a class="card" href="/groups">
+<div class="icon-wrap"><img src="/icons/users.svg"></div>
+<small>Cộng đồng</small>
+</a>
+
+<a class="card" href="/event">
+<div class="icon-wrap"><img src="/icons/gift-top.svg"></div>
+<small>Event Share</small>
+</a>
 </div>
 </div>
 
+<!-- HỆ SINH THÁI -->
 <div class="section">
-<h2>Truy cập nhanh</h2>
+<h2>Hệ sinh thái game</h2>
 <div class="grid">
-<a href="/support" class="card">Hỗ trợ 24/24</a>
-<a href="/status" class="card">Trạng thái server</a>
+
+<a class="card" href="/nap">
+<div class="icon-wrap"><img src="/icons/wallet.svg"></div>
+<small>Nạp game</small>
+</a>
+
+<a class="card" href="/quaduatop">
+<div class="icon-wrap"><img src="/icons/trophy.svg"></div>
+<small>Top tháng</small>
+</a>
+
+<a class="card" href="/mocnap">
+<div class="icon-wrap"><img src="/icons/gift-top.svg"></div>
+<small>Mốc nạp</small>
+</a>
+
+<a class="card" href="/huong-dan">
+<div class="icon-wrap"><img src="/icons/light-bulb.svg"></div>
+<small>Hướng dẫn</small>
+</a>
+
 </div>
 </div>
 
-<div class="preview-img">
-<img src="/images/post.gif" alt="">
+<div class="footer">
+<div class="footer-brand">
+© 2026 TDStudio · Ngọc Rồng Online
 </div>
-
-<footer>
-©2025 TDStudio. Mọi quyền được bảo lưu.
-</footer>
+<div class="footer-sub">
+Hệ thống máy chủ & trang chủ chính thức
+</div>
+</div>
 
 </div>
 
 <script>
 (function(){
-const isPreview=/FBAN|FBAV|Facebook|Zalo|TikTok|Instagram/i.test(navigator.userAgent);
-document.querySelectorAll('a[href*="thanhdi.games"]').forEach(link=>{
+const TARGET="https://thanhdi.games";
+document.querySelectorAll('a[href="'+TARGET+'"]').forEach(link=>{
 link.addEventListener("click",e=>{
-if(isPreview){
+if(/FBAN|FBAV|Facebook|Zalo|TikTok|Instagram/i.test(navigator.userAgent)){
 e.preventDefault();
 alert("Vui lòng mở bằng Chrome hoặc Safari để tải game.");
 }
