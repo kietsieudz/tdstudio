@@ -630,6 +630,84 @@ body{margin:0;background:var(--bg);color:var(--text)}
   text-align:center;
   width:260px;
 }
+/* ===== Event Popup ===== */
+.event-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(15,23,42,.65);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:12000;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .25s ease;
+}
+
+.event-overlay.show{
+  opacity:1;
+  visibility:visible;
+}
+
+.event-box{
+  width:92%;
+  max-width:420px;
+  background:#fff;
+  border-radius:20px;
+  padding:20px 16px 22px;
+  box-shadow:0 25px 60px rgba(0,0,0,.35);
+  text-align:center;
+  position:relative;
+  animation:popupFade .25s ease;
+}
+
+@keyframes popupFade{
+  from{transform:translateY(10px);opacity:0}
+  to{transform:translateY(0);opacity:1}
+}
+
+.event-box h3{
+  margin:0 0 18px;
+  font-size:16px;
+  font-weight:600;
+  color:#0f172a;
+}
+
+.event-list{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.event-btn{
+  display:block;
+  padding:14px;
+  border-radius:14px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:14px;
+  color:#fff;
+  background:linear-gradient(135deg,#2563eb,#1e40af);
+  box-shadow:0 10px 22px rgba(37,99,235,.35);
+  transition:transform .15s ease;
+}
+
+.event-btn:hover{
+  transform:translateY(-2px);
+}
+
+.event-close{
+  position:absolute;
+  top:10px;
+  right:10px;
+  width:30px;
+  height:30px;
+  border:none;
+  border-radius:10px;
+  background:#f1f5f9;
+  cursor:pointer;
+  font-size:14px;
+}
 
 /* ===== NGỌC XOAY ===== */
 .gem-spinner{
@@ -955,6 +1033,52 @@ body{margin:0;background:var(--bg);color:var(--text)}
 
     <link rel="preconnect" href="https://m.me">
         </div>
+        <!-- ===== Popup Sự kiện ===== -->
+<div id="eventPopup" class="event-overlay">
+  <div class="event-box">
+    <button class="event-close" id="eventClose">✕</button>
+    <h3>Thông Tin Hot Đây Nè!!!</h3>
+
+    <div class="event-list">
+      <a href="/su-kien/posts/su-kien-tet-nguyen-dan-2026" class="event-btn">
+        ❤️ Sự kiện tết nguyên đán 2026
+      </a>
+
+      <a href="/su-kien/posts/su-kien-tuong-tac-fanpage" class="event-btn">
+        ❤️ Sự kiện tương tác fanpage nhận coin
+      </a>
+
+      <a href="/cap-nhat/" class="event-btn">
+        ❤️ Bảo trì hôm nay cập nhật gì mới
+      </a>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  const popup = document.getElementById("eventPopup");
+  const closeBtn = document.getElementById("eventClose");
+
+  // hiện popup sau khi load xong 800ms
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      popup.classList.add("show");
+    }, 800);
+  });
+
+  // đóng popup
+  closeBtn.addEventListener("click", () => {
+    popup.classList.remove("show");
+  });
+
+  // click ra ngoài cũng đóng
+  popup.addEventListener("click", (e) => {
+    if(e.target === popup){
+      popup.classList.remove("show");
+    }
+  });
+})();
+</script>
         <script>
 (function () {
   const loader = document.getElementById("page-loader");
