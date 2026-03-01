@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TDStudio Support</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TDStudio Support</title>
 
-<style>
+        <style>
 * {
     box-sizing: border-box;
     margin: 0;
@@ -105,63 +105,73 @@ body {
     opacity: 0.6;
 }
 </style>
-</head>
+    </head>
 
-<body>
+    <body>
 
-<div class="container">
+        <div class="container">
 
-    <div class="header">
-        <h1>TDStudio Support</h1>
-        <p>Hệ thống hỗ trợ tự động khi Admin không online</p>
-    </div>
+            <div class="header">
+                <h1>TDStudio Support</h1>
+                <p>Hệ thống hỗ trợ tự động khi Admin không online</p>
+            </div>
 
-    <a href="https://facebook.com/yourfanpage" class="button-support">
-        HỖ TRỢ MỌI CÂU HỎI QUA FANPAGE 24/24 - REP NGAY
-    </a>
+            <a href="https://facebook.com/ngocrongtuoitho"
+                class="button-support">
+                HỖ TRỢ MỌI CÂU HỎI QUA FANPAGE 24/24 - REP NGAY
+            </a>
 
-    <div class="card">
-        <button onclick="toggleCard(this)">❗ Lỗi không thể vào game</button>
-        <div class="card-content">
-            <p>
-            Vui lòng kiểm tra kết nối mạng. Nếu vẫn không vào được, hãy thử tắt hoàn toàn game và mở lại.
-            Nếu lỗi vẫn tiếp tục xảy ra, vui lòng gửi ảnh màn hình lỗi qua fanpage để được hỗ trợ nhanh nhất.
-            </p>
+            <div class="card">
+                <button onclick="toggleCard(this)">❗ Lỗi không thể vào
+                    game</button>
+                <div class="card-content">
+                    <p>
+                        Vui lòng kiểm tra kết nối mạng. Nếu vẫn không vào được,
+                        hãy thử tắt hoàn toàn game và mở lại.
+                        Nếu lỗi vẫn tiếp tục xảy ra, vui lòng gửi ảnh màn hình
+                        lỗi qua fanpage để được hỗ trợ nhanh nhất.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <button onclick="toggleCard(this)">📢 Xem cập nhật hôm
+                    nay</button>
+                <div class="card-content">
+                    <p>
+                        Các bản cập nhật mới nhất bao gồm sửa lỗi, cân bằng nhân
+                        vật và tối ưu hiệu suất.
+                        Bạn có thể theo dõi fanpage để xem chi tiết các thay đổi
+                        trong phiên bản hôm nay.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <button onclick="toggleCard(this)">🛠 Xem server có đang bảo trì
+                    không</button>
+                <div class="card-content">
+                    <p>
+                        Nếu server đang bảo trì, thông báo sẽ được đăng trên
+                        fanpage chính thức.
+                        Thời gian bảo trì thường kéo dài từ 15-60 phút tùy mức
+                        độ cập nhật.
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer">
+                © 2026 TDStudio - All Rights Reserved
+            </div>
+
         </div>
-    </div>
 
-    <div class="card">
-        <button onclick="toggleCard(this)">📢 Xem cập nhật hôm nay</button>
-        <div class="card-content">
-            <p>
-            Các bản cập nhật mới nhất bao gồm sửa lỗi, cân bằng nhân vật và tối ưu hiệu suất.
-            Bạn có thể theo dõi fanpage để xem chi tiết các thay đổi trong phiên bản hôm nay.
-            </p>
-        </div>
-    </div>
-
-    <div class="card">
-        <button onclick="toggleCard(this)">🛠 Xem server có đang bảo trì không</button>
-        <div class="card-content">
-            <p>
-            Nếu server đang bảo trì, thông báo sẽ được đăng trên fanpage chính thức.
-            Thời gian bảo trì thường kéo dài từ 15-60 phút tùy mức độ cập nhật.
-            </p>
-        </div>
-    </div>
-
-    <div class="footer">
-        © 2026 TDStudio - All Rights Reserved
-    </div>
-
-</div>
-
-<script>
+        <script>
 function toggleCard(btn) {
     const card = btn.parentElement;
     card.classList.toggle("active");
 }
 </script>
 
-</body>
+    </body>
 </html>
