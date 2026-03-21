@@ -170,6 +170,29 @@
             margin-top: 8px;
             font-style: italic;
         }
+
+        .button-group {
+            display: flex;
+            gap: 6px; /* Giảm khoảng cách giữa các nút một chút */
+            justify-content: center;
+        }
+
+        .btn {
+            flex: 1; /* Chia đều 3 phần bằng nhau */
+            min-width: 0; /* Quan trọng để chữ không đẩy bung khung */
+            padding: 8px 2px; /* Thu nhỏ padding để ưu tiên không gian cho chữ */
+            font-size: 10px; /* Giảm size chữ xuống 10px để vừa 3 nút */
+        }
+
+        /* Màu xanh đặc trưng của Messenger */
+        .btn-messenger {
+            background: #0084ff;
+            box-shadow: 0 3px 0 #0056a3;
+        }
+
+        .btn-messenger:active {
+            box-shadow: 0 1px 0 #0056a3;
+        }
     </style>
     </head>
     <body>
@@ -214,6 +237,11 @@
                     <a href="https://thanhdi.com/groups" class="btn">
                         <i class="fa-solid fa-users"></i> NHÓM CHAT
                     </a>
+                    <a href="https://m.me/594254293768424"
+                        class="btn btn-messenger">
+                        <i class="fa-brands fa-facebook-messenger"></i> NHẬN
+                        CODE
+                    </a>
                 </div>
             </div>
 
@@ -250,6 +278,11 @@
                     </a>
                     <a href="https://nroncd.online/congdong.php" class="btn">
                         <i class="fa-solid fa-users"></i> NHÓM CHAT
+                    </a>
+                    <a href="https://m.me/961147327090877"
+                        class="btn btn-messenger">
+                        <i class="fa-brands fa-facebook-messenger"></i> NHẬN
+                        CODE
                     </a>
                 </div>
             </div>
