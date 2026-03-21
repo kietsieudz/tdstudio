@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ngọc Rồng TDStudio - NCD</title>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1a1a2e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 10px;
+        }
+
+        .game-board {
+            background-color: #fdf0d5; 
+            width: 100%;
+            max-width: 360px;
+            border-radius: 25px;
+            border: 4px solid #f9bc7c;
+            padding: 20px 15px;
+            position: relative;
+            box-shadow: 0 10px 0 #d9a066;
+            text-align: center;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: -12px;
+            right: -8px;
+            background: #ff5e62;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 3px solid white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 3px 0 #c0392b;
+        }
+
+        .title {
+            color: #5d4037;
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 0px white;
+        }
+
+        .server-section {
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 18px;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(217, 160, 102, 0.2);
+        }
+
+        .info-box {
+            border: 2px dashed #f9bc7c;
+            border-radius: 12px;
+            padding: 15px 10px;
+            margin-bottom: 12px;
+            background: #fff;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .server-name {
+            color: #d35400;
+            font-size: 18px;
+            font-weight: 800;
+            display: block;
+            margin-bottom: 8px;
+            border-bottom: 1px solid #f9bc7c;
+            padding-bottom: 5px;
+        }
+
+        /* --- PHẦN MÔ TẢ ĐƯỢC NÂNG CẤP --- */
+        .server-desc {
+            font-size: 13px;
+            color: #444;
+            margin-top: 5px;
+            display: block;
+            font-weight: 500;
+            text-align: left; /* Căn lề trái cho dễ đọc danh sách */
+            line-height: 1.6;
+        }
+
+        .server-desc i {
+            color: #27ae60; /* Màu xanh lá cho các dấu check */
+            margin-right: 5px;
+            font-size: 11px;
+        }
+
+        .tag-line {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* ------------------------------- */
+
+        .btn {
+            background: #8d5531;
+            color: white;
+            text-decoration: none;
+            padding: 12px 10px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 4px 0 #5d4037;
+            transition: all 0.1s;
+            border: none;
+            text-transform: uppercase;
+        }
+
+        .btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #5d4037;
+        }
+
+        .divider {
+            height: 3px;
+            background: #f9bc7c;
+            opacity: 0.4;
+            margin: 5px 0 20px 0;
+            border-radius: 10px;
+        }
+
+        .footer-text {
+            font-size: 11px;
+            color: #7f8c8d;
+            margin-top: 10px;
+            font-style: italic;
+        }
+    </style>
+    </head>
+    <body>
+
+        <div class="game-board">
+            <div class="close-btn"><i class="fa-solid fa-xmark"></i></div>
+            <div class="title">🎁 CHỌN SERVER GAME 🎁</div>
+
+            <!-- VÙNG SERVER 1 -->
+            <div class="server-section">
+                <div class="info-box">
+                    <span class="server-name">NGỌC RỒNG TDSTUDIO - OPEN</span>
+                    <span class="server-desc">
+                        <span class="tag-line"><i
+                                class="fa-solid fa-circle-check"></i> Dame <span
+                                style="color: red; font-weight: bold;">TẦM
+                                TRUNG</span>, dễ chơi</span>
+                        <span class="tag-line"><i
+                                class="fa-solid fa-circle-check"></i> Không cần
+                            mở thành viên</span>
+                        <span class="tag-line"><i
+                                class="fa-solid fa-circle-check"></i> Miễn phí
+                            Vàng & Ngọc vô hạn</span>
+                        <span class="tag-line"><i
+                                class="fa-solid fa-circle-check"></i> Hệ thống 7
+                            Server liên thông</span>
+                        <span class="tag-line"><i
+                                class="fa-solid fa-circle-check"></i> Nhiều tính
+                            năng mới cập nhật</span>
+                        <span class="tag-line"><i
+                                class="fa-solid fa-circle-check"></i> Vào trang
+                            chủ để vào Box và Tải game</span>
+                    </span>
+                </div>
+                <a href="https://thanhdi.games" class="btn">
+                    <i class="fa-solid fa-circle-play"></i> VÀO TRANG CHỦ
+                    TDSTUDIO
+                </a>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- VÙNG SERVER 2 -->
+            <div class="server-section">
+                <div class="info-box">
+                    <span class="server-name">NGỌC RỒNG NCD - TEST</span>
+                    <span class="server-desc">
+                        <span class="tag-line"><i class="fa-solid fa-star"></i>
+                            Dame <span
+                                style="color: red; font-weight: bold;">CHUẨN
+                                GỐC</span></span>
+                        <span class="tag-line"><i class="fa-solid fa-star"></i>
+                            Không cần mở thành viên</span>
+                        <span class="tag-line"><i class="fa-solid fa-star"></i>
+                            Miễn phí
+                            Vàng & Ngọc vô hạn</span>
+                        <span class="tag-line"><i class="fa-solid fa-star"></i>
+                            Chỉ có 1 server sắp test</span>
+                        <span class="tag-line"><i class="fa-solid fa-star"></i>
+                            Nhiều tính năng mới cập nhật</span>
+                        <span class="tag-line"><i class="fa-solid fa-star"></i>
+                            Vào trang
+                            chủ để vào Box và Tải game</span>
+                    </span>
+                </div>
+                <a href="https://nroncd.online" class="btn">
+                    <i class="fa-solid fa-circle-play"></i> VÀO TRANG CHỦ NCD
+                </a>
+            </div>
+            <div class="footer-text">(Vui lòng chọn đúng phiên bản để trải
+                nghiệm)</div>
+        </div>
+
+    </body>
+</html>
