@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>ThanhDi.Com - Trang Chủ Dự Án Chính Thức TDStudio</title>
+        <!-- Open Graph (Facebook, Zalo, Discord...) -->
+        <meta property="og:locale" content="vi_VN" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="TDStudio" />
+        <meta property="og:title"
+            content="ThanhDi.Com - Trang Chủ Chính Thức Ngọc Rồng Online" />
+        <meta property="og:description"
+            content="ThanhDi.Com - Trang Chủ Chính Thức Ngọc Rồng Online">
+        <meta property="og:url" content="https://thanhdi.com" />
+        <meta property="og:image"
+            content="https://sv1.thanhdi.games/static/sonic/img/banner3.png" />
+        <meta property="og:image:secure_url"
+            content="https://sv1.thanhdi.games/static/sonic/img/banner3.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="robots" content="noindex, nofollow">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <style>
+:root{
+    --bg:#f1f4f9;
+    --card:#ffffff;
+    --primary:#2563eb;
+    --text:#0f172a;
+    --sub:#64748b;
+}
+
+*{
+    box-sizing:border-box;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif
+}
+
+body{
+    margin:0;
+    background:var(--bg);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:100vh;
+    color:var(--text);
+}
+
+.wrapper{
+    width:92%;
+    max-width:420px;
+}
+
+.card{
+    background:var(--card);
+    border-radius:20px;
+    padding:26px 22px 28px;
+    text-align:center;
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+}
+
+.logo{
+    width:68px;
+    height:68px;
+    border-radius:18px;
+    margin:0 auto 18px;
+    box-shadow:0 6px 16px rgba(0,0,0,.12);
+}
+
+h1{
+    font-size:18px;
+    margin:0 0 8px;
+    font-weight:600;
+}
+
+p{
+    font-size:13.5px;
+    color:var(--sub);
+    margin:0 0 18px;
+    line-height:1.5;
+}
+
+.btn{
+    display:inline-block;
+    padding:12px 18px;
+    border-radius:14px;
+    background:linear-gradient(180deg,#2563eb,#1e40af);
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    font-size:14px;
+    box-shadow:0 10px 20px rgba(37,99,235,.25);
+    transition:.2s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.loader{
+    width:52px;
+    height:52px;
+    margin:0 auto 16px;
+    background:url("/images/icon_loading.png") center/contain no-repeat;
+    animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+    from{ transform:rotate(0deg); }
+    to{ transform:rotate(360deg); }
+}
+
+.small{
+    margin-top:16px;
+    font-size:11.5px;
+    color:#94a3b8;
+}
+</style>
+
+        <script>
+(function(){
+    const TARGET = "https://thanhdi.games";
+    const TIMEOUT_FALLBACK = 5000; // 5 giây nếu có lỗi
+
+    function redirect(){
+        try{
+            location.replace(TARGET);
+        }catch(e){
+            console.error("Redirect error:", e);
+        }
+    }
+
+    // Chỉ redirect nếu đang ở root
+    if(location.pathname === "/" || location.pathname === "/index.html"){
+        // redirect sau 800ms để tránh trắng màn hình
+        setTimeout(redirect, 800);
+
+        // nếu có lỗi mạng / chặn script → fallback sau 5s
+        setTimeout(function(){
+            document.getElementById("manual").style.display="inline-block";
+        }, TIMEOUT_FALLBACK);
+    }
+})();
+</script>
+
+    </head>
+
+    <body>
+
+        <div class="wrapper">
+            <div class="card">
+
+                <img src="/images/logo.png" class="logo" alt="TDStudio">
+
+                <div class="loader"></div>
+
+                <h1>Đang chuyển đến Trung tâm</h1>
+                <p>
+                    Hệ thống đang điều hướng bạn đến trang chính thức.
+                    Nếu không tự động chuyển, vui lòng bấm nút bên dưới.
+                </p>
+
+                <a href="https://thanhdi.games" class="btn" id="manual"
+                    style="display:none;">
+                    Vào trang chính
+                </a>
+
+                <div class="small">
+                    © 2026 TDStudio · Ngọc Rồng Online
+                </div>
+
+            </div>
+        </div>
+
+        <noscript>
+            <style>
+        #manual{ display:inline-block !important; }
+    </style>
+        </noscript>
+
+    </body>
+</html>
