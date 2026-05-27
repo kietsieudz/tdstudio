@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông Báo Ra Mắt Server 7 - Siêu Phẩm Sắp Khai Mở</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;800&family=Rowdies:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --primary-orange: #f97316;
+            --primary-yellow: #eab308;
+            --zalo-color: #0068ff;
+            --text-light: #f8fafc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Lexend', sans-serif;
+            background: radial-gradient(circle at top, #1e1b4b 0%, #0f172a 100%);
+            color: var(--text-light);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Hiệu ứng nền bụi khí tạo độ huyền ảo */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('https://www.transparenttextures.com/patterns/black-twill.png');
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 30px 24px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 
+                        0 0 40px rgba(249, 115, 22, 0.15);
+            z-index: 2;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Tiêu đề Game / Thương hiệu */
+        .brand-title {
+            font-family: 'Rowdies', sans-serif;
+            font-size: 1.5rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        /* Trạng thái Server 7 */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(249, 115, 22, 0.2);
+            border: 1px solid var(--primary-orange);
+            color: #fdba74;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        .status-badge i {
+            font-size: 0.75rem;
+        }
+
+        /* Tên Server */
+        .server-title {
+            font-family: 'Rowdies', sans-serif;
+            font-size: 3rem;
+            line-height: 1.1;
+            font-weight: 700;
+            background: linear-gradient(to bottom, #ffffff 30%, var(--primary-yellow) 70%, var(--primary-orange) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+        }
+
+        .server-subtitle {
+            font-size: 1rem;
+            color: #94a3b8;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        /* Khối Buttons hành động chính */
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 35px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            padding: 16px 24px;
+            border-radius: 16px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            border: none;
+        }
+
+        /* Nút Zalo */
+        .btn-zalo {
+            background: linear-gradient(135deg, #0084ff 0%, var(--zalo-color) 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 104, 255, 0.35);
+        }
+
+        .btn-zalo:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 104, 255, 0.5);
+        }
+
+        /* Nút Danh Sách Server */
+        .btn-servers {
+            background: linear-gradient(135deg, #334155 0%, #1e293b 100%);
+            color: #f1f5f9;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-servers:hover {
+            background: linear-gradient(135deg, #475569 0%, #334155 100%);
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Khu vực Server đang chạy (Mặc định ẩn, bấm nút sẽ hiện mượt mà) */
+        .active-servers-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: left;
+        }
+
+        .active-servers-panel.show {
+            max-height: 500px; /* Đủ không gian cho danh sách */
+        }
+
+        .panel-title {
+            font-size: 0.95rem;
+            color: #94a3b8;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .server-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .server-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 14px 18px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-light);
+            transition: all 0.2s ease;
+        }
+
+        .server-item:hover {
+            border-color: rgba(34, 197, 94, 0.4);
+            background: rgba(15, 23, 42, 0.8);
+            transform: scale(1.01);
+        }
+
+        .server-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .server-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .server-desc {
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+
+        .server-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #4ade80; /* Màu xanh mượt cho các server đang chạy */
+            background: rgba(74, 222, 128, 0.1);
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+
+        .server-status .dot {
+            width: 6px;
+            height: 6px;
+            background-color: #4ade80;
+            border-radius: 50%;
+            display: inline-block;
+            animation: blink 1.5s infinite;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 24px;
+            font-size: 0.75rem;
+            color: #475569;
+        }
+
+        /* Keyframes Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+                box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.4);
+            }
+            50% {
+                opacity: 0.9;
+                box-shadow: 0 0 0 8px rgba(249, 115, 22, 0);
+            }
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* Tối ưu riêng trên Mobile siêu nhỏ */
+        @media (max-width: 375px) {
+            .container {
+                padding: 24px 16px;
+            }
+            .server-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="brand-title">Dragon Ball</div>
+        
+        <div class="status-badge">
+            <i class="fa-solid fa-fire"></i> Dự Kiến Ra Mắt
+        </div>
+
+        <h1 class="server-title">SERVER 7</h1>
+        <p class="server-subtitle">Siêu phẩm đang được hoàn thiện kỹ lưỡng. Đăng ký tham gia nhóm hóng ngay hôm nay để không bỏ lỡ chuỗi sự kiện đua top cực khủng!</p>
+
+        <div class="action-buttons">
+            <a href="https://zalo.me/g/xxxxxx" target="_blank" class="btn btn-zalo">
+                <i class="fa-solid fa-comments"></i> Tham Gia Nhóm Zalo Hóng
+            </a>
+
+            <button class="btn btn-servers" id="toggleServerBtn">
+                <i class="fa-solid fa-server"></i> Danh Sách Server Đang Chạy
+            </button>
+        </div>
+
+        <div class="active-servers-panel" id="serversPanel">
+            <div class="panel-title">
+                <i class="fa-solid fa-circle-play"></i> Chọn Server Để Vào Chơi:
+            </div>
+            <div class="server-list">
+                <a href="https://game.example.com/sv1" class="server-item">
+                    <div class="server-info">
+                        <span class="server-name">Server 1 (Vũ Trụ 1)</span>
+                        <span class="server-desc">Đông vui, ổn định</span>
+                    </div>
+                    <span class="server-status"><span class="dot"></span> Online</span>
+                </a>
+
+                <a href="https://game.example.com/sv2" class="server-item">
+                    <div class="server-info">
+                        <span class="server-name">Server 2 (Vũ Trụ 2)</span>
+                        <span class="server-desc">Thị trường giao dịch sôi động</span>
+                    </div>
+                    <span class="server-status"><span class="dot"></span> Online</span>
+                </a>
+
+                <a href="https://game.example.com/sv3" class="server-item">
+                    <div class="server-info">
+                        <span class="server-name">Server 3 (Vũ Trụ 3)</span>
+                        <span class="server-desc">Thích hợp cày cuốc</span>
+                    </div>
+                    <span class="server-status"><span class="dot"></span> Online</span>
+                </a>
+                
+                <a href="https://game.example.com/sv4" class="server-item">
+                    <div class="server-info">
+                        <span class="server-name">Server 4 (Vũ Trụ 4)</span>
+                        <span class="server-desc">Đầy rẫy cao thủ</span>
+                    </div>
+                    <span class="server-status"><span class="dot"></span> Online</span>
+                </a>
+
+                <a href="https://game.example.com/sv5" class="server-item">
+                    <div class="server-info">
+                        <span class="server-name">Server 5 (Vũ Trụ 5)</span>
+                        <span class="server-desc">Cộng đồng bền vững</span>
+                    </div>
+                    <span class="server-status"><span class="dot"></span> Online</span>
+                </a>
+
+                <a href="https://game.example.com/sv6" class="server-item">
+                    <div class="server-info">
+                        <span class="server-name">Server 6 (Vũ Trụ 6)</span>
+                        <span class="server-desc">Mới khai mở gần đây</span>
+                    </div>
+                    <span class="server-status"><span class="dot"></span> Online</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer">
+            &copy; 2026 Toàn bộ quyền được bảo lưu.
+        </div>
+    </div>
+
+    <script>
+        const toggleBtn = document.getElementById('toggleServerBtn');
+        const panel = document.getElementById('serversPanel');
+
+        toggleBtn.addEventListener('click', () => {
+            panel.classList.toggle('show');
+            
+            // Cuộn nhẹ xuống dưới để người dùng thấy danh sách trên màn hình điện thoại ngắn
+            if (panel.classList.contains('show')) {
+                setTimeout(() => {
+                    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 200);
+            }
+        });
+    </script>
+</body>
+</html>
