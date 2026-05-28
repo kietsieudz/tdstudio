@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ngọc Rồng TDStudio & NCD - Vũ Trụ Ngọc Rồng Đỉnh Cao</title>
+    <title>Thanh Di Studio - Vũ Trụ Ngọc Rồng Đỉnh Cao</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome Icons -->
@@ -16,183 +16,183 @@
             background-color: #0b0f19;
         }
         .hero-bg {
-            background: radial-gradient(circle at center, #1e293b 0%, #0b0f19 100%);
+            background: radial-gradient(circle at top, #1e293b 0%, #0b0f19 100%);
         }
         .glow-orange {
-            box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
+            box-shadow: 0 4px 20px rgba(249, 115, 22, 0.15);
         }
         .glow-blue {
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.15);
         }
     </style>
 </head>
 <body class="text-gray-200 antialiased selection:bg-orange-500 selection:text-white">
 
-    <!-- HERO SECTION / HEADER -->
-    <header class="hero-bg relative overflow-hidden py-16 border-b border-gray-800">
-        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] opacity-30"></div>
-        <div class="container mx-auto px-4 max-w-6xl relative z-10 text-center">
-            <span class="bg-orange-500/10 text-orange-400 border border-orange-500/30 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full inline-block mb-4">
-                Hệ Thống Ngọc Rồng Thế Hệ Mới
-            </span>
-            <h1 class="text-4xl md:text-6xl font-black uppercase tracking-tight text-white mb-4 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500">
-                TDSTUDIO & NCD
-            </h1>
-            <p class="text-gray-400 text-base md:text-xl max-w-2xl mx-auto font-light leading-relaxed">
-                Nơi hội tụ của những chiến binh Sayda, Trái Đất và Namec. Bám sát cốt truyện nguyên bản, đột phá với hàng loạt tính năng độc quyền chưa từng xuất hiện.
-            </p>
+    <!-- MAIN PORTAL: VỪA VÀO SITE THẤY THẲNG 2 GAME (Layout dựa theo image.png) -->
+    <header class="hero-bg relative overflow-hidden pt-12 pb-16 border-b border-gray-800">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] opacity-20"></div>
+        
+        <div class="container mx-auto px-4 max-w-5xl relative z-10">
+            <!-- Brand / Intro -->
+            <div class="text-center mb-10">
+                <h1 class="text-3xl md:text-5xl font-black uppercase tracking-tight text-white mb-2 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500">
+                    THANH DI STUDIO
+                </h1>
+                <p class="text-gray-400 text-xs md:text-sm max-w-xl mx-auto uppercase tracking-widest font-medium">
+                    Hệ thống máy chủ Ngọc Rồng thế hệ mới - Bám sát cốt truyện & Đột phá tính năng
+                </p>
+            </div>
+
+            <!-- 2 Tựa game hiển thị gọn gàng, trực diện giống image.png -->
+            <div class="grid grid-cols-2 gap-4 sm:gap-6 max-w-2xl mx-auto">
+                
+                <!-- GAME 1: TDSTUDIO -->
+                <div class="bg-white rounded-2xl overflow-hidden flex flex-col justify-between transform hover:-translate-y-1 transition-all duration-300 glow-orange pb-4">
+                    <div>
+                        <!-- Ảnh đại diện game (Tỉ lệ vuông gần giống ảnh mẫu) -->
+                        <div class="relative aspect-square w-full bg-gradient-to-br from-yellow-500 via-orange-500 to-red-600 flex flex-col items-center justify-center p-4 text-center">
+                            <div class="absolute inset-0 bg-black/20"></div>
+                            <span class="relative z-10 bg-black/40 text-[10px] md:text-xs font-bold px-2 py-0.5 rounded text-yellow-400 border border-yellow-400/30 uppercase mb-2">
+                                Dame Trung
+                            </span>
+                            <h3 class="relative z-10 text-xl md:text-3xl font-black text-white tracking-tighter drop-shadow-md">
+                                TDSTUDIO
+                            </h3>
+                            <p class="relative z-10 text-[10px] md:text-xs text-gray-200 mt-1 max-w-[140px] line-clamp-2 opacity-90">
+                                Sát thương cao, PK rực lửa
+                            </p>
+                        </div>
+                        <!-- Tên hiển thị bên dưới ảnh -->
+                        <div class="p-3 text-center">
+                            <h4 class="font-bold text-gray-900 text-xs md:text-base line-clamp-1">
+                                TDStudio - Ngọc Rồng Sát Thương Cao
+                            </h4>
+                        </div>
+                    </div>
+                    <!-- Nút chơi ngay chuẩn form xanh lá giống ảnh mẫu -->
+                    <div class="px-3 sm:px-6">
+                        <a href="https://thanhdi.games" target="_blank" class="block w-full bg-[#10a342] hover:bg-[#0e8f3a] text-white text-center font-bold text-xs md:text-sm py-2.5 rounded-full transition-colors shadow-sm tracking-wide">
+                            Chơi ngay
+                        </a>
+                    </div>
+                </div>
+
+                <!-- GAME 2: NCD -->
+                <div class="bg-white rounded-2xl overflow-hidden flex flex-col justify-between transform hover:-translate-y-1 transition-all duration-300 glow-blue pb-4">
+                    <div>
+                        <!-- Ảnh đại diện game -->
+                        <div class="relative aspect-square w-full bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-500 flex flex-col items-center justify-center p-4 text-center">
+                            <div class="absolute inset-0 bg-black/20"></div>
+                            <span class="relative z-10 bg-black/40 text-[10px] md:text-xs font-bold px-2 py-0.5 rounded text-cyan-300 border border-cyan-300/30 uppercase mb-2">
+                                Dame Gốc
+                            </span>
+                            <h3 class="relative z-10 text-xl md:text-3xl font-black text-white tracking-tighter drop-shadow-md">
+                                NCD
+                            </h3>
+                            <p class="relative z-10 text-[10px] md:text-xs text-gray-200 mt-1 max-w-[140px] line-clamp-2 opacity-90">
+                                Chuẩn nguyên bản, lối chơi hoài niệm
+                            </p>
+                        </div>
+                        <!-- Tên hiển thị bên dưới ảnh -->
+                        <div class="p-3 text-center">
+                            <h4 class="font-bold text-gray-900 text-xs md:text-base line-clamp-1">
+                                NCD - Ngọc Rồng Chuẩn Dame Gốc
+                            </h4>
+                        </div>
+                    </div>
+                    <!-- Nút chơi ngay -->
+                    <div class="px-3 sm:px-6">
+                        <a href="https://nroncd.online" target="_blank" class="block w-full bg-[#10a342] hover:bg-[#0e8f3a] text-white text-center font-bold text-xs md:text-sm py-2.5 rounded-full transition-colors shadow-sm tracking-wide">
+                            Chơi ngay
+                        </a>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </header>
 
-    <!-- MAIN CHOOSER / GAME COMPARISON -->
-    <section class="container mx-auto px-4 max-w-6xl py-12">
-        <div class="grid md:grid-cols-2 gap-8">
+    <!-- SECTION 2: BÀI HOT - TDSTUDIO SẮP RA SV7 -->
+    <section class="bg-gray-900/40 border-b border-gray-800 py-16">
+        <div class="container mx-auto px-4 max-w-3xl">
+            <div class="text-center mb-8">
+                <span class="bg-red-500/10 text-red-400 border border-red-500/30 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-2 animate-pulse">
+                    <i class="fa-solid fa-fire mr-1"></i> Tin Tức Nóng Hổi
+                </span>
+                <h2 class="text-2xl md:text-4xl font-black text-white uppercase tracking-tight">
+                    SỨC NÓNG NÀO ĐANG CHỜ ĐỢI TẠI <span class="text-red-500">SERVER 7</span> TDSTUDIO?
+                </h2>
+            </div>
             
-            <!-- GAME 1: TDSTUDIO -->
-            <div class="bg-gray-900/60 border border-orange-500/30 rounded-2xl p-6 md:p-8 flex flex-col justify-between transform hover:-translate-y-1 transition-all duration-300 glow-orange backdrop-blur-sm">
-                <div>
-                    <div class="flex items-center justify-between mb-6">
-                        <!-- Giả lập Logo TDStudio -->
-                        <div class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-2xl flex items-center justify-center font-black text-2xl text-white shadow-lg tracking-tighter">
-                            TD
-                        </div>
-                        <span class="bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-md uppercase tracking-wider">
-                            Dame Trung (Sát Thương Cao)
-                        </span>
-                    </div>
-                    <h2 class="text-2xl md:text-3xl font-black text-white mb-3 tracking-wide">TDSTUDIO</h2>
-                    <p class="text-gray-400 text-sm md:text-base mb-6 leading-relaxed">
-                        Trải nghiệm cảm giác PK cực đã với lối chơi sát thương cao. Các chỉ số được tối ưu hóa tạo nên các trận chiến bùng nổ, dồn dập nhưng vẫn giữ vững sự cân bằng giữa các hành tinh.
-                    </p>
-                    <ul class="space-y-3 text-sm text-gray-300 mb-8">
-                        <li class="flex items-center"><i class="fa-solid fa-circle-check text-orange-500 mr-2.5"></i> Cày chay nhận vàng, ngọc xanh không giới hạn.</li>
-                        <li class="flex items-center"><i class="fa-solid fa-circle-check text-orange-500 mr-2.5"></i> Hệ thống Boss đa dạng, cơ chế rớt đồ cực VIP.</li>
-                        <li class="flex items-center"><i class="fa-solid fa-circle-check text-orange-500 mr-2.5"></i> Sự kiện đua top, giải đấu võ đài tổ chức liên tục.</li>
-                    </ul>
-                </div>
-                <a href="https://thanhdi.games" target="_blank" class="block w-full bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 text-white text-center font-bold uppercase py-3.5 rounded-xl transition-all duration-200 shadow-md tracking-wider">
-                    Tham Gia TDStudio <i class="fa-solid fa-circle-play ml-1"></i>
-                </a>
-            </div>
-
-            <!-- GAME 2: NCD -->
-            <div class="bg-gray-900/60 border border-blue-500/30 rounded-2xl p-6 md:p-8 flex flex-col justify-between transform hover:-translate-y-1 transition-all duration-300 glow-blue backdrop-blur-sm">
-                <div>
-                    <div class="flex items-center justify-between mb-6">
-                        <!-- Giả lập Logo NCD -->
-                        <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center font-black text-2xl text-white shadow-lg tracking-tighter">
-                            NCD
-                        </div>
-                        <span class="bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-md uppercase tracking-wider">
-                            Dame Gốc (Chuẩn Sát Thương)
-                        </span>
-                    </div>
-                    <h2 class="text-2xl md:text-3xl font-black text-white mb-3 tracking-wide">NCD</h2>
-                    <p class="text-gray-400 text-sm md:text-base mb-6 leading-relaxed">
-                        Tìm lại ký ức tuổi thơ với lối chơi dame gốc nguyên bản, chậm rãi và đầy tính chiến thuật. Đòi hỏi sự tư duy trong cách cộng tiềm năng, phối đồ và kỹ năng PK đỉnh cao.
-                    </p>
-                    <ul class="space-y-3 text-sm text-gray-300 mb-8">
-                        <li class="flex items-center"><i class="fa-solid fa-circle-check text-blue-500 mr-2.5"></i> Lối chơi hoài niệm, giữ nguyên giá trị vật phẩm.</li>
-                        <li class="flex items-center"><i class="fa-solid fa-circle-check text-blue-500 mr-2.5"></i> Hệ thống nhiệm vụ bám sát 100% cốt truyện gốc.</li>
-                        <li class="flex items-center"><i class="fa-solid fa-circle-check text-blue-500 mr-2.5"></i> Tính năng mới cập nhật liên tục không làm mất gốc game.</li>
-                    </ul>
-                </div>
-                <a href="https://nroncd.online" target="_blank" class="block w-full bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 text-white text-center font-bold uppercase py-3.5 rounded-xl transition-all duration-200 shadow-md tracking-wider">
-                    Tham Gia NCD <i class="fa-solid fa-circle-play ml-1"></i>
-                </a>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- HOT NEWS SECTION: SERVER 7 TDSTUDIO -->
-    <section class="bg-gray-900/40 border-y border-gray-800 py-16">
-        <div class="container mx-auto px-4 max-w-4xl text-center">
-            <span class="bg-red-500/10 text-red-400 border border-red-500/30 text-xs font-bold uppercase tracking-widest px-4 py-1 rounded-full inline-block mb-3 animate-pulse">
-                <i class="fa-solid fa-fire mr-1"></i> Tin Tức Sốt Dẻo
-            </span>
-            <h2 class="text-3xl md:text-5xl font-black text-white uppercase tracking-tight mb-6">
-                TDSTUDIO SẮP KHAI MỞ <span class="text-red-500">SERVER 7</span>
-            </h2>
-            <div class="bg-gradient-to-b from-gray-900 to-gray-950 p-6 md:p-8 rounded-2xl border border-gray-800 text-left shadow-2xl">
-                <p class="text-gray-300 text-base md:text-lg leading-relaxed mb-4 font-medium">
-                    Cộng đồng Ngọc Rồng đang sục sôi hơn bao giờ hết! Kế thừa sự thành công rực rỡ từ các server trước, <span class="text-yellow-400 font-bold">Server 7 của TDStudio</span> hứa hẹn sẽ mang đến một sân chơi bùng nổ, công bằng và tối ưu nhất.
+            <div class="bg-gradient-to-b from-gray-900 to-gray-950 p-6 md:p-8 rounded-2xl border border-gray-800 shadow-xl space-y-4">
+                <p class="text-gray-300 text-sm md:text-base leading-relaxed">
+                    Cộng đồng Ngọc Rồng đang sục sôi hơn bao giờ hết trước thông tin <span class="text-yellow-400 font-bold">TDStudio chuẩn bị chính thức kích nổ Server 7</span>. Đây được đánh giá là đợt mở máy chủ có quy mô lớn nhất từ trước đến nay, thu hút hàng ngàn game thủ kỳ cựu và các thế lực lớn tham gia tranh tài.
                 </p>
-                <p class="text-gray-400 text-sm md:text-base leading-relaxed mb-6">
-                    Hàng vạn chiến binh đã sẵn sàng hội tụ tại vạch xuất phát. Đợt mở server này đi kèm chuỗi sự kiện Đua Top nhận quà khủng chưa từng có: Capsule Kỳ Bí, Cải Trang độc quyền, và hàng triệu Ngọc Xanh được phát hoàn toàn miễn phí cho tân thủ.
-                </p>
-                <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-center">
-                    <div class="bg-gray-900 p-3 rounded-xl border border-gray-800">
-                        <div class="text-orange-500 font-bold text-xl md:text-2xl">100%</div>
-                        <div class="text-xs text-gray-400 mt-1">Cày Chay Lên Đỉnh</div>
-                    </div>
-                    <div class="bg-gray-900 p-3 rounded-xl border border-gray-800">
-                        <div class="text-orange-500 font-bold text-xl md:text-2xl">X2</div>
-                        <div class="text-xs text-gray-400 mt-1">Kinh Nghiệm (Exp)</div>
-                    </div>
-                    <div class="bg-gray-900 p-3 rounded-xl border border-gray-800 col-span-2 sm:col-span-1">
-                        <div class="text-orange-500 font-bold text-xl md:text-2xl">24/7</div>
-                        <div class="text-xs text-gray-400 mt-1">Hỗ Trợ Mượt Mà</div>
-                    </div>
+                <div class="border-l-4 border-orange-500 pl-4 my-4 bg-orange-500/5 py-2 rounded-r-lg">
+                    <span class="block text-white font-bold text-sm md:text-base">Chuỗi sự kiện Đua Top bùng nổ:</span>
+                    <p class="text-gray-400 text-xs md:text-sm">Nhận ngay Capsule Kỳ Bí, Cải Trang độc quyền cực VIP và hàng triệu Ngọc Xanh được phát hoàn toàn miễn phí cho Tân Thủ khởi nghiệp.</p>
                 </div>
+                <p class="text-gray-400 text-xs md:text-sm leading-relaxed">
+                    Với cơ chế tăng tốc trải nghiệm (X2 EXP) và tối ưu tỷ lệ rớt đồ phương bản mới, Server 7 sẽ là miền đất hứa mang lại môi trường cày cuốc công bằng, mượt mà và nói không với giật lag. Hãy chuẩn bị sẵn sàng hành trang để chiếm lĩnh bảng xếp hạng ngay từ những giây đầu tiên khai mở!
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- INFORMATION SECTION: THANH DI TDSTUDIO -->
-    <section class="container mx-auto px-4 max-w-5xl py-16">
-        <div class="text-center mb-12">
-            <h2 class="text-2xl md:text-4xl font-black text-white uppercase tracking-tight mb-3">
-                Vận Hành & Hoạt Động Tại Thanh Di TDStudio
+    <!-- SECTION 3: THÔNG TIN VỀ THANH DI TDSTUDIO -->
+    <section class="container mx-auto px-4 max-w-4xl py-16">
+        <div class="text-center mb-10">
+            <h2 class="text-xl md:text-3xl font-black text-white uppercase tracking-tight mb-2">
+                Phương Châm Hoạt Động Của Thanh Di TDStudio
             </h2>
-            <p class="text-gray-400 text-sm md:text-base max-w-xl mx-auto">
-                Hệ thống vận hành chuyên nghiệp, cam kết mang đến sự ổn định lâu dài cho người chơi.
+            <p class="text-gray-400 text-xs md:text-sm max-w-md mx-auto">
+                Sự tin tưởng và trải nghiệm mượt mà của game thủ luôn là ưu tiên hàng đầu của đội ngũ vận hành.
             </p>
         </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Feature 1 -->
-            <div class="bg-gray-900/80 p-6 rounded-xl border border-gray-800">
-                <div class="text-orange-500 text-2xl mb-4"><i class="fa-solid fa-shield-halved"></i></div>
-                <h3 class="text-lg font-bold text-white mb-2">Hạ Tầng Kháng DDoS</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">
-                    Được bảo vệ bởi hệ thống Firewall tiên tiến, hạn chế tối đa tình trạng giật lag, mất kết nối khi đang PK hoặc săn Boss.
+        <div class="grid sm:grid-cols-3 gap-6">
+            <!-- Box 1 -->
+            <div class="bg-gray-900/60 p-5 rounded-xl border border-gray-800 text-center sm:text-left">
+                <div class="text-orange-500 text-xl mb-3"><i class="fa-solid fa-shield-halved"></i></div>
+                <h3 class="text-base font-bold text-white mb-1.5">Hạ Tầng Ổn Định</h3>
+                <p class="text-gray-400 text-xs leading-relaxed">
+                    Hệ thống máy chủ mạnh mẽ, tích hợp tường lửa chống DDoS cao cấp giúp giảm thiểu tối đa tình trạng lag, mất kết nối khi săn Boss.
                 </p>
             </div>
-            <!-- Feature 2 -->
-            <div class="bg-gray-900/80 p-6 rounded-xl border border-gray-800">
-                <div class="text-orange-500 text-2xl mb-4"><i class="fa-solid fa-code-branch"></i></div>
-                <h3 class="text-lg font-bold text-white mb-2">Cập Nhật Tính Năng Mới</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">
-                    Đội ngũ kỹ thuật liên tục nghiên cứu, tối ưu kịch bản tương tác và cập nhật các phụ bản, cải trang mới bám sát xu hướng.
+            <!-- Box 2 -->
+            <div class="bg-gray-900/60 p-5 rounded-xl border border-gray-800 text-center sm:text-left">
+                <div class="text-orange-500 text-xl mb-3"><i class="fa-solid fa-code"></i></div>
+                <h3 class="text-base font-bold text-white mb-1.5">Tối Ưu Liên Tục</h3>
+                <p class="text-gray-400 text-xs leading-relaxed">
+                    Đội ngũ kỹ thuật liên tục cập nhật kịch bản, sửa lỗi nhanh chóng và phát triển thêm các tính năng phụ bản bám sát xu hướng người chơi.
                 </p>
             </div>
-            <!-- Feature 3 -->
-            <div class="bg-gray-900/80 p-6 rounded-xl border border-gray-800 sm:col-span-2 lg:col-span-1">
-                <div class="text-orange-500 text-2xl mb-4"><i class="fa-solid fa-users-gear"></i></div>
-                <h3 class="text-lg font-bold text-white mb-2">Cộng Đồng Bền Vững</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">
-                    Hệ thống quản trị viên phân bổ hỗ trợ người chơi 24/7, xử lý triệt để vấn nạn gian lận nhằm bảo vệ quyền lợi game thủ.
+            <!-- Box 3 -->
+            <div class="bg-gray-900/60 p-5 rounded-xl border border-gray-800 text-center sm:text-left">
+                <div class="text-orange-500 text-xl mb-3"><i class="fa-solid fa-users"></i></div>
+                <h3 class="text-base font-bold text-white mb-1.5">Hỗ Trợ 24/7</h3>
+                <p class="text-gray-400 text-xs leading-relaxed">
+                    Quản trị viên túc trực giải đáp thắc mắc, xử lý triệt để các vấn đề gian lận nhằm bảo vệ tối đa quyền lợi của mọi cư dân.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="bg-gray-950 border-t border-gray-800 py-12 text-center text-sm text-gray-500">
-        <div class="container mx-auto px-4 max-w-6xl">
-            <div class="flex flex-col sm:flex-row items-center justify-between gap-6 mb-8">
-                <div class="text-left">
-                    <span class="font-black text-white tracking-wide block mb-1">NGỌC RỒNG THANH DI</span>
-                    <p class="text-xs text-gray-400">Trang thông tin quảng bá và vận hành các máy chủ Ngọc Rồng thế hệ mới.</p>
+    <!-- FOOTER XỊN XÒ -->
+    <footer class="bg-gray-950 border-t border-gray-800 py-10 text-center text-xs text-gray-500">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
+                <div class="text-center sm:text-left">
+                    <span class="font-black text-white text-sm tracking-wide block mb-1">THANH DI STUDIO</span>
+                    <p class="text-gray-400 text-[11px]">Trang thông tin tổng hợp và liên kết vận hành các máy chủ Ngọc Rồng đỉnh cao.</p>
                 </div>
-                <div class="flex gap-4">
+                <div class="flex gap-4 text-[11px]">
                     <a href="https://thanhdi.games" target="_blank" class="text-gray-400 hover:text-orange-500 transition-colors"><i class="fa-solid fa-globe mr-1"></i> ThanhDi.Games</a>
                     <a href="https://nroncd.online" target="_blank" class="text-gray-400 hover:text-blue-500 transition-colors"><i class="fa-solid fa-globe mr-1"></i> NroNCD.Online</a>
                 </div>
             </div>
-            <hr class="border-gray-900 mb-8">
-            <p>&copy; 2026 Ngọc Rồng Thanh Di. Bảo lưu mọi quyền. Trò chơi giả lập phục vụ mục đích giải trí phi lợi nhuận.</p>
+            <hr class="border-gray-900 mb-6">
+            <p>&copy; 2026 Thanh Di Studio. All rights reserved. Trò chơi vận hành thử nghiệm phục vụ mục đích giải trí.</p>
         </div>
     </footer>
 
