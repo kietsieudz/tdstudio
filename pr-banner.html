@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ngọc Rồng TDStudio - Server Cày Cuốc Cực Cháy, Không Lag</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=B some&family=Roboto:wght@400;700;900&family=Secular+One&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #0b0c10;
+        }
+        .font-game {
+            font-family: 'Secular One', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        /* Hiệu ứng chữ đổ bóng Gaming */
+        .text-glow {
+            text-shadow: 0 0 10px rgba(239, 68, 68, 0.8), 0 0 20px rgba(239, 68, 68, 0.5);
+        }
+        .text-glow-gold {
+            text-shadow: 0 0 10px rgba(245, 158, 11, 0.8), 0 0 20px rgba(245, 158, 11, 0.5);
+        }
+        /* Hiệu ứng nhấp nháy thôi thúc click */
+        @keyframes pulse-btn {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 15px rgba(220, 38, 38, 0.6); }
+            50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(220, 38, 38, 0.9); }
+        }
+        .animate-pulse-fast {
+            animation: pulse-btn 1.5s infinite;
+        }
+        /* Tối ưu background gaming */
+        .bg-hero {
+            background: linear-gradient(180deg, rgba(11, 12, 16, 0.6) 0%, rgba(11, 12, 16, 1) 100%), 
+                        url('https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=1200&auto=format&fit=crop') no-repeat center center;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body class="text-gray-200 antialiased overflow-x-hidden">
+
+    <header class="w-full bg-black/80 backdrop-blur-md border-b border-red-600/30 fixed top-0 left-0 z-50 px-4 py-3">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <span class="text-2xl font-black text-red-500 font-game text-glow">TD<span class="text-amber-400">STUDIO</span></span>
+            </div>
+            <div class="flex space-x-3">
+                <a href="#download" class="bg-amber-500 hover:bg-amber-600 text-black font-bold px-4 py-1.5 rounded-full text-sm transition font-game">Tải Game</a>
+                <a href="https://zalo.me" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 py-1.5 rounded-full text-sm transition"><i class="fab fa-telegram-plane mr-1"></i> Box Zalo</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-hero min-h-screen pt-24 pb-12 flex flex-col justify-center items-center px-4 text-center relative">
+        <div class="bg-red-600/20 border border-red-500 text-red-400 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest mb-4 animate-bounce">
+            🔥 ĐÃ CHÍNH THỨC OPEN BETA - CHƠI KHÔNG GIỚI HẠN
+        </div>
+
+        <h1 class="text-4xl md:text-7xl font-black text-white font-game text-glow mb-2">
+            NGỌC RỒNG <br><span class="text-amber-400 text-glow-gold">TDSTUDIO</span>
+        </h1>
+        <p class="text-gray-300 text-sm md:text-lg max-w-md md:max-w-xl mx-auto mb-8 font-medium">
+            Server chuẩn cày cuốc thế hệ mới. Cam kết <span class="text-red-400 font-bold">Mượt Mà 24/7</span>, Chống DDoS Layer 4/7 cực đỉnh, nói không với giật lag!
+        </p>
+
+        <div id="download" class="w-full max-w-md bg-black/60 border border-amber-500/30 rounded-2xl p-6 backdrop-blur-sm mb-8">
+            <h3 class="text-amber-400 font-bold font-game text-sm mb-4"><i class="fas fa-download mr-1"></i> CHỌN PHIÊN BẢN PHÙ HỢP</h3>
+            
+            <div class="grid grid-cols-2 gap-3 mb-4">
+                <a href="#" class="flex items-center justify-center space-x-2 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white font-bold p-3 rounded-xl transition text-sm">
+                    <i class="fab fa-android text-xl"></i>
+                    <span class="text-left leading-tight">Mã APK<br><span class="text-[10px] font-normal opacity-80">Cho Android</span></span>
+                </a>
+                <a href="#" class="flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold p-3 rounded-xl transition text-sm">
+                    <i class="fab fa-windows text-xl"></i>
+                    <span class="text-left leading-tight">Bản PC.EXE<br><span class="text-[10px] font-normal opacity-80">Cho Máy Tính</span></span>
+                </a>
+            </div>
+            
+            <a href="#" class="block w-full text-center bg-amber-400 hover:bg-amber-500 text-black font-black py-4 rounded-xl font-game text-lg tracking-wider transition transform active:scale-95 animate-pulse-fast">
+                <i class="fas fa-user-plus mr-2"></i> ĐĂNG KÝ TÀI KHOẢN FREE
+            </a>
+        </div>
+
+        <div class="text-center bg-gray-900/80 border border-gray-800 rounded-xl px-6 py-3 flex items-center space-x-4">
+            <span class="text-xs font-bold text-gray-400 uppercase tracking-wider text-left">Sự kiện Đua Top<br>kết thúc sau:</span>
+            <div class="flex space-x-2 font-game text-xl text-amber-400">
+                <div id="countdown" class="font-bold tracking-widest">03 Ngày 14:22:05</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-4 py-16 border-t border-gray-900">
+        <h2 class="text-2xl md:text-4xl font-black text-center font-game mb-12 text-white">
+            🎁 QUÀ TÂN THỦ <span class="text-red-500">CỰC KHỦNG</span>
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-gradient-to-b from-gray-900 to-black border border-gray-800 p-6 rounded-2xl relative overflow-hidden group hover:border-red-500/50 transition">
+                <div class="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-bold px-3 py-1 uppercase rounded-bl-lg">Free</div>
+                <div class="text-red-500 text-3xl mb-4"><i class="fas fa-gift"></i></div>
+                <h3 class="text-xl font-bold mb-2 text-white">Khởi Tạo Nhận Ngay</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Nhận ngay 20.000 Ngọc Xanh, Đệ Tử Siêu Cấp và X5 Exp Server trong 3 ngày đầu tiên trải nghiệm.</p>
+            </div>
+            <div class="bg-gradient-to-b from-gray-900 to-black border border-gray-800 p-6 rounded-2xl relative overflow-hidden group hover:border-amber-500/50 transition">
+                <div class="absolute top-0 right-0 bg-amber-500 text-black text-[10px] font-bold px-3 py-1 uppercase rounded-bl-lg">Hot</div>
+                <div class="text-amber-400 text-3xl mb-4"><i class="fas fa-bolt"></i></div>
+                <h3 class="text-xl font-bold mb-2 text-white">Lối Chơi Bản Sắc</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Tỷ lệ rơi đồ cao, đồ thần cực dễ kiếm thông qua săn Boss liên tục. Hệ thống danh hiệu độc quyền cực đẹp.</p>
+            </div>
+            <div class="bg-gradient-to-b from-gray-900 to-black border border-gray-800 p-6 rounded-2xl relative overflow-hidden group hover:border-blue-500/50 transition">
+                <div class="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-bold px-3 py-1 uppercase rounded-bl-lg">Stable</div>
+                <div class="text-blue-500 text-3xl mb-4"><i class="fas fa-shield-alt"></i></div>
+                <h3 class="text-xl font-bold mb-2 text-white">Hạ Tầng Đỉnh Cao</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Vận hành trên hệ thống máy chủ Windows VPS tối ưu, tích hợp tường lửa chống DDoS mạnh mẽ, không giật lag.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-gray-950 py-16 border-t border-b border-gray-900 px-4">
+        <div class="max-w-md mx-auto bg-gray-900 border border-amber-500/40 rounded-2xl p-6 text-center shadow-2xl">
+            <h2 class="text-xl font-black font-game text-amber-400 mb-2">🎯 VÒNG QUAY MAY MẮN TÂN THỦ</h2>
+            <p class="text-xs text-gray-400 mb-6">Thử vận may - Nhận code kích hoạt quà VIP khi vào game</p>
+            
+            <div class="w-48 h-48 rounded-full border-4 border-amber-500 mx-auto mb-6 flex items-center justify-center relative bg-gradient-to-tr from-red-600 to-amber-400 shadow-lg shadow-orange-600/20">
+                <div class="absolute inset-2 rounded-full border border-dashed border-white/40"></div>
+                <div class="text-black font-black text-xs font-game rotate-12">99.999 THỎI VÀNG</div>
+                <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-6 bg-yellow-300 clip-triangle z-10"></div>
+            </div>
+
+            <button onclick="spinWheel()" id="spin-btn" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-xl transition font-game text-sm tracking-wide">
+                💥 QUAY THỬ MIỄN PHÍ
+            </button>
+            
+            <div id="spin-result" class="hidden mt-4 p-3 bg-green-950 border border-green-500/50 rounded-xl text-green-400 text-sm font-bold">
+                🎉 Chúc mừng! Bạn trúng <span class="text-yellow-400">Cải Trang Liễu Thần VIP</span>. Hãy Tham gia Box Zalo để nhận Code!
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-4xl mx-auto px-4 py-16 text-center">
+        <h2 class="text-2xl font-black font-game mb-4 text-white">GIA NHẬP CỘNG ĐỒNG TDSTUDIO</h2>
+        <p class="text-gray-400 text-sm max-w-md mx-auto mb-8">Nơi giao lưu, buôn bán thỏi vàng, lập bang hội và nhận thông báo cập nhật update sớm nhất từ Admin.</p>
+        
+        <div class="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-4">
+            <a href="https://zalo.me" target="_blank" class="flex items-center justify-center space-x-2 bg-[#0068ff] hover:bg-[#0056d2] text-white font-bold px-8 py-3 rounded-xl transition text-base shadow-lg">
+                <i class="fab fa-comments text-xl"></i>
+                <span>THAM GIA BOX ZALO KIẾM ĐỆ TỬ</span>
+            </a>
+            <a href="https://facebook.com" target="_blank" class="flex items-center justify-center space-x-2 bg-[#1877f2] hover:bg-[#145dbf] text-white font-bold px-8 py-3 rounded-xl transition text-base shadow-lg">
+                <i class="fab fa-facebook text-xl"></i>
+                <span>FANPAGE NGỌC RỒNG TDSTUDIO</span>
+            </a>
+        </div>
+    </section>
+
+    <footer class="w-full bg-black py-8 border-t border-gray-900 px-4 text-center text-xs text-gray-600">
+        <p class="mb-2">&copy; 2026 Ngọc Rồng TDStudio. All Rights Reserved.</p>
+        <p>Trò chơi mô phỏng phi lợi nhuận dành cho cộng đồng yêu thích Ngọc Rồng.</p>
+    </footer>
+
+    <script>
+        // 1. Script Countdown giả lập thời gian kết thúc sự kiện đua top (Luôn tạo cảm giác hối thúc)
+        function startCountdown() {
+            let duration = (3 * 24 * 60 * 60) + (14 * 60 * 60) + (22 * 60); // 3 ngày 14 tiếng 22 phút
+            const timerDisplay = document.getElementById('countdown');
+            
+            setInterval(() => {
+                let days = Math.floor(duration / (24 * 3600));
+                let hours = Math.floor((duration % (24 * 3600)) / 3600);
+                let minutes = Math.floor((duration % 3600) / 60);
+                let seconds = duration % 60;
+
+                hours = hours < 10 ? "0" + hours : hours;
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                timerDisplay.textContent = `${days} Ngày ${hours}:${minutes}:${seconds}`;
+                if (--duration < 0) duration = 0;
+            }, 1000);
+        }
+        startCountdown();
+
+        // 2. Logic click quay thử (Giữ chân người dùng, tăng ham muốn nhận quà)
+        function spinWheel() {
+            const btn = document.getElementById('spin-btn');
+            const result = document.getElementById('spin-result');
+            
+            btn.disabled = true;
+            btn.innerText = "ĐANG QUAY...";
+            btn.classList.remove('bg-red-600');
+            btn.classList.add('bg-gray-700');
+
+            setTimeout(() => {
+                result.classList.remove('hidden');
+                btn.innerText = "BẤM VÀO BOX ZALO ĐỂ NHẬN CODE QUÀ XONG!";
+                btn.classList.remove('bg-gray-700');
+                btn.classList.add('bg-green-600');
+            }, 1200);
+        }
+    </script>
+</body>
+</html>
