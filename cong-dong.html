@@ -1,19 +1,600 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0;url=https://sv6.thanhdi.games/page?e=zalo">
-    <title>Đang chuyển hướng đến trang Cộng đồng của TDStudio...</title>
-    <script>window.location.replace("https://sv6.thanhdi.games/page?e=zalo");</script>
-    <style>
-        body { background: #f1f4f9; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; font-family: sans-serif; }
-        .msg { text-align: center; color: #64748b; font-size: 14px; }
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>Cộng Đồng Ngọc Rồng TDStudio</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet"
+            box-sizing="border-box"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+        <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --text-main: #ffffff;
+            --text-sub: #94a3b8;
+            --zalo-color: #0068ff;
+            --zalo-gradient: linear-gradient(135deg, #2563eb 0%, #0068ff 100%);
+            --messenger-gradient: linear-gradient(135deg, #0084ff 0%, #a445b2 100%);
+            --accent-color: #f59e0b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Lexend', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 20px 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px; /* Chuẩn màn hình mobile */
+        }
+
+        /* Header phong cách Game */
+        .header {
+            text-align: center;
+            margin-bottom: 24px;
+            margin-top: 10px;
+        }
+
+        /* Khối chứa ảnh logo chính có bo góc và đổ bóng chuyên nghiệp */
+        .logo-placeholder {
+            width: 84px;
+            height: 84px;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            border-radius: 22px; 
+            overflow: hidden; 
+        }
+
+        .logo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            display: block;
+        }
+
+        .header h1 {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            background: linear-gradient(to right, #fff, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 6px;
+        }
+
+        .header p {
+            font-size: 13px;
+            color: var(--text-sub);
+        }
+
+        /* Khu vực 2 nút Admin song song */
+        .admin-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .btn-admin {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: #fff;
+            text-decoration: none;
+            padding: 14px 8px;
+            border-radius: 16px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: transform 0.2s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .btn-admin.zalo {
+            background: var(--zalo-gradient);
+            box-shadow: 0 6px 16px rgba(0, 104, 255, 0.25);
+        }
+
+        .btn-admin.messenger {
+            background: var(--messenger-gradient);
+            box-shadow: 0 6px 16px rgba(164, 69, 178, 0.25);
+        }
+
+        .btn-admin:active {
+            transform: scale(0.96);
+        }
+
+        .btn-admin i {
+            font-size: 18px;
+        }
+
+        /* Định dạng hiển thị Lưới (Grid) chính xác 3 Server trên một hàng */
+        .server-tabs-box {
+            margin-bottom: 20px;
+        }
+
+        .server-tabs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 8px;
+        }
+
+        .btn-server {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            color: var(--text-sub);
+            padding: 12px 4px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .btn-server.active {
+            background: linear-gradient(135deg, var(--accent-color) 0%, #d97706 100%);
+            color: #fff;
+            border-color: transparent;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+        }
+
+        /* Khu vực danh sách nhóm */
+        .section-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-sub);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            padding-left: 4px;
+            transition: color 0.3s ease;
+        }
+
+        /* Gợi ý cho người chơi khi chưa chọn server */
+        .section-title.hint {
+            text-align: center;
+            padding: 30px 10px;
+            font-size: 14px;
+            text-transform: none;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px dashed var(--card-border);
+            border-radius: 16px;
+        }
+
+        .group-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .group-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 12px 14px;
+            border-radius: 16px;
+            text-decoration: none;
+            transition: border-color 0.3s ease, background-color 0.2s;
+        }
+
+        /* Mặc định ẩn tất cả các nhóm khi chưa click */
+        .group-item.hidden {
+            display: none !important;
+        }
+
+        .group-item:active {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(0.99);
+        }
+
+        .group-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            overflow: hidden; 
+        }
+
+        /* Định vị kích thước avatar box (Không cấu hình bo góc/background để nhận ảnh tự bo sẵn) */
+        .group-avatar-box {
+            width: 46px;
+            height: 46px;
+            overflow: hidden; 
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .group-avatar-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .group-details {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            overflow: hidden;
+        }
+
+        .group-name {
+            color: var(--text-main);
+            font-size: 14px;
+            font-weight: 600;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            transition: color 0.3s ease;
+        }
+
+        .group-desc {
+            color: var(--text-sub);
+            font-size: 12px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        /* Nút Tham Gia tinh gọn và chuyên nghiệp */
+        .btn-join {
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 32px;
+            padding-bottom: 16px;
+            font-size: 11px;
+            color: var(--text-sub);
+        }
     </style>
-</head>
-<body>
-    <div class="msg">
-        <p>Đang kết nối đến cộng đồng TDStudio...</p>
-        <a href="https://sv6.thanhdi.games/page?e=zalo" style="color: #2563eb; text-decoration: none;">Click vào đây nếu không tự chuyển hướng</a>
-    </div>
-</body>
+    </head>
+    <body>
+
+        <div class="container">
+
+            <div class="header">
+                <div class="logo-placeholder">
+                    <img src="/images/avatar_tdstudio.png"
+                        alt="Logo Ngọc Rồng TDStudio">
+                </div>
+                <h1>Ngọc Rồng TDStudio</h1>
+                <p>Hệ thống tổng hợp liên kết cộng đồng chính thức</p>
+            </div>
+
+            <div class="admin-grid">
+                <a href="https://zalo.me/0345463318" target="_blank"
+                    class="btn-admin zalo">
+                    <i class="fa-solid fa-comment-sms"></i> Zalo Admin
+                </a>
+                <a href="https://m.me/594254293768424" target="_blank"
+                    class="btn-admin messenger">
+                    <i class="fa-brands fa-facebook-messenger"></i> Messenger
+                    Admin
+                </a>
+            </div>
+
+            <h2 class="section-title">Chọn Server Game</h2>
+            <div class="server-tabs-box">
+                <div class="server-tabs-grid">
+                    <div class="btn-server" onclick="switchServer(1)">Nhóm
+                        Server 1</div>
+                    <div class="btn-server" onclick="switchServer(2)">Nhóm
+                        Server 2</div>
+                    <div class="btn-server" onclick="switchServer(3)">Nhóm
+                        Server 3</div>
+                    <div class="btn-server" onclick="switchServer(4)">Nhóm
+                        Server 4</div>
+                    <div class="btn-server" onclick="switchServer(5)">Nhóm
+                        Server 5</div>
+                    <div class="btn-server" onclick="switchServer(6)">Nhóm
+                        Server 6</div>
+                    <div class="btn-server" onclick="switchServer(7)">Nhóm
+                        Server 7</div>
+                </div>
+            </div>
+
+            <h2 class="section-title hint" id="listTitle">Vui lòng chọn Server
+                phía trên để xem các nhóm Zalo</h2>
+
+            <div class="group-list" id="groupContainer">
+
+                <a href="https://zalo.me/g/guxxky409" target="_blank"
+                    class="group-item hidden" data-server="1">
+                    <div class="group-info">
+                        <div class="group-avatar-box"><img
+                                src="/images/zalo_icon.png" alt="Avatar"></div>
+                        <div class="group-details">
+                            <span class="group-name">Nhóm 1 - Server 1</span>
+                            <span class="group-desc">Nhóm thảo luận Server
+                                1</span>
+                        </div>
+                    </div>
+                    <span class="btn-join">Tham gia</span>
+                </a>
+                <a href="https://zalo.me/g/chhtoc951" target="_blank"
+                    class="group-item hidden" data-server="1">
+                    <div class="group-info">
+                        <div class="group-avatar-box"><img
+                                src="/images/zalo_icon.png" alt="Avatar"></div>
+                        <div class="group-details">
+                            <span class="group-name">Nhóm 2 - Server 1</span>
+                            <span class="group-desc">Nhóm thảo luận Server
+                                1</span>
+                        </div>
+                    </div>
+                    <span class="btn-join">Tham gia</span>
+                </a>
+
+                <a href="https://zalo.me/g/pqaiqm424" target="_blank"
+                    class="group-item hidden" data-server="2">
+                    <div class="group-info">
+                        <div class="group-avatar-box"><img
+                                src="/images/zalo_icon.png" alt="Avatar"></div>
+                        <div class="group-details">
+                            <span class="group-name">Nhóm 1 - Server 2</span>
+                            <span class="group-desc">Nhóm thảo luận Server
+                                2</span>
+                        </div>
+                    </div>
+                    <span class="btn-join">Tham gia</span>
+                </a>
+                <a href="https://zalo.me/g/pqaiqm424" target="_blank"
+                    class="group-item hidden" data-server="2">
+                    <div class="group-info">
+                        <div class="group-avatar-box"><img
+                                src="/images/zalo_icon.png" alt="Avatar"></div>
+                        <div class="group-details">
+                            <span class="group-name">Nhóm 2 - Server 2</span>
+                            <span class="group-desc">Nhóm thảo luận Server
+                                2</span>
+                        </div>
+                    </div>
+                    <span class="btn-join">Tham gia</span>
+                </a>
+
+                <a href="https://zalo.me/g/crnbag894" target="_blank"
+                    class="group-item hidden" data-server="3">
+                    <div class="group-info">
+                        <div class="group-avatar-box"><img
+                                src="/images/zalo_icon.png" alt="Avatar"></div>
+                        <div class="group-details">
+                            <span class="group-name">Nhóm 1 - Server 3</span>
+                            <span class="group-desc">Nhóm thảo luận Server
+                                3</span>
+                        </div>
+                    </div>
+                    <span class="btn-join">Tham gia</span>
+                </a>
+                <a href="https://zalo.me/g/crnbag894" target="_blank"
+                    class="group-item hidden" data-server="3">
+                    <div class="group-info">
+                        <div class="group-avatar-box"><img
+                                src="/images/zalo_icon.png" alt="Avatar"></div>
+                        <div class="group-details">
+                            <span class="group-name">Nhóm 2 - Server 3</span>
+                            <span class="group-desc">Nhóm thảo luận Server
+                                3</span>
+                        </div>
+                    </div>
+                    <span class="btn-join">Tham gia</span>
+                </a>
+
+                <a href="https://zalo.me/g/gfnekq114" target="_blank"
+                    class="group-item hidden" data-server="4">
+                    <div class="group-info">
+                        <div class="group-avatar-box"><img
+                                src="/images/zalo_icon.png" alt="Avatar"></div>
+                        <div class="group-details">
+                            <span class="group-name">Nhóm 1 - Server 4</span>
+                            <span class="group-desc">Nhóm thảo luận Server
+                                4</span>
+                        </div>
+                    </div>
+                    <span class="btn-join">Tham gia</span>
+                </a>
+                <a href="https://zalo.me/g/jcssww622" target="_blank"
+                    class="group-item hidden" data-server="4">
+                    <div class="group-info">
+                        <div class="group-avatar-box"><img
+                                src="/images/zalo_icon.png" alt="Avatar"></div>
+                        <div class="group-details">
+                            <span class="group-name">Nhóm 2 - Server 4</span>
+                            <span class="group-desc">Nhóm thảo luận Server
+                                4</span>
+                        </div>
+                    </div>
+                    <span class="btn-join">Tham gia</span>
+                </a>
+
+                <a href="https://zalo.me/g/uelhmv606" target="_blank"
+                    class="group-item hidden" data-server="5">
+                    <div class="group-info">
+                        <div class="group-avatar-box"><img
+                                src="/images/zalo_icon.png" alt="Avatar"></div>
+                        <div class="group-details">
+                            <span class="group-name">Nhóm 1 - Server 5</span>
+                            <span class="group-desc">Nhóm thảo luận Server
+                                5</span>
+                        </div>
+                    </div>
+                    <span class="btn-join">Tham gia</span>
+                </a>
+                <a href="https://zalo.me/g/vmtbba265" target="_blank"
+                    class="group-item hidden" data-server="5">
+                    <div class="group-info">
+                        <div class="group-avatar-box"><img
+                                src="/images/zalo_icon.png" alt="Avatar"></div>
+                        <div class="group-details">
+                            <span class="group-name">Nhóm 2 - Server 5</span>
+                            <span class="group-desc">Nhóm thảo luận Server
+                                5</span>
+                        </div>
+                    </div>
+                    <span class="btn-join">Tham gia</span>
+                </a>
+
+                <a href="https://zalo.me/g/bfoxoi238" target="_blank"
+                    class="group-item hidden" data-server="6">
+                    <div class="group-info">
+                        <div class="group-avatar-box"><img
+                                src="/images/zalo_icon.png" alt="Avatar"></div>
+                        <div class="group-details">
+                            <span class="group-name">Nhóm 1 - Server 6</span>
+                            <span class="group-desc">Nhóm thảo luận Server
+                                6</span>
+                        </div>
+                    </div>
+                    <span class="btn-join">Tham gia</span>
+                </a>
+                <a href="https://zalo.me/g/cjqjbt811" target="_blank"
+                    class="group-item hidden" data-server="6">
+                    <div class="group-info">
+                        <div class="group-avatar-box"><img
+                                src="/images/zalo_icon.png" alt="Avatar"></div>
+                        <div class="group-details">
+                            <span class="group-name">Nhóm 2 - Server 6</span>
+                            <span class="group-desc">Nhóm thảo luận Server
+                                6</span>
+                        </div>
+                    </div>
+                    <span class="btn-join">Tham gia</span>
+                </a>
+
+                <a href="https://zalo.me/g/vxcuux196" target="_blank"
+                    class="group-item hidden" data-server="7">
+                    <div class="group-info">
+                        <div class="group-avatar-box"><img
+                                src="/images/zalo_icon.png" alt="Avatar"></div>
+                        <div class="group-details">
+                            <span class="group-name">Nhóm 1 - Server 7</span>
+                            <span class="group-desc">Nhóm thảo luận Server
+                                7</span>
+                        </div>
+                    </div>
+                    <span class="btn-join">Tham gia</span>
+                </a>
+                <a href="https://zalo.me/g/esmrkv396" target="_blank"
+                    class="group-item hidden" data-server="7">
+                    <div class="group-info">
+                        <div class="group-avatar-box"><img
+                                src="/images/zalo_icon.png" alt="Avatar"></div>
+                        <div class="group-details">
+                            <span class="group-name">Nhóm 2 - Server 7</span>
+                            <span class="group-desc">Nhóm thảo luận Server
+                                7</span>
+                        </div>
+                    </div>
+                    <span class="btn-join">Tham gia</span>
+                </a>
+
+            </div>
+
+            <div class="footer">
+                <p>&copy; 2026 Ngọc Rồng TDStudio. All rights reserved.</p>
+            </div>
+
+        </div>
+
+        <script>
+        // Định nghĩa bảng màu độc quyền riêng biệt cho 7 cụm Server (Màu sắc rực rỡ phong cách Game)
+        const serverColors = {
+            1: '#ef4444', // Đỏ rực
+            2: '#3b82f6', // Xanh dương
+            3: '#10b981', // Xanh lá cây
+            4: '#f59e0b', // Vàng cam
+            5: '#a855f7', // Tím huyền ảo
+            6: '#06b6d4', // Xanh ngọc
+            7: '#ec4899'  // Hồng Neon
+        };
+
+        function switchServer(serverId) {
+            // 1. Gỡ bỏ kiểu thiết kế nét đứt gợi ý (Hint style) của tiêu đề danh sách
+            const titleElement = document.getElementById('listTitle');
+            titleElement.classList.remove('hint');
+
+            // 2. Cập nhật trạng thái hiển thị Active trên thanh Server
+            const buttons = document.getElementsByClassName('btn-server');
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove('active');
+            }
+            event.currentTarget.classList.add('active');
+
+            // 3. Thay đổi chữ tiêu đề và nhuộm màu chữ theo Server tương ứng
+            titleElement.innerText = 'Cộng đồng Server ' + serverId;
+            titleElement.style.color = serverColors[serverId];
+
+            // 4. Quét qua tất cả các nhóm để xử lý ẩn hiện và đổi màu sắc đồng bộ
+            const container = document.getElementById('groupContainer');
+            const items = container.getElementsByClassName('group-item');
+            const targetColor = serverColors[serverId];
+
+            for (let i = 0; i < items.length; i++) {
+                const itemServer = items[i].getAttribute('data-server');
+                
+                if (itemServer == serverId) {
+                    items[i].classList.remove('hidden');
+                    
+                    // Nhuộm màu viền bọc ngoài nhóm Zalo
+                    items[i].style.borderColor = targetColor;
+                    
+                    // Nhuộm màu tiêu đề của nhóm Zalo nội bộ
+                    const nameElement = items[i].getElementsByClassName('group-name')[0];
+                    if (nameElement) nameElement.style.color = targetColor;
+                    
+                    // Đổ màu nền và viền cho nút "Tham gia" tương ứng với server đó
+                    const joinBtn = items[i].getElementsByClassName('btn-join')[0];
+                    if (joinBtn) {
+                        joinBtn.style.backgroundColor = targetColor + '1A'; // Thêm độ mờ 10% (Alpha 1A) để làm nền soft tint
+                        joinBtn.style.color = targetColor;
+                        joinBtn.style.borderColor = targetColor + '4D'; // Viền mờ 30%
+                    }
+                } else {
+                    items[i].classList.add('hidden');
+                }
+            }
+        }
+        </script>
+    </body>
 </html>
