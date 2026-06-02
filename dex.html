@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Ngọc Rồng Online – Trung tâm hỗ trợ chính thức | TDStudio</title>
+        <meta name="description"
+            content="Trung tâm hỗ trợ chính thức Ngọc Rồng Online của TDStudio. Giải đáp thắc mắc, xử lý sự cố, cập nhật sự kiện và hướng dẫn người chơi.">
+        <meta name="robots" content="index, follow, max-image-preview:large">
+        <link rel="canonical" href="https://thanhdi.com/support" />
+        
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-BQCBVHE2GN"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-BQCBVHE2GN');
+        </script>
+
+        <meta property="og:locale" content="vi_VN" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="TDStudio" />
+        <meta property="og:title" content="Ngọc Rồng Online – Trung tâm hỗ trợ | TDStudio" />
+        <meta property="og:description" content="Trung tâm hỗ trợ chính thức Ngọc Rồng Online. Hỗ trợ 24/7, xử lý lỗi, hướng dẫn nạp, sự kiện và cộng đồng người chơi." />
+        <meta property="og:url" content="https://thanhdi.com/support" />
+        <meta property="og:image" content="https://thanhdi.com/images/graph.png" />
+        <meta property="og:image:secure_url" content="https://thanhdi.com/images/graph.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Ngọc Rồng Online – Trung tâm hỗ trợ | TDStudio" />
+        <meta name="twitter:description" content="Trung tâm hỗ trợ Ngọc Rồng Online của TDStudio. Giải đáp, hướng dẫn và hỗ trợ người chơi nhanh chóng." />
+        <meta name="twitter:image" content="https://thanhdi.com/images/graph.png" />
+
+        <link rel="icon" href="/images/favicon.ico" sizes="any">
+        <link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+        <style>
+            :root {
+                --bg: #0b1329;
+                --surface: #1c2541;
+                --surface-card: rgba(28, 37, 65, 0.8);
+                --primary: #3a86ff;
+                --primary-gradient: linear-gradient(135deg, #3a86ff, #00b4d8);
+                --accent: #ff006e;
+                --text-main: #f8f9fa;
+                --text-muted: #9ab0c7;
+                --border-color: rgba(255, 255, 255, 0.08);
+                --radius-lg: 20px;
+                --radius-md: 14px;
+                --font-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            }
+
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            body {
+                font-family: var(--font-base);
+                background-color: var(--bg);
+                color: var(--text-main);
+                line-height: 1.5;
+                overflow-x: hidden;
+            }
+
+            /* BANNER */
+            .banner {
+                height: 220px;
+                background: linear-gradient(180deg, rgba(11, 19, 41, 0.2) 0%, rgba(11, 19, 41, 1) 100%),
+                            url("/images/banner.png") center/cover no-repeat;
+                position: relative;
+            }
+
+            /* CONTAINER */
+            .container {
+                max-width: 500px;
+                margin: 0 auto;
+                padding: 0 16px 100px;
+                position: relative;
+                top: -50px;
+            }
+
+            /* BRAND PROFILE */
+            .brand {
+                background: var(--surface-card);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                border: 1px solid var(--border-color);
+                border-radius: var(--radius-lg);
+                padding: 16px;
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+                margin-bottom: 24px;
+            }
+            
+            .avatar {
+                width: 68px;
+                height: 68px;
+                border-radius: var(--radius-md);
+                background: #fff;
+                padding: 2px;
+                box-shadow: 0 8px 20px rgba(58, 134, 255, 0.25);
+                flex-shrink: 0;
+            }
+            
+            .avatar img {
+                width: 100%;
+                height: 100%;
+                border-radius: calc(var(--radius-md) - 2px);
+                object-fit: cover;
+            }
+            
+            .brand-text h1 {
+                font-size: 18px;
+                font-weight: 700;
+                color: var(--text-main);
+                letter-spacing: -0.3px;
+            }
+            
+            .brand-text p {
+                font-size: 13px;
+                color: var(--text-muted);
+                margin-top: 2px;
+            }
+
+            /* QUICK LINKS CẤU TRÚC 3 CỘT ĐẸP */
+            .quick {
+                display: grid;
+                grid-template-columns: 1fr 1.3fr 1fr;
+                gap: 10px;
+                margin-bottom: 28px;
+            }
+
+            .quick .btn {
+                text-decoration: none;
+                color: var(--text-main);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                border-radius: var(--radius-md);
+                transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s;
+            }
+
+            .quick .btn-side {
+                background: var(--surface);
+                border: 1px solid var(--border-color);
+                padding: 12px 8px;
+            }
+
+            .quick .btn-side img {
+                width: 22px;
+                height: 22px;
+                margin-bottom: 6px;
+                opacity: 0.9;
+            }
+
+            .quick .btn-side span {
+                font-size: 12px;
+                font-weight: 500;
+                color: var(--text-main);
+            }
+
+            .quick .btn-server {
+                background: var(--primary-gradient);
+                padding: 14px 8px;
+                box-shadow: 0 8px 24px rgba(58, 134, 255, 0.35);
+            }
+
+            .quick .btn-server strong {
+                font-size: 14px;
+                font-weight: 700;
+                display: block;
+                text-shadow: 0 2px 4px rgba(0,0,0,0.15);
+            }
+
+            .quick .btn-server small {
+                font-size: 11px;
+                opacity: 0.9;
+                margin-top: 2px;
+                display: block;
+            }
+
+            .quick .btn:active {
+                transform: scale(0.96);
+            }
+
+            /* SECTION & GRID SYSTEMS */
+            .section {
+                margin-bottom: 28px;
+            }
+
+            .section h2 {
+                font-size: 14px;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                color: var(--text-muted);
+                margin-bottom: 12px;
+                padding-left: 2px;
+            }
+
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .card {
+                background: var(--surface-card);
+                border: 1px solid var(--border-color);
+                border-radius: var(--radius-md);
+                padding: 14px 12px;
+                text-decoration: none;
+                color: var(--text-main);
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+            }
+
+            .icon-wrap {
+                width: 38px;
+                height: 38px;
+                border-radius: 10px;
+                background: rgba(58, 134, 255, 0.12);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+            }
+
+            .icon-wrap img {
+                width: 18px;
+                height: 18px;
+                filter: invert(53%) sepia(93%) saturate(1476%) hue-rotate(198deg) brightness(103%) contrast(101%);
+            }
+
+            .card small {
+                font-size: 13px;
+                font-weight: 500;
+                color: var(--text-main);
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .card:active {
+                background: rgba(255, 255, 255, 0.05);
+                transform: translateY(1px);
+            }
+
+            .info-note {
+                font-size: 12px;
+                color: var(--text-muted);
+                text-align: center;
+                margin: 16px 0 8px;
+                line-height: 1.4;
+            }
+
+            /* FOOTER */
+            .footer {
+                margin-top: 40px;
+                padding: 24px 12px 12px;
+                text-align: center;
+                border-top: 1px solid var(--border-color);
+            }
+
+            .footer .footer-brand {
+                font-size: 13px;
+                font-weight: 600;
+                color: var(--text-main);
+            }
+
+            .footer .footer-sub {
+                font-size: 12px;
+                color: var(--text-muted);
+                margin-top: 4px;
+            }
+
+            /* LAYER & EFFECTS ELEMENTS */
+            #petalContainer {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                z-index: 50;
+                overflow: hidden;
+            }
+
+            .petal {
+                position: absolute;
+                top: -40px;
+                width: 24px;
+                height: 24px;
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+
+            /* MESSENGER WIDGETS */
+            .messenger-fab {
+                position: fixed;
+                right: 16px;
+                bottom: 24px;
+                width: 56px;
+                height: 56px;
+                border: none;
+                border-radius: 50%;
+                background: linear-gradient(135deg, #0084ff, #00c6ff);
+                box-shadow: 0 8px 24px rgba(0, 132, 255, 0.4);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                z-index: 9999;
+                transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+            }
+
+            .messenger-fab svg {
+                width: 26px;
+                height: 26px;
+                fill: #fff;
+            }
+
+            .msg-badge {
+                position: absolute;
+                top: -2px;
+                right: -2px;
+                background: var(--accent);
+                color: #fff;
+                min-width: 20px;
+                height: 20px;
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 10px;
+                font-weight: 700;
+                padding: 0 5px;
+                border: 2px solid var(--bg);
+            }
+
+            .msg-bubble {
+                position: fixed;
+                right: 20px;
+                bottom: 92px;
+                max-width: 280px;
+                background: #fff;
+                color: #0f172a;
+                padding: 12px 14px;
+                border-radius: 16px;
+                border-bottom-right-radius: 4px;
+                box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25);
+                font-size: 13.5px;
+                line-height: 1.4;
+                display: none;
+                z-index: 9999;
+            }
+
+            .msg-bubble.show {
+                display: block;
+                animation: popupFade 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            }
+
+            #tdMsgText {
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                font-weight: 500;
+            }
+
+            .msg-close {
+                position: absolute;
+                top: -8px;
+                left: -8px;
+                width: 22px;
+                height: 22px;
+                background: #f1f5f9;
+                color: #64748b;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 10px;
+                font-weight: bold;
+                cursor: pointer;
+                box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            }
+
+            .msg-tail {
+                position: fixed;
+                right: 36px;
+                bottom: 82px;
+                width: 0;
+                height: 0;
+                display: none;
+                z-index: 9999;
+                border-top: 10px solid #fff;
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+            }
+
+            .msg-tail.show {
+                display: block;
+            }
+
+            /* POPUPS OVERLAY */
+            .redirect-overlay, .event-overlay {
+                position: fixed;
+                inset: 0;
+                background: rgba(11, 19, 41, 0.85);
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
+                display: none;
+                align-items: center;
+                justify-content: center;
+                z-index: 10000;
+                padding: 16px;
+            }
+
+            .redirect-overlay.show, .event-overlay.show {
+                display: flex;
+            }
+
+            .redirect-box, .event-box {
+                width: 100%;
+                max-width: 380px;
+                background: var(--surface);
+                border: 1px solid var(--border-color);
+                border-radius: var(--radius-lg);
+                padding: 24px 20px;
+                box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+                position: relative;
+            }
+
+            .redirect-title, .event-box h3 {
+                font-size: 17px;
+                font-weight: 700;
+                margin-bottom: 14px;
+                color: var(--text-main);
+                text-align: center;
+            }
+
+            .redirect-text {
+                font-size: 14px;
+                line-height: 1.5;
+                color: #c9d1d9;
+                min-height: 80px;
+                white-space: pre-wrap;
+                background: rgba(0,0,0,0.15);
+                padding: 12px;
+                border-radius: var(--radius-md);
+            }
+
+            .redirect-countdown {
+                margin-top: 16px;
+                font-size: 13px;
+                color: var(--primary);
+                font-weight: 600;
+                text-align: right;
+            }
+
+            .event-list {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 8px;
+            }
+
+            .event-btn {
+                display: block;
+                padding: 14px;
+                border-radius: var(--radius-md);
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 13.5px;
+                color: #fff;
+                background: var(--primary-gradient);
+                box-shadow: 0 6px 16px rgba(58, 134, 255, 0.25);
+                text-align: center;
+                transition: transform 0.2s;
+            }
+
+            .event-close {
+                position: absolute;
+                top: -12px;
+                right: -12px;
+                width: 32px;
+                height: 32px;
+                border: 1px solid var(--border-color);
+                border-radius: 50%;
+                background: var(--surface);
+                color: var(--text-main);
+                cursor: pointer;
+                font-size: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            }
+
+            /* PAGE LOADER */
+            #page-loader {
+                position: fixed;
+                inset: 0;
+                background: var(--bg);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 99999;
+                transition: opacity 0.25s ease;
+            }
+
+            .loader-box {
+                text-align: center;
+            }
+
+            .gem-spinner {
+                width: 56px;
+                height: 56px;
+                margin: 0 auto 16px;
+                background-image: url("/images/icon_loading.png");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;
+                animation: gem-spin 1s linear infinite;
+            }
+
+            .loader-text {
+                font-size: 15px;
+                font-weight: 600;
+                color: var(--text-main);
+            }
+
+            .loader-sub {
+                font-size: 13px;
+                color: var(--text-muted);
+                margin-top: 4px;
+            }
+
+            /* ANIMATIONS */
+            @keyframes gem-spin {
+                from { transform: rotate(0deg); }
+                to { transform: rotate(360deg); }
+            }
+
+            @keyframes popupFade {
+                from { transform: translateY(14px); opacity: 0; }
+                to { transform: translateY(0); opacity: 1; }
+            }
+
+            @keyframes messenger-shake {
+                0%, 100% { transform: scale(1); }
+                10%, 30% { transform: scale(0.9) rotate(-4deg); }
+                20%, 40% { transform: scale(1.1) rotate(4deg); }
+                50%, 70% { transform: scale(1.05) rotate(-2deg); }
+                60%, 80% { transform: scale(1.05) rotate(2deg); }
+            }
+
+            @keyframes soft-shake {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-4px); }
+            }
+
+            .pulse-attention {
+                animation: soft-shake 1.8s ease-in-out infinite;
+            }
+
+            .messenger-fab.shake {
+                animation: messenger-shake 0.8s ease-in-out;
+            }
+
+            @keyframes fall {
+                from { top: -40px; }
+                to { top: 110vh; }
+            }
+
+            @keyframes sway-left {
+                0%, 100% { transform: translateX(0) rotate(0deg); }
+                50% { transform: translateX(-25px) rotate(180deg); }
+            }
+
+            @keyframes sway-right {
+                0%, 100% { transform: translateX(0) rotate(0deg); }
+                50% { transform: translateX(25px) rotate(180deg); }
+            }
+
+            @keyframes straight {
+                to { transform: rotate(360deg); }
+            }
+
+            /* RESPONSIVE TABLET / DESKTOP UPGRADE */
+            @media (min-width: 480px) {
+                .grid {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+            }
+
+            @media (min-width: 768px) {
+                .container {
+                    max-width: 680px;
+                }
+                .grid {
+                    grid-template-columns: repeat(4, 1fr);
+                    gap: 12px;
+                }
+                .card {
+                    padding: 16px 12px;
+                    flex-direction: column;
+                    text-align: center;
+                    gap: 8px;
+                }
+                .card small {
+                    font-size: 12px;
+                }
+                .brand-text h1 { font-size: 20px; }
+                .section h2 { font-size: 15px; }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="page-loader">
+            <div class="loader-box">
+                <div class="gem-spinner"></div>
+                <div class="loader-text">Đang tải trang…</div>
+                <div class="loader-sub">Vui lòng chờ trong giây lát</div>
+            </div>
+        </div>
+
+        <div id="petalContainer"></div>
+        <div class="banner"></div>
+
+        <div class="container">
+            <div class="brand">
+                <div class="avatar">
+                    <img src="/images/logo.png" alt="Ngọc Rồng Online">
+                </div>
+                <div class="brand-text">
+                    <h1>TDStudio - Ngọc Rồng Online</h1>
+                    <p>Hệ sinh thái game · TDStudio</p>
+                </div>
+            </div>
+
+            <div class="quick">
+                <a class="btn btn-side" href="https://m.me/ngocrongtuoitho">
+                    <img src="/icons/chat-bubble-bottom-center.svg" alt="Support">
+                    <span>Hỗ trợ 24/24</span>
+                </a>
+
+                <a class="btn btn-server pulse-attention" href="https://thanhdi.games">
+                    <strong>Server Game</strong>
+                    <small>Đăng ký • Tải game</small>
+                </a>
+
+                <a class="btn btn-side" href="/groups">
+                    <img src="/icons/user-group.svg" alt="Community">
+                    <span>Cộng đồng</span>
+                </a>
+            </div>
+
+            <div class="section">
+                <h2>Vấn đề thường gặp</h2>
+                <div class="grid">
+                    <a class="card" href="/fixloi">
+                        <div class="icon-wrap"><img src="/icons/wrench-screwdriver.svg" alt="Fix lỗi"></div>
+                        <small>Fix lỗi</small>
+                    </a>
+                    <a class="card" href="/nap">
+                        <div class="icon-wrap"><img src="/icons/wallet.svg" alt="Nạp"></div>
+                        <small>Nạp Game</small>
+                    </a>
+                    <a class="card" href="/huongdantai">
+                        <div class="icon-wrap"><img src="/icons/cog-8-tooth.svg" alt="Cài đặt"></div>
+                        <small>Cách Cài đặt</small>
+                    </a>
+                    <a class="card" href="/services/giao-dich-trung-gian">
+                        <div class="icon-wrap"><img src="/icons/archive-box-arrow-down.svg" alt="GD Trung Gian"></div>
+                        <small>GD Trung Gian</small>
+                    </a>
+                    <a class="card" href="/su-kien/posts/su-kien-quoc-te-phu-nu-8-thang-3">
+                        <div class="icon-wrap"><img src="/icons/sparkles.svg" alt="Sự kiện 8/3"></div>
+                        <small>Sự kiện 8/3</small>
+                    </a>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Sự kiện & quà tặng ở trang chủ</h2>
+                <div class="grid">
+                    <a class="card" href="/event">
+                        <div class="icon-wrap"><img src="/icons/calendar-days.svg" alt="Event Share"></div>
+                        <small>Event Share</small>
+                    </a>
+                    <a class="card" href="/su-kien/posts/su-kien-tuong-tac-fanpage">
+                        <div class="icon-wrap"><img src="/icons/heart.svg" alt="Event FB"></div>
+                        <small>Event Coin FB</small>
+                    </a>
+                    <a class="card" href="/su-kien/posts/su-kien-tuong-tac-cong-dong-zalo">
+                        <div class="icon-wrap"><img src="/icons/heart.svg" alt="Event Zalo"></div>
+                        <small>Event Coin Zalo</small>
+                    </a>
+                    <a class="card" href="/groups">
+                        <div class="icon-wrap"><img src="/icons/users.svg" alt="Cộng đồng"></div>
+                        <small>Cộng đồng</small>
+                    </a>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Sự kiện đang diễn ra trong game</h2>
+                <div class="grid">
+                    <a class="card" href="/su-kien/posts/su-kien-quoc-te-phu-nu-8-thang-3">
+                        <div class="icon-wrap"><img src="/icons/sparkles.svg" alt="Sự kiện 8/3"></div>
+                        <small>Sự kiện 8/3</small>
+                    </a>
+                    <a class="card" href="/quaduatop">
+                        <div class="icon-wrap"><img src="/icons/trophy.svg" alt="Đua top"></div>
+                        <small>Top Tháng</small>
+                    </a>
+                    <a class="card" href="/mocnap">
+                        <div class="icon-wrap"><img src="/icons/gift-top.svg" alt="Mốc nạp"></div>
+                        <small>Mốc Nạp</small>
+                    </a>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Kiến thức & hướng dẫn</h2>
+                <div class="grid">
+                    <a class="card" href="/cochegame">
+                        <div class="icon-wrap"><img src="/icons/academic-cap.svg" alt="Cơ chế"></div>
+                        <small>Cơ chế</small>
+                    </a>
+                    <a class="card" href="/body">
+                        <div class="icon-wrap"><img src="/icons/shield-check.svg" alt="Trang bị"></div>
+                        <small>Trang bị</small>
+                    </a>
+                    <a class="card" href="/huong-dan">
+                        <div class="icon-wrap"><img src="/icons/light-bulb.svg" alt="Mẹo chơi"></div>
+                        <small>Mẹo chơi</small>
+                    </a>
+                    <a class="card" href="/chat">
+                        <div class="icon-wrap"><img src="/icons/chat-bubble-oval-left.svg" alt="Chatbot"></div>
+                        <small>Chat Bot</small>
+                    </a>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Các kênh & Mạng xã hội</h2>
+                <div class="grid">
+                    <a class="card" href="/fanpage">
+                        <div class="icon-wrap"><img src="/icons/facebook.svg" alt="Facebook"></div>
+                        <small>Fanpage</small>
+                    </a>
+                    <a class="card" href="https://www.youtube.com/@ngocrongtdstudio" target="_blank" rel="noopener noreferrer">
+                        <div class="icon-wrap"><img src="/icons/youtube.svg" alt="Youtube"></div>
+                        <small>Youtube</small>
+                    </a>
+                    <a class="card" href="https://www.tiktok.com/@tdstudio.dragonboy" target="_blank" rel="noopener noreferrer">
+                        <div class="icon-wrap"><img src="/icons/tiktok.svg" alt="Tiktok"></div>
+                        <small>Tiktok</small>
+                    </a>
+                    <a class="card" href="https://t.me/gdthanhdi" target="_blank" rel="noopener noreferrer">
+                        <div class="icon-wrap"><img src="/icons/telegram.svg" alt="Telegram"></div>
+                        <small>Telegram</small>
+                    </a>
+                    <a class="card" href="https://discord.gg/yM3gGt3nN" target="_blank" rel="noopener noreferrer">
+                        <div class="icon-wrap"><img src="/icons/discord.svg" alt="Discord"></div>
+                        <small>Discord</small>
+                    </a>
+                    <a class="card" href="https://www.instagram.com/ngocrongonlinevip" target="_blank" rel="noopener noreferrer">
+                        <div class="icon-wrap"><img src="/icons/instagram.svg" alt="Instagram"></div>
+                        <small>Instagram</small>
+                    </a>
+                    <a class="card" href="https://www.threads.com/@ngocrongonlinevip" target="_blank" rel="noopener noreferrer">
+                        <div class="icon-wrap"><img src="/icons/threads.svg" alt="Threads"></div>
+                        <small>Threads</small>
+                    </a>
+                    <a class="card" href="https://www.pinterest.com/tdstudiogame" target="_blank" rel="noopener noreferrer">
+                        <div class="icon-wrap"><img src="/icons/pinterest.svg" alt="Pinterest"></div>
+                        <small>Pinterest</small>
+                    </a>
+                </div>
+            </div>
+
+            <p class="info-note">
+                Các kênh dùng để cập nhật & giao lưu cộng đồng.<br>Vấn đề tài khoản vui lòng liên hệ kênh hỗ trợ chính thức.
+            </p>
+        
+            <div class="footer">
+                <div class="footer-brand">© 2026 TDStudio · Ngọc Rồng Online</div>
+                <div class="footer-sub">Hệ thống máy chủ & trung tâm hỗ trợ chính thức</div>
+            </div>
+        </div>
+
+        <div id="tdMsgBubble" class="msg-bubble" role="dialog" aria-label="Gợi ý chat Messenger">
+            <span id="tdMsgClose" class="msg-close" aria-label="Đóng">✕</span>
+            <span id="tdMsgText">Chat "xin code" để nhận giftcode fan cứng và code đặc biệt khác</span>
+        </div>
+        <span id="tdMsgTail" class="msg-tail" aria-hidden="true"></span>
+
+        <button type="button" class="messenger-fab" id="messengerFab" aria-label="Chat Messenger Fanpage TDStudio" title="Chat Fanpage TDStudio">
+            <span id="tdMsgBadge" class="msg-badge" aria-hidden="true">1</span>
+            <svg viewBox="0 0 48 48" width="26" height="26" aria-hidden="true" focusable="false">
+                <path d="M24 4C13.4 4 5 12.1 5 22.2c0 5.3 2.6 9.9 6.7 13.1.3.2.4.5.4.8l.1 4.8c0 .7.8 1.1 1.4.8l5.6-2.7c.2-.1.5-.2.7-.1 1.3.2 2.7.4 4.1.4 10.6 0 19-8.1 19-18.2S34.6 4 24 4zm2.3 23.9-5-5.3-9.3 5.3 10.2-10.8 5 5.3 9.2-5.3-10.1 10.8z"/>
+            </svg>
+        </button>
+
+        <div id="redirectPopup" class="redirect-overlay" aria-hidden="true">
+            <div class="redirect-box">
+                <div class="redirect-title">Đang chuyển hướng…</div>
+                <div id="redirectText" class="redirect-text"></div>
+                <div class="redirect-countdown" id="redirectCountdown"></div>
+            </div>
+        </div>
+
+        <div id="eventPopup" class="event-overlay">
+            <div class="event-box">
+                <button class="event-close" id="eventClose">✕</button>
+                <h3>Thông Tin Hot Đây Nè!!!</h3>
+                <div class="event-list">
+                    <a href="/su-kien/posts/su-kien-gio-to-hung-vuong-nam-2026.html" class="event-btn">
+                        ❤️ Sự kiện Giỗ tổ Hùng Vương 2026
+                    </a>
+                    <a href="/cap-nhat/" class="event-btn">
+                        ❤️ Bảo trì hôm nay cập nhật gì mới
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <link rel="preconnect" href="https://m.me">
+
+        <script>
+        (function(){
+            const popup = document.getElementById("eventPopup");
+            const closeBtn = document.getElementById("eventClose");
+
+            window.addEventListener("load", () => {
+                setTimeout(() => {
+                    popup.classList.add("show");
+                }, 800);
+            });
+
+            closeBtn.addEventListener("click", () => {
+                popup.classList.remove("show");
+            });
+
+            popup.addEventListener("click", (e) => {
+                if(e.target === popup){
+                    popup.classList.remove("show");
+                }
+            });
+        })();
+        </script>
+
+        <script>
+        (function () {
+            const loader = document.getElementById("page-loader");
+            if (!loader) return;
+
+            let hidden = false;
+
+            function hideLoader() {
+                if (hidden) return;
+                hidden = true;
+
+                loader.style.opacity = "0";
+                loader.style.pointerEvents = "none";
+
+                setTimeout(() => {
+                    if (loader && loader.parentNode) {
+                        loader.parentNode.removeChild(loader);
+                    }
+                }, 250);
+            }
+
+            if (document.readyState === "loading") {
+                document.addEventListener("DOMContentLoaded", hideLoader);
+            } else {
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(hideLoader);
+                });
+            }
+
+            window.addEventListener("load", hideLoader);
+            setTimeout(hideLoader, 8000);
+        })();
+        </script>
+
+        <script>
+        (function () {
+            const PAGE = "tdstudioupdate";
+            const MME = "https://m.me/" + PAGE;
+            const FB_PAGE = "https://www.facebook.com/" + PAGE;
+
+            const ua = navigator.userAgent;
+            const isMobile = /Android|iPhone|iPad|iPod/i.test(ua);
+
+            document.addEventListener("DOMContentLoaded", () => {
+                const fab = document.getElementById("messengerFab");
+                const badge = document.getElementById("tdMsgBadge");
+                const bubble = document.getElementById("tdMsgBubble");
+                const tail = document.getElementById("tdMsgTail");
+                const close = document.getElementById("tdMsgClose");
+
+                if (!fab) return;
+
+                fab.addEventListener("click", () => {
+                    if (isMobile) {
+                        window.location.href = MME;
+                    } else {
+                        window.open(FB_PAGE, "_blank", "noopener,noreferrer");
+                    }
+
+                    if (badge) badge.style.display = "none";
+                    if (bubble) bubble.classList.remove("show");
+                    if (tail) tail.classList.remove("show");
+                });
+
+                if (close) {
+                    close.addEventListener("click", (e) => {
+                        e.stopPropagation();
+                        bubble.classList.remove("show");
+                        tail.classList.remove("show");
+                    });
+                }
+            });
+        })();
+        </script>
+
+        <script>
+        (function () {
+            const FIXED_TEXT = 'Chat "xin code" để nhận giftcode fan cứng và code đặc biệt khác';
+            const SHOW_AFTER = 2000;
+            const SHAKE_EVERY = 3000;
+            const SHAKE_DURATION = 800;
+
+            let shakeTimer = null;
+            let stopped = false;
+
+            function startShakeLoop(fab) {
+                if (shakeTimer) return;
+                fab.classList.add("shake");
+                setTimeout(() => fab.classList.remove("shake"), SHAKE_DURATION);
+
+                shakeTimer = setInterval(() => {
+                    if (stopped) return;
+                    fab.classList.add("shake");
+                    setTimeout(() => fab.classList.remove("shake"), SHAKE_DURATION);
+                }, SHAKE_EVERY);
+            }
+
+            function stopShakeLoop() {
+                stopped = true;
+                if (shakeTimer) {
+                    clearInterval(shakeTimer);
+                    shakeTimer = null;
+                }
+            }
+
+            document.addEventListener("DOMContentLoaded", () => {
+                const bubble = document.getElementById("tdMsgBubble");
+                const tail = document.getElementById("tdMsgTail");
+                const text = document.getElementById("tdMsgText");
+                const close = document.getElementById("tdMsgClose");
+                const fab = document.getElementById("messengerFab");
+
+                if (!bubble || !tail || !text || !fab) return;
+
+                text.textContent = FIXED_TEXT;
+
+                setTimeout(() => {
+                    if (!stopped) {
+                        bubble.classList.add("show");
+                        tail.classList.add("show");
+                        startShakeLoop(fab);
+                    }
+                }, SHOW_AFTER);
+
+                if (close) {
+                    close.addEventListener("click", (e) => {
+                        e.stopPropagation();
+                        bubble.classList.remove("show");
+                        tail.classList.remove("show");
+                        stopShakeLoop();
+                    });
+                }
+
+                fab.addEventListener("click", () => {
+                    stopShakeLoop();
+                });
+            });
+        })();
+        </script>
+
+        <script>
+        (function() {
+            const container = document.getElementById("petalContainer");
+            const IMAGE_URL = "https://sv1.thanhdi.games/static/sonic/img/hoamai.png";
+            const MAX = 30;
+
+            let interval = 120;
+            const maxInterval = 600;
+            const duration = 2000;
+            const startTime = Date.now();
+
+            function spawn() {
+                if (container.children.length >= MAX) return;
+
+                const p = document.createElement("div");
+                p.className = "petal";
+                p.style.backgroundImage = `url('${IMAGE_URL}')`;
+
+                const size = Math.random() * 10 + 14;
+                const left = Math.random() * window.innerWidth;
+                const time = Math.random() * 6 + 8;
+
+                p.style.width = size + "px";
+                p.style.height = size + "px";
+                p.style.left = left + "px";
+                p.style.opacity = 0.95;
+
+                const type = Math.floor(Math.random() * 3);
+                if (type === 0) {
+                    p.style.animation = `fall ${time}s linear infinite, sway-left ${time}s ease-in-out infinite`;
+                } else if (type === 1) {
+                    p.style.animation = `fall ${time}s linear infinite, sway-right ${time}s ease-in-out infinite`;
+                } else {
+                    p.style.animation = `fall ${time}s linear infinite, straight ${time}s linear infinite`;
+                }
+
+                container.appendChild(p);
+                setTimeout(() => p.remove(), time * 1000);
+            }
+
+            function loop() {
+                const elapsed = Date.now() - startTime;
+                if (elapsed < duration) {
+                    const t = elapsed / duration;
+                    interval = 120 + (maxInterval - 120) * t;
+                } else {
+                    interval = maxInterval;
+                }
+
+                spawn();
+                setTimeout(loop, interval);
+            }
+            loop();
+        })();
+        </script>
+
+        <script>
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('keydown', e => {
+            if (
+                e.key === 'F12' ||
+                (e.ctrlKey && e.shiftKey && ['I','J','C'].includes(e.key)) ||
+                (e.ctrlKey && e.key === 'U')
+            ) {
+                e.preventDefault();
+            }
+        });
+        </script>
+
+        <script>
+        (function () {
+            const TARGET_DOMAIN = "thanhdi.games";
+            const TARGET_URL = "https://thanhdi.games";
+            const TYPE_SPEED = 45;
+            const COUNTDOWN_SECONDS = 2;
+
+            const MESSAGE = `Thông báo:\n🫡 Nếu trang load mãi không vào được, hãy sử dụng mạng Wifi để vào!\n\n🎁 Lưu ý: Nên mở trang bằng Chrome hoặc Safari để đăng ký và tải game.\n\nTrang sẽ tự động mở sau giây lát.`;
+
+            const popup = document.getElementById("redirectPopup");
+            const textEl = document.getElementById("redirectText");
+            const countdownEl = document.getElementById("redirectCountdown");
+
+            let redirecting = false;
+            let countdownTimer = null;
+
+            function typeText(text, done){
+                let i = 0;
+                textEl.textContent = "";
+                const timer = setInterval(()=>{
+                    textEl.textContent += text.charAt(i);
+                    i++;
+                    if(i >= text.length){
+                        clearInterval(timer);
+                        done && done();
+                    }
+                }, TYPE_SPEED);
+            }
+
+            function closePopup(){
+                popup.classList.remove("show");
+                popup.setAttribute("aria-hidden","true");
+                redirecting = false;
+
+                if(countdownTimer){
+                    clearInterval(countdownTimer);
+                    countdownTimer = null;
+                }
+            }
+
+            function startCountdown(){
+                let t = COUNTDOWN_SECONDS;
+                countdownEl.textContent = `Tự động chuyển sau ${t}s…`;
+
+                countdownTimer = setInterval(()=>{
+                    t--;
+                    countdownEl.textContent = `Tự động chuyển sau ${t}s…`;
+
+                    if(t <= 0){
+                        clearInterval(countdownTimer);
+                        countdownTimer = null;
+                        closePopup();
+                        setTimeout(()=>{
+                            window.location.href = TARGET_URL;
+                        }, 50);
+                    }
+                }, 1000);
+            }
+
+            function openPopup(){
+                if(redirecting) return;
+                redirecting = true;
+                popup.classList.add("show");
+                popup.setAttribute("aria-hidden","false");
+                typeText(MESSAGE, startCountdown);
+            }
+
+            function isTargetLink(el){
+                if(!el || !el.href) return false;
+                try {
+                    const url = new URL(el.href, window.location.origin);
+                    return (
+                        url.protocol === "https:" &&
+                        url.hostname === TARGET_DOMAIN &&
+                        (url.pathname === "/" || url.pathname === "")
+                    );
+                } catch (e) {
+                    return false;
+                }
+            }
+
+            document.addEventListener("click", function(e){
+                const a = e.target.closest("a");
+                if(!a) return;
+
+                if(isTargetLink(a)){
+                    e.preventDefault();
+                    openPopup();
+                }
+            }, true);
+        })();
+        </script>
+    </body>
+</html>
