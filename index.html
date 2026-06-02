@@ -1,183 +1,588 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" class="scroll-smooth">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="robots" content="index, follow">
+        <meta name="theme-color" content="#050811">
 
-        <title>ThanhDi.Com - Trang Chủ Dự Án Chính Thức TDStudio</title>
-        <!-- Open Graph (Facebook, Zalo, Discord...) -->
-        <meta property="og:locale" content="vi_VN" />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="TDStudio" />
+        <!-- SEO Cơ Bản -->
+        <title>TDStudio - Thiên Đường Server Game & Dự Án Indie Ổn Định</title>
+        <meta name="description"
+            content="TDStudio (Thanh Di Studio) chuyên phát triển và vận hành các máy chủ game indie độc đáo, hệ thống chống DDoS đa tầng, băng thông rộng, tối ưu hoàn hảo trên thiết bị mobile.">
+        <meta name="keywords"
+            content="TDStudio, Thanh Di Studio, server game, game indie, máy chủ game, anti ddos game, tối ưu mobile">
+        <link rel="canonical" href="https://thanhdi.com">
+
+        <!-- Open Graph / Facebook / Zalo / Telegram -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://thanhdi.com">
         <meta property="og:title"
-            content="ThanhDi.Com - Trang Chủ Dự Án Chính Thức TDStudio" />
+            content="TDStudio - Thiên Đường Server Game & Dự Án Indie Ổn Định">
         <meta property="og:description"
-            content="ThanhDi.Com - Trang Chủ Dự Án Chính Thức TDStudio">
-        <meta property="og:url" content="https://thanhdi.com" />
+            content="Trải nghiệm hệ thống máy chủ game hiệu năng cao, vận hành 24/7 mượt mà và lá chắn bảo mật Anti-DDoS tối ưu vượt trội trên di động từ Thanh Di Studio.">
         <meta property="og:image"
-            content="https://sv1.thanhdi.games/static/sonic/img/banner3.png" />
-        <meta property="og:image:secure_url"
-            content="https://sv1.thanhdi.games/static/sonic/img/banner3.png" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta name="robots" content="noindex, nofollow">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            content="https://thanhdi.com/images/preview10.png">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:locale" content="vi_VN">
 
-        <style>
-:root{
-    --bg:#f1f4f9;
-    --card:#ffffff;
-    --primary:#2563eb;
-    --text:#0f172a;
-    --sub:#64748b;
-}
+        <!-- Twitter Cards -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:url" content="https://thanhdi.com">
+        <meta name="twitter:title"
+            content="TDStudio - Thiên Đường Server Game & Dự Án Indie Ổn Định">
+        <meta name="twitter:description"
+            content="Hệ thống cụm máy chủ game hiệu năng cao, bảo mật Anti-DDoS nâng cao và tối ưu dung lượng băng thông tuyệt đối từ Thanh Di Studio.">
+        <meta name="twitter:image"
+            content="https://thanhdi.com/images/preview10.png">
 
-*{
-    box-sizing:border-box;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif
-}
+        <!-- Favicon -->
+        <link rel="icon" type="image/png"
+            href="https://thanhdi.com/favicon.png">
 
-body{
-    margin:0;
-    background:var(--bg);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    min-height:100vh;
-    color:var(--text);
-}
+        <!-- Tailwind CSS CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
 
-.wrapper{
-    width:92%;
-    max-width:420px;
-}
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap"
+            rel="stylesheet">
 
-.card{
-    background:var(--card);
-    border-radius:20px;
-    padding:26px 22px 28px;
-    text-align:center;
-    box-shadow:0 15px 35px rgba(0,0,0,.08);
-}
-
-.logo{
-    width:68px;
-    height:68px;
-    border-radius:18px;
-    margin:0 auto 18px;
-    box-shadow:0 6px 16px rgba(0,0,0,.12);
-}
-
-h1{
-    font-size:18px;
-    margin:0 0 8px;
-    font-weight:600;
-}
-
-p{
-    font-size:13.5px;
-    color:var(--sub);
-    margin:0 0 18px;
-    line-height:1.5;
-}
-
-.btn{
-    display:inline-block;
-    padding:12px 18px;
-    border-radius:14px;
-    background:linear-gradient(180deg,#2563eb,#1e40af);
-    color:#fff;
-    text-decoration:none;
-    font-weight:600;
-    font-size:14px;
-    box-shadow:0 10px 20px rgba(37,99,235,.25);
-    transition:.2s;
-}
-
-.btn:hover{
-    transform:translateY(-2px);
-}
-
-.loader{
-    width:52px;
-    height:52px;
-    margin:0 auto 16px;
-    background:url("/images/icon_loading.png") center/contain no-repeat;
-    animation:spin 1s linear infinite;
-}
-
-@keyframes spin{
-    from{ transform:rotate(0deg); }
-    to{ transform:rotate(360deg); }
-}
-
-.small{
-    margin-top:16px;
-    font-size:11.5px;
-    color:#94a3b8;
-}
-</style>
-
+        <!-- Cấu hình Tailwind Custom Fonts -->
         <script>
-(function(){
-    const TARGET = "https://thanhdi.games";
-    const TIMEOUT_FALLBACK = 5000; // 5 giây nếu có lỗi
-
-    function redirect(){
-        try{
-            location.replace(TARGET);
-        }catch(e){
-            console.error("Redirect error:", e);
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
         }
-    }
+    </script>
 
-    // Chỉ redirect nếu đang ở root
-    if(location.pathname === "/" || location.pathname === "/index.html"){
-        // redirect sau 800ms để tránh trắng màn hình
-        setTimeout(redirect, 800);
+        <!-- Styles tùy chỉnh -->
+        <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #050811;
+            color: #e2e8f0;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        /* Hiệu ứng bóng chữ sắc nét cao cấp */
+        .text-shadow-sm {
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+        }
+        .neon-glow-cyan {
+            text-shadow: 0 0 12px rgba(6, 182, 212, 0.4), 0 0 24px rgba(6, 182, 212, 0.15);
+        }
+        
+        /* Nền chuyển sắc Radial đa chiều tạo độ sâu */
+        .hero-bg {
+            background: radial-gradient(circle at 50% 40%, rgba(147, 51, 234, 0.15) 0%, rgba(6, 182, 212, 0.04) 50%, rgba(5, 8, 17, 1) 100%);
+        }
+        
+        /* Thẻ tính năng phong cách khối đổ bóng sâu độc quyền */
+        .gaming-card {
+            background: linear-gradient(145deg, #0d1322, #070b15);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gaming-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(6, 182, 212, 0.3);
+            box-shadow: 0 12px 30px -10px rgba(6, 182, 212, 0.2);
+        }
 
-        // nếu có lỗi mạng / chặn script → fallback sau 5s
-        setTimeout(function(){
-            document.getElementById("manual").style.display="inline-block";
-        }, TIMEOUT_FALLBACK);
-    }
-})();
-</script>
+        /* SIÊU NÚT "CHƠI GAME NGAY" - ĐỔ BÓNG PHÁT SÁNG ĐA TẦNG */
+        .btn-premium-play {
+            background: linear-gradient(135deg, #a855f7 0%, #06b6d4 100%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 20px rgba(6, 182, 212, 0.25), 
+                        0 12px 40px -4px rgba(147, 51, 234, 0.4),
+                        inset 0 1px 1px rgba(255, 255, 255, 0.2);
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn-premium-play:active {
+            transform: scale(0.97);
+            box-shadow: 0 2px 10px rgba(6, 182, 212, 0.3), 
+                        0 4px 15px rgba(147, 51, 234, 0.4);
+        }
 
+        /* NÚT "HỖ TRỢ" - GLASSMORPHISM ĐẲNG CẤP THƯƠNG MẠI */
+        .btn-premium-support {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25),
+                        inset 0 1px 0px rgba(255, 255, 255, 0.05);
+            transition: all 0.2s ease-in-out;
+        }
+        .btn-premium-support:active {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: scale(0.97);
+        }
+
+        /* Thanh cuộn cao cấp */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050811;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #334155;
+        }
+    </style>
     </head>
+    <body
+        class="antialiased font-sans bg-[#050811] text-slate-200 min-h-screen flex flex-col justify-between">
 
-    <body>
-
-        <div class="wrapper">
-            <div class="card">
-
-                <img src="/images/logo.png" class="logo" alt="TDStudio">
-
-                <div class="loader"></div>
-
-                <h1>Đang chuyển đến Trung tâm</h1>
-                <p>
-                    Hệ thống đang điều hướng bạn đến trang chính thức.
-                    Nếu không tự động chuyển, vui lòng bấm nút bên dưới.
-                </p>
-
-                <a href="https://thanhdi.games" class="btn" id="manual"
-                    style="display:none;">
-                    Vào trang chính
+        <header
+            class="sticky top-0 z-50 backdrop-blur-md bg-[#050811]/80 border-b border-slate-800/50">
+            <div
+                class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+                <a href="#" class="flex items-center gap-2 group">
+                    <span
+                        class="font-heading text-2xl font-extrabold tracking-tight bg-gradient-to-r from-purple-500 to-cyan-400 bg-clip-text text-transparent">
+                        TD<span
+                            class="text-white group-hover:text-cyan-400 transition-colors">STUDIO</span>
+                    </span>
                 </a>
 
-                <div class="small">
-                    © 2026 TDStudio · ThanhDi.Com
+                <nav
+                    class="hidden md:flex items-center gap-1 text-sm font-semibold text-slate-400">
+                    <a href="#home"
+                        class="px-4 py-2 rounded-lg text-white hover:bg-slate-800/50 transition-all">Trang
+                        Chủ</a>
+                    <a href="#about"
+                        class="px-4 py-2 rounded-lg hover:text-white hover:bg-slate-800/50 transition-all">Giới
+                        Thiệu</a>
+                    <a href="#features"
+                        class="px-4 py-2 rounded-lg hover:text-white hover:bg-slate-800/50 transition-all">Hệ
+                        Thống</a>
+                    <a href="#projects"
+                        class="px-4 py-2 rounded-lg hover:text-white hover:bg-slate-800/50 transition-all">Máy
+                        Chủ</a>
+                    <a href="https://sv6.thanhdi.games/page?e=zalo"
+                        target="_blank"
+                        class="px-4 py-2 rounded-lg hover:text-cyan-400 hover:bg-slate-800/50 transition-all flex items-center gap-1.5">
+                        CỘNG ĐỒNG GIAO LƯU
+                        <svg class="w-3.5 h-3.5 opacity-70" fill="none"
+                            stroke="currentColor" stroke-width="2.5"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"></path>
+                        </svg>
+                    </a>
+                </nav>
+
+                <div class="hidden md:flex items-center gap-4">
+                    <div
+                        class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20">
+                        <span
+                            class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                        <span
+                            class="text-xs font-bold text-cyan-400 tracking-wider">SV6
+                            LIVE</span>
+                    </div>
+                    <a href="https://thanhdi.games" target="_blank"
+                        class="px-5 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-sm transition-all active:scale-95">
+                        Vào Game
+                    </a>
+                </div>
+
+                <button id="mobile-menu-btn"
+                    class="md:hidden p-2 rounded-xl bg-slate-800/50 border border-slate-700/40 text-slate-300 hover:text-white transition-all focus:outline-none"
+                    aria-label="Toggle Menu">
+                    <svg id="menu-icon-open" class="w-6 h-6" fill="none"
+                        stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+                    </svg>
+                    <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none"
+                        stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div id="mobile-menu"
+                class="hidden md:hidden border-t border-slate-800/80 bg-[#050811] px-4 pt-2 pb-6 space-y-2 shadow-xl">
+                <a href="#home"
+                    class="mobile-nav-link block px-4 py-3 rounded-xl font-medium text-slate-200 hover:bg-slate-800/60">Trang
+                    Chủ</a>
+                <a href="#about"
+                    class="mobile-nav-link block px-4 py-3 rounded-xl font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/60">Giới
+                    Thiệu</a>
+                <a href="#features"
+                    class="mobile-nav-link block px-4 py-3 rounded-xl font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/60">Hệ
+                    Thống</a>
+                <a href="#projects"
+                    class="mobile-nav-link block px-4 py-3 rounded-xl font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/60">Máy
+                    Chủ Game</a>
+                <a href="https://sv6.thanhdi.games/page?e=zalo" target="_blank"
+                    class="mobile-nav-link block px-4 py-3 rounded-xl font-medium text-slate-400 hover:text-cyan-400 hover:bg-slate-800/60 flex items-center justify-between">
+                    <span>Cộng Đồng Giao Lưu</span>
+                    <svg class="w-4 h-4 opacity-60" fill="none"
+                        stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"></path>
+                    </svg>
+                </a>
+                <div
+                    class="pt-4 border-t border-slate-800/60 flex flex-col gap-3">
+                    <div
+                        class="flex items-center justify-center gap-2 py-2.5 rounded-xl bg-cyan-500/5 border border-cyan-500/10 text-xs font-bold text-cyan-400">
+                        <span
+                            class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                        SV6 ĐANG ONLINE
+                    </div>
+                    <a href="https://thanhdi.games" target="_blank"
+                        class="w-full py-3 rounded-xl bg-cyan-500 text-slate-950 font-bold text-center text-sm hover:bg-cyan-400 active:scale-[0.98] transition-all">
+                        Chơi Game Ngay
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <section id="home"
+            class="relative pt-12 pb-20 md:pt-24 md:pb-28 overflow-hidden px-4 flex items-center justify-center bg-gradient-to-b from-slate-900/40 via-[#050811] to-[#050811]">
+            <div
+                class="absolute inset-0 bg-[radial-gradient(circle_at_50%_-20%,rgba(6,182,212,0.1),transparent_50%)] pointer-events-none"></div>
+
+            <div class="max-w-4xl mx-auto text-center relative z-10 w-full">
+                <div
+                    class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/80 border border-slate-800 text-xs font-semibold text-purple-300 mb-8 tracking-wide">
+                    <span
+                        class="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></span>
+                    Đam mê bất tận • Trải nghiệm mượt mà
+                </div>
+
+                <h1
+                    class="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight mb-6 leading-[1.1] text-white">
+                    Sân Chơi Đỉnh Cao<br>
+                    <span
+                        class="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
+                        TDStudio
+                    </span>
+                </h1>
+                <p
+                    class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed font-medium px-2">
+                    Nơi hội tụ những dự án game indie độc đáo, các máy chủ trò
+                    chơi tối ưu hóa hoàn hảo và một cộng đồng game thủ nhiệt
+                    huyết.
+                </p>
+
+                <div
+                    class="max-w-md mx-auto flex flex-col sm:flex-row items-center justify-center gap-4 px-4 sm:px-0">
+                    <a href="https://thanhdi.games" target="_blank"
+                        class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-500 hover:to-cyan-500 font-bold text-sm text-white tracking-wide flex items-center justify-center gap-2 shadow-lg shadow-purple-600/20 transition-all duration-200 active:scale-[0.98]">
+                        CHƠI GAME NGAY
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor"
+                            stroke-width="2.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+                        </svg>
+                    </a>
+
+                    <a href="https://sv6.thanhdi.games/page?e=zalo"
+                        target="_blank"
+                        class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 font-semibold text-sm text-slate-300 hover:text-white text-center transition-all duration-200 active:scale-[0.98]">
+                        CỘNG ĐỒNG GIAO LƯU
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about"
+            class="py-20 px-4 border-t border-slate-900/60 bg-[#03060c]">
+            <div class="max-w-6xl mx-auto">
+                <div
+                    class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+                    <div class="lg:col-span-7 space-y-6">
+                        <div
+                            class="text-xs font-bold tracking-widest text-cyan-400 uppercase">
+                            Về chúng tôi
+                        </div>
+                        <h2
+                            class="font-heading text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
+                            Hành trình tạo nên<br>những thế giới game riêng biệt
+                        </h2>
+                        <div class="h-1 w-12 bg-purple-500 rounded-full"></div>
+
+                        <div
+                            class="space-y-4 text-slate-400 text-[15px] leading-relaxed font-medium">
+                            <p>
+                                <strong
+                                    class="text-white font-semibold">TDStudio
+                                    (Thanh Di Studio)</strong> là một dự án phát
+                                triển và vận hành game cá nhân đầy tâm huyết.
+                                Khởi nguồn từ niềm đam mê mãnh liệt đối với thế
+                                giới trò chơi ảo, chúng tôi chuyên tập trung xây
+                                dựng, tùy biến và duy trì các máy chủ game hoạt
+                                động bền bỉ, ổn định.
+                            </p>
+                            <p>
+                                Mỗi cụm máy chủ hay tính năng được TDStudio phát
+                                triển đều hướng tới việc tối ưu hóa cảm giác
+                                trải nghiệm sâu sắc nhất cho game thủ — từ cơ
+                                chế tự động hóa sự kiện tiện lợi đến những cập
+                                nhật nội dung mang tính sáng tạo đột phá.
+                            </p>
+                        </div>
+
+                        <div
+                            class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 text-sm italic text-slate-300">
+                            "Xây dựng bởi game thủ, dành riêng cho những ai tìm kiếm sự công bằng, mượt mà và khác biệt."
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+                        <div
+                            class="p-6 rounded-xl bg-slate-900/40 border border-slate-800/80 text-center">
+                            <div
+                                class="font-heading text-3xl font-extrabold text-cyan-400 mb-1">08+</div>
+                            <div
+                                class="text-xs font-semibold text-slate-500 tracking-wide uppercase">Máy
+                                chủ vận hành</div>
+                        </div>
+                        <div
+                            class="p-6 rounded-xl bg-slate-900/40 border border-slate-800/80 text-center">
+                            <div
+                                class="font-heading text-3xl font-extrabold text-purple-400 mb-1">24/7</div>
+                            <div
+                                class="text-xs font-semibold text-slate-500 tracking-wide uppercase">Online
+                                Tự Động</div>
+                        </div>
+                        <div
+                            class="p-6 rounded-xl bg-slate-900/40 border border-slate-800/80 text-center">
+                            <div
+                                class="font-heading text-3xl font-extrabold text-pink-400 mb-1">⚡</div>
+                            <div
+                                class="text-xs font-semibold text-slate-500 tracking-wide uppercase">Latency
+                                Cực Thấp</div>
+                        </div>
+                        <div
+                            class="p-6 rounded-xl bg-slate-900/40 border border-slate-800/80 text-center">
+                            <div
+                                class="font-heading text-3xl font-extrabold text-emerald-400 mb-1">100%</div>
+                            <div
+                                class="text-xs font-semibold text-slate-500 tracking-wide uppercase">Bảo
+                                Mật & AntiDDoS</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="features"
+            class="py-20 px-4 border-t border-slate-900/60 bg-[#050811]">
+            <div class="max-w-3xl mx-auto text-center space-y-3 mb-16">
+                <div
+                    class="text-xs font-bold tracking-widest text-purple-400 uppercase">
+                    Sức mạnh hệ thống
+                </div>
+                <h2
+                    class="font-heading text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+                    Nền tảng Server tiêu chuẩn cao
+                </h2>
+                <p class="text-slate-400 text-sm sm:text-base max-w-xl mx-auto">
+                    Tận hưởng những giây phút giải trí trọn vẹn nhờ sự đầu tư
+                    đồng bộ về cả hạ tầng, logic tự động hóa lẫn lớp lá chắn bảo
+                    mật kiên cố.
+                </p>
+            </div>
+
+            <div
+                class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                <div
+                    class="bg-slate-900/30 border border-slate-800/80 rounded-xl p-6 hover:border-slate-700/60 hover:bg-slate-900/50 transition-all duration-200 group">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-400 text-xl font-bold mb-5">
+                        ⚡
+                    </div>
+                    <h3
+                        class="font-heading text-lg font-bold text-slate-100 mb-2">Tối
+                        Ưu Độ Trễ (Latency)</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Hệ thống định tuyến kết nối thông minh giúp tối ưu hóa
+                        băng thông đường truyền, giảm thiểu tối đa hiện tượng
+                        giật lag, mang lại phản hồi hành động nhanh chóng và
+                        mượt mà nhất.
+                    </p>
+                </div>
+
+                <div
+                    class="bg-slate-900/30 border border-slate-800/80 rounded-xl p-6 hover:border-slate-700/60 hover:bg-slate-900/50 transition-all duration-200 group">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400 text-xl font-bold mb-5">
+                        🛡️
+                    </div>
+                    <h3
+                        class="font-heading text-lg font-bold text-slate-100 mb-2">Lá
+                        Chắn Anti-DDoS Toàn Diện</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Tích hợp các tường lửa bảo vệ chuyên dụng chặn đứng mọi
+                        cuộc tấn công phá hoại ở cả Layer 4 và Layer 7, giữ vững
+                        sự ổn định bền bỉ cho các cổng game hoạt động xuyên
+                        suốt.
+                    </p>
+                </div>
+
+                <div
+                    class="bg-slate-900/30 border border-slate-800/80 rounded-xl p-6 hover:border-slate-700/60 hover:bg-slate-900/50 transition-all duration-200 group">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-pink-500/10 flex items-center justify-center text-pink-400 text-xl font-bold mb-5">
+                        🤖
+                    </div>
+                    <h3
+                        class="font-heading text-lg font-bold text-slate-100 mb-2">Sự
+                        Kiện Tự Động 24/7</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Hệ thống bot thông minh và kịch bản in-game hoạt động tự
+                        động hoàn toàn, liên tục tổ chức các sự kiện hấp dẫn mà
+                        không cần sự can thiệp thủ công, tạo sân chơi nhộn nhịp
+                        suốt ngày đêm.
+                    </p>
                 </div>
 
             </div>
-        </div>
+        </section>
 
-        <noscript>
-            <style>
-        #manual{ display:inline-block !important; }
-    </style>
-        </noscript>
+        <section id="projects"
+            class="py-20 px-4 border-t border-slate-900/60 bg-[#03060c]">
+            <div class="max-w-6xl mx-auto">
+                <div
+                    class="relative bg-gradient-to-br from-slate-900/80 to-slate-950 border border-slate-800 rounded-2xl p-6 sm:p-10 lg:p-12 overflow-hidden shadow-xl">
+                    <div
+                        class="absolute inset-0 bg-[radial-gradient(circle_at_right_bottom,rgba(6,182,212,0.05),transparent_40%)] pointer-events-none"></div>
 
+                    <div class="relative z-10 max-w-2xl space-y-6">
+                        <div
+                            class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/20 text-xs font-bold tracking-wider text-cyan-400 uppercase">
+                            LIVE SERVER STATUS
+                        </div>
+                        <h2
+                            class="font-heading text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                            Server 6 - New
+                        </h2>
+                        <p
+                            class="text-slate-400 text-sm sm:text-base leading-relaxed font-medium">
+                            Cụm máy chủ chiến lược đang hoạt động công khai với
+                            cơ chế gameplay độc đáo, hệ thống chống gian lận
+                            chặt chẽ và chuỗi nhiệm vụ hấp dẫn được cập nhật
+                            liên tục bởi Thanh Di Studio.
+                        </p>
+
+                        <div
+                            class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
+                            <a href="https://thanhdi.games" target="_blank"
+                                class="px-6 py-3.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 font-bold text-sm text-slate-950 tracking-wide text-center transition-all flex items-center justify-center gap-2 active:scale-[0.98]">
+                                Vào Ngay
+                                <svg class="w-4 h-4" fill="none"
+                                    stroke="currentColor" stroke-width="2.5"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
+                                </svg>
+                            </a>
+                            <a href="https://sv6.thanhdi.games/page?e=zalo"
+                                target="_blank"
+                                class="px-6 py-3.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 hover:bg-slate-800 font-semibold text-sm text-slate-300 hover:text-white text-center transition-all active:scale-[0.98]">
+                                Cộng đồng giao lưu
+                            </a>
+                        </div>
+                    </div>
+
+                    <div
+                        class="absolute right-12 bottom-0 top-0 w-1/3 hidden lg:flex items-center justify-center opacity-[0.02] pointer-events-none">
+                        <span
+                            class="text-[160px] font-black font-heading tracking-tighter text-white select-none">SV6</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="bg-[#020408] border-t border-slate-900/80 py-12 px-4">
+            <div
+                class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+                <div class="space-y-1.5">
+                    <div
+                        class="font-heading text-xl font-extrabold text-white tracking-tight">
+                        TD<span class="text-purple-500">STUDIO</span>
+                    </div>
+                    <p class="text-slate-500 text-xs font-medium tracking-wide">
+                        &copy; 2026 TDStudio · ThanhDi.Com
+                    </p>
+                </div>
+
+                <div
+                    class="flex flex-wrap justify-center gap-x-6 gap-y-3 text-xs font-semibold text-slate-400">
+                    <a href="#home"
+                        class="hover:text-white transition-colors">Trang Chủ</a>
+                    <a href="#about"
+                        class="hover:text-white transition-colors">Giới
+                        Thiệu</a>
+                    <a href="https://thanhdi.games" target="_blank"
+                        class="text-cyan-400 hover:text-cyan-300 transition-colors">thanhdi.games</a>
+                    <a href="https://sv6.thanhdi.games/page?e=zalo"
+                        target="_blank"
+                        class="hover:text-white transition-colors">Cộng Đồng
+                        Giao Lưu</a>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIconOpen = document.getElementById('menu-icon-open');
+            const menuIconClose = document.getElementById('menu-icon-close');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+            function toggleMenu() {
+                const isOpen = !mobileMenu.classList.contains('hidden');
+                if (isOpen) {
+                    mobileMenu.classList.add('hidden');
+                    menuIconOpen.classList.remove('hidden');
+                    menuIconClose.classList.add('hidden');
+                } else {
+                    mobileMenu.classList.remove('hidden');
+                    menuIconOpen.classList.add('hidden');
+                    menuIconClose.classList.remove('hidden');
+                }
+            }
+
+            mobileMenuBtn.addEventListener('click', toggleMenu);
+
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        toggleMenu();
+                    }
+                });
+            });
+        </script>
     </body>
 </html>
