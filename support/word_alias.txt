@@ -1,0 +1,600 @@
+# phủ định
+o=khong
+k=khong
+ko=khong
+không=khong
+kg=khong
+kh=khong
+vamp=vampa
+khobg=khong
+iphoen=iphone
+hk=khong
+deo=khong
+khum=khong
+uong ho=nap
+donate=nap
+ung ho=nap
+radda=rada
+deck=khong
+dech=khong
+dich=khong
+hog=khong
+tien ton=thien ton
+master ball=poke
+pai=phai
+min=minh
+hiu=hieu
+tron=het
+chi=gi
+mjk=minh
+st=sat thuong
+dame=sat thuong
+tan cong=sat thuong
+aloo=hello
+shop=admin
+j2m=j2me
+quet=quyet
+khi gha=khi gas
+khi gash=khi gas
+srry=sorry
+th=thang
+adm=admin
+ad=admin
+a d=admin
+fixx=fix
+a d m=admin
+a d m i n=admin
+qua chau=noel
+giang sinh=noel
+giang sin=noel
+ramdom=random
+fanpge=fanpage
+fage=fanpage
+bunma=bulma
+tuyet ki=tuyet ky
+capsu=capsule
+capsun=capsule
+nhma=nhung ma
+cm=chi mang
+ti le=ty le
+db=dac biet
+lo ve=love
+java=jar
+jar=jar
+jra=jar
+jav=jar
+ch=chua
+chx=chua
+cdrd=con duong ran doc
+cubg=cung
+hedt=het
+ht=het
+vv=vinh vien
+gane=game
+gabe=game
+gsme=game
+gqme=game
+gdtg=trung gian
+h=gio
+g=gio
+cin=xin
+cung no=cuong no
+cuon no=cuong no
+
+napa=nappa
+napaa=nappa
+
+nhiu=nhieu
+ng=nguoi
+
+on=online
+onl=online
+
+deo=mang
+mac=mang
+c2=sieu cap
+cap 2=sieu cap
+
+lv=level
+lv1=level 1
+lv2=level 2
+lv3=level 3
+lv4=level 4
+lv5=level 5
+lv6=level 6
+lv7=level 7
+lv8=level 8
+lv9=level 9
+lv10=level 10
+
+level1=level 1
+level2=level 2
+level3=level 3
+level4=level 4
+level5=level 5
+level6=level 6
+level7=level 7
+level8=level 8
+level9=level 9
+level10=level 10
+z=vay
+v=vay
+zay=vay
+zi=vay
+lm=lam
+cx=cung
+j=gi
+p=phut
+smtn=suc manh tiem nang
+tnsm=suc manh tiem nang
+
+pr=quang cao
+
+dk=dang ky
+dki=dang ky
+
+kik=kick
+
+
+tn=tiem nang
+sm=suc manh
+hum=khong
+ht=hop the
+hthe=hop the
+dup=giup
+icon=coin
+dg=dang
+ik=di
+thru=thu
+bxh=bang xep hang
+
+
+tl=tuong lai
+tl=than linh
+sv=server
+sever=server
+sver=server
+may chu=server
+game=server
+lol=lon
+
+
+stcm=sat thuong chi mang
+1s=1 sao
+2s=2 sao
+3s=3 sao
+4s=4 sao
+5s=5 sao
+6s=6 sao
+7s=7 sao
+
+chia se=share
+shera=share
+she=share
+Shere=share
+shae=share
+shar=share
+sharee=share
+sare=share
+nag=nang
+dtl=than linh
+ntl=nhan than linh
+gtl=gang than linh
+ngkh=nguoi khac
+skh=set kich hoat
+set kh=set kich hoat
+kick=kich
+bom=boom
+giftcode=code
+Sincode=code
+cade=code
+codew=code
+
+gitcodo=code
+cdoe=code
+coftcode=code
+codes=code
+gifrcode=code
+cofe=code
+cede=code
+colde=code
+gifcode=code
+codevip=code
+gicot=code
+vipcode=code
+codo=code
+cos=code
+gitcode=code
+clde=code
+xincode=code
+xode=code
+cods=code
+Co de=code
+codesc6=code
+coo=code
+codd=code
+giftcodee=code
+gohan=morri
+paragus=morri
+gift=code
+coode=code
+Xinh codd=code
+cod=code
+tyou=thank you
+cosd=code
+cde=code
+codee=code
+codn=code
+codeee=code
+Xincide=code
+Xinncode=code
+Cdeee=code
+codei=code
+nt=nhắn tin
+codeeee=code
+coder=code
+gidcode=code
+codeo=code
+giffcode=code
+codde=code
+coed=code
+codr=code
+coe=code
+au=dau
+mik=minh
+nvay=nhu vay
+quai=hoai
+xin linh=link
+thieeus=thieu
+lick=link
+gan doc=ran doc
+linked=link
+linke=link
+linkr=link
+lik=link
+nek=ne
+hinhg=hinh
+i=y
+kio=kaio
+ja=gia
+de vip=de tu
+hsd=han su dung
+website=trang chu
+web=trang chu
+wed=trang chu
+fam=danh
+farm=danh
+fram=danh
+wep=trang chu
+fc=fan cung
+sk=su kien
+even=su kien
+event=su kien
+iven=su kien
+evere=su kien
+saoo=sao
+enven=su kien
+even1=event
+even2=event
+even3=event
+even4=event
+event1=event
+sai=xai
+event2=event
+event3=event
+event4=event
+sự kieng=event
+cgi=cai gi
+geme=game
+loi a=loi game
+dhvt=dai hoi vo thuat
+sem=xem
+ev1=event
+ev2=event
+ev3=event
+ev4=event
+
+camon=cam on
+giu=gui
+quyen=quen
+thiet bi=tab
+bn=bao nhieu
+bnh=bao nhieu
+bnhieu=bao nhieu
+
+tv=thoi vang
+tvang=thoi vang
+thoi cang=thoi vang
+
+hn=hong ngoc
+hngoc=hong ngoc
+
+menu=mod
+auto=mod
+aotu=mod
+tu dong=auto
+xin lenh=mod
+autu=mod
+xog=xong
+xongg=xong
+xonggg=xong
+xongggg=xong
+
+xonng=xong
+xonngg=xong
+xonnggg=xong
+
+xonnng=xong
+xonnnng=xong
+xonnnnng=xong
+
+xongng=xong
+xongngg=xong
+xongnggg=xong
+
+
+kok=kaioken
+msk=masenko
+
+btri=bao tri
+btr=bao tri
+baotri=bao tri
+bso tri=bao tri
+ah=Anh
+
+tang toc=toc do
+cheat=toc do
+speed=toc do
+hqua=hom qua
+hwa=hom qua
+spl=sao pha le
+zene=zeno
+sp=su phu
+sphu=su phu
+folow=follow
+folloe=follow
+Filo=follow
+flow=follow
+cv=cung vay
+cho bao=cho nao
+un=luon
+
+htnt=hanh tinh nguc tu
+bt=biet
+cs=chi so
+xh=xuat hien
+li=ly
+gh=gioi han
+st=sat thuong
+skil=skill
+kill=skill
+skin=skill
+chieu=skill
+ky nang=skill
+ki nang=skill
+
+sdg=suc danh goc
+sd=suc danh
+
+box=group
+gup=group
+gr=group
+grop=group
+grup=group
+nhom=group
+cong dong=group
+
+tb=thong bao
+ts=tan sat
+auto danh=tan sat
+
+cnsc=itemc2
+cnc2=itemc2
+item c2=itemc2
+bhsc=itemc2
+bksc=itemc2
+iteam=item
+
+yadat=yardrat
+yardat=yardrat
+yadrat=yardrat
+bgio=bao gio
+blau=bao lau
+fd=fide
+fire=fide
+sen=xen
+adr19=android 19
+android19=android 19
+apk19=android 19
+adr 19=android 19
+android 19=android 19
+apk 19=android 19
+android20=android 20
+adr20=android 20
+apk20=android 20
+android 20=android 20
+adr 20=android 20
+apk 20=android 20
+androi 19=android 19
+androi 20=android 20
+rhees=the
+xd=xayda
+baoh=bao gio
+sayan=xayda
+nm=namec
+nammec=namec
+namek=namec
+set=xet
+nammek=namec
+td=trai dat
+xbh=xen bo hung
+sbh=sieu bo hung
+dbv=da bao ve
+gag=gang
+tgian=thoi gian
+time=thoi gian
+thoigian=thoi gian
+fb=facebook
+facebok=facebook
+op=open
+operen=open
+text=test
+tes=test
+
+co cau=co che
+gem=game
+ki=ky
+mtv=mo thanh vien
+cmenh=chan menh
+ote=ok
+otee=ok
+oteee=ok
+oteeee=ok
+lafng=lang
+rui=roi
+r=roi
+dc oi=duoc roi
+dx=duoc
+ddc=duoc
+d=duoc
+lun=luon
+s=sao
+ngov=ngoc
+au=dau
+jz=gi vay
+j z=gi vay
+gd=giao dich
+
+pgg=phieu giam gia
+dns=da ngu sac
+dnc=da nang cap
+tat=thach anh tim
+mvbt=bong tai
+mhbt=bong tai
+btai=bong tai
+b tai=bong tai
+hoir=hoi
+tis=xiu
+nik=nick
+acc=nick
+nit=nick
+ac=nick
+nic=nick
+accc=nick
+acccc=nick
+accccc=nick
+acccccc=nick
+n i k=nick
+n i c k=nick
+a c c=nick
+a c c c=nick
+a c c c c c=nick
+ban em=nick
+kphai=khong phai
+hd=huy diet
+
+s u p=sap
+s a p=sap
+xap=sap
+xup=sap
+sup=sap
+
+
+
+bay=ban
+bayy=ban
+bayyy=ban
+bayyyy=ban
+bayyyyy=ban
+pay=ban
+payy=ban
+payyy=ban
+payyyy=ban
+payyyyy=ban
+
+chs=choi
+
+chia=ban
+sale=ban
+sell=ban
+cho=ban
+can p=ban
+muon p=ban
+gia re=ban
+ja re=ban
+dang p=ban
+b a n=ban
+b a y=ban
+s a l e=ban
+s e l l=ban
+thanh ly=ban
+thanh li=ban
+thanhli=ban
+cho thue=ban
+b u f f=buff
+thue=ban
+
+
+nr=ngoc rong
+
+htrang=hanh trang
+
+dc=duoc
+
+vs=voi
+
+ms=moi
+
+ns=noi
+
+dt=de tu
+dtu=de tu
+detu=de tu
+
+tt=thong tin
+
+cthan=chien than
+
+ct=chien than
+
+ctrang=cai trang  
+fam=danh quai
+farm=danh quai
+nv=nhiem vu
+tdst =tieu doi sat thu
+so4=tieu doi sat thu
+so 4=tieu doi sat thu
+so3=tieu doi sat thu
+so 3=tieu doi sat thu
+so2=tieu doi sat thu
+so 2=tieu doi sat thu
+so1=tieu doi sat thu
+so 1=tieu doi sat thu
+tdt=tieu doi sat thu
+tieu doi truong=tieu doi sat thu
+oii=oi
+oiii=oi
+oiiii=oi
+oiw=oi
+km=khuyen mai
+kmai=khuyen mai
+kame=kamejoko
+
+mk=mat khau
+mkhau=mat khau
+pass=mat khau
+password=mat khau
+
+tk=tai khoan
+tkhoan=tai khoan
+
+gmail=email
+
+
+mn=moi nguoi
+ad=admin
+tdi=admin
+add=admin
+adim=admin
+shop=admin
+sep=admin
