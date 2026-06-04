@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Hỗ Trợ Viên Ngọc Rồng Sonic</title>
+        <title>Hỗ Trợ Viên TDStudio</title>
         <script
             src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
         <style>
@@ -44,7 +44,7 @@
             position: relative;
         }
 
-        /* Header Chăm sóc khách hàng */
+        /* Header */
         .chat-header {
             background: #fff;
             padding: 12px 16px;
@@ -91,7 +91,7 @@
             font-weight: 500;
         }
 
-        /* Cấu hình các nút tự động xuống dòng khi nhiều nút, tránh tràn màn hình */
+        /* Gợi ý điều hướng tránh tràn nút */
         .quick-links {
             display: flex;
             flex-wrap: wrap;
@@ -102,7 +102,7 @@
         }
 
         .link-btn {
-            flex: 1 1 calc(50% - 4px); /* Mặc định chia đôi 2 nút 1 dòng trên mobile, tự động co giãn */
+            flex: 1 1 calc(50% - 4px);
             min-width: 120px;
             text-align: center;
             padding: 8px 12px;
@@ -128,7 +128,7 @@
             color: var(--primary-color);
         }
 
-        /* Khung nội dung tin nhắn */
+        /* Vùng nội dung tin nhắn */
         .chat-messages {
             flex: 1;
             padding: 16px;
@@ -169,8 +169,6 @@
         }
 
         .message.user .msg-avatar {
-            margin-right: 0;
-            margin-left: 8px;
             display: none;
         }
 
@@ -194,7 +192,6 @@
             border-bottom-right-radius: 4px;
         }
 
-        /* Định dạng hiển thị ảnh trong ô chat */
         .msg-image {
             max-width: 100%;
             border-radius: 12px;
@@ -245,7 +242,6 @@
             transform: scale(0.9);
         }
 
-        /* Hiệu ứng gõ chữ của Bot */
         .typing-indicator {
             display: flex;
             gap: 4px;
@@ -273,7 +269,6 @@
     <body>
 
         <div class="chat-container">
-            <!-- Header -->
             <div class="chat-header">
                 <div class="avatar-wrapper">
                     <img
@@ -288,7 +283,6 @@
                 </div>
             </div>
 
-            <!-- 4 Gợi ý hướng đi nhanh - Tự động xuống dòng khi thiếu không gian -->
             <div class="quick-links">
                 <a href="https://thanhdi.com" target="_blank" class="link-btn">
                     <i class="fa-solid fa-house"></i> Trang Chủ
@@ -301,27 +295,25 @@
                     class="link-btn">
                     <i class="fa-solid fa-comment-sms"></i> Zalo Admin
                 </a>
-                <a href="https://telegram.me/kietsieudz" target="_blank"
+                <a href="https://t.me/username_cua_ban" target="_blank"
                     class="link-btn">
                     <i class="fa-solid fa-paper-plane"></i> Telegram Admin
                 </a>
             </div>
 
-            <!-- Vùng hiển thị nội dung chat -->
             <div class="chat-messages" id="chatMessages">
                 <div class="message bot">
                     <img
                         src="https://thanhdi.com/images/avatar_tdstudio.png?v=12"
                         class="msg-avatar" alt="bot">
                     <div class="msg-bubble">
-                        Xin chào! Em là hỗ trợ viên tự động của Ngọc Rồng
+                        Xin chào! Tôi là hỗ trợ viên tự động của Ngọc Rồng
                         TDStudio. Bạn cần giúp đỡ gì về các thứ trong game, các
                         vật phẩm, hay các câu hỏi, sự kiện,... cứ hỏi em nhé!
                     </div>
                 </div>
             </div>
 
-            <!-- Thanh nhập tin nhắn -->
             <div class="chat-input-area">
                 <div class="input-wrapper">
                     <input type="text" id="chatInput" class="chat-input"
@@ -334,15 +326,15 @@
         </div>
 
         <script>
-        // Cấu hình đường dẫn 2 file dữ liệu (Copy cùng thư mục trên Github Pages)
         const URL_KEYWORDS = 'ngocrongsonic.txt';
         const URL_ALIAS = 'word_alias.txt';
 
         let keywordsDatabase = [];
         let wordAliasMap = {};
 
-        // Hàm xóa dấu tiếng Việt và chuẩn hóa viết thường
+        // Hàm chuẩn hóa văn bản để so khớp từ khóa
         function removeVietnameseTones(str) {
+            if (!str) return "";
             str = str.toLowerCase();
             str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
             str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
@@ -351,22 +343,33 @@
             str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
             str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
             str = str.replace(/đ/g, "d");
-            // Xóa các ký tự đặc biệt chỉ giữ lại chữ và số, khoảng trắng
-            str = str.replace(/[^a-z0-9\s]/g, "");
+            str = str.replace(/[\.,\?!@#\$%\^&\*\(\)_\+=\-\[\]\{\};:'"\\|<>\/\r\n]/g, " ");
             str = str.replace(/\s+/g, " ");
             return str.trim();
         }
 
-        // Tải dữ liệu từ các file TXT
+        // Xử lý cú pháp Random [A|B|C] trong câu văn bản trả về
+        function parseRandomSyntax(text) {
+            if (!text) return "";
+            const regex = /\[([^\]]+)\]/g;
+            return text.replace(regex, function(match, group) {
+                const options = group.split('|').map(o => o.trim());
+                const randomIndex = Math.floor(Math.random() * options.length);
+                return options[randomIndex];
+            });
+        }
+
+        // Tải cơ sở dữ liệu
         async function loadDatabases() {
             try {
-                // 1. Đọc và xử lý file word_alias.txt
+                // 1. Đọc và xử lý tệp word_alias.txt
                 const resAlias = await fetch(URL_ALIAS);
                 if (resAlias.ok) {
                     const textAlias = await resAlias.text();
-                    textAlias.split('\n').forEach(line => {
-                        if (!line.trim() || line.startsWith('#')) return;
-                        const parts = line.split('=');
+                    textAlias.replace(/\r/g, '').split('\n').forEach(line => {
+                        const trimmedLine = line.trim();
+                        if (!trimmedLine || trimmedLine.startsWith('#')) return;
+                        const parts = trimmedLine.split('=');
                         if (parts.length >= 2) {
                             const key = removeVietnameseTones(parts[0].trim());
                             const val = parts[1].trim();
@@ -375,31 +378,62 @@
                     });
                 }
 
-                // 2. Đọc và xử lý file ngocrongsonic.txt
+                // 2. Đọc và xử lý tệp ngocrongsonic.txt
                 const resKeywords = await fetch(URL_KEYWORDS);
                 if (resKeywords.ok) {
                     const textKeywords = await resKeywords.text();
-                    const lines = textKeywords.split('\n');
+                    const lines = textKeywords.replace(/\r/g, '').split('\n');
                     
-                    lines.forEach(line => {
-                        const trimmed = line.trim();
+                    lines.forEach((line, index) => {
+                        let trimmed = line.trim();
                         if (!trimmed || trimmed.startsWith('#')) return;
 
                         if (trimmed.includes('|')) {
+                            // Tách riêng phần đuôi ảnh cục bộ nếu dòng kết thúc bằng tên file ảnh (.png/.jpg)
+                            let attachedImage = "";
+                            const lastPipeIndex = trimmed.lastIndexOf('|');
+                            const trailingPart = trimmed.substring(lastPipeIndex + 1).trim();
+                            
+                            if (trailingPart.toLowerCase().endsWith('.png') || trailingPart.toLowerCase().endsWith('.jpg') || trailingPart.toLowerCase().endsWith('.jpeg')) {
+                                attachedImage = trailingPart;
+                                trimmed = trimmed.substring(0, lastPipeIndex).trim(); // Cắt bỏ phần đuôi ảnh ra khỏi khối bóc tách text
+                            }
+
                             const blocks = trimmed.split('|');
-                            const keys = blocks[0].split(',').map(k => removeVietnameseTones(k.trim()));
-                            const answers = blocks.slice(1).map(a => a.trim());
-                            keywordsDatabase.push({ keys, answers });
+                            
+                            // Cụm từ khóa ngăn cách bằng dấu phẩy ở block đầu tiên
+                            const rawPhrases = blocks[0].split(',');
+                            
+                            // Toàn bộ các block còn lại chính là các phương án câu trả lời (Random)
+                            const answers = blocks.slice(1).map(a => a.trim()).filter(a => a !== '');
+                            
+                            let phraseList = [];
+                            rawPhrases.forEach(phrase => {
+                                const cleanPhrase = removeVietnameseTones(phrase);
+                                const wordsOfPhrase = cleanPhrase.split(' ').filter(w => w !== '');
+                                if (wordsOfPhrase.length > 0) {
+                                    phraseList.push(wordsOfPhrase);
+                                }
+                            });
+
+                            if (phraseList.length > 0 && answers.length > 0) {
+                                keywordsDatabase.push({
+                                    id: index, // Thêm ID dòng để nhận diện lọc trùng dòng
+                                    phrases: phraseList,
+                                    answers: answers,
+                                    localImage: attachedImage // Lưu giữ ảnh cục bộ đi kèm nếu có
+                                });
+                            }
                         }
                     });
                 }
-                console.log("Database loaded thành công!", keywordsDatabase, wordAliasMap);
+                console.log("Database loaded thành công!", keywordsDatabase);
             } catch (error) {
-                console.error("Lỗi tải dữ liệu file cấu hình:", error);
+                console.error("Lỗi tải tệp cấu hình dữ liệu:", error);
             }
         }
 
-        // Thay thế từ viết tắt dựa trên word_alias
+        // Thay thế từ viết tắt
         function replaceAlias(text) {
             let words = text.split(' ');
             words = words.map(word => {
@@ -409,33 +443,69 @@
             return words.join(' ');
         }
 
-        // Tìm câu trả lời phù hợp nhất bằng so khớp từ khóa
+        // Tìm kiếm câu trả lời phù hợp nhất (Hỗ trợ trả về tối đa 3 câu khác dòng)
         function findAnswer(userMsg) {
             let processedMsg = replaceAlias(userMsg);
             let cleanMsg = removeVietnameseTones(processedMsg);
+            let userWords = cleanMsg.split(' ').filter(w => w !== '');
 
-            let bestMatch = null;
-            let maxMatchedKeys = 0;
+            let matchedItems = [];
 
+            // Duyệt qua toàn bộ database để tìm tất cả các dòng thỏa mãn từ khóa
             for (const item of keywordsDatabase) {
-                let matchedCount = 0;
-                for (const key of item.keys) {
-                    if (cleanMsg.includes(key)) {
-                        matchedCount++;
+                let currentLineMaxMatchCount = 0;
+                let isLineMatched = false;
+
+                for (const phraseWords of item.phrases) {
+                    let isThisPhraseMatched = phraseWords.every(word => userWords.includes(word));
+                    
+                    if (isThisPhraseMatched) {
+                        isLineMatched = true;
+                        if (phraseWords.length > currentLineMaxMatchCount) {
+                            currentLineMaxMatchCount = phraseWords.length;
+                        }
                     }
                 }
-                if (matchedCount > maxMatchedKeys) {
-                    maxMatchedKeys = matchedCount;
-                    bestMatch = item;
+
+                if (isLineMatched) {
+                    matchedItems.push({
+                        item: item,
+                        weight: currentLineMaxMatchCount // Độ dài từ khóa trùng để ưu tiên dòng khớp sâu hơn
+                    });
                 }
             }
 
-            if (bestMatch && maxMatchedKeys > 0) {
-                const randomIndex = Math.floor(Math.random() * bestMatch.answers.length);
-                return bestMatch.answers[randomIndex];
+            // Nếu tìm thấy các dòng khớp từ khóa
+            if (matchedItems.length > 0) {
+                // Sắp xếp thứ tự ưu tiên dòng có cụm từ khóa dài hơn lên trước
+                matchedItems.sort((a, b) => b.weight - a.weight);
+
+                let finalReplies = [];
+                let limit = Math.min(matchedItems.length, 3);
+
+                for (let i = 0; i < limit; i++) {
+                    const matched = matchedItems[i].item;
+                    
+                    // Chọn ngẫu nhiên 1 câu trả lời trong mảng answers của dòng đó
+                    const randomIndex = Math.floor(Math.random() * matched.answers.length);
+                    let selectedAnswer = matched.answers[randomIndex];
+                    
+                    // Xử lý cú pháp [A|B|C] nội bộ câu
+                    selectedAnswer = parseRandomSyntax(selectedAnswer);
+                    
+                    // Đính kèm ảnh cục bộ nếu dòng đó có khai báo
+                    if (matched.localImage) {
+                        selectedAnswer = selectedAnswer + " | " + matched.localImage;
+                    }
+                    
+                    finalReplies.push(selectedAnswer);
+                }
+
+                // Nối các câu trả lời thu được bằng dấu xuống dòng để hiển thị chung trong 1 bubble
+                return finalReplies.join('\n\n');
             }
 
-            return "Em chưa hiểu. Anh có thể bấm vào Zalo Admin ở trên để gặp trực tiếp Admin nhé!";
+            return "Nếu em hỗ trợ chưa ổn, anh có thể liên hệ trực tiếp với Admin qua Zalo hoặc Telegram để được giúp đỡ nhanh hơn nhé!";
         }
 
         // Giao diện: Cuộn xuống dưới cùng
@@ -444,7 +514,7 @@
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
-        // Giao diện: Hiển thị tin nhắn mới dạng Messenger
+        // Giao diện: Thêm tin nhắn mới vào khung chat
         function appendMessage(sender, text) {
             const chatMessages = document.getElementById('chatMessages');
             const msgDiv = document.createElement('div');
@@ -457,15 +527,22 @@
 
             let textContent = text;
             let imgHtml = '';
-            const imgRegex = /(https?:\/\/[^\s]+\.(?:png|jpg|jpeg|gif|webp))/i;
+            
+            // Nhận diện liên kết ảnh (Chấp nhận cả link http/https lẫn text đuôi ảnh cục bộ được xử lý dán kèm)
+            const imgRegex = /(https?:\/\/[^\s]+\.(?:png|jpg|jpeg|gif|webp))|(?:\|\s*([^\s|]+\.(?:png|jpg|jpeg|gif|webp)))/i;
             const match = text.match(imgRegex);
 
             if (match) {
-                const imgUrl = match[0];
-                textContent = text.replace(imgUrl, '').trim();
-                imgHtml = `<img src="${imgUrl}" class="msg-image" alt="Hình ảnh đính kèm" onclick="window.open('${imgUrl}')">`;
+                const imgUrl = match[1] ? match[1] : match[2];
+                // Tách phần text sạch ra khỏi link ảnh hoặc text ảnh dính kèm
+                textContent = text.replace(match[0], '').trim();
+                
+                // Nếu là tên file ảnh cục bộ (không có http), gán domain của bạn vào để hiển thị
+                const finalImgSrc = imgUrl.startsWith('http') ? imgUrl : `https://thanhdi.com/images/${imgUrl}`;
+                imgHtml = `<img src="${finalImgSrc}" class="msg-image" alt="Hình ảnh đính kèm" onclick="window.open('${finalImgSrc}')">`;
             }
 
+            // Tự động chuyển đổi các liên kết web thường còn lại thành thẻ A click được
             const urlRegex = /(https?:\/\/[^\s]+)/g;
             textContent = textContent.replace(urlRegex, function(url) {
                 return `<a href="${url}" target="_blank" style="color: #0084ff; text-decoration: underline; word-break: break-all;">${url}</a>`;
