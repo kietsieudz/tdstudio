@@ -2,7 +2,7 @@
 <html lang="vi">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
         <title>Hỗ Trợ Viên TDStudio</title>
         <script
             src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
@@ -203,6 +203,8 @@
         /* Khung nhập tin nhắn */
         .chat-input-area {
             padding: 12px 16px;
+            padding-bottom: calc(12px + env(safe-area-inset-bottom));
+            margin-bottom: 8px;
             background: #fff;
             border-top: 1px solid #e4e6eb;
             display: flex;
@@ -332,7 +334,6 @@
         let keywordsDatabase = [];
         let wordAliasMap = {};
 
-        // Hàm chuẩn hóa văn bản để so khớp từ khóa
         function removeVietnameseTones(str) {
             if (!str) return "";
             str = str.toLowerCase();
@@ -348,7 +349,6 @@
             return str.trim();
         }
 
-        // Xử lý cú pháp Random [A|B|C] trong câu văn bản trả về
         function parseRandomSyntax(text) {
             if (!text) return "";
             const regex = /\[([^\]]+)\]/g;
@@ -359,10 +359,8 @@
             });
         }
 
-        // Tải cơ sở dữ liệu
         async function loadDatabases() {
             try {
-                // 1. Đọc và xử lý tệp word_alias.txt
                 const resAlias = await fetch(URL_ALIAS);
                 if (resAlias.ok) {
                     const textAlias = await resAlias.text();
@@ -378,7 +376,6 @@
                     });
                 }
 
-                // 2. Đọc và xử lý tệp ngocrongsonic.txt
                 const resKeywords = await fetch(URL_KEYWORDS);
                 if (resKeywords.ok) {
                     const textKeywords = await resKeywords.text();
@@ -389,22 +386,17 @@
                         if (!trimmed || trimmed.startsWith('#')) return;
 
                         if (trimmed.includes('|')) {
-                            // Tách riêng phần đuôi ảnh cục bộ nếu dòng kết thúc bằng tên file ảnh (.png/.jpg)
                             let attachedImage = "";
                             const lastPipeIndex = trimmed.lastIndexOf('|');
                             const trailingPart = trimmed.substring(lastPipeIndex + 1).trim();
                             
                             if (trailingPart.toLowerCase().endsWith('.png') || trailingPart.toLowerCase().endsWith('.jpg') || trailingPart.toLowerCase().endsWith('.jpeg')) {
                                 attachedImage = trailingPart;
-                                trimmed = trimmed.substring(0, lastPipeIndex).trim(); // Cắt bỏ phần đuôi ảnh ra khỏi khối bóc tách text
+                                trimmed = trimmed.substring(0, lastPipeIndex).trim();
                             }
 
                             const blocks = trimmed.split('|');
-                            
-                            // Cụm từ khóa ngăn cách bằng dấu phẩy ở block đầu tiên
                             const rawPhrases = blocks[0].split(',');
-                            
-                            // Toàn bộ các block còn lại chính là các phương án câu trả lời (Random)
                             const answers = blocks.slice(1).map(a => a.trim()).filter(a => a !== '');
                             
                             let phraseList = [];
@@ -418,10 +410,10 @@
 
                             if (phraseList.length > 0 && answers.length > 0) {
                                 keywordsDatabase.push({
-                                    id: index, // Thêm ID dòng để nhận diện lọc trùng dòng
+                                    id: index,
                                     phrases: phraseList,
                                     answers: answers,
-                                    localImage: attachedImage // Lưu giữ ảnh cục bộ đi kèm nếu có
+                                    localImage: attachedImage
                                 });
                             }
                         }
@@ -433,7 +425,6 @@
             }
         }
 
-        // Thay thế từ viết tắt
         function replaceAlias(text) {
             let words = text.split(' ');
             words = words.map(word => {
@@ -443,7 +434,6 @@
             return words.join(' ');
         }
 
-        // Tìm kiếm câu trả lời phù hợp nhất (Hỗ trợ trả về tối đa 3 câu khác dòng)
         function findAnswer(userMsg) {
             let processedMsg = replaceAlias(userMsg);
             let cleanMsg = removeVietnameseTones(processedMsg);
@@ -451,7 +441,6 @@
 
             let matchedItems = [];
 
-            // Duyệt qua toàn bộ database để tìm tất cả các dòng thỏa mãn từ khóa
             for (const item of keywordsDatabase) {
                 let currentLineMaxMatchCount = 0;
                 let isLineMatched = false;
@@ -470,14 +459,12 @@
                 if (isLineMatched) {
                     matchedItems.push({
                         item: item,
-                        weight: currentLineMaxMatchCount // Độ dài từ khóa trùng để ưu tiên dòng khớp sâu hơn
+                        weight: currentLineMaxMatchCount
                     });
                 }
             }
 
-            // Nếu tìm thấy các dòng khớp từ khóa
             if (matchedItems.length > 0) {
-                // Sắp xếp thứ tự ưu tiên dòng có cụm từ khóa dài hơn lên trước
                 matchedItems.sort((a, b) => b.weight - a.weight);
 
                 let finalReplies = [];
@@ -485,15 +472,11 @@
 
                 for (let i = 0; i < limit; i++) {
                     const matched = matchedItems[i].item;
-                    
-                    // Chọn ngẫu nhiên 1 câu trả lời trong mảng answers của dòng đó
                     const randomIndex = Math.floor(Math.random() * matched.answers.length);
                     let selectedAnswer = matched.answers[randomIndex];
                     
-                    // Xử lý cú pháp [A|B|C] nội bộ câu
                     selectedAnswer = parseRandomSyntax(selectedAnswer);
                     
-                    // Đính kèm ảnh cục bộ nếu dòng đó có khai báo
                     if (matched.localImage) {
                         selectedAnswer = selectedAnswer + " | " + matched.localImage;
                     }
@@ -501,20 +484,17 @@
                     finalReplies.push(selectedAnswer);
                 }
 
-                // Nối các câu trả lời thu được bằng dấu xuống dòng để hiển thị chung trong 1 bubble
                 return finalReplies.join('\n\n');
             }
 
             return "Nếu em hỗ trợ chưa ổn, anh có thể liên hệ trực tiếp với Admin qua Zalo hoặc Telegram để được giúp đỡ nhanh hơn nhé!";
         }
 
-        // Giao diện: Cuộn xuống dưới cùng
         function scrollToBottom() {
             const chatMessages = document.getElementById('chatMessages');
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
-        // Giao diện: Thêm tin nhắn mới vào khung chat
         function appendMessage(sender, text) {
             const chatMessages = document.getElementById('chatMessages');
             const msgDiv = document.createElement('div');
@@ -528,21 +508,16 @@
             let textContent = text;
             let imgHtml = '';
             
-            // Nhận diện liên kết ảnh (Chấp nhận cả link http/https lẫn text đuôi ảnh cục bộ được xử lý dán kèm)
             const imgRegex = /(https?:\/\/[^\s]+\.(?:png|jpg|jpeg|gif|webp))|(?:\|\s*([^\s|]+\.(?:png|jpg|jpeg|gif|webp)))/i;
             const match = text.match(imgRegex);
 
             if (match) {
                 const imgUrl = match[1] ? match[1] : match[2];
-                // Tách phần text sạch ra khỏi link ảnh hoặc text ảnh dính kèm
                 textContent = text.replace(match[0], '').trim();
-                
-                // Nếu là tên file ảnh cục bộ (không có http), gán domain của bạn vào để hiển thị
                 const finalImgSrc = imgUrl.startsWith('http') ? imgUrl : `https://thanhdi.com/images/${imgUrl}`;
                 imgHtml = `<img src="${finalImgSrc}" class="msg-image" alt="Hình ảnh đính kèm" onclick="window.open('${finalImgSrc}')">`;
             }
 
-            // Tự động chuyển đổi các liên kết web thường còn lại thành thẻ A click được
             const urlRegex = /(https?:\/\/[^\s]+)/g;
             textContent = textContent.replace(urlRegex, function(url) {
                 return `<a href="${url}" target="_blank" style="color: #0084ff; text-decoration: underline; word-break: break-all;">${url}</a>`;
@@ -561,7 +536,6 @@
             return msgDiv;
         }
 
-        // Hiển thị hiệu ứng Bot đang gõ chữ
         function showTypingIndicator() {
             const chatMessages = document.getElementById('chatMessages');
             const typingDiv = document.createElement('div');
@@ -579,7 +553,6 @@
             return typingDiv;
         }
 
-        // Xử lý gửi tin nhắn
         function handleSend() {
             const input = document.getElementById('chatInput');
             const messageText = input.value.trim();
