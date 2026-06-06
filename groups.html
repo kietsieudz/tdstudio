@@ -1,182 +1,28 @@
 <!DOCTYPE html>
 <html lang="vi">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Cộng đồng Ngọc Rồng Online – TDStudio</title>
-
-        <style>
-/* =========================
-   TD COMMUNITY – FINAL UI
-========================= */
-:root {
-    --bg-page: #eef1f4;
-
-    --card-bg: #ffffff;
-    --card-radius: 28px;
-
-    --primary: #4f7df3;        /* xanh lam dịu */
-    --primary-shadow: rgba(79,125,243,.35);
-
-    --community: #25b29a;      /* xanh ngọc dịu */
-    --community-shadow: rgba(37,178,154,.35);
-
-    --server-bg: #fdfdfd;
-    --server-border: #e6ebf0;
-    --server-shadow: rgba(0,0,0,.08);
-
-    --text-main: #1f2933;
-}
-
-body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background: var(--bg-page);
-    color: var(--text-main);
-}
-
-.td-page {
-    max-width: 520px;
-    margin: 0 auto;
-    padding: 24px 16px 48px;
-}
-
-/* khung bọc toàn bộ */
-.td-card {
-    background: var(--card-bg);
-    border-radius: var(--card-radius);
-    padding: 28px 20px 32px;
-    box-shadow: 0 20px 50px rgba(0,0,0,.08);
-}
-
-.td-title {
-    font-size: 20px;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 22px;
-}
-
-/* grid */
-.td-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-}
-
-/* base button */
-.td-btn {
-    height: 56px;
-    border-radius: 18px;
-    text-decoration: none;
-    font-size: 14.5px;
-    font-weight: 600;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    transition: transform .12s ease, box-shadow .12s ease;
-}
-
-.td-btn:active {
-    transform: translateY(2px);
-}
-
-/* full width */
-.td-btn.full {
-    grid-column: span 2;
-    height: 64px;
-    font-size: 15.5px;
-}
-
-/* primary */
-.td-btn.primary {
-    background: var(--primary);
-    color: #fff;
-    box-shadow:
-        0 10px 24px var(--primary-shadow),
-        inset 0 1px 0 rgba(255,255,255,.25);
-}
-
-/* server */
-.td-btn.server {
-    background: var(--server-bg);
-    color: var(--text-main);
-    border: 1px solid var(--server-border);
-    box-shadow: 0 10px 20px var(--server-shadow);
-}
-
-/* community */
-.td-btn.community {
-    background: var(--community);
-    color: #fff;
-    box-shadow:
-        0 10px 24px var(--community-shadow),
-        inset 0 1px 0 rgba(255,255,255,.25);
-}
-</style>
-    </head>
-
-    <body>
-
-        <div class="td-page">
-            <div class="td-card">
-
-                <div class="td-title">
-                    Tham gia cộng đồng để được hỗ trợ tốt nhất
-                </div>
-
-                <div class="td-grid">
-
-                    <!-- Thông báo -->
-                    <a class="td-btn full primary"
-                        href="https://zalo.me/g/vxcuux196" target="_blank">
-                        📢 Box Cộng Đồng Chung
-                    </a>
-
-                    <!-- Server -->
-                    <a class="td-btn server" href="https://zalo.me/g/guxxky409"
-                        target="_blank">Server 1 · Box 1</a>
-                    <a class="td-btn server" href="https://zalo.me/g/chhtoc951"
-                        target="_blank">Server 1 · Box 2</a>
-
-                    <a class="td-btn server" href="https://zalo.me/g/pqaiqm424"
-                        target="_blank">Server 2 · Box 1</a>
-                    <a class="td-btn server" href="https://zalo.me/g/esmrkv396"
-                        target="_blank">Server 2 · Box 2</a>
-
-                    <a class="td-btn server" href="https://zalo.me/g/crnbag894"
-                        target="_blank">Server 3 · Box 1</a>
-                    <a class="td-btn server" href="https://zalo.me/g/wlhmmk033"
-                        target="_blank">Server 3 · Box 2</a>
-
-                    <a class="td-btn server" href="https://zalo.me/g/gfnekq114"
-                        target="_blank">Server 4 · Box 1</a>
-                    <a class="td-btn server" href="https://zalo.me/g/jcssww622"
-                        target="_blank">Server 4 · Box 2</a>
-
-                    <a class="td-btn server" href="https://zalo.me/g/uelhmv606"
-                        target="_blank">Server 5 · Box 1</a>
-                    <a class="td-btn server" href="https://zalo.me/g/vmtbba265"
-                        target="_blank">Server 5 · Box 2</a>
-
-                    <a class="td-btn server" href="https://zalo.me/g/bfoxoi238"
-                        target="_blank">Server 6 · Box 1</a>
-                    <a class="td-btn server" href="https://zalo.me/g/cjqjbt811"
-                        target="_blank">Server 6 · Box 2</a>
-
-                    <a class="td-btn community"
-                        href="https://zalo.me/g/esmrkv396" target="_blank">🌐
-                        Cộng Đồng Chung 1</a>
-
-                    <a class="td-btn full community"
-                        href="https://zalo.me/g/acxvjw835" target="_blank">
-                        🌐 Cộng Đồng Chung 2
-                    </a>
-
-                </div>
-            </div>
-        </div>
-
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="0;url=https://sv6.thanhdi.games/page?e=zalo">
+    <title>Đang chuyển hướng đến cộng đồng Zalo...</title>
+    <script>window.location.replace("https://sv6.thanhdi.games/page?e=zalo");</script>
+    <style>
+        body { 
+            background: #f1f4f9; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            min-height: 100vh; 
+            margin: 0; 
+            font-family: sans-serif; 
+        }
+        .msg { text-align: center; color: #64748b; font-size: 14px; }
+        a { color: #2563eb; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="msg">
+        <p>Đang kết nối đến hệ thống Cộng Đồng TDStudio...</p>
+        <a href="https://sv6.thanhdi.games/page?e=zalo">Bấm vào đây nếu trang không tự chuyển</a>
+    </div>
+</body>
 </html>
