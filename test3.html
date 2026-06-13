@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tổng Hợp Nhóm Zalo Game</title>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -37,11 +35,9 @@
             align-items: center;
         }
 
-        /* Header Effect */
         header {
             text-align: center;
             margin-bottom: 50px;
-            animation: fadeInDown 0.8s ease-out;
         }
 
         header h1 {
@@ -61,17 +57,15 @@
             font-size: 1rem;
         }
 
-        /* Grid Layout */
         .container {
             width: 100%;
             max-width: 1200px;
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 25px;
-            animation: fadeInUp 0.8s ease-out;
         }
 
-        /* Server Card */
+        /* Server Card Base Style */
         .server-card {
             background: var(--card-bg);
             backdrop-filter: blur(12px);
@@ -95,10 +89,20 @@
             opacity: 0.7;
         }
 
+        /* Liên Server Style */
+        .server-card.lien-server::before {
+            background: linear-gradient(90deg, #ffaa00, #ff5500);
+        }
+
         .server-card:hover {
             transform: translateY(-8px);
             border-color: rgba(0, 102, 255, 0.4);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(0, 102, 255, 0.1);
+        }
+
+        .server-card.lien-server:hover {
+            border-color: rgba(255, 170, 0, 0.4);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 170, 0, 0.1);
         }
 
         .server-header {
@@ -120,6 +124,14 @@
             color: #00d2ff;
         }
 
+        .server-card.lien-server .server-title {
+            color: #ffaa00;
+        }
+
+        .server-card.lien-server .server-title i {
+            color: #ffaa00;
+        }
+
         .server-status {
             font-size: 0.75rem;
             padding: 4px 8px;
@@ -130,14 +142,18 @@
             font-weight: 600;
         }
 
-        /* Zalo Buttons Grid */
+        .server-card.lien-server .server-status {
+            color: #ffaa00;
+            background: rgba(255, 170, 0, 0.1);
+            border: 1px solid rgba(255, 170, 0, 0.3);
+        }
+
         .box-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 10px;
         }
 
-        /* Button Style */
         .zalo-btn {
             display: flex;
             align-items: center;
@@ -161,24 +177,26 @@
             transform: scale(1.05);
         }
 
+        .server-card.lien-server .zalo-btn:hover {
+            background: #ffaa00;
+            border-color: #ffaa00;
+            box-shadow: 0 0 12px rgba(255, 170, 0, 0.4);
+        }
+
         .zalo-btn i {
             margin-right: 4px;
             font-size: 0.8rem;
             opacity: 0.8;
         }
 
-        /* Animations */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .loading-text {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            grid-column: 1 / -1;
+            padding: 50px;
         }
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Responsive */
         @media (max-width: 480px) {
             .box-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -196,107 +214,77 @@
         <p>Chọn Server và tham gia các Box Chat để giao lưu, giao dịch</p>
     </header>
 
-    <div class="container">
-        <!-- Server 1 -->
-        <div class="server-card">
-            <div class="server-header">
-                <div class="server-title"><i class="fa-solid fa-server"></i> Server 1</div>
-                <div class="server-status">Online</div>
-            </div>
-            <div class="box-grid">
-                <a href="#" target="_blank" class="zalo-btn"><i class="fa-solid fa-users"></i> Box 1</a>
-                <a href="#" target="_blank" class="zalo-btn"><i class="fa-solid fa-users"></i> Box 2</a>
-                <a href="#" target="_blank" class="zalo-btn"><i class="fa-solid fa-users"></i> Box 3</a>
-            </div>
-        </div>
-
-        <!-- Server 2 -->
-        <div class="server-card">
-            <div class="server-header">
-                <div class="server-title"><i class="fa-solid fa-server"></i> Server 2</div>
-                <div class="server-status">Online</div>
-            </div>
-            <div class="box-grid">
-                <a href="#" target="_blank" class="zalo-btn"><i class="fa-solid fa-users"></i> Box 1</a>
-                <a href="#" target="_blank" class="zalo-btn"><i class="fa-solid fa-users"></i> Box 2</a>
-            </div>
-        </div>
-
-        <!-- Server 3 -->
-        <div class="server-card">
-            <div class="server-header">
-                <div class="server-title"><i class="fa-solid fa-server"></i> Server 3</div>
-                <div class="server-status">Online</div>
-            </div>
-            <div class="box-grid">
-                <a href="#" target="_blank" class="zalo-btn"><i class="fa-solid fa-users"></i> Box 1</a>
-                <a href="#" target="_blank" class="zalo-btn"><i class="fa-solid fa-users"></i> Box 2</a>
-                <a href="#" target="_blank" class="zalo-btn"><i class="fa-solid fa-users"></i> Box 3</a>
-            </div>
-        </div>
-
-        <!-- Server 4 -->
-        <div class="server-card">
-            <div class="server-header">
-                <div class="server-title"><i class="fa-solid fa-server"></i> Server 4</div>
-                <div class="server-status">Online</div>
-            </div>
-            <div class="box-grid">
-                <a href="#" target="_blank" class="zalo-btn"><i class="fa-solid fa-users"></i> Box 1</a>
-            </div>
-        </div>
-
-        <!-- Server 5 -->
-        <div class="server-card">
-            <div class="server-header">
-                <div class="server-title"><i class="fa-solid fa-server"></i> Server 5</div>
-                <div class="server-status">Online</div>
-            </div>
-            <div class="box-grid">
-                <a href="#" target="_blank" class="zalo-btn"><i class="fa-solid fa-users"></i> Box 1</a>
-                <a href="#" target="_blank" class="zalo-btn"><i class="fa-solid fa-users"></i> Box 2</a>
-            </div>
-        </div>
-
-        <!-- Server 6 -->
-        <div class="server-card">
-            <div class="server-header">
-                <div class="server-title"><i class="fa-solid fa-server"></i> Server 6</div>
-                <div class="server-status">Online</div>
-            </div>
-            <div class="box-grid">
-                <a href="#" target="_blank" class="zalo-btn"><i class="fa-solid fa-users"></i> Box 1</a>
-            </div>
-        </div>
-
-        <!-- Server 7 -->
-        <div class="server-card">
-            <div class="server-header">
-                <div class="server-title"><i class="fa-solid fa-server"></i> Server 7</div>
-                <div class="server-status">Online</div>
-            </div>
-            <div class="box-grid">
-                <a href="#" target="_blank" class="zalo-btn"><i class="fa-solid fa-users"></i> Box 1</a>
-                <a href="#" target="_blank" class="zalo-btn"><i class="fa-solid fa-users"></i> Box 2</a>
-            </div>
-        </div>
-
-        <!-- Liên Server -->
-        <div class="server-card" style="border-color: rgba(255, 170, 0, 0.2);">
-            <style>
-                .lienserver::before { background: linear-gradient(90deg, #ffaa00, #ff5500) !important; }
-            </style>
-            <div class="server-header lienserver">
-                <div class="server-title" style="color: #ffaa00;"><i class="fa-solid fa-globe"></i> Liên Server</div>
-                <div class="server-status" style="color: #ffaa00; background: rgba(255,170,0,0.1); border-color: rgba(255,170,0,0.3);">Hot</div>
-            </div>
-            <div class="box-grid">
-                <a href="#" target="_blank" class="zalo-btn" style="--accent-color: #ffaa00; --accent-glow: rgba(255,170,0,0.4);"><i class="fa-solid fa-users"></i> Box 1</a>
-                <a href="#" target="_blank" class="zalo-btn" style="--accent-color: #ffaa00; --accent-glow: rgba(255,170,0,0.4);"><i class="fa-solid fa-users"></i> Box 2</a>
-                <a href="#" target="_blank" class="zalo-btn" style="--accent-color: #ffaa00; --accent-glow: rgba(255,170,0,0.4);"><i class="fa-solid fa-users"></i> Box 3</a>
-            </div>
-        </div>
+    <div class="container" id="serverContainer">
+        <div class="loading-text"><i class="fa-solid fa-spinner fa-spin"></i> Đang tải cấu hình nhóm từ hệ thống...</div>
     </div>
 
+    <script>
+        // Hàm tự động fetch dữ liệu từ link API của bạn và render giao diện
+        async function loadZaloGroups() {
+            const container = document.getElementById('serverContainer');
+            try {
+                const response = await fetch('https://sv7.thanhdi.games/page?e=zalo');
+                if (!response.ok) throw new Error('Không thể fetch dữ liệu từ endpoint');
+                
+                const data = await response.json();
+                container.innerHTML = ''; // Xóa thông báo loading
+
+                // Tự động tối ưu hóa cấu trúc dữ liệu trả về (hỗ trợ cả dạng Mảng hoặc Object phân theo Server)
+                if (Array.isArray(data)) {
+                    const groupedServers = {};
+                    data.forEach(item => {
+                        const sName = item.server || item.server_name || "Server Gốc";
+                        if (!groupedServers[sName]) groupedServers[sName] = [];
+                        groupedServers[sName].push(item);
+                    });
+                    renderServers(groupedServers, container);
+                } else {
+                    renderServers(data, container);
+                }
+
+            } catch (error) {
+                console.error(error);
+                container.innerHTML = `
+                    <div class="loading-text" style="color: #ff3333;">
+                        <i class="fa-solid fa-circle-exclamation"></i> Không thể kết nối dữ liệu từ API.<br>
+                        <span style="font-size: 0.9rem; color: var(--text-muted);">Vui lòng kiểm tra cấu hình CORS trên server hoặc định dạng JSON trả về.</span>
+                    </div>`;
+            }
+        }
+
+        // Xử lý render thẻ UI dựa vào cấu trúc dữ liệu thu thập được
+        function renderServers(servers, container) {
+            Object.keys(servers).forEach(serverName => {
+                const boxes = servers[serverName];
+                const isLienServer = serverName.toLowerCase().includes('liên');
+                
+                const card = document.createElement('div');
+                card.className = `server-card ${isLienServer ? 'lien-server' : ''}`;
+                
+                let boxButtonsHTML = '';
+                boxes.forEach(box => {
+                    const btnName = box.name || box.box || box.title || 'Box';
+                    const btnLink = box.link || box.url || '#';
+                    boxButtonsHTML += `<a href="${btnLink}" target="_blank" class="zalo-btn"><i class="fa-solid fa-users"></i> ${btnName}</a>`;
+                });
+
+                card.innerHTML = `
+                    <div class="server-header">
+                        <div class="server-title">
+                            <i class="fa-solid ${isLienServer ? 'fa-globe' : 'fa-server'}"></i> ${serverName}
+                        </div>
+                        <div class="server-status">${isLienServer ? 'Hot' : 'Online'}</div>
+                    </div>
+                    <div class="box-grid">
+                        ${boxButtonsHTML}
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Thực thi ngay khi cây DOM sẵn sàng
+        document.addEventListener('DOMContentLoaded', loadZaloGroups);
+    </script>
 </body>
 </html>
