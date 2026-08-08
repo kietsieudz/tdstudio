@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="vi">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport"
-            content="width=device-width, initial-scale=1, viewport-fit=cover">
-        <title>Ngọc Rồng Huyền Thoại - Cộng Đồng Game Thủ</title>
-        <meta name="description"
-            content="Trang chủ chính thức Ngọc Rồng Huyền Thoại - Tham gia cộng đồng game thủ trên Zalo theo từng server.">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap"
-            rel="stylesheet">
-        <style>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Ngọc Rồng TDStudio - Cộng Đồng Game Thủ</title>
+    <meta name="description"
+      content="Trang chủ chính thức Ngọc Rồng TDStudio - Tham gia cộng đồng game thủ trên Zalo theo từng server.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap"
+      rel="stylesheet">
+    <style>
   :root{
     --bg-1:#1a0a05;
     --bg-2:#3a1206;
@@ -344,56 +344,56 @@
     .cta-home{padding:14px 28px; font-size:16.5px; max-width:280px; width:100%;}
   }
 </style>
-    </head>
-    <body>
+  </head>
+  <body>
 
-        <div class="particles" id="particles"></div>
+    <div class="particles" id="particles"></div>
 
-        <div id="social-banner">
-            <div class="banner-inner">
-                <p>⚠️ Bạn đang mở bằng <strong>mạng xã hội</strong> nên sẽ
-                    <strong>không đăng ký / tải game</strong> được. Hãy copy
-                    link rồi mở bằng Chrome hoặc Safari nhé!</p>
-                <button id="copy-link-btn">📋 Copy link</button>
-            </div>
-        </div>
+    <div id="social-banner">
+      <div class="banner-inner">
+        <p>⚠️ Bạn đang mở bằng <strong>mạng xã hội</strong> nên sẽ
+          <strong>không đăng ký / tải game</strong> được. Hãy copy
+          link rồi mở bằng Chrome hoặc Safari nhé!</p>
+        <button id="copy-link-btn">📋 Copy link</button>
+      </div>
+    </div>
 
-        <main>
-            <div class="logo-wrap">
-                <div class="logo-glow"></div>
-                <img class="logo-orb" src="images/avatar_tdstudio.png"
-                    alt="TDStudio">
-            </div>
+    <main>
+      <div class="logo-wrap">
+        <div class="logo-glow"></div>
+        <img class="logo-orb" src="images/avatar_tdstudio.png"
+          alt="TDStudio">
+      </div>
 
-            <h1 class="game-name" id="game-name">Đang tải...</h1>
-            <p class="game-tagline" id="game-tagline"></p>
-            <p class="support-line">Liên hệ &amp; Hỗ trợ:
-                <a href="https://thanhdistudio.com/support" target="_blank"
-                    rel="noopener">Click đây</a>
-            </p>
+      <h1 class="game-name" id="game-name">Đang tải...</h1>
+      <p class="game-tagline" id="game-tagline"></p>
+      <p class="support-line">Liên hệ &amp; Hỗ trợ:
+        <a href="https://thanhdistudio.com/support" target="_blank"
+          rel="noopener">Click đây</a>
+      </p>
 
-            <div class="cta-row">
-                <a class="cta-home cta-download" id="cta-download" href="#"
-                    target="_blank" rel="noopener">
-                    ⬇️ Tải Game
-                </a>
-                <a class="cta-home cta-register" id="cta-register" href="#"
-                    target="_blank" rel="noopener">
-                    📝 Đăng Ký
-                </a>
-            </div>
+      <div class="cta-row">
+        <a class="cta-home cta-download" id="cta-download" href="#"
+          target="_blank" rel="noopener">
+          ⬇️ Tải Game
+        </a>
+        <a class="cta-home cta-register" id="cta-register" href="#"
+          target="_blank" rel="noopener">
+          📝 Đăng Ký
+        </a>
+      </div>
 
-            <h2 class="section-title">Cộng Đồng Game Thủ</h2>
-            <p class="section-sub">Tham gia nhóm Zalo theo server của bạn</p>
+      <h2 class="section-title">Cộng Đồng Game Thủ</h2>
+      <p class="section-sub">Tham gia nhóm Zalo theo server của bạn</p>
 
-            <div id="server-list"></div>
-        </main>
+      <div id="server-list"></div>
+    </main>
 
-        <footer>© 2026 · Trang cộng đồng không chính thức</footer>
+    <footer>© 2026 · Trang cộng đồng chính thức</footer>
 
-        <div id="toast">✅ Đã copy link!</div>
+    <div id="toast">✅ Đã copy link!</div>
 
-        <script>
+    <script>
 // ======================================================
 // CONFIG — sửa các giá trị bên dưới cho đúng game của bạn
 // ======================================================
@@ -551,5 +551,5 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('copy-link-btn').addEventListener('click', copyCurrentLink);
 });
 </script>
-    </body>
+  </body>
 </html>
