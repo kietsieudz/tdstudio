@@ -7,6 +7,47 @@
     <title>Ngọc Rồng TDStudio - Cộng Đồng Game Thủ</title>
     <meta name="description"
       content="Trang chủ chính thức Ngọc Rồng TDStudio - Tham gia cộng đồng game thủ trên Zalo theo từng server.">
+    <link rel="canonical" href="https://thanhdi.com/">
+
+    <link rel="icon" href="images/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="16x16"
+      href="images/favicon-16.png">
+    <link rel="icon" type="image/png" sizes="32x32"
+      href="images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="48x48"
+      href="images/favicon-48.png">
+    <link rel="icon" type="image/png" sizes="96x96"
+      href="images/favicon-96.png">
+    <link rel="icon" type="image/png" sizes="192x192"
+      href="images/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512"
+      href="images/favicon-512.png">
+    <link rel="apple-touch-icon" sizes="180x180"
+      href="images/favicon-180.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title"
+      content="Ngọc Rồng TDStudio - Cộng Đồng Game Thủ">
+    <meta property="og:description"
+      content="Trang chủ chính thức Ngọc Rồng TDStudio - Tham gia cộng đồng game thủ trên Zalo theo từng server.">
+    <meta property="og:url" content="https://thanhdi.com/">
+    <meta property="og:image"
+      content="https://thanhdi.com/images/og-default.png?v=12">
+    <meta property="og:image:secure_url"
+      content="https://thanhdi.com/images/og-default.png?v=12">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:locale" content="vi_VN">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title"
+      content="Ngọc Rồng TDStudio - Cộng Đồng Game Thủ">
+    <meta name="twitter:description"
+      content="Trang chủ chính thức Ngọc Rồng TDStudio - Tham gia cộng đồng game thủ trên Zalo theo từng server.">
+    <meta name="twitter:image"
+      content="https://thanhdi.com/images/og-default.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -73,13 +114,12 @@
     position:sticky;
     top:0;
     z-index:100;
-    background:linear-gradient(90deg, #ff4d00, #ff8a00);
-    color:#fff;
-    padding:10px 14px;
-    box-shadow:0 2px 12px rgba(0,0,0,0.35);
+    padding:12px 14px 0;
   }
   #social-banner.show{display:block;}
   .banner-inner{
+    position:relative;
+    isolation:isolate;
     max-width:720px;
     margin:0 auto;
     display:flex;
@@ -88,6 +128,47 @@
     flex-wrap:wrap;
     justify-content:center;
     text-align:center;
+    color:#fff;
+    background:linear-gradient(90deg, #ff4d00, #ff8a00);
+    border-radius:16px;
+    padding:10px 14px;
+    border:1.5px solid rgba(255,214,140,0.4);
+    box-shadow:0 4px 16px rgba(0,0,0,0.4);
+    overflow:hidden;
+  }
+  /* small bright dot that travels around the fixed border edge */
+  .banner-inner::before{
+    content:"";
+    position:absolute;
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    background:radial-gradient(circle, #fff 0%, #ffe9a8 45%, rgba(255,214,89,0) 75%);
+    box-shadow:0 0 10px 4px #ffe08a, 0 0 18px 9px rgba(255,180,60,0.6);
+    transform:translate(-50%, -50%);
+    animation:borderRun 2.6s linear infinite;
+    z-index:2;
+    pointer-events:none;
+  }
+  @keyframes borderRun{
+    0%   { top:0%;   left:0%;   }
+    12.5%{ top:0%;   left:50%;  }
+    25%  { top:0%;   left:100%; }
+    37.5%{ top:50%;  left:100%; }
+    50%  { top:100%; left:100%; }
+    62.5%{ top:100%; left:50%;  }
+    75%  { top:100%; left:0%;   }
+    87.5%{ top:50%;  left:0%;   }
+    100% { top:0%;   left:0%;   }
+  }
+  .banner-inner.shake{
+    animation:bannerShake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+  }
+  @keyframes bannerShake{
+    10%,90%{transform:translateX(-1px);}
+    20%,80%{transform:translateX(2px);}
+    30%,50%,70%{transform:translateX(-4px);}
+    40%,60%{transform:translateX(4px);}
   }
   .banner-inner p{
     font-size:13.5px;
@@ -109,6 +190,16 @@
     white-space:nowrap;
     transition:transform .15s ease;
   }
+  #block-overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:90;
+    background:rgba(10,4,2,0.55);
+    backdrop-filter:blur(2px);
+    cursor:not-allowed;
+  }
+  #block-overlay.show{display:block;}
   #copy-link-btn:active{transform:scale(0.95);}
   #copy-link-btn:hover{transform:translateY(-1px);}
 
@@ -204,15 +295,16 @@
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    gap:8px;
+    gap:5px;
     flex:1 1 0;
-    max-width:220px;
+    max-width:230px;
+    white-space:nowrap;
     font-family:'Baloo 2', sans-serif;
     font-weight:700;
-    font-size:17px;
+    font-size:12.5px;
     color:#3a0e00;
     background:linear-gradient(180deg, #ffe066 0%, #ffb020 55%, #ff7a00 100%);
-    padding:16px 20px;
+    padding:13px 14px;
     border-radius:999px;
     text-decoration:none;
     box-shadow:0 8px 22px rgba(255,120,0,0.45), inset 0 1px 0 rgba(255,255,255,0.5);
@@ -248,11 +340,36 @@
     margin-bottom:20px;
   }
 
-  #server-list{
+  .group-title{
+    font-family:'Baloo 2', sans-serif;
+    font-weight:600;
+    font-size:14px;
+    color:var(--text-dim);
+    text-align:left;
+    width:100%;
+    margin:18px 0 10px;
+    text-transform:uppercase;
+    letter-spacing:.5px;
+  }
+  .group-title:first-of-type{margin-top:4px;}
+
+  #server-list, #other-list{
     display:flex;
     flex-direction:column;
     gap:14px;
     width:100%;
+  }
+  .other-card{
+    background:var(--card-bg);
+    border:1px solid var(--card-border);
+    border-radius:16px;
+    padding:16px 18px;
+    backdrop-filter:blur(6px);
+  }
+  .other-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:10px;
   }
   .server-card{
     background:var(--card-bg);
@@ -340,8 +457,9 @@
 
   @media (max-width:380px){
     .zalo-row{flex-direction:column;}
-    .cta-row{flex-direction:column; align-items:center;}
-    .cta-home{padding:14px 28px; font-size:16.5px; max-width:280px; width:100%;}
+    .other-grid{grid-template-columns:1fr;}
+    .cta-row{flex-direction:row;}
+    .cta-home{padding:12px 10px; font-size:12px; max-width:none;}
   }
 </style>
   </head>
@@ -349,11 +467,16 @@
 
     <div class="particles" id="particles"></div>
 
+    <div id="block-overlay"></div>
+
     <div id="social-banner">
       <div class="banner-inner">
-        <p>⚠️ Bạn đang mở bằng <strong>mạng xã hội</strong> nên sẽ
-          <strong>không đăng ký / tải game</strong> được. Hãy copy
-          link rồi mở bằng Chrome hoặc Safari nhé!</p>
+        <p>⚠️ Bạn đang mở bằng <strong id="banner-app-name">mạng xã
+            hội</strong>
+          nên sẽ
+          <strong>không đăng ký / tải game</strong> được. Hãy bấm nút
+          bên dưới
+          để copy link rồi mở bằng Chrome hoặc Safari nhé!</p>
         <button id="copy-link-btn">📋 Copy link</button>
       </div>
     </div>
@@ -375,18 +498,23 @@
       <div class="cta-row">
         <a class="cta-home cta-download" id="cta-download" href="#"
           target="_blank" rel="noopener">
-          ⬇️ Tải Game
+          🏠 Trang Chủ / Tải Game
         </a>
         <a class="cta-home cta-register" id="cta-register" href="#"
           target="_blank" rel="noopener">
-          📝 Đăng Ký
+          📝 Đăng Nhập / Đăng Ký
         </a>
       </div>
 
       <h2 class="section-title">Cộng Đồng Game Thủ</h2>
-      <p class="section-sub">Tham gia nhóm Zalo theo server của bạn</p>
+      <p class="section-sub">Tham gia nhóm Zalo theo server hoặc nhóm
+        chung</p>
 
+      <h3 class="group-title">Nhóm Theo Server</h3>
       <div id="server-list"></div>
+
+      <h3 class="group-title">Nhóm Khác</h3>
+      <div id="other-list"></div>
     </main>
 
     <footer>© 2026 · Trang cộng đồng chính thức</footer>
@@ -437,12 +565,16 @@ const CONFIG = {
       name: "Server 7 - TDStudio Server 7",
       zalo1: "https://zalo.me/g/vxcuux196",
       zalo2: "https://zalo.me/g/esmrkv396"
-    },
-    {
-      name: "Server Indo - TDStudio Server Indo",
-      zalo1: "https://zalo.me/g/mftkmn654",
-      zalo2: "https://zalo.me/g/chhtoc951"
     }
+  ],
+  otherLinks: [
+    "https://zalo.me/g/mftkmn654",
+    "https://zalo.me/g/chhtoc951",
+    "https://zalo.me/g/jcssww622",
+    "https://zalo.me/g/cxcyjr130",
+    "https://zalo.me/g/hfl2vzndgjskd0egmdmu",
+    "https://zalo.me/g/sgwees441",
+    "https://zalo.me/g/wbftbjlgnn1kl2a4z3pp"
   ]
 };
 // ======================================================
@@ -467,6 +599,18 @@ function render(){
     </div>
   `).join('');
 
+  const otherList = document.getElementById('other-list');
+  otherList.innerHTML = `
+    <div class="other-card">
+      <div class="server-name"><span class="dot"></span>Nhóm Khác</div>
+      <div class="other-grid">
+        ${CONFIG.otherLinks.map((url, i) => `
+          <a class="zalo-btn" href="${url}" target="_blank" rel="noopener">${ZALO_ICON} Nhóm Zalo ${i + 1}</a>
+        `).join('')}
+      </div>
+    </div>
+  `;
+
   document.title = CONFIG.gameName + " - Cộng Đồng Game Thủ";
 }
 
@@ -489,20 +633,30 @@ function spawnParticles(){
 }
 
 // ---------- In-app browser detection ----------
-function isInAppBrowser(){
+const IN_APP_PATTERNS = [
+  { name: "Facebook / Messenger", re: /FBAN|FBAV|FB_IAB|FBSV/i },
+  { name: "Instagram",            re: /Instagram/i },
+  { name: "Zalo",                 re: /Zalo/i },
+  { name: "Telegram",             re: /Telegram/i },
+  { name: "Line",                 re: /Line\// },
+  { name: "WeChat",                re: /MicroMessenger/i },
+  { name: "TikTok",               re: /TikTok|BytedanceWebview/i },
+  { name: "Twitter/X",            re: /Twitter/i },
+  { name: "ứng dụng mạng xã hội", re: /wv\)/i } // generic Android WebView marker
+];
+
+function detectInAppBrowser(){
   const ua = navigator.userAgent || navigator.vendor || window.opera || "";
-  const patterns = [
-    /FBAN|FBAV|FB_IAB|FBSV/i,      // Facebook / Messenger
-    /Instagram/i,
-    /Zalo/i,
-    /Telegram/i,
-    /Line\//i,
-    /MicroMessenger/i,             // Zalo/WeChat webview
-    /TikTok|BytedanceWebview/i,
-    /Twitter/i,
-    /wv\)/i                        // generic Android WebView marker
-  ];
-  return patterns.some(p => p.test(ua));
+  const hit = IN_APP_PATTERNS.find(p => p.re.test(ua));
+  return hit ? hit.name : null;
+}
+
+function shakeBanner(){
+  const inner = document.querySelector('#social-banner .banner-inner');
+  if(!inner) return;
+  inner.classList.remove('shake');
+  void inner.offsetWidth;
+  inner.classList.add('shake');
 }
 
 function showToast(msg){
@@ -545,10 +699,14 @@ document.addEventListener('DOMContentLoaded', () => {
   render();
   spawnParticles();
 
-  if(isInAppBrowser()){
+  const inAppName = detectInAppBrowser();
+  if(inAppName){
+    document.getElementById('banner-app-name').textContent = inAppName;
     document.getElementById('social-banner').classList.add('show');
+    document.getElementById('block-overlay').classList.add('show');
   }
   document.getElementById('copy-link-btn').addEventListener('click', copyCurrentLink);
+  document.getElementById('block-overlay').addEventListener('click', shakeBanner);
 });
 </script>
   </body>
