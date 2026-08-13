@@ -1,0 +1,17 @@
+# Serve index.html at the site root (Apache does this by default,
+# kept explicit here for clarity).
+DirectoryIndex index.html
+
+RewriteEngine On
+RewriteBase /
+
+# If someone requests foo.html directly, send them to the clean /foo URL.
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\s/+(.*)\.html[\s?] [NC]
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ /%1 [R=301,L]
+
+# Internally serve foo.html when /foo is requested (no visible extension).
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [L]
