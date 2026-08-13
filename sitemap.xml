@@ -1,137 +1,162 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-  <loc>https://thanhdi.com/</loc>
-  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
+  <loc>https://thanhdistudio.com/</loc>
+  <lastmod>2026-08-08</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://thanhdi.com/support</loc>
-  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
+  <loc>https://thanhdistudio.com/support.html</loc>
+  <lastmod>2026-08-08</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://thanhdistudio.com/gioi-thieu.html</loc>
+  <lastmod>2026-08-08</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://thanhdi.com/su-kien/su-kien-noel-2025</loc>
-  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
-  <priority>0.80</priority>
+  <loc>https://thanhdistudio.com/tai-game.html</loc>
+  <lastmod>2026-08-08</lastmod>
+  <priority>0.90</priority>
 </url>
 <url>
-  <loc>https://thanhdi.com/groups</loc>
-  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
-  <priority>0.80</priority>
+  <loc>https://thanhdistudio.com/huong-dan-nap.html</loc>
+  <lastmod>2026-08-08</lastmod>
+  <priority>0.90</priority>
 </url>
 <url>
-  <loc>https://thanhdi.com/fixloi</loc>
-  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
-  <priority>0.64</priority>
+  <loc>https://thanhdistudio.com/giftcode.html</loc>
+  <lastmod>2026-08-08</lastmod>
+  <priority>0.85</priority>
 </url>
 <url>
-  <loc>https://thanhdi.com/nap</loc>
-  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
-  <priority>0.64</priority>
+  <loc>https://thanhdistudio.com/may-chu.html</loc>
+  <lastmod>2026-08-08</lastmod>
+  <priority>0.85</priority>
 </url>
 <url>
-  <loc>https://thanhdi.com/huongdantai</loc>
-  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
-  <priority>0.64</priority>
+  <loc>https://thanhdistudio.com/dieu-khoan.html</loc>
+  <lastmod>2026-08-08</lastmod>
+  <priority>0.30</priority>
 </url>
 <url>
-  <loc>https://thanhdi.com/contact</loc>
-  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://thanhdi.com/odervps</loc>
-  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://thanhdi.com/services/giao-dich-trung-gian</loc>
-  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://thanhdi.com/event</loc>
-  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://thanhdi.com/su-kien/su-kien-tuong-tac-fanpage</loc>
-  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://thanhdi.com/su-kien/su-kien-tuong-tac-cong-dong-zalo</loc>
-  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://thanhdi.com/su-kien/tieu-hong-ngoc</loc>
-  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://thanhdi.com/quaduatop</loc>
-  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://thanhdi.com/mocnap</loc>
-  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://thanhdi.com/cochegame</loc>
-  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://thanhdi.com/body</loc>
-  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://thanhdi.com/chat</loc>
-  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://thanhdi.com/fanpage</loc>
-  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://thanhdi.com/tylenap</loc>
-  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://thanhdi.com/cochegame/coban</loc>
-  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://thanhdi.com/cochegame/newbie</loc>
-  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://thanhdi.com/cochegame/equipment</loc>
-  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://thanhdi.com/cochegame/quests</loc>
-  <lastmod>2026-01-13T15:34:33+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>https://thanhdistudio.com/chinh-sach-bao-mat.html</loc>
+  <lastmod>2026-08-08</lastmod>
+  <priority>0.30</priority>
 </url>
 
+<url>
+  <loc>https://thanhdistudio.com/huong-dan/</loc>
+  <lastmod>2026-08-08</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://thanhdistudio.com/huong-dan/co-ban.html</loc>
+  <lastmod>2026-08-08</lastmod>
+  <priority>0.75</priority>
+</url>
+<url>
+  <loc>https://thanhdistudio.com/huong-dan/nguoi-choi-moi.html</loc>
+  <lastmod>2026-08-08</lastmod>
+  <priority>0.75</priority>
+</url>
+<url>
+  <loc>https://thanhdistudio.com/huong-dan/trang-bi.html</loc>
+  <lastmod>2026-08-08</lastmod>
+  <priority>0.75</priority>
+</url>
+<url>
+  <loc>https://thanhdistudio.com/huong-dan/nhiem-vu.html</loc>
+  <lastmod>2026-08-08</lastmod>
+  <priority>0.75</priority>
+</url>
+<url>
+  <loc>https://thanhdistudio.com/huong-dan/posts/cach-tang-suc-manh-nhanh.html</loc>
+  <lastmod>2026-08-08</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://thanhdistudio.com/huong-dan/posts/chon-hanh-tinh-khoi-dau.html</loc>
+  <lastmod>2026-08-08</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://thanhdistudio.com/huong-dan/posts/cach-kiem-can-cau-va-cau-ca.html</loc>
+  <lastmod>2026-08-08</lastmod>
+  <priority>0.65</priority>
+</url>
+<url>
+  <loc>https://thanhdistudio.com/huong-dan/posts/thong-tin-cac-de-tu.html</loc>
+  <lastmod>2026-08-08</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://thanhdistudio.com/huong-dan/posts/de-tu-chien-than-la-gi.html</loc>
+  <lastmod>2026-08-08</lastmod>
+  <priority>0.65</priority>
+</url>
+<url>
+  <loc>https://thanhdistudio.com/huong-dan/posts/bong-tai-porata.html</loc>
+  <lastmod>2026-08-08</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://thanhdistudio.com/huong-dan/posts/boss-than-ma-namec.html</loc>
+  <lastmod>2026-08-08</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://thanhdistudio.com/huong-dan/posts/cay-su-phu-hay-de-tu.html</loc>
+  <lastmod>2026-08-08</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://thanhdistudio.com/huong-dan/posts/chi-so-goc-su-phu-de-tu-max.html</loc>
+  <lastmod>2026-08-08</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://thanhdistudio.com/huong-dan/posts/cot-chi-ton-la-gi.html</loc>
+  <lastmod>2026-08-08</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://thanhdistudio.com/huong-dan/posts/ngoc-boi-va-susano.html</loc>
+  <lastmod>2026-08-08</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://thanhdistudio.com/huong-dan/posts/nhiem-vu-bat-kha-thi.html</loc>
+  <lastmod>2026-08-08</lastmod>
+  <priority>0.55</priority>
+</url>
+<url>
+  <loc>https://thanhdistudio.com/huong-dan/posts/nhiem-vu-tieu-doi-sat-thu.html</loc>
+  <lastmod>2026-08-08</lastmod>
+  <priority>0.55</priority>
+</url>
+<url>
+  <loc>https://thanhdistudio.com/huong-dan/posts/thong-tin-boss-baby.html</loc>
+  <lastmod>2026-08-08</lastmod>
+  <priority>0.55</priority>
+</url>
+
+<url>
+  <loc>https://thanhdistudio.com/su-kien/</loc>
+  <lastmod>2026-08-08</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://thanhdistudio.com/su-kien/posts/dua-top-nap-the.html</loc>
+  <lastmod>2026-08-08</lastmod>
+  <priority>0.65</priority>
+</url>
+<url>
+  <loc>https://thanhdistudio.com/su-kien/posts/tuong-tac-cong-dong.html</loc>
+  <lastmod>2026-08-08</lastmod>
+  <priority>0.65</priority>
+</url>
 
 </urlset>
