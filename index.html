@@ -443,9 +443,112 @@
   @media (prefers-reduced-motion: reduce){
     *{ animation:none !important; transition:none !important; }
   }
+
+  /* ── In-app browser warning ── */
+  .iab-overlay{
+    position:fixed;inset:0;z-index:99999;
+    display:none;
+    align-items:center;justify-content:center;
+    padding:20px;
+    background:rgba(5,7,15,0.75);
+    backdrop-filter:blur(14px) saturate(120%);
+    -webkit-backdrop-filter:blur(14px) saturate(120%);
+  }
+  .iab-overlay.show{ display:flex; }
+  .iab-card{
+    max-width:380px;width:100%;
+    background:linear-gradient(160deg,#161b33,#0b0f1f);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:22px;
+    padding:30px 24px 26px;
+    text-align:center;
+    box-shadow:0 30px 80px -20px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,182,72,0.08);
+    animation: iabPop .45s cubic-bezier(.34,1.56,.64,1);
+  }
+  @keyframes iabPop{
+    from{ opacity:0; transform:translateY(24px) scale(.94); }
+    to  { opacity:1; transform:translateY(0) scale(1); }
+  }
+  .iab-icon{
+    width:64px;height:64px;margin:0 auto 16px;
+    border-radius:50%;
+    background:linear-gradient(150deg,#ff7a3d,#ff416c);
+    display:flex;align-items:center;justify-content:center;
+    font-size:30px;
+    box-shadow:0 10px 26px -8px rgba(255,65,108,0.55);
+    animation: iabPulse 1.8s ease-in-out infinite;
+  }
+  @keyframes iabPulse{
+    0%,100%{ box-shadow:0 10px 26px -8px rgba(255,65,108,0.55); }
+    50%{ box-shadow:0 10px 26px -8px rgba(255,65,108,0.9), 0 0 0 8px rgba(255,65,108,0.12); }
+  }
+  .iab-title{
+    font-size:19px;font-weight:900;margin-bottom:10px;color:#fff;line-height:1.4;
+  }
+  .iab-app-name{ color:var(--accent); }
+  .iab-desc{
+    font-size:14px;color:var(--text-dim);line-height:1.65;font-weight:500;
+  }
+  .iab-desc strong{ color:#fff; }
+  .iab-steps{
+    margin-top:16px;
+    padding:14px 16px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:14px;
+    font-size:13px;color:var(--text-dim);
+    line-height:1.85;text-align:left;font-weight:500;
+  }
+  .iab-steps strong{ color:#fff; }
+  .iab-copy-btn{
+    margin-top:18px;width:100%;
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    padding:14px 18px;border-radius:14px;border:none;cursor:pointer;
+    font-family:inherit;font-size:15px;font-weight:800;color:#1a1a1a;
+    background:linear-gradient(120deg,var(--accent),var(--accent-2));
+    box-shadow:0 12px 26px -8px rgba(255,122,61,0.55);
+    transition:transform .2s ease, filter .2s ease, background .3s ease, color .3s ease;
+  }
+  .iab-copy-btn svg{ width:18px;height:18px;flex:none; }
+  .iab-copy-btn:hover{ filter:brightness(1.06); }
+  .iab-copy-btn:active{ transform:scale(.96); }
+  .iab-copy-btn.copied{
+    background:linear-gradient(120deg,#22d3a5,#0ea678);
+    color:#06251c;
+  }
+  .iab-hint{ margin-top:12px;font-size:11.5px;color:#5d6388;line-height:1.6; }
 </style>
   </head>
   <body>
+
+    <!-- In-app browser warning -->
+    <div class="iab-overlay" id="iabOverlay" role="dialog" aria-modal="true"
+      aria-labelledby="iabTitle">
+      <div class="iab-card">
+        <div class="iab-icon">⚠️</div>
+        <div class="iab-title" id="iabTitle">Bạn đang mở bằng
+          <span class="iab-app-name" id="iabAppName">mạng xã hội</span></div>
+        <p class="iab-desc">Trình duyệt trong ứng dụng này <strong>không thể
+            đăng ký tài khoản hoặc tải game</strong> được. Vui lòng chuyển
+          sang Chrome hoặc Safari để tiếp tục.</p>
+        <div class="iab-steps">
+          1️⃣ Nhấn nút <strong>Copy Link</strong> bên dưới<br>
+          2️⃣ Mở trình duyệt <strong>Chrome</strong> hoặc
+          <strong>Safari</strong><br>
+          3️⃣ Dán liên kết vào thanh địa chỉ và truy cập
+        </div>
+        <button class="iab-copy-btn" id="iabCopyBtn" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="12" height="12" rx="2" />
+            <path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1" />
+          </svg>
+          <span id="iabCopyLabel">Copy Link</span>
+        </button>
+        <p class="iab-hint">Liên kết sẽ được sao chép vào bộ nhớ tạm của máy
+          bạn</p>
+      </div>
+    </div>
 
     <canvas id="glitter-canvas" aria-hidden="true"></canvas>
     <div class="bg-glow"></div>
@@ -544,6 +647,77 @@
     <script>
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   window.scrollTo(0, 0);
+
+  /* ── In-app browser detection ── */
+  (function(){
+    function detectInAppBrowser(){
+      var ua = navigator.userAgent || navigator.vendor || window.opera || '';
+      var checks = [
+        { name: 'Messenger', re: /FBAN\/MessengerForiOS|FB_IAB\/MESSENGER|Messenger/i },
+        { name: 'Facebook',  re: /FBAN|FBAV|FB_IAB|FBIOS|FBSS/i },
+        { name: 'Instagram', re: /Instagram/i },
+        { name: 'Zalo',      re: /Zalo/i },
+        { name: 'TikTok',    re: /BytedanceWebview|musical_ly|TikTok/i },
+        { name: 'Line',      re: /\bLine\//i },
+        { name: 'Twitter (X)', re: /Twitter/i },
+        { name: 'Snapchat',  re: /Snapchat/i },
+        { name: 'WeChat',    re: /MicroMessenger/i },
+        { name: 'Threads',   re: /Threads|BarcelonaAndroid/i },
+        { name: 'Pinterest', re: /Pinterest/i }
+      ];
+      for (var i = 0; i < checks.length; i++){
+        if (checks[i].re.test(ua)) return checks[i].name;
+      }
+      return null;
+    }
+
+    var appName = detectInAppBrowser();
+    if (!appName) return;
+
+    var overlay = document.getElementById('iabOverlay');
+    document.getElementById('iabAppName').textContent = appName;
+    overlay.classList.add('show');
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+
+    function fallbackCopy(text, cb){
+      try {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.top = '-9999px';
+        ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        var ok = document.execCommand('copy');
+        document.body.removeChild(ta);
+        cb(ok);
+      } catch (e) {
+        cb(false);
+      }
+    }
+
+    var copyBtn = document.getElementById('iabCopyBtn');
+    var copyLabel = document.getElementById('iabCopyLabel');
+    copyBtn.addEventListener('click', function(){
+      var url = window.location.href;
+      function done(ok){
+        copyBtn.classList.toggle('copied', ok);
+        copyLabel.textContent = ok ? 'Đã sao chép ✓' : 'Không sao chép được';
+        setTimeout(function(){
+          copyBtn.classList.remove('copied');
+          copyLabel.textContent = 'Copy Link';
+        }, 2500);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(function(){ done(true); })
+          .catch(function(){ fallbackCopy(url, done); });
+      } else {
+        fallbackCopy(url, done);
+      }
+    });
+  })();
 
   /* ── Glitter rain ── */
   (function(){
