@@ -57,17 +57,19 @@
       #loi .nd { max-width: 520px; font-size: 15px; line-height: 1.5; color: #ddd; }
       .nut { margin-top: 18px; padding: 12px 28px; font-size: 17px; border: 0; border-radius: 8px; background: #f7a600; color: #000; }
       #huongDan {
-        position: fixed; inset: 0; z-index: 2000; display: none;
+        position: fixed; top: 0; left: 0; width: 100%; height: var(--cao, 100%); z-index: 2000; display: none;
         align-items: center; justify-content: center;
-        background: rgba(0,0,0,.75); padding: 12px; box-sizing: border-box;
+        background: rgba(0,0,0,.75); padding: 8px; box-sizing: border-box;
       }
-      #huongDan .hop { position: relative; max-width: min(94vw, 1000px); }
+      #huongDan .hop { position: relative; }
+      /* --cao = window.innerHeight (vung nhin thay that); vh cua Safari tinh ca thanh dia chi nen anh bi che */
       #huongDan img {
-        display: block; max-width: 100%; max-height: 86vh; width: auto; height: auto;
+        display: block; width: auto; height: auto;
+        max-width: calc(var(--rong, 100vw) * 0.82); max-height: calc(var(--cao, 100vh) * 0.8);
         border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,.6);
       }
       #huongDan .dong {
-        position: absolute; top: -12px; right: -12px; width: 40px; height: 40px;
+        position: absolute; top: 6px; right: 6px; width: 40px; height: 40px;
         border: 2px solid #fff; border-radius: 50%; background: #e53935; color: #fff;
         font-size: 24px; line-height: 34px; text-align: center; padding: 0; cursor: pointer;
       }
@@ -133,6 +135,8 @@
         if (ae && ae.tagName === 'INPUT') { return; }
         var doc = laDiDong && laDoc();
         manXoay.style.display = (doc && manLoi.style.display !== 'flex') ? 'flex' : 'none';
+        document.documentElement.style.setProperty('--cao', window.innerHeight + 'px');
+        document.documentElement.style.setProperty('--rong', window.innerWidth + 'px');
         if (typeof canHuongDan !== 'undefined') {
           document.getElementById('huongDan').style.display = (canHuongDan && !doc && manLoi.style.display !== 'flex') ? 'flex' : 'none';
         }
