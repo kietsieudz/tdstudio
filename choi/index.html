@@ -2,14 +2,14 @@
 <html lang="vi">
   <head>
     <meta charset="utf-8">
-    <title>Ngọc Rồng ThanhDi</title>
+    <title>ThanhDi.Com</title>
     <!-- Chi 1 the viewport. viewport-fit=cover de tu xu ly tai tho bang env(safe-area-inset-*) -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
     <meta name="format-detection" content="telephone=no">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-fullscreen">
-    <meta name="apple-mobile-web-app-title" content="NRO ThanhDi">
+    <meta name="apple-mobile-web-app-title" content="ThanhDi.Com">
     <meta name="theme-color" content="#000000">
     <link rel="manifest" href="manifest.webmanifest">
     <link rel="apple-touch-icon" href="TemplateData/icon.png">
@@ -56,9 +56,20 @@
       @keyframes xoay { 0%, 20% { transform: rotate(0) } 60%, 100% { transform: rotate(-90deg) } }
       #loi .nd { max-width: 520px; font-size: 15px; line-height: 1.5; color: #ddd; }
       .nut { margin-top: 18px; padding: 12px 28px; font-size: 17px; border: 0; border-radius: 8px; background: #f7a600; color: #000; }
-      #meo {
-        position: fixed; left: 50%; bottom: 12px; transform: translateX(-50%); z-index: 1001; display: none;
-        max-width: 90vw; padding: 8px 14px; border-radius: 8px; background: rgba(0,0,0,.8); color: #fff; font-size: 13px;
+      #huongDan {
+        position: fixed; inset: 0; z-index: 2000; display: none;
+        align-items: center; justify-content: center;
+        background: rgba(0,0,0,.75); padding: 12px; box-sizing: border-box;
+      }
+      #huongDan .hop { position: relative; max-width: min(94vw, 1000px); }
+      #huongDan img {
+        display: block; max-width: 100%; max-height: 86vh; width: auto; height: auto;
+        border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,.6);
+      }
+      #huongDan .dong {
+        position: absolute; top: -12px; right: -12px; width: 40px; height: 40px;
+        border: 2px solid #fff; border-radius: 50%; background: #e53935; color: #fff;
+        font-size: 24px; line-height: 34px; text-align: center; padding: 0; cursor: pointer;
       }
     </style>
   </head>
@@ -78,7 +89,12 @@
       <div class="nd"></div>
       <button class="nut" onclick="location.reload()">Tải lại</button>
     </div>
-    <div id="meo"></div>
+    <div id="huongDan">
+      <div class="hop">
+        <img src="TemplateData/huong-dan-cai.png" alt="Hướng dẫn thêm game vào màn hình chính">
+        <button class="dong" type="button" aria-label="Đóng">✕</button>
+      </div>
+    </div>
 
     <script>
       var khung = document.getElementById('khung');
@@ -184,12 +200,13 @@
       document.addEventListener('click', xinGiuSang, true);
       document.addEventListener('visibilitychange', xinGiuSang);
 
-      // iPhone mo bang Safari: goi y "Them vao MH chinh" de choi toan man hinh
+      // iPhone / iPad mo bang trinh duyet (chua ghim ra man hinh chinh): hien anh huong dan, nut X de dong
       if (laIOS && !window.navigator.standalone) {
-        var meo = document.getElementById('meo');
-        meo.innerHTML = 'Mẹo: bấm <b>Chia sẻ</b> → <b>Thêm vào MH chính</b> để chơi toàn màn hình';
-        setTimeout(function () { meo.style.display = 'block'; }, 1500);
-        setTimeout(function () { meo.style.display = 'none'; }, 9000);
+        var huongDan = document.getElementById('huongDan');
+        huongDan.style.display = 'flex';
+        huongDan.querySelector('.dong').addEventListener('click', function () {
+          huongDan.style.display = 'none';
+        });
       }
 
       // Kiem tra WebGL truoc khi tai 40MB
