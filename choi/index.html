@@ -109,6 +109,8 @@
       var laIOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.maxTouchPoints > 1 && /Macintosh/.test(ua));
       var laAndroid = /Android/i.test(ua);
       var laDiDong = laIOS || laAndroid || /Mobile/i.test(ua);
+      // Ban web chi danh cho thiet bi Apple (iPhone / iPad / Mac). Android, Windows, Linux dung app / ban PC.
+      var laApple = laIOS || (/Macintosh/.test(ua) && !/Android|Windows|Linux|CrOS/i.test(ua));
       var daChay = false;      // da goi createUnityInstance
       var unity = null;
 
@@ -131,6 +133,9 @@
         if (ae && ae.tagName === 'INPUT') { return; }
         var doc = laDiDong && laDoc();
         manXoay.style.display = (doc && manLoi.style.display !== 'flex') ? 'flex' : 'none';
+        if (typeof canHuongDan !== 'undefined') {
+          document.getElementById('huongDan').style.display = (canHuongDan && !doc && manLoi.style.display !== 'flex') ? 'flex' : 'none';
+        }
         // dang doc ma game da chay: giu nguyen khung ngang, chi hien man "xoay ngang"
         if (doc && daChay) { return; }
         khung.style.width = window.innerWidth + 'px';
@@ -201,12 +206,18 @@
       document.addEventListener('visibilitychange', xinGiuSang);
 
       // iPhone / iPad mo bang trinh duyet (chua ghim ra man hinh chinh): hien anh huong dan, nut X de dong
-      if (laIOS && !window.navigator.standalone) {
-        var huongDan = document.getElementById('huongDan');
-        huongDan.style.display = 'flex';
-        huongDan.querySelector('.dong').addEventListener('click', function () {
-          huongDan.style.display = 'none';
-        });
+      // Chi hien khi dang xoay ngang: man "xoay ngang" hien truoc, xoay xong moi toi huong dan (xem coKhung)
+      var canHuongDan = laIOS && !window.navigator.standalone;
+      document.querySelector('#huongDan .dong').addEventListener('click', function () {
+        canHuongDan = false;
+        document.getElementById('huongDan').style.display = 'none';
+      });
+
+      if (!laApple) {
+        baoLoi('Bản chơi trên web chỉ dành cho <b>iPhone / iPad / Mac</b>.<br>'
+          + 'Android và máy tính vui lòng tải app tại <a href="https://thanhdi.com" style="color:#f7a600">thanhdi.com</a>.');
+        manLoi.querySelector('.nut').style.display = 'none';
+        daChay = true;
       }
 
       // Kiem tra WebGL truoc khi tai 40MB
