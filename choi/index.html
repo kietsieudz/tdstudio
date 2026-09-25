@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8">
+    <title>Ngọc Rồng ThanhDi</title>
+    <!-- Chi 1 the viewport. viewport-fit=cover de tu xu ly tai tho bang env(safe-area-inset-*) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-fullscreen">
+    <meta name="apple-mobile-web-app-title" content="NRO ThanhDi">
+    <meta name="theme-color" content="#000000">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" href="TemplateData/icon.png">
+    <link rel="icon" type="image/png" href="TemplateData/icon.png">
+    <script>
+      // ===== CAU HINH KET NOI (sua o day, khong can build lai) =====
+      // Dia chi day du cua cau noi WebSocket -> TCP (tool CauNoiWs). Trang chay https thi BAT BUOC wss://
+      // Test trong mang LAN (khong SSL): dat ve "" de tu noi ws://<may mo trang>:NRO_WS_PORT/
+      // De trong ("") thi tu dung ws(s)://<ten mien dang mo trang>:NRO_WS_PORT/
+      window.NRO_WS_URL = "wss://ws.thanhdi.games/";
+      window.NRO_WS_PORT = 14446;
+    </script>
+    <style>
+      html, body {
+        margin: 0; padding: 0; width: 100%; height: 100%;
+        overflow: hidden; background: #000; color: #fff;
+        position: fixed; inset: 0;
+        overscroll-behavior: none;              /* khong keo-lam-moi / nay trang */
+        -webkit-user-select: none; user-select: none;
+        -webkit-touch-callout: none;            /* khong hien menu khi giu lau (iOS) */
+        -webkit-tap-highlight-color: transparent;
+        -webkit-text-size-adjust: 100%;
+        touch-action: none;                     /* khong zoom / cuon bang cu chi */
+        font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      }
+      #khung {
+        position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+        /* ne tai tho khi xoay ngang (iPhone): chua le trai / phai an toan */
+        padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right);
+        box-sizing: border-box; background: #000;
+      }
+      #unity-canvas { display: block; width: 100%; height: 100%; background: #000; outline: none; touch-action: none; }
+      .phu {
+        position: fixed; inset: 0; display: none; z-index: 1000;
+        flex-direction: column; align-items: center; justify-content: center; text-align: center;
+        background: #000; padding: 24px; box-sizing: border-box;
+      }
+      #tai { display: flex; }
+      #tai img { width: 96px; height: 96px; border-radius: 20px; margin-bottom: 18px; }
+      #thanh { width: min(70vw, 320px); height: 10px; border-radius: 5px; background: #333; overflow: hidden; }
+      #thanh div { width: 0; height: 100%; background: linear-gradient(90deg, #f7b500, #ff7a00); transition: width .2s; }
+      #chuTai { margin-top: 12px; font-size: 14px; color: #bbb; }
+      #xoay .icon { font-size: 64px; animation: xoay 1.6s ease-in-out infinite; }
+      @keyframes xoay { 0%, 20% { transform: rotate(0) } 60%, 100% { transform: rotate(-90deg) } }
+      #loi .nd { max-width: 520px; font-size: 15px; line-height: 1.5; color: #ddd; }
+      .nut { margin-top: 18px; padding: 12px 28px; font-size: 17px; border: 0; border-radius: 8px; background: #f7a600; color: #000; }
+      #meo {
+        position: fixed; left: 50%; bottom: 12px; transform: translateX(-50%); z-index: 1001; display: none;
+        max-width: 90vw; padding: 8px 14px; border-radius: 8px; background: rgba(0,0,0,.8); color: #fff; font-size: 13px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="khung"><canvas id="unity-canvas" tabindex="-1"></canvas></div>
+
+    <div id="tai" class="phu">
+      <img src="TemplateData/icon.png" alt="">
+      <div id="thanh"><div></div></div>
+      <div id="chuTai">Đang tải trò chơi...</div>
+    </div>
+    <div id="xoay" class="phu">
+      <div class="icon">📱</div>
+      <p>Vui lòng xoay ngang điện thoại để chơi</p>
+    </div>
+    <div id="loi" class="phu">
+      <div class="nd"></div>
+      <button class="nut" onclick="location.reload()">Tải lại</button>
+    </div>
+    <div id="meo"></div>
+
+    <script>
+      var khung = document.getElementById('khung');
+      var canvas = document.getElementById('unity-canvas');
+      var manTai = document.getElementById('tai');
+      var manXoay = document.getElementById('xoay');
+      var manLoi = document.getElementById('loi');
+      var thanh = document.querySelector('#thanh div');
+      var chuTai = document.getElementById('chuTai');
+
+      var ua = navigator.userAgent || '';
+      var laIOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.maxTouchPoints > 1 && /Macintosh/.test(ua));
+      var laAndroid = /Android/i.test(ua);
+      var laDiDong = laIOS || laAndroid || /Mobile/i.test(ua);
+      var daChay = false;      // da goi createUnityInstance
+      var unity = null;
+
+      function baoLoi(html) {
+        manTai.style.display = 'none';
+        manXoay.style.display = 'none';
+        manLoi.querySelector('.nd').innerHTML = html;
+        manLoi.style.display = 'flex';
+      }
+
+      function laDoc() {
+        return window.innerHeight > window.innerWidth;
+      }
+
+      // ---- Kich thuoc: iOS Safari 100vh tinh ca thanh dia chi -> dat bang innerWidth/innerHeight ----
+      var henCo = 0;
+      function coKhung() {
+        // dang go phim trong o nhap: Android thu nho cua so, khong co canvas theo (game khong tinh lai bo cuc)
+        var ae = document.activeElement;
+        if (ae && ae.tagName === 'INPUT') { return; }
+        var doc = laDiDong && laDoc();
+        manXoay.style.display = (doc && manLoi.style.display !== 'flex') ? 'flex' : 'none';
+        // dang doc ma game da chay: giu nguyen khung ngang, chi hien man "xoay ngang"
+        if (doc && daChay) { return; }
+        khung.style.width = window.innerWidth + 'px';
+        khung.style.height = window.innerHeight + 'px';
+        window.scrollTo(0, 0);
+        if (!daChay && (!laDiDong || !doc)) { batDau(); }
+      }
+      function henCoKhung() {
+        coKhung();
+        // iOS bao kich thuoc moi tre sau khi xoay may
+        clearTimeout(henCo);
+        henCo = setTimeout(coKhung, 300);
+      }
+      window.addEventListener('resize', henCoKhung);
+      window.addEventListener('orientationchange', henCoKhung);
+      if (window.visualViewport) { window.visualViewport.addEventListener('resize', henCoKhung); }
+
+      // ---- Chan cu chi cua trinh duyet (zoom 2 ngon, cham 2 lan, keo trang, giu lau) ----
+      function laONhap(e) { return e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'BUTTON'); }
+      document.addEventListener('gesturestart', function (e) { e.preventDefault(); }, { passive: false });
+      document.addEventListener('gesturechange', function (e) { e.preventDefault(); }, { passive: false });
+      document.addEventListener('touchmove', function (e) { if (!laONhap(e)) { e.preventDefault(); } }, { passive: false });
+      document.addEventListener('dblclick', function (e) { e.preventDefault(); }, { passive: false });
+      document.addEventListener('contextmenu', function (e) { e.preventDefault(); });
+      // dong ban phim ao xong -> tinh lai kich thuoc (luc dang go da bo qua)
+      document.addEventListener('focusout', function () { setTimeout(henCoKhung, 120); });
+
+      // iOS mo lai trang tu bo nho dem (bam Back) -> WebGL hong, tai lai cho chac
+      window.addEventListener('pageshow', function (e) { if (e.persisted) { location.reload(); } });
+
+      // iOS nhieu khi thu hoi WebGL khi app nen lau / thieu bo nho
+      canvas.addEventListener('webglcontextlost', function (e) {
+        e.preventDefault();
+        baoLoi('Trình duyệt đã tạm dừng đồ hoạ của trò chơi (thường do thiếu bộ nhớ hoặc để ứng dụng chạy nền quá lâu).<br>Bấm <b>Tải lại</b> để vào lại.');
+      }, false);
+
+      // Android: cham lan dau -> toan man hinh + khoa ngang (iPhone khong ho tro Fullscreen API)
+      if (laAndroid) {
+        var toanManHinh = function () {
+          document.removeEventListener('touchend', toanManHinh, true);
+          var el = document.documentElement;
+          var yc = el.requestFullscreen || el.webkitRequestFullscreen;
+          if (!yc || document.fullscreenElement) { return; }
+          try {
+            var p = yc.call(el, { navigationUI: 'hide' });
+            if (p && p.then) {
+              p.then(function () {
+                if (screen.orientation && screen.orientation.lock) { screen.orientation.lock('landscape').catch(function () { }); }
+              }).catch(function () { });
+            }
+          } catch (x) { }
+        };
+        document.addEventListener('touchend', toanManHinh, true);
+      }
+
+      // Giu man hinh sang khi dang choi (Screen.sleepTimeout cua Unity khong co tac dung tren web).
+      // iOS 16.4+ / Android Chrome ho tro; phai xin lai moi lan trang hien lai.
+      var khoaSang = null;
+      function xinGiuSang() {
+        if (!('wakeLock' in navigator) || khoaSang || document.hidden) { return; }
+        navigator.wakeLock.request('screen').then(function (k) {
+          khoaSang = k;
+          k.addEventListener('release', function () { khoaSang = null; });
+        }).catch(function () { });
+      }
+      document.addEventListener('touchend', xinGiuSang, true);
+      document.addEventListener('click', xinGiuSang, true);
+      document.addEventListener('visibilitychange', xinGiuSang);
+
+      // iPhone mo bang Safari: goi y "Them vao MH chinh" de choi toan man hinh
+      if (laIOS && !window.navigator.standalone) {
+        var meo = document.getElementById('meo');
+        meo.innerHTML = 'Mẹo: bấm <b>Chia sẻ</b> → <b>Thêm vào MH chính</b> để chơi toàn màn hình';
+        setTimeout(function () { meo.style.display = 'block'; }, 1500);
+        setTimeout(function () { meo.style.display = 'none'; }, 9000);
+      }
+
+      // Kiem tra WebGL truoc khi tai 40MB
+      (function () {
+        try {
+          var c = document.createElement('canvas');
+          if (!(c.getContext('webgl2') || c.getContext('webgl') || c.getContext('experimental-webgl'))) {
+            baoLoi('Trình duyệt này không hỗ trợ WebGL.<br>Hãy cập nhật iOS / trình duyệt, hoặc dùng Safari / Chrome mới nhất.');
+            daChay = true;
+          }
+        } catch (x) { }
+      })();
+
+      var buildUrl = "Build";
+      var config = {
+        dataUrl: buildUrl + "/55f313bd5ffe8dc6f0b447f4eda762b0.data.unityweb",
+        frameworkUrl: buildUrl + "/74e6cebde47b671bd7e943ba2073a99f.framework.js.unityweb",
+        codeUrl: buildUrl + "/37e75531cd85ad1b75e7d03b7ac01149.wasm.unityweb",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "ThanhDi-Com_v10926",
+        productName: "ThanhDi-Com_v10926",
+        productVersion: "3.0.2",
+        // tu day du lieu persistentDataPath (tai khoan, cai dat) xuong IndexedDB
+        autoSyncPersistentDataPath: true,
+        showBanner: function (msg, type) {
+          // bo canh bao "WebGL khong ho tro dien thoai" cua Unity
+          if (msg && /not currently supported on mobile|not supported on mobile|Unity WebGL is not/i.test(msg)) { return; }
+          console.log('[Unity] ' + type + ': ' + msg);
+          if (type === 'error') { baoLoi(msg); }
+        }
+      };
+
+      function batDau() {
+        if (daChay) { return; }
+        daChay = true;
+        var script = document.createElement('script');
+        script.src = buildUrl + "/5336a4b2c43054286fd70b1faa467eee.loader.js";
+        script.onerror = function () {
+          baoLoi('Không tải được tệp trò chơi. Kiểm tra mạng rồi bấm <b>Tải lại</b>.');
+        };
+        script.onload = function () {
+          createUnityInstance(canvas, config, function (p) {
+            var pt = Math.round(p * 100);
+            thanh.style.width = pt + '%';
+            chuTai.textContent = pt < 90 ? ('Đang tải trò chơi... ' + pt + '%') : 'Đang khởi động...';
+          }).then(function (inst) {
+            unity = inst;
+            manTai.style.display = 'none';
+            coKhung();
+          }).catch(function (msg) {
+            var s = String(msg || '');
+            if (/memory|out of memory|allocation/i.test(s)) {
+              baoLoi('Điện thoại không đủ bộ nhớ để chạy trò chơi.<br>Hãy đóng bớt tab / ứng dụng khác rồi bấm <b>Tải lại</b>.<br><small>' + s + '</small>');
+            } else {
+              baoLoi('Không khởi động được trò chơi.<br><small>' + s + '</small>');
+            }
+          });
+        };
+        document.body.appendChild(script);
+      }
+
+      coKhung();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "Ngọc Rồng ThanhDi",
+  "short_name": "NRO ThanhDi",
+  "start_url": "./",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    { "src": "TemplateData/icon.png", "sizes": "300x300", "type": "image/png" }
+  ]
+}
