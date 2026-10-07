@@ -1,0 +1,5 @@
+{
+  "android": { "version": "3.0.3", "url": "https://thanhdi.com/tai-game/android", "notes": "Sửa lỗi đăng nhập" },
+  "windows": { "version": "9.9.9", "url": "https://thanhdi.com/tai-game/pc",      "notes": "Cập nhật phiên bản mới, sửa lỗi tiếng việt" },
+  "ios":     { "version": "3.0.3", "url": "https://thanhdi.com/tai-game/ios",     "notes": "" }
+}
