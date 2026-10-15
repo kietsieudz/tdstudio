@@ -794,5 +794,19 @@
 </script>
     <script src="/assets/js/site.js?v=2"></script>
 
-  </body>
+      <!-- Chuyen UTM/ref sang web khi bam nut game (de dem dung nguon quang cao) -->
+    <script>
+    (function(){
+      var qs = location.search;
+      if(!qs) return;
+      document.querySelectorAll('a[href*="thanhdi.com"], a[href*="thanhdistudio.com"]').forEach(function(a){
+        try{
+          var u = new URL(a.getAttribute("href"), location.href);
+          new URLSearchParams(qs).forEach(function(v,k){ u.searchParams.set(k, v); });
+          a.href = u.toString();
+        }catch(e){}
+      });
+    })();
+    </script>
+</body>
 </html>
