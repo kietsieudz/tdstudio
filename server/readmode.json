@@ -1,0 +1,18 @@
+{
+  "default": "int",
+  "servers": [
+    { "name": "TDStudio Sv1",  "ip": "51.79.163.109", "port": 12446, "type": "int" },
+    { "name": "TDStudio Sv2",  "ip": "51.79.163.109", "port": 12447, "type": "int" },
+    { "name": "TDStudio Sv3",  "ip": "51.79.163.109", "port": 12448, "type": "int" },
+    { "name": "TDStudio Sv4",  "ip": "51.79.163.109", "port": 12449, "type": "int" },
+    { "name": "TDStudio Sv5",  "ip": "51.79.163.109", "port": 12450, "type": "int" },
+    { "name": "TDStudio Sv6",  "ip": "51.79.163.109", "port": 12451, "type": "int" },
+    { "name": "TDStudio Sv7",  "ip": "51.79.163.109", "port": 12457, "type": "int" },
+    { "name": "TDStudio Sv8",  "ip": "51.79.163.109", "port": 12462, "type": "int" },
+    { "name": "TDStudio Indo", "ip": "51.79.163.109", "port": 12452, "type": "int" },
+    { "name": "Lien Server",   "ip": "51.79.163.109", "port": 12453, "type": "int" },
+    { "name": "NCD Sv1",       "ip": "51.79.163.109", "port": 12454, "type": "int" },
+    { "name": "NCD Sv2",       "ip": "51.79.163.109", "port": 12456, "type": "int" },
+    { "name": "Cindy Sv1",     "ip": "51.79.163.109", "port": 12458, "type": "int" }
+  ]
+}
