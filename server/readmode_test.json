@@ -1,0 +1,7 @@
+{
+  "default": "int",
+  "servers": [
+    { "name": "Local Int",  "ip": "127.0.0.1", "port": 14445, "type": "int" },
+    { "name": "Local Long", "ip": "127.0.0.1", "port": 14446, "type": "long" }
+  ]
+}
