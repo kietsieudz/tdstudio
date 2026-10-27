@@ -1,5 +1,5 @@
 {
-  "android": { "version": "1.0.1", "url": "https://thanhdi.com/tai-game/android", "notes": "Cập nhật phiên bản mới, sửa lỗi tiếng việt" },
-  "windows": { "version": "1.0.1", "url": "https://thanhdi.com/tai-game/pc",      "notes": "Cập nhật phiên bản mới, sửa lỗi tiếng việt" },
-  "ios":     { "version": "1.0.1", "url": "https://thanhdi.com/tai-game/ios",     "notes": "Cập nhật phiên bản mới, sửa lỗi tiếng việt" }
+  "android": { "version": "1.0.0", "url": "https://thanhdi.com/tai-game/android", "notes": "Cập nhật phiên bản mới, sửa lỗi tiếng việt" },
+  "windows": { "version": "1.0.0", "url": "https://thanhdi.com/tai-game/pc",      "notes": "Cập nhật phiên bản mới, sửa lỗi tiếng việt" },
+  "ios":     { "version": "1.0.0", "url": "https://thanhdi.com/tai-game/ios",     "notes": "Cập nhật phiên bản mới, sửa lỗi tiếng việt" }
 }
