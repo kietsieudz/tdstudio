@@ -19,8 +19,13 @@
       // Dia chi day du cua cau noi WebSocket -> TCP (tool CauNoiWs). Trang chay https thi BAT BUOC wss://
       // Test trong mang LAN (khong SSL): dat ve "" de tu noi ws://<may mo trang>:NRO_WS_PORT/
       // De trong ("") thi tu dung ws(s)://<ten mien dang mo trang>:NRO_WS_PORT/
+      // thanhdi.com/choi: cau noi WebSocket that (tool CauNoiWs) -> port 14446
       window.NRO_WS_URL = "wss://ws.thanhdi.games/";
       window.NRO_WS_PORT = 14446;
+      // true = chi cho iPhone / iPad / Mac choi ban web (ban cu ProjectClient_WEBGL de true);
+      // false = moi trinh duyet (may tinh Windows, Android) deu choi duoc - de test.
+      // thanhdi.com/choi: giu nhu ban cu - CHI Apple (iPhone/iPad/Mac) choi web, PC/Android dung app native.
+      window.NRO_CHI_APPLE = true;
     </script>
     <style>
       html, body {
@@ -236,7 +241,7 @@
         document.getElementById('huongDan').style.display = 'none';
       });
 
-      if (!laApple) {
+      if (window.NRO_CHI_APPLE && !laApple) {
         baoLoi('Bản chơi trên web chỉ dành cho <b>iPhone / iPad / Mac</b>.<br>'
           + 'Android và máy tính vui lòng tải app tại <a href="https://thanhdi.com" style="color:#f7a600">thanhdi.com</a>.');
         manLoi.querySelector('.nut').style.display = 'none';
@@ -256,13 +261,13 @@
 
       var buildUrl = "Build";
       var config = {
-        dataUrl: buildUrl + "/55f313bd5ffe8dc6f0b447f4eda762b0.data.unityweb",
-        frameworkUrl: buildUrl + "/74e6cebde47b671bd7e943ba2073a99f.framework.js.unityweb",
-        codeUrl: buildUrl + "/37e75531cd85ad1b75e7d03b7ac01149.wasm.unityweb",
+        dataUrl: buildUrl + "/59456c271b08a6bc0c412ed7736b5586.data.unityweb",
+        frameworkUrl: buildUrl + "/61069d44a4bc0bcb2ac55f360ab854b0.framework.js.unityweb",
+        codeUrl: buildUrl + "/700b4a1d0a20d60b1af0e2ff00336fe1.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "ThanhDi-Com_v10926",
-        productName: "ThanhDi-Com_v10926",
-        productVersion: "3.0.2",
+        companyName: "VTCT",
+        productName: "Vũ Trụ Chi Chủ",
+        productVersion: "1.0.0",
         // tu day du lieu persistentDataPath (tai khoan, cai dat) xuong IndexedDB
         autoSyncPersistentDataPath: true,
         showBanner: function (msg, type) {
