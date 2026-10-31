@@ -1,5 +1,25 @@
 {
-  "android": { "version": "1.0.0", "url": "https://thanhdi.com/tai-game/android", "notes": "Cập nhật phiên bản mới, sửa lỗi tiếng việt" },
-  "windows": { "version": "1.0.0", "url": "https://thanhdi.com/tai-game/pc",      "notes": "Cập nhật phiên bản mới, sửa lỗi tiếng việt" },
-  "ios":     { "version": "1.0.0", "url": "https://thanhdi.com/tai-game/ios",     "notes": "Cập nhật phiên bản mới, sửa lỗi tiếng việt" }
+  "android": {
+    "version": "1.0.1",
+    "url": "https://thanhdi.com/tai-game/android",
+    "apk": "https://github.com/kietsieudz/ban-cai-vu-tru-chi-chu/releases/download/v1.0.1/Vu-Tru-Chi-Chu_1.0.1.apk",
+    "notes": "Cập nhật 1.0.1: Thêm Set đồ (2 bộ trang bị, đổi đồ nhanh); cải tiến Tàn sát (nhớ loại quái đã chọn, tự chọn khi map 1 loại quái, tạm ngưng khi tự di chuyển); thêm bảng trạng thái Auto hiển thị trên màn hình (bật/tắt ở Cài đặt > Auto); ăn đậu Chiến thần theo mốc HP; tối ưu mặc định các chế độ tự động.",
+    "batBuoc": false,
+    "sha256": "6c0884f543bb1da40ae615859c456e7e71551794627395dcafabeb726caf7f06",
+    "ky": "VU/c8lYZdZTWnGR+77SjYOhQfasJDlw7+iwPBMxwZTL0/+8hjfatT7Rcg0keuBbw032Y/KCgmLIfIh/o74wKu2bG/8wHGdKkd7bvX3SbrzgdhNCKYh+j7SJpbcVJGAyarwNi7lG7UlMpRpG2IosZjeQqcoNnfsEJSySQ+ByI8rBySn7dY2SMEgUo3VGcUPqWl62E9nDXFBjgzRZAQBGSFnjClMPHBFN9dtF7vh1tGlPRCq1tLIf0gRt3kTOmAEcdywWpbbE3ELQ9KgsQ62G/hiTM+WsSzbqjpLTzKTl68tQaeLJrxRx60gyqoR+xtuEKrdAgsP5si7XlTHV4ABl1Ew=="
+  },
+  "windows": {
+    "version": "1.0.1",
+    "url": "https://thanhdi.com/tai-game/pc",
+    "zip": "https://github.com/kietsieudz/ban-cai-vu-tru-chi-chu/releases/download/v1.0.1/Vu-Tru-Chi-Chu_pc_1.0.1.zip",
+    "notes": "Cập nhật 1.0.1: Thêm Set đồ (2 bộ trang bị, đổi đồ nhanh); cải tiến Tàn sát (nhớ loại quái đã chọn, tự chọn khi map 1 loại quái, tạm ngưng khi tự di chuyển); thêm bảng trạng thái Auto hiển thị trên màn hình (bật/tắt ở Cài đặt > Auto); ăn đậu Chiến thần theo mốc HP; tối ưu mặc định các chế độ tự động.",
+    "batBuoc": false,
+    "sha256": "7079d43a6f9380d6bb7a77eeb5c851c967ed4b525858807912af5d9bb1065f04",
+    "ky": "t3q6uRUs/E77bn69++8fQrqp33cwjHCkB7bTf3He9J+yrytVx1b4miJPWBvbGPNjayxvWgCqAt9byEi2F01mnT6T/nKvv2LF0ciJwiOLcied8QdZr7MeoN3otxiXjGU1Eoj0K9fLt0LPgunYmFg49cKRIf4Hioc4OY0QQyRqQkAKRLU5wr7b8aTZOJbn00aj9SqJzI6rO2r4lAQxiKgFbK5qU+noSe7NrDyIpJ1cL1gNo0jj0X0bF/2P51sJyEGNGE+lNZ5JYX0BZ3tDCGuS/qRGGiNFB2U/EuWbtlBBLYXDLzqvLZb+ZKrrQgugMR651LrIPfx2MfvRK499n/YUKA=="
+  },
+  "ios": {
+    "version": "1.0.0",
+    "url": "https://thanhdi.com/tai-game/ios",
+    "notes": "Cập nhật phiên bản mới, sửa lỗi tiếng việt"
+  }
 }
