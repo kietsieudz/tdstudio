@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cài Vũ Trụ Chi Chu — iOS</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  body {
+    margin: 0; min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: radial-gradient(130% 100% at 50% 0%, #15233f 0%, #0a0f1c 60%, #070a12 100%);
+    color: #eaf0ff; display: flex; align-items: center; justify-content: center;
+    padding: max(20px, env(safe-area-inset-top)) 18px max(20px, env(safe-area-inset-bottom));
+  }
+  .card {
+    width: 100%; max-width: 420px; background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.1); border-radius: 20px; padding: 26px 22px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.45); text-align: center;
+  }
+  h1 { font-size: 22px; margin: 6px 0 4px; letter-spacing: .2px; }
+  .ver { font-size: 13px; color: #8fa3c8; margin-bottom: 22px; }
+  .btn {
+    display: block; text-decoration: none; color: #fff; font-weight: 700; font-size: 18px;
+    padding: 16px; border-radius: 14px; margin: 18px 0 8px;
+    background: linear-gradient(180deg, #ff8a3d 0%, #f26a1b 100%);
+    box-shadow: 0 10px 24px rgba(242,106,27,.4);
+  }
+  .btn:active { transform: translateY(1px); }
+  ol { text-align: left; font-size: 15px; line-height: 1.55; color: #d4ddf2; padding-left: 20px; margin: 18px 0 0; }
+  ol b { color: #fff; }
+  .note { margin-top: 18px; font-size: 13px; color: #9fb0d2; line-height: 1.5;
+    background: rgba(255,170,60,.08); border: 1px solid rgba(255,170,60,.25); border-radius: 12px; padding: 12px 14px; text-align: left; }
+  .foot { margin-top: 16px; font-size: 12px; color: #6b7a9c; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>Vũ Trụ Chi Chu — iOS</h1>
+    <div class="ver">Bản cài trực tiếp (Ad-hoc) · build 43</div>
+
+    <a class="btn" href="itms-services://?action=download-manifest&amp;url=https://thanhdi.com/tai-ios/manifest.plist">📲 CÀI ĐẶT</a>
+
+    <ol>
+      <li>Mở trang này bằng <b>Safari</b> trên iPhone, bấm <b>CÀI ĐẶT</b>.</li>
+      <li>Safari hỏi “… muốn cài đặt…” → bấm <b>Cài đặt</b>, về Màn hình chính chờ tải xong.</li>
+      <li>Vào <b>Cài đặt → Cài đặt chung → VPN &amp; Quản lý thiết bị</b> → chọn hồ sơ nhà phát triển → <b>Tin cậy</b>.</li>
+      <li>Mở game, đăng nhập (GT2). Thử nút <b>Map</b> góc trên‑trái màn đăng nhập.</li>
+    </ol>
+
+    <div class="note">⚠️ Bản ad‑hoc chỉ cài được trên iPhone đã <b>đăng ký UDID</b>. Nếu bấm Cài mà không được / báo “không cài được”, nghĩa là máy chưa đăng ký — báo lại để thêm UDID rồi tạo bản mới.</div>
+
+    <div class="foot">ThanhDi Studio · chỉ dùng để test nội bộ</div>
+  </div>
+</body>
+</html>
