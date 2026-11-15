@@ -1,21 +1,21 @@
 {
   "android": {
-    "version": "1.0.2",
+    "version": "1.0.3",
     "url": "https://thanhdi.com/tai-game/android",
-    "apk": "https://github.com/kietsieudz/ban-cai-vu-tru-chi-chu/releases/download/v1.0.2/Vu-Tru-Chi-Chu_1.0.2.apk",
-    "notes": "Cập nhật 1.0.2: Thêm nút chọn Map Mới / Cổ điển ở màn đăng nhập (chọn kiểu cảnh map yêu thích); tùy chỉnh vị trí nút điều khiển; tối ưu kết nối và sửa một số lỗi.",
+    "apk": "https://github.com/kietsieudz/ban-cai-vu-tru-chi-chu/releases/download/v1.0.3/Vu-Tru-Chi-Chu_1.0.3.apk",
+    "notes": "Cập nhật 1.0.3: Sửa lỗi 3 chiêu chưởng (Quả Cầu Kênh Khí, Makankosapo, BOOM) không gây sát thương khi để tốc độ game cao; màn chọn server tự thử lại kết nối 3 lần trước khi báo bảo trì và thêm nút Kiểm tra lại kết nối; tối ưu kết nối.",
     "batBuoc": false,
-    "sha256": "3e60bca4c322bdecdc38ccf2187fdc6d068057f0659ef165494e0ae8775e018a",
-    "ky": "ekz7HWsKMcvfR2Bn98F2J2mVnB9r7KAJWTxHMq4F3nF2d+UtzKxZdJmkyh2vDh9c8kl3o49cedB0XTgnxzPkw7jWDLVCjcoqXHxL9yxb9UaL9ZQrWV8/x/BF6SQ2zOacsfYNz+akb+PwykVHttunejTH2aKH61BefDA+QwCXvr5x84l90pKn/C9gIKOdzwndKtZpdy/dO6iX/1D2M4y3mzY2/y8MGjbvf4iI8yacFQa+zll1kVKn5Mgeuzu3Xv5qZKDjVKDjcvSsIHBg9ANZ4inq2ZuDG36uGFsgkHnjaeAlnFqKeW45d6f5S8S2f5Bb4C3sXPd4PA3UwCXfvYa3ug=="
+    "sha256": "2bc0e671273b1dfabde2d2d621e4ecba2069ddb5f5c0cc5aba81343a0cf29c38",
+    "ky": "hel6mg22H44RQYL0iU+med02cAhnCMzSOiNmfhsCyfmF/LvhpC92GUgCKFNglYVkT4UnNuN4uVEbRZz6xswGS1OYssDhd8NLoXDNW/X9jlVFBR+vR4izzXrnCgKqYD6IpWHwSYwhzhkkedJGdOCF1T3uxfns+fF0eFL5C1hN/C09NluHpLO3y+Pq+IoXfpIfYrTNcOt7KJEaVcxq2XYDHtkxVPlxA5bcwUi0DjgAlEhZsV9L3jYX6qXse+HP0FnFWlHhAfDp1Ja5np6iBsoWixxo62a8rkT7xP5QjaO9KId07Q/BU2F5IiktSOoNxE4odjJbp6W0PyOH7/zmYAO8hw=="
   },
   "windows": {
-    "version": "1.0.2",
+    "version": "1.0.3",
     "url": "https://thanhdi.com/tai-game/pc",
-    "zip": "https://github.com/kietsieudz/ban-cai-vu-tru-chi-chu/releases/download/v1.0.2/Vu-Tru-Chi-Chu_pc_1.0.2.zip",
-    "notes": "Cập nhật 1.0.2: Thêm nút chọn Map Mới / Cổ điển ở màn đăng nhập (chọn kiểu cảnh map yêu thích); tùy chỉnh vị trí nút điều khiển; tối ưu kết nối và sửa một số lỗi.",
+    "zip": "https://github.com/kietsieudz/ban-cai-vu-tru-chi-chu/releases/download/v1.0.3/Vu-Tru-Chi-Chu_pc_1.0.3.zip",
+    "notes": "Cập nhật 1.0.3: Sửa lỗi 3 chiêu chưởng (Quả Cầu Kênh Khí, Makankosapo, BOOM) không gây sát thương khi để tốc độ game cao; màn chọn server tự thử lại kết nối 3 lần trước khi báo bảo trì và thêm nút Kiểm tra lại kết nối; tối ưu kết nối.",
     "batBuoc": false,
-    "sha256": "c6cdf6112bb4b25e053f38026406ea6ee10030fd0d671d909b19f7ec8de489c3",
-    "ky": "gdjOI2lmPlIohtaW2kSg2Y3fpCzk+tVD8l7x4pCNJyaSaC1O+QJ+K6hlzsNkuMLweq/bQHTMdLrR++OS99o6mmPUhBAsaEhPDB56wB1pGiU/oD+P5rnpm5rrU7EmVHFh3ncbeKqLVzEMAzWXlNsh106CZIFnP6BZ1GVUxNgW9/miIvjSWnemDNyx0GsnSyPKpa207nGImjhXkTh2bR2M5tV6buDSpikZLB8h9yicpVxDsRbjU9fMNw4naTU/eJThd+ZXPf5uSY3id6jrY0ZrPcI83omXT/c9S8D7nK4vbjKNhyan+ZLpUunMX+PMaM2cKYbY02K67V9va0eayNvguw=="
+    "sha256": "c8a04023badb5cf702e5cd300f10e7ed5f9355c7623f83383a7c896a675aeb65",
+    "ky": "MC+KOgvUKD1ZpbRD2iYpgrjcr53IshUENZ6ZufxZyjPd0PP207yLDen1EdaMfz1X/iK28XL6WHHLYkBJ2IQ2nla126gcgjtuya8aCfS3+XgYLXjFj1xTDfJVljWH2piWLJKFs0siaauTm1S8BD/Y7rNUw+s2Gwl6TvK53fof4TUH03e4f+08PsHdejPYBzjGwZvCCL6rPcKp0ejLAj/2ibAw2oqjH7tZ3bn93HxpoYHHbNcEl+BYg0BvdmVp6Q5AqhDWU+7f2fcu9jCpoye7DXyEtgy6H/SgrE+Z/Xmw9x+hXppAYcH4rhpcdWuYRrP6V7GzPQXa1SkZHd3Lnn2YFg=="
   },
   "ios": {
     "version": "1.0.0",
