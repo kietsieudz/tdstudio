@@ -32,8 +32,9 @@
       window.NRO_WS_PORT = 14446;
       // true = chi cho iPhone / iPad / Mac choi ban web (ban cu ProjectClient_WEBGL de true);
       // false = moi trinh duyet (may tinh Windows, Android) deu choi duoc - de test.
-      // thanhdi.com/choi: giu nhu ban cu - CHI Apple (iPhone/iPad/Mac) choi web, PC/Android dung app native.
-      window.NRO_CHI_APPLE = true;
+      // 2026-11-15 (anh Kiet): MO cho moi he dieu hanh choi web (Windows/Android/Linux), khong rieng Apple.
+      // Gioi han theo IP do cau noi ws.thanhdi.games dam nhan (web van di qua cau noi nay).
+      window.NRO_CHI_APPLE = false;
     </script>
     <style>
       html, body {
@@ -269,13 +270,13 @@
 
       var buildUrl = "Build";
       var config = {
-        dataUrl: buildUrl + "/97b1bcd21641792f727df40caec41f6d.data.unityweb",
-        frameworkUrl: buildUrl + "/e846d738d677250249dd758fbacf4793.framework.js.unityweb",
-        codeUrl: buildUrl + "/07d113e79bcb230ad97d88e3840a4f10.wasm.unityweb",
+        dataUrl: buildUrl + "/31f270afee8f400d1e08a6276c5808f1.data.unityweb",
+        frameworkUrl: buildUrl + "/caf8b9358937bb9636eb2ae890ec474c.framework.js.unityweb",
+        codeUrl: buildUrl + "/d96fd6059234ba5b3772c0ea2d18abfb.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "VTCT",
         productName: "Vũ Trụ Chi Chủ",
-        productVersion: "1.0.0",
+        productVersion: "1.0.2",
         // tu day du lieu persistentDataPath (tai khoan, cai dat) xuong IndexedDB
         autoSyncPersistentDataPath: true,
         showBanner: function (msg, type) {
