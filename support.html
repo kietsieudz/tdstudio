@@ -446,6 +446,16 @@
       color:var(--accent);text-decoration:none;font-weight:700;
     }
     .page-footer a:hover{ text-decoration:underline; }
+    .page-footer .fname{
+      font-weight:800;font-size:16px;color:var(--text);margin-bottom:6px;
+    }
+    .page-footer .flinks{
+      display:flex;justify-content:center;gap:18px;margin:14px 0;flex-wrap:wrap;
+    }
+    .page-footer .flinks a{
+      color:var(--text-dim);font-weight:600;font-size:13px;
+    }
+    .page-footer .flinks a:hover{ color:var(--accent);text-decoration:none; }
 
     /* ── Reveal ── */
     .reveal{
@@ -537,10 +547,12 @@
 
       <!-- Footer -->
       <div class="page-footer reveal">
-        <p>© 2026 <a href="/">Thanh Di Studio</a> – Nền tảng server
-          game uy tín hàng đầu.</p>
-        <p style="margin-top:6px">Website mang tính chất tổng hợp thông tin cộng
-          đồng.</p>
+        <div class="fname">Thanh Di Studio</div>
+        <p>Giải pháp Công nghệ & Sáng tạo nội dung số.</p>
+        <div class="flinks">
+          <a href="/">Trang chủ</a>
+        </div>
+        <div>© 2026 Thanh Di Studio. All rights reserved.</div>
       </div>
 
     </div><!-- /page -->
