@@ -535,12 +535,6 @@
 
       <div class="staff-grid" id="staffGrid"></div>
 
-      <!-- FAQ -->
-      <div class="section-title reveal">
-        <span>❓ Câu Hỏi Thường Gặp</span><span class="line"></span>
-      </div>
-      <div class="faq-list reveal" id="faqList"></div>
-
       <!-- Footer -->
       <div class="page-footer reveal">
         <p>© 2026 <a href="/">Thanh Di Studio</a> – Nền tảng server
@@ -567,39 +561,6 @@ const STAFF = [
     telegram: 'https://t.me/kietsieudz',                          // để trống nếu không có
     categories: ['TDStudio', 'NCD', 'Cindy'],
     isAdmin: true,
-  },
-  {
-    name: 'Nguyễn Tuấn Kiệt',
-    role: 'Nhân Viên Hỗ Trợ',
-    avatar: 'images/avatar_nguyen_tuan_kiet.png',
-    avatarBg: 'linear-gradient(135deg,#0d1e3d,#071428)',
-    initial: 'H1',
-    zalo: 'https://zalo.me/0945379203',
-    telegram: '',
-    categories: ['TDStudio', 'NCD', 'Cindy'],
-    isAdmin: false,
-  },
-  {
-    name: 'Trần Gia Hoàng',
-    role: 'Nhân Viên Hỗ Trợ',
-    avatar: 'images/avatar_tran_gia_hoang.png',
-    avatarBg: 'linear-gradient(135deg,#1a0a2a,#2d1b54)',
-    initial: 'H2',
-    zalo: 'https://zalo.me/0775325198',
-    telegram: '',
-    categories: ['TDStudio', 'NCD', 'Cindy'],
-    isAdmin: false,
-  },
-  {
-    name: 'Nguyễn Thế Vương',
-    role: 'Nhân Viên Hỗ Trợ',
-    avatar: 'images/avatar_nguyen_the_vuong.png',
-    avatarBg: 'linear-gradient(135deg,#1a0a2a,#2d1b54)',
-    initial: 'VW',
-    zalo: 'https://zalo.me/0707702304',
-    telegram: '',
-    categories: ['TDStudio', 'NCD', 'Cindy'],
-    isAdmin: false,
   }
 ];
 
@@ -678,23 +639,6 @@ STAFF.forEach(s => {
   grid.appendChild(card);
 });
 
-
-/* FAQ */
-const faqList = document.getElementById('faqList');
-FAQ.forEach(f => {
-  const item = document.createElement('div');
-  item.className = 'faq-item';
-  item.innerHTML = `
-    <button class="faq-q">${f.q}${chevronSVG}</button>
-    <div class="faq-a"><div class="faq-a-inner">${f.a}</div></div>
-  `;
-  item.querySelector('.faq-q').addEventListener('click', () => {
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
-    if (!isOpen) item.classList.add('open');
-  });
-  faqList.appendChild(item);
-});
 
 /* ═══════════════════════════════════════════
    LIVE CLOCK + STATUS
