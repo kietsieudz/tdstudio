@@ -1,21 +1,21 @@
 {
   "android": {
-    "version": "1.0.3",
+    "version": "1.0.4",
     "url": "https://thanhdi.com/tai-game/android",
-    "apk": "https://github.com/kietsieudz/ban-cai-vu-tru-chi-chu/releases/download/v1.0.3/Vu-Tru-Chi-Chu_1.0.3.apk",
-    "notes": "Cập nhật 1.0.3: Sửa lỗi 3 chiêu chưởng (Quả Cầu Kênh Khí, Makankosapo, BOOM) không gây sát thương khi để tốc độ game cao; màn chọn server tự thử lại kết nối 3 lần trước khi báo bảo trì và thêm nút Kiểm tra lại kết nối; tối ưu kết nối.",
+    "apk": "https://github.com/kietsieudz/ban-cai-vu-tru-chi-chu/releases/download/v1.0.4/Vu-Tru-Chi-Chu_1.0.4.apk",
+    "notes": "Hiển thị thông tin HP Boss chuẩn",
     "batBuoc": false,
-    "sha256": "2bc0e671273b1dfabde2d2d621e4ecba2069ddb5f5c0cc5aba81343a0cf29c38",
-    "ky": "hel6mg22H44RQYL0iU+med02cAhnCMzSOiNmfhsCyfmF/LvhpC92GUgCKFNglYVkT4UnNuN4uVEbRZz6xswGS1OYssDhd8NLoXDNW/X9jlVFBR+vR4izzXrnCgKqYD6IpWHwSYwhzhkkedJGdOCF1T3uxfns+fF0eFL5C1hN/C09NluHpLO3y+Pq+IoXfpIfYrTNcOt7KJEaVcxq2XYDHtkxVPlxA5bcwUi0DjgAlEhZsV9L3jYX6qXse+HP0FnFWlHhAfDp1Ja5np6iBsoWixxo62a8rkT7xP5QjaO9KId07Q/BU2F5IiktSOoNxE4odjJbp6W0PyOH7/zmYAO8hw=="
+    "sha256": "c8a03731f39e67b1ff7532f5d98ce890f43194df52a846e102fa2258822135e6",
+    "ky": "rk7v3Kq85EJx4H5GC8/JQvPlQzIzwt/9lXtjr1NJbK7bOszuAGnwPMaDK0Fl+AdZ0MYfS7AhRlvcfGRzowszc8CMDbARkM1ymyt4Rmg0Maw4QgE8QpV77lK4Ld7LVo8OV8v7Iqb2Dn+vfOycl9ppgDJO9GYmVgXvCZFRjcM99wJepSrcQTkZibl2u60uhW19gEfy6vcD4+5Q1GnY7r4mEHYv2O9HkslAeqF7H+PlXx5hay64b5zmCulkY5Csxw6/M/tCtn9JDlV6dWjYOGuPd+RBcIa49w+nDX5NnSPeJtUo6mNghjW852tDgKptJSDhYRjT2sM9jQ11cnz2YMQoTA=="
   },
   "windows": {
-    "version": "1.0.3",
+    "version": "1.0.4",
     "url": "https://thanhdi.com/tai-game/pc",
-    "zip": "https://github.com/kietsieudz/ban-cai-vu-tru-chi-chu/releases/download/v1.0.3/Vu-Tru-Chi-Chu_pc_1.0.3.zip",
-    "notes": "Cập nhật 1.0.3: Sửa lỗi 3 chiêu chưởng (Quả Cầu Kênh Khí, Makankosapo, BOOM) không gây sát thương khi để tốc độ game cao; màn chọn server tự thử lại kết nối 3 lần trước khi báo bảo trì và thêm nút Kiểm tra lại kết nối; tối ưu kết nối.",
+    "zip": "https://github.com/kietsieudz/ban-cai-vu-tru-chi-chu/releases/download/v1.0.4/Vu-Tru-Chi-Chu_pc_1.0.4.zip",
+    "notes": "Hiển thị thông tin HP Boss chuẩn",
     "batBuoc": false,
-    "sha256": "c8a04023badb5cf702e5cd300f10e7ed5f9355c7623f83383a7c896a675aeb65",
-    "ky": "MC+KOgvUKD1ZpbRD2iYpgrjcr53IshUENZ6ZufxZyjPd0PP207yLDen1EdaMfz1X/iK28XL6WHHLYkBJ2IQ2nla126gcgjtuya8aCfS3+XgYLXjFj1xTDfJVljWH2piWLJKFs0siaauTm1S8BD/Y7rNUw+s2Gwl6TvK53fof4TUH03e4f+08PsHdejPYBzjGwZvCCL6rPcKp0ejLAj/2ibAw2oqjH7tZ3bn93HxpoYHHbNcEl+BYg0BvdmVp6Q5AqhDWU+7f2fcu9jCpoye7DXyEtgy6H/SgrE+Z/Xmw9x+hXppAYcH4rhpcdWuYRrP6V7GzPQXa1SkZHd3Lnn2YFg=="
+    "sha256": "95b1fd4edebbb5bc539d5bb97e7be6acd0d61b9a659c768dfe4843375ad73fe6",
+    "ky": "cMglFe1YkOK7JBV6hSC7VU88Mdwlob7VLPbllPN5LoKh8VFlMsPgBtj5ndRKgec4ms5x1lOHkcyTpgqRmbQZWwdjRdmEXI+y9nQqXfB6SQ3uS3brW2cSgSBjM93MeNHNUpxqD3G0KROSNNrbA520Vnm0oKHPgr7NlQg3VfG/FJrU0g+0+9kPbe1F2G53tePHbzO9Mlho6GhnfYDl6rNgas/LUHn23zgwl9RTbqLnwU7FrRkfQtZl7xFuw4+SbyG7elJa7LctaFrUrlIJFumbCuFOeUzfgXLEJoiDvmTbkxJdvTNoNEFGCD5d/PanEW6mFdSHMWF8+Cb4h7duv19WZQ=="
   },
   "ios": {
     "version": "1.0.0",
