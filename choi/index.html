@@ -2,14 +2,6 @@
 <html lang="vi">
   <head>
     <meta charset="utf-8">
-    <!-- Google tag (gtag.js) - Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LS9G2GEMCQ"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-LS9G2GEMCQ');
-    </script>
     <title>ThanhDi.Com</title>
     <!-- Chi 1 the viewport. viewport-fit=cover de tu xu ly tai tho bang env(safe-area-inset-*) -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
@@ -17,7 +9,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="ThanhDi.Com">
+    <meta name="apple-mobile-web-app-title" content="Vũ Trụ Chi Chủ">
     <meta name="theme-color" content="#000000">
     <link rel="manifest" href="manifest.webmanifest">
     <link rel="apple-touch-icon" href="TemplateData/icon.png">
@@ -27,13 +19,11 @@
       // Dia chi day du cua cau noi WebSocket -> TCP (tool CauNoiWs). Trang chay https thi BAT BUOC wss://
       // Test trong mang LAN (khong SSL): dat ve "" de tu noi ws://<may mo trang>:NRO_WS_PORT/
       // De trong ("") thi tu dung ws(s)://<ten mien dang mo trang>:NRO_WS_PORT/
-      // thanhdi.com/choi: cau noi WebSocket that (tool CauNoiWs) -> port 14446
+      // GameClient_NEW: mac dinh "" (test tren may / LAN). Dua len mang that thi dat wss://... (xem docs/BAN_WEB.md)
       window.NRO_WS_URL = "wss://ws.thanhdistudio.com/";
       window.NRO_WS_PORT = 14446;
       // true = chi cho iPhone / iPad / Mac choi ban web (ban cu ProjectClient_WEBGL de true);
       // false = moi trinh duyet (may tinh Windows, Android) deu choi duoc - de test.
-      // 2026-11-15 (anh Kiet): MO cho moi he dieu hanh choi web (Windows/Android/Linux), khong rieng Apple.
-      // Gioi han theo IP do cau noi ws.thanhdistudio.com dam nhan (web van di qua cau noi nay).
       window.NRO_CHI_APPLE = false;
     </script>
     <style>
@@ -270,13 +260,13 @@
 
       var buildUrl = "Build";
       var config = {
-        dataUrl: buildUrl + "/352c8c94835730edae1f23b5ca9e0c0e.data.unityweb",
-        frameworkUrl: buildUrl + "/77c0ac062577abca2e2dce496b228f2e.framework.js.unityweb",
-        codeUrl: buildUrl + "/366dab90b58e7136aa0a18737cc8bc29.wasm.unityweb",
+        dataUrl: buildUrl + "/c53d44f3eed968417d51c0d7bc1dc1d2.data.unityweb",
+        frameworkUrl: buildUrl + "/24177c3b3d7b8a9f34dfe77ef4609684.framework.js.unityweb",
+        codeUrl: buildUrl + "/1ab8bcd874d5db8f3b41cf32b9f38cf5.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "VTCT",
         productName: "Vũ Trụ Chi Chủ",
-        productVersion: "1.0.3",
+        productVersion: "1.0.4",
         // tu day du lieu persistentDataPath (tai khoan, cai dat) xuong IndexedDB
         autoSyncPersistentDataPath: true,
         showBanner: function (msg, type) {
