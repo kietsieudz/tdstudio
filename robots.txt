@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://thanhdistudio.com/sitemap.xml
+Sitemap: https://thanhdi.com/sitemap.xml
