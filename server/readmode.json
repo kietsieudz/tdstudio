@@ -14,6 +14,6 @@
     { "name": "NCD Sv1",       "ip": "51.79.163.109", "port": 12454, "type": "int" },
     { "name": "NCD Sv2",       "ip": "51.79.163.109", "port": 12456, "type": "int" },
     { "name": "Cindy Sv1",     "ip": "51.79.163.109", "port": 12458, "type": "int" },
-    { "name": "CINDY Sv2 - TEST", "ip": "51.79.163.109", "port": 12459, "type": "int" }
+    { "name": "Cindy Sv2 - ĐUA OPEN", "ip": "51.79.163.109", "port": 12459, "type": "int" }
   ]
 }
