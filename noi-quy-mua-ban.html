@@ -192,6 +192,19 @@
     }
     .rule.flag .num{ background:linear-gradient(150deg,#f87171,#ef4444);color:#fff;box-shadow:0 4px 10px -4px rgba(239,68,68,0.6); }
     .rule.flag .rt b{ color:#fecaca; }
+    .srv-fmt{
+      display:inline-block;margin:4px 0 2px;
+      font-weight:800;font-size:13.5px;letter-spacing:.3px;
+      color:#0b0f1f;background:linear-gradient(150deg,var(--accent),var(--accent-2));
+      padding:3px 12px;border-radius:8px;white-space:nowrap;
+    }
+    .srv-ex{
+      display:inline-block;margin:2px 2px;
+      font-weight:700;font-size:13px;
+      color:var(--accent);background:rgba(255,182,72,0.1);
+      border:1px solid rgba(255,182,72,0.32);
+      padding:2px 10px;border-radius:7px;white-space:nowrap;
+    }
 
     /* ── Template block ── */
     .tpl-card{
@@ -335,7 +348,8 @@
       <!-- Warning callout -->
       <div class="callout reveal">
         <span class="ci">⚠️</span>
-        <div class="cb">Bài rao <strong>BẮT BUỘC phải có TÊN SERVER</strong>. Thiếu tên server sẽ bị
+        <div class="cb">Bài rao <strong>BẮT BUỘC phải có TÊN SERVER</strong> theo định dạng
+          <strong>VTCT - Cụm - Server</strong> (vd: VTCT - TDStudio Sv6). Thiếu tên server sẽ bị
           <strong>cấm ngay, không nhắc nhở</strong>.</div>
       </div>
 
@@ -360,7 +374,13 @@
         <span class="line"></span>
       </div>
       <div class="rules">
-        <div class="rule flag reveal"><span class="num">6</span><div class="rt">Bài rao <b>BẮT BUỘC phải có TÊN SERVER</b>. ➡️ Thiếu tên server = <b>CẤM, không nhắc nhở</b>.</div></div>
+        <div class="rule flag reveal"><span class="num">6</span><div class="rt">Bài rao <b>BẮT BUỘC phải có TÊN SERVER</b>, ghi đúng định dạng:
+          <span class="srv-fmt">VTCT - Cụm - Server</span><br>
+          <span style="color:var(--text-dim);font-weight:500;">Ví dụ:</span>
+          <span class="srv-ex">VTCT - TDStudio Sv6</span>
+          <span style="color:var(--text-dim);font-weight:500;">hoặc</span>
+          <span class="srv-ex">VTCT - CINDY Sv2</span><br>
+          ➡️ Thiếu tên server = <b>CẤM, không nhắc nhở</b>.</div></div>
         <div class="rule reveal"><span class="num">7</span><div class="rt">Đăng bài <b>theo mẫu</b> bên dưới cho đầy đủ, dễ chốt kèo:</div></div>
       </div>
 
@@ -376,7 +396,7 @@
             <span id="copyLbl">Copy mẫu</span>
           </button>
         </div>
-<pre class="tpl-body" id="tplText"><span class="lbl">[BÁN / MUA / ĐỔI]</span> – Server: ......
+<pre class="tpl-body" id="tplText"><span class="lbl">[BÁN / MUA / ĐỔI]</span> – Server: VTCT - Cụm - Server
 <span class="lbl">Vật phẩm:</span> ......
 <span class="lbl">Số lượng:</span> ......
 <span class="lbl">Giá / Muốn đổi lấy:</span> ......
@@ -452,7 +472,7 @@
     <script>
       /* Copy template */
       const TPL =
-        "[BÁN / MUA / ĐỔI] – Server: ......\n" +
+        "[BÁN / MUA / ĐỔI] – Server: VTCT - Cụm - Server\n" +
         "Vật phẩm: ......\n" +
         "Số lượng: ......\n" +
         "Giá / Muốn đổi lấy: ......\n" +
