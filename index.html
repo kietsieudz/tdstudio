@@ -65,11 +65,25 @@
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Thanh Di Studio",
+      "alternateName": ["Thanh Di", "TDStudio", "Vũ Trụ Chi Chủ"],
       "url": "https://thanhdi.com/",
-      "logo": "https://thanhdi.com/images/logo.png",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://thanhdi.com/images/logo.png",
+        "width": 512,
+        "height": 512
+      },
+      "image": "https://thanhdi.com/images/preview.png",
+      "description": "Thanh Di Studio phát triển game nhập vai 2D Vũ Trụ Chi Chủ (thể loại Ngọc Rồng) cùng các cụm máy chủ cộng đồng TDStudio, NCD và CINDY. Chơi trên web, iOS, Android và PC.",
       "sameAs": [
         "https://zalo.me/0345463318"
-      ]
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "url": "https://thanhdi.com/support",
+        "availableLanguage": ["Vietnamese"]
+      }
     }
     </script>
     <script type="application/ld+json">
@@ -97,6 +111,33 @@
       "playMode": "MultiPlayer",
       "publisher": { "@type": "Organization", "name": "Thanh Di Studio" },
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "VND" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Điều hướng Thanh Di Studio",
+      "itemListElement": [
+        { "@type": "SiteNavigationElement", "position": 1, "name": "Trang chủ", "url": "https://thanhdi.com/" },
+        { "@type": "SiteNavigationElement", "position": 2, "name": "Chơi trên web", "url": "https://thanhdi.com/choi/" },
+        { "@type": "SiteNavigationElement", "position": 3, "name": "Tải cho iOS", "url": "https://thanhdi.com/tai-ios/" },
+        { "@type": "SiteNavigationElement", "position": 4, "name": "Hỗ trợ", "url": "https://thanhdi.com/support" },
+        { "@type": "SiteNavigationElement", "position": 5, "name": "Nội quy mua bán", "url": "https://thanhdi.com/noi-quy-mua-ban" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Vũ Trụ Chi Chủ là game gì?", "acceptedAnswer": { "@type": "Answer", "text": "Vũ Trụ Chi Chủ là game nhập vai 2D thể loại Ngọc Rồng do Thanh Di Studio phát triển, chơi được trên trình duyệt web, iOS, Android và PC." } },
+        { "@type": "Question", "name": "Chơi Vũ Trụ Chi Chủ ở đâu?", "acceptedAnswer": { "@type": "Answer", "text": "Bạn có thể chơi trực tiếp trên trình duyệt tại thanhdi.com, hoặc tải bản cài cho iOS và Android." } },
+        { "@type": "Question", "name": "Vũ Trụ Chi Chủ có những cụm máy chủ nào?", "acceptedAnswer": { "@type": "Answer", "text": "Game có các cụm máy chủ cộng đồng: TDStudio, NCD và CINDY, mỗi cụm gồm nhiều server." } },
+        { "@type": "Question", "name": "Vũ Trụ Chi Chủ có miễn phí không?", "acceptedAnswer": { "@type": "Answer", "text": "Game miễn phí chơi. Người chơi có thể nạp thẻ để nhận vật phẩm hỗ trợ trong game." } },
+        { "@type": "Question", "name": "Cần hỗ trợ hoặc gặp lỗi thì liên hệ ai?", "acceptedAnswer": { "@type": "Answer", "text": "Vào trang Hỗ trợ tại thanhdi.com/support để liên hệ đội ngũ Thanh Di Studio qua Zalo: hỗ trợ tài khoản, nạp thẻ và lỗi kỹ thuật." } }
+      ]
     }
     </script>
     <style>
@@ -590,6 +631,48 @@
     box-shadow:0 10px 24px -8px rgba(0,104,255,0.55);
   }
   .cta-admin:hover{ filter:brightness(1.08);transform:translateY(-2px); }
+
+  /* ── Khám phá: link nội bộ ── */
+  .explore-wrap{ max-width:720px;margin:34px auto 0;padding:0 18px; }
+  .sec-label{
+    text-align:center;font-size:10.5px;font-weight:800;letter-spacing:2.5px;
+    text-transform:uppercase;color:var(--accent);opacity:.6;margin-bottom:16px;
+  }
+  .explore-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:12px;
+  }
+  .explore-card{
+    display:flex;align-items:center;gap:12px;
+    background:linear-gradient(160deg,#11162b,rgba(17,22,43,0.6));
+    border:1px solid var(--card-border);border-radius:16px;
+    padding:15px 16px;text-decoration:none;color:var(--text);
+    transition:border-color .25s, transform .2s, box-shadow .3s;
+  }
+  .explore-card:hover{ border-color:rgba(255,182,72,0.35);transform:translateY(-2px);box-shadow:0 14px 34px -16px rgba(255,122,61,0.35); }
+  .explore-ic{ font-size:22px;flex:none;width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(255,182,72,0.1);border:1px solid rgba(255,182,72,0.22); }
+  .explore-tx{ min-width:0; }
+  .explore-tx b{ display:block;font-size:14.5px;font-weight:800;line-height:1.2; }
+  .explore-tx small{ display:block;font-size:12px;color:var(--text-dim);margin-top:3px;font-weight:500; }
+
+  /* ── FAQ ── */
+  .faq-wrap{ max-width:720px;margin:38px auto 0;padding:0 18px; }
+  .faq-title{ text-align:center;font-size:20px;font-weight:900;margin-bottom:18px; }
+  .faq-title .accent{ color:var(--accent); }
+  .faq-list{ display:flex;flex-direction:column;gap:9px; }
+  .faq-item{ background:#11162b;border:1px solid var(--card-border);border-radius:14px;overflow:hidden; }
+  .faq-q{
+    width:100%;background:none;border:none;color:var(--text);text-align:left;cursor:pointer;
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    padding:15px 18px;font-family:inherit;font-size:14.5px;font-weight:700;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .faq-q:hover{ color:var(--accent); }
+  .faq-chevron{ width:18px;height:18px;flex:none;transition:transform .25s;color:var(--text-dim); }
+  .faq-item.open .faq-chevron{ transform:rotate(180deg); }
+  .faq-a{ max-height:0;overflow:hidden;transition:max-height .3s ease; }
+  .faq-item.open .faq-a{ max-height:260px; }
+  .faq-a-inner{ padding:0 18px 16px;font-size:13.8px;color:var(--text-dim);line-height:1.7;font-weight:500; }
+  @media(max-width:420px){ .explore-grid{ grid-template-columns:1fr; } }
 </style>
     <meta name="google-site-verification" content="Y8UI4p_n-JG_60YtiXTqa16WsxJjT9zZA9Z-dcmu6LA" />
   </head>
@@ -694,10 +777,67 @@
       </a>
     </section>
 
+    <!-- Khám phá: link nội bộ -->
+    <section class="explore-wrap reveal" aria-label="Khám phá">
+      <div class="sec-label">✦ Khám Phá</div>
+      <div class="explore-grid">
+        <a href="/choi/" class="explore-card">
+          <span class="explore-ic">🎮</span>
+          <span class="explore-tx"><b>Chơi trên Web</b><small>Mở game ngay trên trình duyệt</small></span>
+        </a>
+        <a href="/tai-ios/" class="explore-card">
+          <span class="explore-ic">📱</span>
+          <span class="explore-tx"><b>Tải cho iOS</b><small>Cài trên iPhone, iPad</small></span>
+        </a>
+        <a href="/support" class="explore-card">
+          <span class="explore-ic">💬</span>
+          <span class="explore-tx"><b>Hỗ trợ</b><small>Nạp thẻ, tài khoản, lỗi game</small></span>
+        </a>
+        <a href="/noi-quy-mua-ban" class="explore-card">
+          <span class="explore-ic">📜</span>
+          <span class="explore-tx"><b>Nội quy mua bán</b><small>Giao dịch, trao đổi an toàn</small></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Hỏi đáp (FAQ) -->
+    <section class="faq-wrap reveal" aria-label="Câu hỏi thường gặp">
+      <h2 class="faq-title">Câu Hỏi <span class="accent">Thường Gặp</span></h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" type="button">Vũ Trụ Chi Chủ là game gì?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner">Vũ Trụ Chi Chủ là game nhập vai 2D thể loại Ngọc Rồng do Thanh Di Studio phát triển, chơi được trên trình duyệt web, iOS, Android và PC.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Chơi Vũ Trụ Chi Chủ ở đâu?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner">Bạn có thể chơi trực tiếp trên trình duyệt tại thanhdi.com, hoặc tải bản cài cho iOS và Android.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Vũ Trụ Chi Chủ có những cụm máy chủ nào?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner">Game có các cụm máy chủ cộng đồng: TDStudio, NCD và CINDY, mỗi cụm gồm nhiều server.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Vũ Trụ Chi Chủ có miễn phí không?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner">Game miễn phí chơi. Người chơi có thể nạp thẻ để nhận vật phẩm hỗ trợ trong game.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Cần hỗ trợ hoặc gặp lỗi thì liên hệ ai?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner">Vào trang <a href="/support" style="color:var(--accent);text-decoration:none;font-weight:700;">Hỗ trợ</a> để liên hệ đội ngũ Thanh Di Studio qua Zalo: hỗ trợ tài khoản, nạp thẻ và lỗi kỹ thuật.</div></div>
+        </div>
+      </div>
+    </section>
+
     <footer class="reveal">
       <div class="fname">Thanh Di Studio</div>
       <p>Giải pháp Công nghệ & Sáng tạo nội dung số.</p>
       <div class="flinks">
+        <a href="/choi/">Chơi trên web</a>
+        <a href="/tai-ios/">Tải iOS</a>
         <a href="/support">Hỗ trợ</a>
         <a href="/noi-quy-mua-ban">Nội quy mua bán</a>
       </div>
@@ -858,6 +998,14 @@
     animate();
   })();
 </script>
+    <script>
+      /* FAQ accordion */
+      document.querySelectorAll('.faq-q').forEach(function(btn){
+        btn.addEventListener('click', function(){
+          btn.parentElement.classList.toggle('open');
+        });
+      });
+    </script>
     <script src="/assets/js/site.js?v=2"></script>
 
       <!-- Chuyen UTM/ref sang web khi bam nut game (de dem dung nguon quang cao) -->
